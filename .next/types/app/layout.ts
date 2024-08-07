@@ -1,4 +1,4 @@
-// File: C:\Users\berkk\Desktop\berk-portfolio\app\layout.jsx
+// File: D:\CodingProjects\berk-portfolio\app\layout.jsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
