@@ -10,7 +10,7 @@ const Home = () => {
           <div className="text-center xl:text-left">
             <span>Computer Scientist</span>
             <h1 className="h1">
-              Hello I'm <br/> <span className="text-accent">Berk Kaya</span>
+              Hello I&apos;m <br/> <span className="text-accent">Berk Kaya</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">I know so much technologies in computer Sciences.</p>
           </div>
