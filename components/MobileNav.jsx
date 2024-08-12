@@ -23,6 +23,10 @@ const links = [
         path: "/work",
     },
     {
+        name: "blog",
+        path: "https://medium.com/@berkkaya0304",
+    },
+    {
         name: "contact",
         path: "/contact",
     },

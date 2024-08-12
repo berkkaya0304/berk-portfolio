@@ -7,19 +7,19 @@ import { Description } from "@radix-ui/react-dialog";
 const services = [
   {
     num: "01",
-    title: "Web Development",
+    title: "Full-Stack Development",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec pharetra quam. Etiam dignissim risus at laoreet fermentum. Quisque sagittis auctor elit at accumsan. Phasellus rhoncus sagittis libero sed faucibus. Morbi consectetur eros augue, ut lobortis ante fringilla at. Proin nisi ligula, luctus ac pulvinar ac, sodales ut augue. Cras ex odio, lacinia ac lorem sed, blandit dictum odio. Quisque dapibus ex quis velit porttitor, quis vestibulum nisi tempor.",
     href: ""
   },
   {
     num: "02",
-    title: "Cloud",
+    title: "Cloud Technologies",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec pharetra quam. Etiam dignissim risus at laoreet fermentum. Quisque sagittis auctor elit at accumsan. Phasellus rhoncus sagittis libero sed faucibus. Morbi consectetur eros augue, ut lobortis ante fringilla at. Proin nisi ligula, luctus ac pulvinar ac, sodales ut augue. Cras ex odio, lacinia ac lorem sed, blandit dictum odio. Quisque dapibus ex quis velit porttitor, quis vestibulum nisi tempor.",
     href: "",
   },
   {
     num: "03",
-    title: "Data",
+    title: "Data Technologies",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec pharetra quam. Etiam dignissim risus at laoreet fermentum. Quisque sagittis auctor elit at accumsan. Phasellus rhoncus sagittis libero sed faucibus. Morbi consectetur eros augue, ut lobortis ante fringilla at. Proin nisi ligula, luctus ac pulvinar ac, sodales ut augue. Cras ex odio, lacinia ac lorem sed, blandit dictum odio. Quisque dapibus ex quis velit porttitor, quis vestibulum nisi tempor.",
     href: "",
   },

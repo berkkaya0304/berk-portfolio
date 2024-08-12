@@ -5,7 +5,7 @@ import {SiTailwindcss,SiNextdotjs} from "react-icons/si";
 
 const about = {
   title:"About Me",
-  description: "asldasşldkasdas",
+  description: "I've been interested in learning since I was a youngster. My interest in engineering stems from my youth. I was the one who controlled the classroom computer using scratch codes I developed in computer classes and realized even when I was very young. Now I'm taking the measures necessary to become a successful engineer. With strenuous effort and the expertise, I gained from my institution, I am confident rather than hopeful that this will be accomplished. I'm attempting to obtain numerous credentials and training for this.",
   info: [
     {
        fieldName: "Name",
@@ -37,7 +37,7 @@ const about = {
 },
 {
   fieldName: "Languages",
-  fieldValue: "Turkish, English, Deutsch",
+  fieldValue: "Turkish, English, German",
 },
   ]
 }
@@ -46,12 +46,13 @@ const experience = {
     icon: "/assets/resume/badge.svg",
     title: "My Experiences",
     description:
-    "asdsadasdsa",
+    "In this section, you can find information about my internship, part-time and full-time work.",
     items: [
       {
-        company: "XXX",
-        position: "XXX",
-        duration: "XXX"
+        company: "Turkish Mercantile Exchange",
+        position: "FullStack Dev. Intern",
+        duration: "July 2023 - August 2023",
+        time: "(2 months)"
       },
       {
         company: "yyy",
@@ -160,12 +161,12 @@ const Resume = () => {
                 <ScrollArea></ScrollArea>
                 <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                    {experience.items.map((item,index) => {
-                    return (<li key={index} className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:item-start gap-1">
-                      <span className="text-accent">{item.duration}</span>
-                      <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">{item.position}</h3>
+                    return (<li key={index} className="bg-[#232329] min-w-[370px] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:item-start gap-2">
+                      <span className="text-accent">{item.duration} <br/>{item.time}</span>
+                      <h3 className="text-xl max-w-[370px] min-h-[60px] text-center lg:text-left">{item.position}</h3>
                       <div className="flex items-center gap-3">
                         <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                        <p className="text-white/60">{item.company}</p>
+                        <p className="max-w-[370px] text-white/60">{item.company}</p>
                       </div>
                     </li>);
                    })}

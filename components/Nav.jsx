@@ -21,8 +21,8 @@ const links = [
         path: "/work",
     },
     {
-        name: "contact",
-        path: "/contact",
+        name: "blog",
+        path: "https://medium.com/@berkkaya0304",
     },
 ]
 
