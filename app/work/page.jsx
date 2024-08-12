@@ -6,7 +6,7 @@ import { useState } from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
 
-import { BsArrowUpRight, BsGithub } from "react-icons/bs";
+import { BsArrowUpRight, BsGithub, BsYoutube } from "react-icons/bs";
 
 import { Tooltip,TooltipContent,TooltipProvider,TooltipTrigger } from "@/components/ui/tooltip";
 
@@ -28,6 +28,7 @@ const projects = [
     image: '/assets/work/thumb1.png',
     live: "",
     github: "",
+    youtube: "",
   },
   {
     num: '02',
@@ -41,6 +42,7 @@ const projects = [
     image: '/assets/work/thumb1.png',
     live: "",
     github: "",
+    youtube: "",
   },
   {
     num: '03',
@@ -54,6 +56,7 @@ const projects = [
     image: '/assets/work/thumb1.png',
     live: "",
     github: "",
+    youtube: "",
   },
 ]
 
@@ -85,6 +88,7 @@ const Work = () => {
                 </ul>
                 <div className="border border-white/20"></div>
                 <div className="flex items-center gap-4">
+                {project.live && (
                   <Link href={project.live}>
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
@@ -97,6 +101,8 @@ const Work = () => {
                       </Tooltip>
                     </TooltipProvider>
                   </Link>
+                )}
+                  {project.github && (
                   <Link href={project.github}>
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
@@ -109,6 +115,21 @@ const Work = () => {
                       </Tooltip>
                     </TooltipProvider>
                   </Link>
+                )}
+                  {project.youtube && (
+                  <Link href={project.youtube}>
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsYoutube className="text-white text-3xl group-hover:text-accent"/>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Youtube Video</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
                 </div>
               </div>
             </div>
