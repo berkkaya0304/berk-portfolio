@@ -1,7 +1,10 @@
 "use client";
 
-import {FaHtml5,FaCss3,FaJs,FaReact,FaFigma,FaNodeJs} from "react-icons/fa";
-import {SiTailwindcss,SiNextdotjs} from "react-icons/si";
+import {FaAngular, FaCloud, FaJava, FaPython, FaReact, FaUnity} from "react-icons/fa";
+import {DiDocker} from "react-icons/di";
+import {SiFlutter, SiKubernetes} from "react-icons/si";
+import {TbSql} from "react-icons/tb";
+import { BiLogoSpringBoot } from "react-icons/bi";
 
 const about = {
   title:"About Me",
@@ -49,20 +52,34 @@ const experience = {
     "In this section, you can find information about my internship, part-time and full-time work.",
     items: [
       {
+        company: "Huawei",
+        position: "Cloud Engineer Intern",
+        duration: "July 2024 - August 2024",
+        time: "(2 months)"
+      },
+      {
+        company: "Nurol Technology",
+        position: "Project Worker",
+        duration: "January 2024 - June 2024",
+        time: "(6 months)"
+      },
+      {
+        company: "QNB Finansbank",
+        position: "Finance 101 Intern",
+        duration: "January 2024 - February 2024",
+        time: "(2 months)"
+      },
+      {
+        company: "Huawei",
+        position: "FullStack Dev. Intern",
+        duration: "August 2023 - September 2023",
+        time: "(2 months)"
+      },
+      {
         company: "Turkish Mercantile Exchange",
         position: "FullStack Dev. Intern",
         duration: "July 2023 - August 2023",
         time: "(2 months)"
-      },
-      {
-        company: "yyy",
-        position: "yyy",
-        duration: "yyy"
-      },
-      {
-        company: "zzz",
-        position: "zzz",
-        duration: "zzz"
       },
     ]
 }
@@ -71,32 +88,27 @@ const education = {
   icon: "/assets/resume/cap.svg",
   title: "My Education",
   description:
-  "asdsadasdsa",
+  "In this section, you will see the education I have received in general.",
   items: [
     {
-      institution: "XXX",
-      degree: "XXX",
-      duration: "XXX"
+      institution: "TED University",
+      degree: "Computer Engineering",
+      duration: "September 2022 - July 2026"
     },
     {
-      institution: "YY",
-      degree: "XYYYXX",
-      duration: "XXYYX"
+      institution: "Google Academy",
+      degree: "Game-App",
+      duration: "December 2022 - August 2023"
     },
     {
-      institution: "YXXX",
-      degree: "XYXX",
-      duration: "XYXX"
+      institution: "Young Executive Academy",
+      degree: "Being Executive",
+      duration: "January 2023 - June 2023"
     },
     {
-      institution: "XYXX",
-      degree: "XYXX",
-      duration: "XYSELEXX"
-    },
-    {
-      institution: "XXX",
-      degree: "XXX",
-      duration: "XXX"
+      institution: "TED University",
+      degree: "English Preparation",
+      duration: "September 2021 - July 2022"
     },
   ]
 }
@@ -104,27 +116,55 @@ const education = {
 const skills = {
   title: "My Skills",
   description:
-  "asdlkşkdşlaskddsa",
+  "In this section, you can see which technologies I can use in general and that I have created at least 1 project.",
   skillList: [
     {
-      icon: <FaFigma/>,
-      name: "Figma",
+      icon: <FaJava />,
+      name: "Java",
     },
     {
-      icon: <FaFigma/>,
-      name: "Figma",
+      icon: <FaReact />,
+      name: "React",
     },
     {
-      icon: <FaFigma/>,
-      name: "Figma",
+      icon: <FaCloud />,
+      name: "Cloud Technologies",
     },
     {
-      icon: <FaFigma/>,
-      name: "Figma",
+      icon: <FaPython />,
+      name: "Python",
     },
     {
-      icon: <FaFigma/>,
-      name: "Figma",
+      icon: <PiFileCSharp />,
+      name: "C#",
+    },
+    {
+      icon: <FaUnity />,
+      name: "Unity",
+    },
+    {
+      icon: <DiDocker />,
+      name: "Docker",
+    },
+    {
+      icon: <SiKubernetes/>,
+      name: "Kubernetes",
+    },
+    {
+      icon: <TbSql />,
+      name: "SQL Technologies",
+    },
+    {
+      icon: <SiFlutter />,
+      name: "Flutter",
+    },
+    {
+      icon: <FaAngular />,
+      name: "Angular",
+    },
+    {
+      icon: <BiLogoSpringBoot />,
+      name: "Spring Boot",
     },
   ]
 }
@@ -133,6 +173,7 @@ import { Tabs, TabsContent, TabsList,TabsTrigger} from "@/components/ui/tabs";
 import { Tooltip, TooltipContent,TooltipProvider,TooltipTrigger } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
+import { PiFileCSharp } from "react-icons/pi";
 
 const Resume = () => {
   return (
@@ -162,8 +203,9 @@ const Resume = () => {
                 <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                    {experience.items.map((item,index) => {
                     return (<li key={index} className="bg-[#232329] min-w-[370px] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:item-start gap-2">
-                      <span className="text-accent">{item.duration} <br/>{item.time}</span>
-                      <h3 className="text-xl max-w-[370px] min-h-[60px] text-center lg:text-left">{item.position}</h3>
+                      <span className="text-accent gap-[50px]">{item.duration}</span>
+                      <span className="text-accent">{item.time}</span>
+                      <h3 className="text-xl max-w-[370px] min-h-[35px] text-center lg:text-left">{item.position}</h3>
                       <div className="flex items-center gap-3">
                         <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
                         <p className="max-w-[370px] text-white/60">{item.company}</p>
@@ -181,8 +223,8 @@ const Resume = () => {
                 <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                    {education.items.map((item,index) => {
                     return (<li key={index} className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:item-start gap-1">
-                      <span className="text-accent">{item.duration}</span>
-                      <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">{item.degree}</h3>
+                      <span className="text-accent gap-[50px]">{item.duration}</span>
+                      <h3 className="text-xl max-w-[370px] min-h-[35px] text-center lg:text-left">{item.degree}</h3>
                       <div className="flex items-center gap-3">
                         <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
                         <p className="text-white/60">{item.institution}</p>
