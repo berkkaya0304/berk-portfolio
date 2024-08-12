@@ -14,7 +14,7 @@ const info= [
   {
     icon: <FaPhoneAlt/>,
     title: "Phone",
-    description: "If Needed,Provided"
+    description: "If Needed&apos;Provided"
   },
   {
     icon: <FaEnvelope />,
