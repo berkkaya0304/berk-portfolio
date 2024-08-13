@@ -24,7 +24,6 @@ const certifications = [
     image: "https://fs-intl-en-us.connect.huaweicloud.com/FileServer/getFile/vector/011/111/111/0000000000011111111.20231229154003.26748684713176376740678732337194:50550813202022:2800:6E4E181FEDBA518C7DFF8EC5AD985340C0E8F77F7BA05A98BA5281035C14007F.png",
     category: "Cloud",
   },
-  // Add more certifications with their respective categories
 ];
 
 const Certifications = () => {
@@ -81,11 +80,13 @@ const Certifications = () => {
                         <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
                         <p className="max-w-[370px] text-white/60">{cert.issuer}</p>
                       </div>
-                      <div className="flex items-center justify-center">
-                      <a href={cert.image} target="_blank" rel="noopener noreferrer">
-                      <Button><FaArrowUpFromBracket /></Button>
-                      </a>
+                      {cert.image && (
+                       <div className="flex items-center justify-center">
+                       <a href={cert.image} target="_blank" rel="noopener noreferrer">
+                       <Button><FaArrowUpFromBracket /></Button>
+                       </a>
                       </div>
+                       )}
                     </li>);
                   })}
               </ul>
