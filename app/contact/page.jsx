@@ -70,7 +70,8 @@ const Contact = () => {
           <div className="xl:h-[54%] order-2 xl:order-none">
             <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
               <h3 className="text-4xl text-accent">Let&apos;s work together!</h3>
-              <p className="text-white/60">Lorem sadkjasjdsa</p>
+              <p className="text-white/60">Using this contact form, you can easily reach out to us with any questions, concerns, or feedback you may have.</p>
+              <p className="text-white/60">Thank you for reaching out. We look forward to hearing from you!</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input type="text" name="firstName" placeholder="First Name:" value={formData.firstName} onChange={handleChange} required />
                 <Input type="text" name="lastName" placeholder="Last Name:" value={formData.lastName} onChange={handleChange} required />
@@ -87,7 +88,7 @@ const Contact = () => {
                     <SelectItem value="Web Development">Web Development</SelectItem>
                     <SelectItem value="Cloud">Cloud</SelectItem>
                     <SelectItem value="Data">Data</SelectItem>
-                    <SelectItem value="Project Management">Project Management</SelectItem>
+                    <SelectItem value="Digitalisation">Digitalisation</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
