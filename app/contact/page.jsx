@@ -57,6 +57,15 @@ const Contact = () => {
       )
       .then(() => {
         alert("Email sent successfully!");
+
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
       })
       .catch(() => {
         alert("Today's limit is finished. Please try again tomorrow.");
