@@ -9,12 +9,14 @@ const certifications = [
     title: "Certified AWS Solutions Architect",
     issuer: "Amazon Web Services",
     date: "June 2023",
+    image: "",
   },
   {
     id: 2,
     title: "Google Cloud Professional Data Engineer",
     issuer: "Google Cloud",
     date: "April 2023",
+    image: "",
   },
 ];
 
@@ -31,21 +33,19 @@ const Certifications = () => {
         defaultValue="experience"
         >
           <div className="grid grid-cols-1 gap-[30px]">
-          <TabsList className="flex flex-row w-full mx-auto gap-6">
+          <TabsList className="flex flex-row w-full mx-auto gap-4">
             <TabsTrigger value="cloud">Cloud</TabsTrigger>
             <TabsTrigger value="data">Data</TabsTrigger>
-            <TabsTrigger value="cloud2">Cloud</TabsTrigger>
-            <TabsTrigger value="data2">Data</TabsTrigger>
-            <TabsTrigger value="cloud3">Cloud</TabsTrigger>
-            <TabsTrigger value="data3">Data</TabsTrigger>
+            <TabsTrigger value="social">Social</TabsTrigger>
+            <TabsTrigger value="mainframe">Mainframe</TabsTrigger>
+            <TabsTrigger value="extendedreality">Extended Reality</TabsTrigger>
           </TabsList>
-          <TabsList className="flex flex-row w-full mx-auto gap-6">
-            <TabsTrigger value="cloud4">Cloud</TabsTrigger>
-            <TabsTrigger value="data4">Data</TabsTrigger>
-            <TabsTrigger value="cloud5">Cloud</TabsTrigger>
-            <TabsTrigger value="data5">Data</TabsTrigger>
-            <TabsTrigger value="cloud6">Cloud</TabsTrigger>
-            <TabsTrigger value="data6">Data</TabsTrigger>
+          <TabsList className="flex flex-row w-full mx-auto gap-4">
+            <TabsTrigger value="software">Software</TabsTrigger>
+            <TabsTrigger value="cybersec">Cyber Security</TabsTrigger>
+            <TabsTrigger value="ai">Artificial Intelligence</TabsTrigger>
+            <TabsTrigger value="frontend">Front-End</TabsTrigger>
+            <TabsTrigger value="projectmanagement">Project Management</TabsTrigger>
           </TabsList>
           </div>
           <div className="min-h-[70vh] w-full">
