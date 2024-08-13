@@ -1,3 +1,7 @@
 {
-  "/certifications/page": "app/certifications/page.js"
+  "/certifications/page": "app/certifications/page.js",
+  "/page": "app/page.js",
+  "/services/page": "app/services/page.js",
+  "/resume/page": "app/resume/page.js",
+  "/work/page": "app/work/page.js"
 }

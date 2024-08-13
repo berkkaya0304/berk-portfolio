@@ -71,9 +71,9 @@ const Certifications = () => {
             </h2>
             {filteredCertifications.length > 0 ? (
               <ul>
-                {filteredCertifications.map((cert) => {
+                {filteredCertifications.map((cert,index) => {
 
-                  return (<li className="bg-[#232329] min-w-[370px]  py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:item-start mb-5 gap-2">
+                  return (<li key={index} className="bg-[#232329] min-w-[370px]  py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:item-start mb-5 gap-2">
                       <span className="text-accent gap-[50px]">{cert.date}</span>
                       <h3 className="text-xl min-w-[370px] min-h-[35px] text-center items-center justify-center">{cert.title}</h3>
                       <div className="flex items-center gap-3">
