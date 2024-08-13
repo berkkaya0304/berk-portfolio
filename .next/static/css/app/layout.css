@@ -759,11 +759,11 @@ video {
 .max-h-96 {
   max-height: 24rem;
 }
+.min-h-\[35px\] {
+  min-height: 35px;
+}
 .min-h-\[480px\] {
   min-height: 480px;
-}
-.min-h-\[60px\] {
-  min-height: 60px;
 }
 .min-h-\[70vh\] {
   min-height: 70vh;
@@ -773,18 +773,6 @@ video {
 }
 .min-h-\[88px\] {
   min-height: 88px;
-}
-.min-h-\[50px\] {
-  min-height: 50px;
-}
-.min-h-\[30px\] {
-  min-height: 30px;
-}
-.min-h-\[40px\] {
-  min-height: 40px;
-}
-.min-h-\[35px\] {
-  min-height: 35px;
 }
 .w-10 {
   width: 2.5rem;
@@ -846,9 +834,6 @@ video {
 .max-w-\[150px\] {
   max-width: 150px;
 }
-.max-w-\[260px\] {
-  max-width: 260px;
-}
 .max-w-\[370px\] {
   max-width: 370px;
 }
@@ -864,11 +849,17 @@ video {
 .max-w-\[620px\] {
   max-width: 620px;
 }
+.max-w-\[800px\] {
+  max-width: 800px;
+}
 .max-w-\[80vw\] {
   max-width: 80vw;
 }
 .flex-1 {
   flex: 1 1 0%;
+}
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .cursor-default {
   cursor: default;
@@ -927,14 +918,11 @@ video {
 .gap-\[30px\] {
   gap: 30px;
 }
-.gap-\[60px\] {
-  gap: 60px;
-}
 .gap-\[50px\] {
   gap: 50px;
 }
-.gap-\[5px\] {
-  gap: 5px;
+.gap-\[60px\] {
+  gap: 60px;
 }
 .gap-y-6 {
   row-gap: 1.5rem;

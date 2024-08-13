@@ -8,25 +8,25 @@ const services = [
   {
     num: "01",
     title: "Full-Stack Development",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec pharetra quam. Etiam dignissim risus at laoreet fermentum. Quisque sagittis auctor elit at accumsan. Phasellus rhoncus sagittis libero sed faucibus. Morbi consectetur eros augue, ut lobortis ante fringilla at. Proin nisi ligula, luctus ac pulvinar ac, sodales ut augue. Cras ex odio, lacinia ac lorem sed, blandit dictum odio. Quisque dapibus ex quis velit porttitor, quis vestibulum nisi tempor.",
+    description: "Are you looking to revolutionize your digital presence? Full-Stack Development is the key to unlocking your project's full potential. I can guide you through the intricacies of both front-end and back-end technologies, ensuring a seamless, efficient, and robust application. From crafting intuitive user interfaces to architecting powerful server-side solutions, we'll cover all bases. By leveraging a full-stack approach, we can streamline your development process, reduce costs, and deliver a product that truly stands out in today's competitive digital landscape. Let's collaborate to turn your vision into reality, creating scalable, maintainable, and cutting-edge web applications that drive your business forward.",
     href: ""
   },
   {
     num: "02",
     title: "Cloud Technologies",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec pharetra quam. Etiam dignissim risus at laoreet fermentum. Quisque sagittis auctor elit at accumsan. Phasellus rhoncus sagittis libero sed faucibus. Morbi consectetur eros augue, ut lobortis ante fringilla at. Proin nisi ligula, luctus ac pulvinar ac, sodales ut augue. Cras ex odio, lacinia ac lorem sed, blandit dictum odio. Quisque dapibus ex quis velit porttitor, quis vestibulum nisi tempor.",
-    href: "",
+    description: "As your cloud technologies consultant, I can help your business harness the power of cloud computing to drive growth and efficiency. Cloud solutions offer scalable, cost-effective alternatives to traditional IT infrastructure, enabling you to reduce capital expenses, increase agility, and focus on core business activities. Whether you need to streamline operations, enhance data security, or improve collaboration, we can tailor a cloud strategy that aligns with your specific goals. From selecting the right cloud services to managing the migration process, our expertise ensures a smooth transition that maximizes your return on investment while minimizing disruption to your operations.",
+    href: ""
   },
   {
     num: "03",
     title: "Data Technologies",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec pharetra quam. Etiam dignissim risus at laoreet fermentum. Quisque sagittis auctor elit at accumsan. Phasellus rhoncus sagittis libero sed faucibus. Morbi consectetur eros augue, ut lobortis ante fringilla at. Proin nisi ligula, luctus ac pulvinar ac, sodales ut augue. Cras ex odio, lacinia ac lorem sed, blandit dictum odio. Quisque dapibus ex quis velit porttitor, quis vestibulum nisi tempor.",
+    description: "As your data technologies consultant, I recommend focusing on building a comprehensive data ecosystem that aligns with your business objectives. This involve implementing scalable storage solutions, and leveraging advanced analytics tools. By adopting a holistic approach to data management, you'll be able to extract actionable insights, drive informed decision-making, and gain a competitive edge in your industry. Remember, the key is not just accumulating data, but effectively harnessing its power to fuel growth and innovation.",
     href: "",
   },
   {
     num: "04",
-    title: "Project Management",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec pharetra quam. Etiam dignissim risus at laoreet fermentum. Quisque sagittis auctor elit at accumsan. Phasellus rhoncus sagittis libero sed faucibus. Morbi consectetur eros augue, ut lobortis ante fringilla at. Proin nisi ligula, luctus ac pulvinar ac, sodales ut augue. Cras ex odio, lacinia ac lorem sed, blandit dictum odio. Quisque dapibus ex quis velit porttitor, quis vestibulum nisi tempor.",
+    title: "Digitalisation",
+    description: "As your digitalization consultant, I'll guide your organization in adopting digital technologies to streamline operations, enhance customer experiences, and drive innovation. We'll leverage tools like cloud computing, AI, and data analytics to optimize processes and create new revenue streams. Our tailored approach will align digital solutions with your goals, helping you stay competitive in the digital age. Together, we'll transform your business into a digital powerhouse, ready to thrive in an increasingly connected world.",
     href: "",
   }
 ]

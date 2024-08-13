@@ -55,13 +55,11 @@ const Contact = () => {
         formData,
         "SxOOOhi_LC1TpP44r" // Replace with your EmailJS user ID
       )
-      .then((response) => {
-        console.log("Email sent successfully!", response.status, response.text);
+      .then(() => {
         alert("Email sent successfully!");
       })
-      .catch((err) => {
-        console.error("Failed to send email:", err);
-        alert("Failed to send email. Please try again later.");
+      .catch(() => {
+        alert("Today's limit is finished. Please try again tomorrow.");
       });
   };
 
