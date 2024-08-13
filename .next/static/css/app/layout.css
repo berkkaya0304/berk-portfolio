@@ -756,6 +756,9 @@ video {
 .h-screen {
   height: 100vh;
 }
+.h-\[50px\] {
+  height: 50px;
+}
 .max-h-96 {
   max-height: 24rem;
 }
@@ -816,6 +819,9 @@ video {
 .w-screen {
   width: 100vw;
 }
+.w-\[50px\] {
+  width: 50px;
+}
 .min-w-\[370px\] {
   min-width: 370px;
 }
@@ -857,6 +863,9 @@ video {
 }
 .flex-1 {
   flex: 1 1 0%;
+}
+.grow {
+  flex-grow: 1;
 }
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1103,6 +1112,9 @@ video {
 }
 .text-center {
   text-align: center;
+}
+.text-justify {
+  text-align: justify;
 }
 .text-2xl {
   font-size: 1.5rem;

@@ -47,7 +47,7 @@ const about = {
 
 const experience = {
     icon: "/assets/resume/badge.svg",
-    title: "My Experiences",
+    title: "Experience Journey",
     description:
     "In this section, you can find information about my internship, part-time and full-time work.",
     items: [
@@ -86,7 +86,7 @@ const experience = {
 
 const education = {
   icon: "/assets/resume/cap.svg",
-  title: "My Education",
+  title: "Education Journey",
   description:
   "In this section, you will see the education I have received in general.",
   items: [
@@ -109,6 +109,28 @@ const education = {
       institution: "TED University",
       degree: "English Preparation",
       duration: "September 2021 - July 2022"
+    },
+  ]
+}
+
+const ambassador = {
+  title: "Ambassador  Journey",
+  description:
+  "On this page you can see the ambassador work I have done.",
+  items: [
+    {
+      company: "IBM",
+      topic: "Z Student Ambassador",
+      duration: "November 2023 - Present",
+      description: "The IBM Z Student Ambassador program is a global community of university students passionate about technology. Through hands-on learning, mentorship, and networking opportunities, ambassadors gain the skills and experience they need to succeed in the tech industry.",
+      level: "(Level 4 - Highest Level)"
+    },
+    {
+      company: "Microsoft",
+      topic: "Student Ambassador",
+      duration: "November 2023 - Present",
+      description: "As a Microsoft Learn Student Ambassador, you'll gain hands-on experience with Microsoft technologies like Azure, Windows, and Office 365 while developing essential skills for the tech industry, including problem-solving, communication, and teamwork. You'll also have the chance to connect with a diverse network of students, Microsoft employees, and industry leaders. By sharing your knowledge, you'll make a meaningful impact by helping others learn and grow.",
+      level: "(Alpha)"
     },
   ]
 }
@@ -191,10 +213,34 @@ const Resume = () => {
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
+            <TabsTrigger value="ambassador">Ambassador</TabsTrigger>
             <TabsTrigger value="about">About Me</TabsTrigger>
           </TabsList>
 
           <div className="min-h-[70vh] w-full">
+          <TabsContent value="ambassador" className="w-full">
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">{ambassador.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{ambassador.description}</p>
+                <ScrollArea></ScrollArea>
+                <ul className="grid grid-cols-1 gap-[30px]">
+                   {ambassador.items.map((item,index) => {
+                    return (<li key={index} className="bg-[#232329] min-w-[370px]  py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:item-start gap-2">
+                      <span className="text-accent gap-[50px]">{item.duration}</span>
+                      <span className="text-accent">{item.level}</span>
+                      <h3 className="text-xl max-w-[370px] min-h-[35px] text-center lg:text-left">{item.topic}</h3>
+                      <div className="flex items-center gap-3">
+                        <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                        <p className="max-w-[370px] text-white/60">{item.company}</p>
+                      </div>
+                      <div className="flex items-center justify-center">
+                        <p className=" text-white/60 text-justify">{item.description}</p>
+                      </div>
+                    </li>);
+                   })}
+                </ul>
+              </div>
+             </TabsContent>
              <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{experience.title}</h3>
