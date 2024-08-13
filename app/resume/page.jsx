@@ -132,6 +132,14 @@ const ambassador = {
       description: "As a Microsoft Learn Student Ambassador, you'll gain hands-on experience with Microsoft technologies like Azure, Windows, and Office 365 while developing essential skills for the tech industry, including problem-solving, communication, and teamwork. You'll also have the chance to connect with a diverse network of students, Microsoft employees, and industry leaders. By sharing your knowledge, you'll make a meaningful impact by helping others learn and grow.",
       level: "(Alpha)"
     },
+    {
+      company: "Xbox",
+      topic: "Ambassador",
+      duration: "September 2023 - Present",
+      description: "The Xbox Ambassador program is a community of gamers who are passionate about making gaming fun for everyone.",
+      level: "Level 2"
+    },
+
   ]
 }
 
@@ -280,8 +288,8 @@ const Resume = () => {
                 </ul>
               </div>
              </TabsContent>
-             <TabsContent value="skills" className="w-full">
-             <div className="flex flex-col gap-[30px] text-center xl:text-left">
+             <TabsContent value="skills" className="w-full text-center xl:text-justify">
+             <div className="flex flex-col gap-[30px] text-center xl:text-justify">
                 <h3 className="text-4xl font-bold">{skills.title}</h3>
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{skills.description}</p>
                 <ScrollArea></ScrollArea>
@@ -305,8 +313,8 @@ const Resume = () => {
                 </ul>
               </div>
              </TabsContent>
-             <TabsContent value="about" className="w-full text-cente xl:text-left">
-                <div className="flex flex-col gap-[30px]">
+             <TabsContent value="about" className="w-full text-center xl:text-justify">
+                <div className="flex flex-col gap-[30px] text-center xl:text-justify">
                   <h3 className="text-4xl font-bold">{about.title}</h3>
                   <p className="max-w-[600px] text-white/60  mx-auto xl:mx-0">{about.description}</p>
                   <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
