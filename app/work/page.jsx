@@ -145,12 +145,12 @@ const Work = () => {
 
   return (
     <motion.section initial={{opacity: 0}} animate={{opacity: 1, transition:{delay:2.4,duration:0.4,ease:"easeIn"}}} className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0">
-      <div className="container mx-auto">
+      <div className="container mx-auto mb-10">
       <Tabs
         defaultValue="experience"
-        className="flex flex-col gap-[60px]"
+        className="flex flex-col gap-[100px]"
         >
-          <TabsList className="flex w-full max-w-[800px] mx-auto gap-6">
+          <TabsList className="flex flex-row w-full max-w-[800px] mx-auto gap-6">
             <TabsTrigger value="frontend">Front-end</TabsTrigger>
             <TabsTrigger value="cloud">Cloud</TabsTrigger>
             <TabsTrigger value="data">Data</TabsTrigger>
