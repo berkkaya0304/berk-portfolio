@@ -6,6 +6,12 @@ import {SiFlutter, SiKubernetes} from "react-icons/si";
 import {TbSql} from "react-icons/tb";
 import { BiLogoSpringBoot } from "react-icons/bi";
 
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+
+import { Button } from "@/components/ui/button";
+
+import { FaArrowUpFromBracket } from "react-icons/fa6";
+
 const about = {
   title:"About Me",
   description: "I've been interested in learning since I was a youngster. My interest in engineering stems from my youth. I was the one who controlled the classroom computer using scratch codes I developed in computer classes and realized even when I was very young. Now I'm taking the measures necessary to become a successful engineer. With strenuous effort and the expertise, I gained from my institution, I am confident rather than hopeful that this will be accomplished. I'm attempting to obtain numerous credentials and training for this.",
@@ -143,6 +149,24 @@ const ambassador = {
   ]
 }
 
+const certifications = [
+  {
+    title: "Developer Associate - AI",
+    issuer: "Huawei Cloud",
+    date: "July 2024",
+    image: "https://fs-intl-en-us.connect.huaweicloud.com/FileServer/getFile/vector/011/111/111/0000000000011111111.20240726151007.20996619988002026016639861969173:50550813202105:2800:547B88EB84C44CE67D389804E100894EB83A5B2AFE24EADDF327380BC700A279.png",
+    category: "Cloud",
+  },
+  {
+    title: "Developer Associate - Tech Essentials",
+    issuer: "Huawei Cloud",
+    date: "Dec 2023",
+    image: "https://fs-intl-en-us.connect.huaweicloud.com/FileServer/getFile/vector/011/111/111/0000000000011111111.20231229154003.26748684713176376740678732337194:50550813202022:2800:6E4E181FEDBA518C7DFF8EC5AD985340C0E8F77F7BA05A98BA5281035C14007F.png",
+    category: "Cloud",
+  },
+];
+
+
 const skills = {
   title: "My Skills",
   description:
@@ -204,8 +228,20 @@ import { Tooltip, TooltipContent,TooltipProvider,TooltipTrigger } from "@/compon
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 import { PiFileCSharp } from "react-icons/pi";
+import { useState } from "react";
 
 const Resume = () => {
+
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const handleCategoryChange = (value) => {
+    setSelectedCategory(value);
+  };
+
+  const filteredCertifications = certifications.filter(
+    (cert) => cert.category === selectedCategory
+  );
+
   return (
     <motion.div
     initial={{opacity: 0}}
@@ -222,6 +258,7 @@ const Resume = () => {
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
             <TabsTrigger value="ambassador">Ambassador</TabsTrigger>
+            <TabsTrigger value="Certifications">Certifications</TabsTrigger>
             <TabsTrigger value="about">About Me</TabsTrigger>
           </TabsList>
 
@@ -248,6 +285,58 @@ const Resume = () => {
                    })}
                 </ul>
               </div>
+             </TabsContent>
+             <TabsContent value="Certifications" className="w-full text-center xl:text-justify">
+             <Select onValueChange={handleCategoryChange}>
+      <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select a Topic:" />
+      </SelectTrigger>
+      <SelectGroup>
+      <SelectContent>
+                    <SelectItem value="Cloud">Cloud</SelectItem>
+                    <SelectItem value="Data">Data</SelectItem>
+                    <SelectItem value="Social">Social</SelectItem>
+                    <SelectItem value="Mainframe">Mainframe</SelectItem>
+                    <SelectItem value="Extended Reality">Extended Reality</SelectItem>
+                    <SelectItem value="Software">Software</SelectItem>
+                    <SelectItem value="Cyber Security">Cyber Security</SelectItem>
+                    <SelectItem value="Artificial Intelligence">Artificial Intelligence</SelectItem>
+                    <SelectItem value="Front-End">Front-End</SelectItem>
+                    <SelectItem value="Project Management">Project Management</SelectItem>
+      </SelectContent>
+      </SelectGroup>
+      </Select>
+      {selectedCategory && (
+          <div className="mt-4">
+            <h2 className="text-xl font-bold mb-2 justify-center items-center">
+              {selectedCategory} Certifications
+            </h2>
+            {filteredCertifications.length > 0 ? (
+              <ul>
+                {filteredCertifications.map((cert,index) => {
+
+                  return (<li key={index} className="bg-[#232329] min-w-[370px]  py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:item-start mb-5 gap-2">
+                      <span className="text-accent gap-[50px]">{cert.date}</span>
+                      <h3 className="text-xl min-w-[370px] min-h-[35px] text-center items-center justify-center">{cert.title}</h3>
+                      <div className="flex items-center gap-3">
+                        <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                        <p className="max-w-[370px] text-white/60">{cert.issuer}</p>
+                      </div>
+                      {cert.image && (
+                       <div className="flex items-center justify-center">
+                       <a href={cert.image} target="_blank" rel="noopener noreferrer">
+                       <Button><FaArrowUpFromBracket /></Button>
+                       </a>
+                      </div>
+                       )}
+                    </li>);
+                  })}
+              </ul>
+            ) : (
+              <p>No certifications found for this category.</p>
+            )}
+          </div>
+        )}
              </TabsContent>
              <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">

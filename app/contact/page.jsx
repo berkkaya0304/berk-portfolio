@@ -27,6 +27,7 @@ const info = [
   },
 ];
 
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     firstName: "",
