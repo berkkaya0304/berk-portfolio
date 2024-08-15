@@ -1,7 +1,8 @@
 {
-  "/page": "app/page.js",
-  "/services/fullstack/page": "app/services/fullstack/page.js",
   "/services/page": "app/services/page.js",
+  "/services/fullstack/page": "app/services/fullstack/page.js",
   "/services/cloud/page": "app/services/cloud/page.js",
-  "/resume/page": "app/resume/page.js"
+  "/resume/page": "app/resume/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }
