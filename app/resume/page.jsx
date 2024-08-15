@@ -164,6 +164,125 @@ const certifications = [
     image: "https://fs-intl-en-us.connect.huaweicloud.com/FileServer/getFile/vector/011/111/111/0000000000011111111.20231229154003.26748684713176376740678732337194:50550813202022:2800:6E4E181FEDBA518C7DFF8EC5AD985340C0E8F77F7BA05A98BA5281035C14007F.png",
     category: "Cloud",
   },
+  {
+    title: "Extended Reality For Everybody",
+    issuer: "University of Michigan - Coursera",
+    date: "June 2023",
+    image: "https://www.coursera.org/account/accomplishments/specialization/certificate/5VGTX77AQPMT",
+    category: "Extended Reality",
+  },
+  {
+    title: "Data Analyst",
+    issuer: "IBM - Coursera",
+    date: "May 2023",
+    image: "https://www.coursera.org/account/accomplishments/specialization/certificate/VUU4VNKUCEUL",
+    category: "Data",
+  },
+  {
+    title: "Data Science",
+    issuer: "IBM - Coursera",
+    date: "May 2023",
+    image: "https://www.coursera.org/account/accomplishments/specialization/certificate/69FNTFBWMNCJ",
+    category: "Data",
+  },
+  {
+    title: "Data Analyst",
+    issuer: "IBM - Coursera",
+    date: "May 2023",
+    image: "https://www.coursera.org/account/accomplishments/specialization/certificate/VUU4VNKUCEUL",
+    category: "Cloud",
+  },
+  {
+    title: "Data Science",
+    issuer: "IBM - Coursera",
+    date: "May 2023",
+    image: "https://www.coursera.org/account/accomplishments/specialization/certificate/69FNTFBWMNCJ",
+    category: "Cloud",
+  },
+  {
+    title: "Project Management",
+    issuer: "Google",
+    date: "Feb 2023",
+    image: "https://www.coursera.org/account/accomplishments/specialization/certificate/Q4FAA9HL66NY",
+    category: "Project Management",
+  },
+  {
+    title: "Modern and Contemporary Art and Design",
+    issuer: "MoMA",
+    date: "Feb 2023",
+    image: "https://www.coursera.org/account/accomplishments/specialization/certificate/LUX8G3FX86AD",
+    category: "Art & Culture",
+  },
+  {
+    title: "Certificate of Achievement",
+    issuer: "Global Executive Academy",
+    date: "June 2022",
+    image: "https://dogrulama.ogrencikariyeri.com/YEA19863656",
+    category: "Social",
+  },
+  {
+    title: "Certificate of Executive",
+    issuer: "Global Executive Academy",
+    date: "June 2022",
+    image: "https://dogrulama.ogrencikariyeri.com/YEA22329569",
+    category: "Social",
+  },
+  {
+    title: "C#.NET Course Certificate Of Achievement",
+    issuer: "Gazi University",
+    date: "April 2022",
+    image: "",
+    category: "Software",
+  },
+  {
+    title: "Introduction to AI, Robotics and Data",
+    issuer: "Global AI Hub",
+    date: "Jan 2022",
+    image: "https://globalaihub.com/certificate-share/eyJ1c2VyLWlkIjo5MzU5MiwiY291cnNlLWlkIjo2MDg1MCwiY2VydC1pZCI6IjczMDUxIn0=",
+    category: "Software",
+  },
+  {
+    title: "Introduction to AI, Robotics and Data",
+    issuer: "Global AI Hub",
+    date: "Jan 2022",
+    image: "https://globalaihub.com/certificate-share/eyJ1c2VyLWlkIjo5MzU5MiwiY291cnNlLWlkIjo2MDg1MCwiY2VydC1pZCI6IjczMDUxIn0=",
+    category: "Data",
+  },
+  {
+    title: "Introduction to AI, Robotics and Data",
+    issuer: "Global AI Hub",
+    date: "Jan 2022",
+    image: "https://globalaihub.com/certificate-share/eyJ1c2VyLWlkIjo5MzU5MiwiY291cnNlLWlkIjo2MDg1MCwiY2VydC1pZCI6IjczMDUxIn0=",
+    category: "Artificial Intelligence",
+  },
+  {
+    title: "Introduction to Deep Learning",
+    issuer: "Great Learning",
+    date: "Jan 2022",
+    image: "https://olympus1.mygreatlearning.com/course_certificate/KMCQLEWQ",
+    category: "Artificial Intelligence",
+  },
+  {
+    title: "CS50's Introduction to Computer Science",
+    issuer: "Harvard University",
+    date: "Dec 2021",
+    image: "",
+    category: "Software",
+  },
+  {
+    title: "Responsive Web Design",
+    issuer: "freeCodeCamp",
+    date: "Nov 2021",
+    image: "https://freecodecamp.org/certification/berkkaya0304/responsive-web-design",
+    category: "Software",
+  },
+  {
+    title: "Effective Communication Techniques Training",
+    issuer: "Boenstitü",
+    date: "Oct 2021",
+    image: "https://istanbulbogazicienstitu.com/hesap/sertifika-sorgula?sertifika=MTEzNDI2LS0tNDEzOTItLS1kYTRiOTIzN2JhY2NjZGYxOWMwNzYwY2FiN2FlYzRhODM1OTAxMGIw",
+    category: "Social",
+  },
 ];
 
 
@@ -299,10 +418,11 @@ const Resume = () => {
                     <SelectItem value="Mainframe">Mainframe</SelectItem>
                     <SelectItem value="Extended Reality">Extended Reality</SelectItem>
                     <SelectItem value="Software">Software</SelectItem>
-                    <SelectItem value="Cyber Security">Cyber Security</SelectItem>
+                    <SelectItem value="Cybersecurity">Cybersecurity</SelectItem>
                     <SelectItem value="Artificial Intelligence">Artificial Intelligence</SelectItem>
                     <SelectItem value="Front-End">Front-End</SelectItem>
                     <SelectItem value="Project Management">Project Management</SelectItem>
+                    <SelectItem value="Art & Culture">Art & Culture</SelectItem>
       </SelectContent>
       </SelectGroup>
       </Select>
