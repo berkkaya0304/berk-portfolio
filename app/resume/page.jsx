@@ -283,6 +283,146 @@ const certifications = [
     image: "https://istanbulbogazicienstitu.com/hesap/sertifika-sorgula?sertifika=MTEzNDI2LS0tNDEzOTItLS1kYTRiOTIzN2JhY2NjZGYxOWMwNzYwY2FiN2FlYzRhODM1OTAxMGIw",
     category: "Social",
   },
+  {
+    title: "Introduction to CyberSecurity",
+    issuer: "Cisco",
+    date: "May 2022",
+    image: "https://www.credly.com/badges/f900b7e7-2e6c-4cc4-bf30-f93638a62b08",
+    category: "Cybersecurity",
+  },
+  {
+    title: "IBM Z Xplore - Concepts",
+    issuer: "IBM",
+    date: "November 2023",
+    image: "https://www.credly.com/badges/f900b7e7-2e6c-4cc4-bf30-f93638a62b08",
+    category: "Mainframe",
+  },
+  {
+    title: "IBM Z Xplore - Advanced",
+    issuer: "IBM",
+    date: "November 2023",
+    image: "https://www.credly.com/badges/b27603aa-5eec-488b-a3b2-e8fa61b14d4f",
+    category: "Mainframe",
+  },
+  {
+    title: "IBM Z and LinuxONE Community Contributor",
+    issuer: "IBM",
+    date: "November 2023",
+    image: "https://www.credly.com/badges/91411626-ebe2-435d-adf1-1756df4d63ad",
+    category: "Social",
+  },
+  {
+    title: "Blockchain Technologies",
+    issuer: "Interskill",
+    date: "December 2023",
+    image: "https://www.credly.com/badges/5bfd2c5a-a1fd-42c2-aedd-34792bfa293e",
+    category: "Blockchain",
+  },
+  {
+    title: "AIX Systems Administrator - Fundamentals",
+    issuer: "IBM",
+    date: "December 2023",
+    image: "https://www.credly.com/badges/456b30c0-362b-441c-af4b-ce4b2b2e3d61",
+    category: "Mainframe",
+  },
+  {
+    title: "AIX Systems Administrator - Fundamentals for UNIX Specialists",
+    issuer: "IBM",
+    date: "December 2023",
+    image: "https://www.credly.com/badges/d1fd738e-cee6-49cb-a676-3603b0af2cf7",
+    category: "Mainframe",
+  },
+  {
+    title: "Cloud Foundations",
+    issuer: "IBM",
+    date: "December 2023",
+    image: "https://www.credly.com/badges/a0a98584-1e20-42af-b023-35527d11feab",
+    category: "Cloud",
+  },
+  {
+    title: "DevOps Fundamentals",
+    issuer: "IBM",
+    date: "December 2023",
+    image: "https://www.credly.com/badges/8c266149-0d91-4eee-96ef-d3e5b91adbd2",
+    category: "DevOps",
+  },
+  {
+    title: "Coaching and Mentoring for Technical Specialists",
+    issuer: "IBM",
+    date: "December 2023",
+    image: "https://www.credly.com/badges/be820005-cb1c-4209-b9bb-55b7170697ce",
+    category: "Social",
+  },
+  {
+    title: "Azure Responsible AI Workshop - Coach",
+    issuer: "Microsoft",
+    date: "January 2024",
+    image: "https://www.credly.com/badges/53f494a0-9191-4d94-bc6f-f07e338d321d",
+    category: "Social",
+  },
+  {
+    title: "Enterprise System Hardware 2023 - Foundations",
+    issuer: "IBM",
+    date: "February 2024",
+    image: "https://www.credly.com/badges/06155ec4-99c1-4bdc-bf0e-c876c28270bd",
+    category: "Mainframe",
+  },
+  {
+    title: "LinuxONE System Hardware 2023 - Foundations",
+    issuer: "IBM",
+    date: "February 2024",
+    image: "https://www.credly.com/badges/f6a2d8e8-db9f-4178-80ea-6354688738bb",
+    category: "Mainframe",
+  },
+  {
+    title: "z/OS – Foundations 2.5",
+    issuer: "IBM",
+    date: "February 2024",
+    image: "https://www.credly.com/badges/e700184c-0606-4549-b6d0-ecd8adf15770",
+    category: "Mainframe",
+  },
+  {
+    title: "Mainframe Security - Foundations z/OS 2.5",
+    issuer: "IBM",
+    date: "February 2024",
+    image: "https://www.credly.com/badges/a0e6c7ef-fa95-458e-8c1c-80f72a1c7c2f",
+    category: "Mainframe",
+  },
+  {
+    title: "Business Continuity and Disaster Recovery Essentials - Foundations",
+    issuer: "IBM",
+    date: "February 2024",
+    image: "https://www.credly.com/badges/6d9dbd0c-b266-4b62-b3a3-0ecaddfedde9",
+    category: "Mainframe",
+  },
+  {
+    title: "Data Center Disaster Recovery Planning - Experienced",
+    issuer: "IBM",
+    date: "February 2024",
+    image: "https://www.credly.com/badges/f648e58c-fc9b-4c61-ab11-098ccdba602c",
+    category: "Mainframe",
+  },
+  {
+    title: "Technical Manager Level I Certificate",
+    issuer: "IBM",
+    date: "February 2024",
+    image: "https://www.credly.com/badges/703be71a-bbe2-44be-9f85-47993586cc15",
+    category: "Mainframe",
+  },
+  {
+    title: "Engineer Data for Predictive Modeling with BigQuery ML",
+    issuer: "Google Cloud",
+    date: "April 2024",
+    image: "https://www.credly.com/badges/24ad9ac9-1785-4302-bda0-39ffb44bbbe3",
+    category: "Cloud",
+  },
+  {
+    title: "Engineer Data for Predictive Modeling with BigQuery ML",
+    issuer: "Google Cloud",
+    date: "April 2024",
+    image: "https://www.credly.com/badges/24ad9ac9-1785-4302-bda0-39ffb44bbbe3",
+    category: "Data",
+  },
 ];
 
 
@@ -423,6 +563,8 @@ const Resume = () => {
                     <SelectItem value="Front-End">Front-End</SelectItem>
                     <SelectItem value="Project Management">Project Management</SelectItem>
                     <SelectItem value="Art & Culture">Art & Culture</SelectItem>
+                    <SelectItem value="Blockchain">Blockchain</SelectItem>
+                    <SelectItem value="DevOps">DevOps</SelectItem>
       </SelectContent>
       </SelectGroup>
       </Select>
