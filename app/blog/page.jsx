@@ -6,7 +6,7 @@ import { BsArrowDownRight } from 'react-icons/bs'
 const blog = {
   title: "Blog",
   description:
-  "On this page you can see the ambassador work I have done.",
+  "On this page you will be able to access the articles I have written on various subjects.",
   items: [
     {
       name: "Publishing Your Go Application with CodeArts!",
@@ -14,12 +14,14 @@ const blog = {
       date: "Aug 5,2024",
       href:"https://medium.com/huawei-developers/publishing-your-go-application-with-codearts-f69b4b37f394",
     },
+
   ]
 }
 
 const Blog = () => {
   return (
-    <div className="min-h-[70vh] w-full">
+   <div className='mx-auto items-center justify-center container mx-auto mb-10'>
+     <div className="min-h-[70vh] w-full">
         <div className="flex flex-col gap-[30px] text-center xl:text-left">
           <h3 className="text-4xl font-bold">{blog.title}</h3>
           <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{blog.description}</p>
@@ -39,6 +41,7 @@ const Blog = () => {
              </ul>
         </div>
        </div>
+   </div>
   )
 }
 

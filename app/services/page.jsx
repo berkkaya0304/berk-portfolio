@@ -24,9 +24,9 @@ const services = [
   },
   {
     num: "04",
-    title: "Digitalisation",
+    title: "Digitalization",
     description: "As your digitalization consultant, I'll guide your organization in adopting digital technologies to streamline operations, enhance customer experiences, and drive innovation. We'll leverage tools like cloud computing, AI, and data analytics to optimize processes and create new revenue streams. Our tailored approach will align digital solutions with your goals, helping you stay competitive in the digital age. Together, we'll transform your business into a digital powerhouse, ready to thrive in an increasingly connected world.",
-    href: "/services/digital",
+    href: "/services/digitalization",
   }
 ]
 
