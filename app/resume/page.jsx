@@ -274,7 +274,7 @@ const certifications = [
     issuer: "freeCodeCamp",
     date: "Nov 2021",
     image: "https://freecodecamp.org/certification/berkkaya0304/responsive-web-design",
-    category: "Software",
+    category: "Front-End",
   },
   {
     title: "Effective Communication Techniques Training",
@@ -417,11 +417,67 @@ const certifications = [
     category: "Cloud",
   },
   {
-    title: "Engineer Data for Predictive Modeling with BigQuery ML",
-    issuer: "Google Cloud",
+    title: "Development Environment – Foundations 2.5",
+    issuer: "IBM",
     date: "April 2024",
-    image: "https://www.credly.com/badges/24ad9ac9-1785-4302-bda0-39ffb44bbbe3",
+    image: "https://www.credly.com/badges/30b567b3-d966-4e44-bc07-d43a78feae3f",
+    category: "Mainframe",
+  },
+  {
+    title: "Mainframe Performance - Fundamentals 2.5",
+    issuer: "IBM",
+    date: "April 2024",
+    image: "https://www.credly.com/badges/777bb1dd-be0c-40b5-9d9f-fef47d8ff8a2",
+    category: "Mainframe",
+  },
+  {
+    title: "Hardware Management Console - Fundamentals",
+    issuer: "IBM",
+    date: "April 2024",
+    image: "https://www.credly.com/badges/1458f694-f6d5-4d25-8ca4-d346e8c5bcb2",
+    category: "Mainframe",
+  },
+  {
+    title: "Database - Fundamentals 2023",
+    issuer: "IBM",
+    date: "April 2024",
+    image: "https://www.credly.com/badges/47d88e71-4e21-4934-b16c-a15234b56194",
+    category: "Mainframe",
+  },
+  {
+    title: "Database Management - Intermediate 2023",
+    issuer: "IBM",
+    date: "April 2024",
+    image: "https://www.credly.com/badges/73258e90-893d-41ae-8571-e7373c9e52c2",
+    category: "Mainframe",
+  },
+  {
+    title: "Prepare Data for ML APIs on Google Cloud",
+    issuer: "Google Cloud",
+    date: "May 2024",
+    image: "https://www.credly.com/badges/b19d1009-46ad-444b-b0fe-bed355354be6",
+    category: "Cloud",
+  },
+  {
+    title: "Prepare Data for ML APIs on Google Cloud",
+    issuer: "Google Cloud",
+    date: "May 2024",
+    image: "https://www.credly.com/badges/b19d1009-46ad-444b-b0fe-bed355354be6",
     category: "Data",
+  },
+  {
+    title: "Prepare Data for ML APIs on Google Cloud",
+    issuer: "Google Cloud",
+    date: "May 2024",
+    image: "https://www.credly.com/badges/b19d1009-46ad-444b-b0fe-bed355354be6",
+    category: "Artificial Intelligence",
+  },
+  {
+    title: "NASA Open Science",
+    issuer: "NASA(USA)",
+    date: "May 2024",
+    image: "https://www.credly.com/badges/2743137f-a9e2-4e40-9d67-51c88f9630bf",
+    category: "Science",
   },
 ];
 
@@ -565,14 +621,12 @@ const Resume = () => {
                     <SelectItem value="Art & Culture">Art & Culture</SelectItem>
                     <SelectItem value="Blockchain">Blockchain</SelectItem>
                     <SelectItem value="DevOps">DevOps</SelectItem>
+                    <SelectItem value="Science">Science</SelectItem>
       </SelectContent>
       </SelectGroup>
       </Select>
       {selectedCategory && (
           <div className="mt-4">
-            <h2 className="text-xl font-bold mb-2 justify-center items-center">
-              {selectedCategory} Certifications
-            </h2>
             {filteredCertifications.length > 0 ? (
               <ul>
                 {filteredCertifications.map((cert,index) => {
