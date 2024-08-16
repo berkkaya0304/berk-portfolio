@@ -479,6 +479,34 @@ const certifications = [
     image: "https://www.credly.com/badges/2743137f-a9e2-4e40-9d67-51c88f9630bf",
     category: "Science",
   },
+  {
+    title: "Contributor",
+    issuer: "IBM",
+    date: "May 2024",
+    image: "https://www.credly.com/badges/2d971824-d747-4368-b971-4c8565131fec",
+    category: "Social",
+  },
+  {
+    title: "Working in a Digital World: Professional Skills",
+    issuer: "IBM",
+    date: "August 2024",
+    image: "https://www.credly.com/badges/1129b50b-857b-4bc9-83cf-ead021ba7150",
+    category: "Technology",
+  },
+  {
+    title: "Explore Emerging Tech",
+    issuer: "IBM",
+    date: "August 2024",
+    image: "https://www.credly.com/badges/2b525e24-064a-41ae-a2ce-136ca421f2b0",
+    category: "Technology",
+  },
+  {
+    title: "Cybersecurity Fundamentals",
+    issuer: "IBM",
+    date: "August 2024",
+    image: "https://www.credly.com/badges/768174fe-fb58-420d-8237-ec733bd57193",
+    category: "Cybersecurity",
+  },
 ];
 
 
@@ -608,6 +636,7 @@ const Resume = () => {
       </SelectTrigger>
       <SelectGroup>
       <SelectContent>
+                    <SelectItem value="Technology">Technology</SelectItem>
                     <SelectItem value="Cloud">Cloud</SelectItem>
                     <SelectItem value="Data">Data</SelectItem>
                     <SelectItem value="Social">Social</SelectItem>
