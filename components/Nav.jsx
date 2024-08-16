@@ -22,7 +22,7 @@ const links = [
     },
     {
         name: "blog",
-        path: "https://medium.com/@berkkaya0304",
+        path: "/blog",
     },
 ]
 
