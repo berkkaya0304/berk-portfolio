@@ -7,6 +7,7 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
 
 import { BsArrowUpRight, BsGithub, BsYoutube } from "react-icons/bs";
+import { FaCodepen } from "react-icons/fa";
 
 import { Tooltip,TooltipContent,TooltipProvider,TooltipTrigger } from "@/components/ui/tooltip";
 import { Tabs, TabsContent, TabsList,TabsTrigger} from "@/components/ui/tabs";
@@ -20,32 +21,34 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projectsFrontend = [
   {
     num: '01',
-    category: 'frontend',
-    title: 'project 1',
+    category: 'front-end',
+    title: 'Portfolio Project',
     description:
-    "sadasldklasişldasd",
+    "This project is the project version of the website you are currently using.",
     stack: [
-      {name: "Html 5",},{name: "Css 3",},{name: "Javascript",}
+      {name: "Next.js",},{name: "Tailwind",},{name: "Shadcn/ui",}
     ],
-    image: '/assets/work/thumb1.png',
-    live: "",
+    image: '/assets/work/Frontend01.jpg',
+    live: "berkkaya.me",
     github: "",
-    youtube: ""
+    youtube: "",
+    codepen:"",
   },
   {
-    num: "02",
-    category: "Frontend",
-    title: 'project 2',
+    num: '02',
+    category: 'front-end',
+    title: 'Portfolio Project',
     description:
-    "asdsa",
+    "Tribute Website",
     stack: [
-      {name: "sads 5",},{name: "sad 3",},{name: "Javascript",}
+      {name: "Html",},{name: "CSS",},{name: "JavaScript",}
     ],
-    image: '/assets/work/thumb2.png',
+    image: '/assets/work/Frontend02.jpg',
     live: "",
     github: "",
     youtube: "",
-  },
+    codepen:"https://codepen.io/berkkaya0304/full/dyzmqOW",
+    },
 ]
 
 const projectsData = [
@@ -58,7 +61,7 @@ const projectsData = [
     stack: [
       {name: "Html 5",},{name: "Css 3",},{name: "Javascript",}
     ],
-    image: '/assets/work/thumb1.png',
+    image: '',
     live: "",
     github: "",
     youtube: "",
@@ -75,7 +78,7 @@ const projectsCloud = [
     stack: [
       {name: "Html 5",},{name: "Css 3",},{name: "Javascript",}
     ],
-    image: '/assets/work/thumb1.png',
+    image: '',
     live: "",
     github: "",
     youtube: "",
@@ -89,7 +92,7 @@ const projectsCloud = [
     stack: [
       {name: "Html 5",},{name: "Css 3",},{name: "Javascript",}
     ],
-    image: '/assets/work/thumb1.png',
+    image: '',
     live: "",
     github: "",
     youtube: "",
@@ -106,7 +109,7 @@ const projectsDigital = [
     stack: [
       {name: "Html 5",},{name: "Css 3",},{name: "Javascript",}
     ],
-    image: '/assets/work/thumb1.png',
+    image: '',
     live: "",
     github: "",
     youtube: "",
@@ -151,18 +154,18 @@ const Work = () => {
         className="flex flex-col gap-[100px]"
         >
           <TabsList className="flex flex-row w-full max-w-[800px] mx-auto gap-6">
-            <TabsTrigger value="frontend">Front-end</TabsTrigger>
+            <TabsTrigger value="front-end">Front-end</TabsTrigger>
             <TabsTrigger value="cloud">Cloud</TabsTrigger>
             <TabsTrigger value="data">Data</TabsTrigger>
             <TabsTrigger value="digital">Digitalisation</TabsTrigger>
           </TabsList>
-        <TabsContent value="frontend" className="w-full">
+        <TabsContent value="front-end" className="w-full">
         {projectFrontend && projectFrontend.num ? (
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
             <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
               <div className="flex flex-col gap-[30px] h-[50%]">
                 <div className="text-8xl leading-none font-extrabold text-transparent text-outline">{projectFrontend.num}</div>
-                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">{projectFrontend.category} project</h2>
+                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">Front-End project</h2>
                 <p className="text-white/60">{projectFrontend.description}</p>
                 <ul className="flex gap-4">
                   {projectFrontend.stack.map((item,index) => {
@@ -174,7 +177,7 @@ const Work = () => {
                 <div className="border border-white/20"></div>
                 <div className="flex items-center gap-4">
                 {projectFrontend.live && (
-                  <Link href={projectFrontend.live}>
+                  <Link href={projectFrontend.live} target="_blank">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
                         <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -188,7 +191,7 @@ const Work = () => {
                   </Link>
                 )}
                 {projectFrontend.github && (
-                  <Link href={projectFrontend.github}>
+                  <Link href={projectFrontend.github} target="_blank">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
                         <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -202,7 +205,7 @@ const Work = () => {
                   </Link>
                 )}
                 {projectFrontend.youtube && (
-                  <Link href={projectFrontend.youtube}>
+                  <Link href={projectFrontend.youtube} target="_blank">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
                         <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -210,6 +213,20 @@ const Work = () => {
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>Youtube Video</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
+                {projectFrontend.codepen && (
+                  <Link href={projectFrontend.codepen} target="_blank">
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <FaCodepen className="text-white text-3xl group-hover:text-accent"/>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>CodePen project</p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
@@ -259,7 +276,7 @@ const Work = () => {
                 <div className="border border-white/20"></div>
                 <div className="flex items-center gap-4">
                 {projectData.live && (
-                  <Link href={projectData.live}>
+                  <Link href={projectData.live} target="_blank">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
                         <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -273,7 +290,7 @@ const Work = () => {
                   </Link>
                 )}
                 {projectData.github && (
-                  <Link href={projectData.github}>
+                  <Link href={projectData.github} target="_blank">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
                         <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -281,6 +298,20 @@ const Work = () => {
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>Github Repository</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
+                {projectData.youtube && (
+                  <Link href={projectData.youtube} target="_blank">
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsYoutube className="text-white text-3xl group-hover:text-accent"/>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Youtube Video</p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
@@ -327,7 +358,7 @@ const Work = () => {
                 <div className="border border-white/20"></div>
                 <div className="flex items-center gap-4">
                 {projectCloud.live && (
-                  <Link href={projectCloud.live}>
+                  <Link href={projectCloud.live} target="_blank">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
                         <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -341,7 +372,7 @@ const Work = () => {
                   </Link>
                   )}
                   {projectCloud.github && (
-                  <Link href={projectCloud.github}>
+                  <Link href={projectCloud.github} target="_blank">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
                         <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -355,7 +386,7 @@ const Work = () => {
                   </Link>
                   )}
                   {projectCloud.youtube && (
-                  <Link href={projectCloud.youtube}>
+                  <Link href={projectCloud.youtube} target="_blank">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
                         <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -397,7 +428,7 @@ const Work = () => {
             <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
               <div className="flex flex-col gap-[30px] h-[50%]">
                 <div className="text-8xl leading-none font-extrabold text-transparent text-outline">{projectDigital.num}</div>
-                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">{projectDigital.category} project</h2>
+                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">Digitalisation project</h2>
                 <p className="text-white/60">{projectDigital.description}</p>
                 <ul className="flex gap-4">
                   {projectDigital.stack.map((item,index) => {
@@ -409,7 +440,7 @@ const Work = () => {
                 <div className="border border-white/20"></div>
                 <div className="flex items-center gap-4">
                 {projectDigital.live && (
-                  <Link href={projectDigital.live}>
+                  <Link href={projectDigital.live} target="_blank">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
                         <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -423,7 +454,7 @@ const Work = () => {
                   </Link>
                 )}
                 {projectDigital.github && (
-                  <Link href={projectDigital.github}>
+                  <Link href={projectDigital.github} target="_blank">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
                         <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -437,7 +468,7 @@ const Work = () => {
                   </Link>
                 )}
                 {projectDigital.youtube && (
-                  <Link href={projectDigital.youtube}>
+                  <Link href={projectDigital.youtube} target="_blank">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
                         <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
