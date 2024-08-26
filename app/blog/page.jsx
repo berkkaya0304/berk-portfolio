@@ -14,7 +14,12 @@ const blog = {
       date: "Aug 5,2024",
       href:"https://medium.com/huawei-developers/publishing-your-go-application-with-codearts-f69b4b37f394",
     },
-
+    {
+      name: "Web Sitenizi Cloud Run’da Deploy Edin",
+      topic: "Cloud Run - Google Cloud",
+      date: "July 8,2024",
+      href:"https://medium.com/@techcareernet/web-sitenizi-cloud-runda-deploy-edin-7baa148fcbf6",
+    },
   ]
 }
 
