@@ -11,10 +11,10 @@ export default function SocialPage() {
         {/* Books Section */}
         <Card>
           <CardHeader>
-            <CardTitle>Books I've Read</CardTitle>
+            <CardTitle>Books I&apos;ve Read</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>Check out the books I’ve been reading recently.</p>
+            <p>Check out the books I&apos;ve been reading recently.</p>
           </CardContent>
           <CardFooter>
             <Button variant="outline" onClick={() => window.location.href = "/social/book"}>
@@ -26,10 +26,10 @@ export default function SocialPage() {
         {/* Movies Section */}
         <Card>
           <CardHeader>
-            <CardTitle>Movies I've Watched</CardTitle>
+            <CardTitle>Movies I&apos;ve Watched</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>Find out what movies I’ve watched.</p>
+            <p>Find out what movies I&apos;ve watched.</p>
           </CardContent>
           <CardFooter>
             <Button variant="outline" onClick={() => window.location.href = "/social/movies"}>
@@ -44,7 +44,7 @@ export default function SocialPage() {
             <CardTitle>Theaters and Plays</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>See the theaters and plays I’ve attended.</p>
+            <p>See the theaters and plays I&apos;ve attended.</p>
           </CardContent>
           <CardFooter>
             <Button variant="outline" onClick={() => window.location.href = "/social/theaters"}>
