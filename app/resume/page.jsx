@@ -1,6 +1,6 @@
 "use client";
 
-import {FaAngular, FaCloud, FaJava, FaPython, FaReact, FaUnity} from "react-icons/fa";
+import {FaAngular, FaCloud, FaJava, FaLinux, FaPython, FaReact, FaUnity} from "react-icons/fa";
 import {DiDocker} from "react-icons/di";
 import {SiFlutter, SiKubernetes} from "react-icons/si";
 import {TbSql} from "react-icons/tb";
@@ -507,6 +507,13 @@ const certifications = [
     image: "https://www.credly.com/badges/768174fe-fb58-420d-8237-ec733bd57193",
     category: "Cybersecurity",
   },
+  {
+    title: "AWS Cloud Technology Consultant",
+    issuer: "Amazon Web Services(AWS)",
+    date: "August 2024",
+    image: "https://coursera.org/share/0eab1c8c03e25e6b66066c53d0a8eb89",
+    category: "Cloud",
+  },
 ];
 
 
@@ -518,6 +525,10 @@ const skills = {
     {
       icon: <FaJava />,
       name: "Java",
+    },
+    {
+      icon: <FaLinux />,
+      name: "Linux",
     },
     {
       icon: <FaReact />,
