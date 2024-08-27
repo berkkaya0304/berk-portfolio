@@ -1,6 +1,6 @@
 "use client";
 
-import {FaAngular, FaCloud, FaJava, FaLinux, FaPython, FaReact, FaUnity} from "react-icons/fa";
+import {FaAngular, FaBitcoin, FaCloud, FaJava, FaLinux, FaPython, FaReact, FaUnity} from "react-icons/fa";
 import {DiDocker} from "react-icons/di";
 import {SiFlutter, SiKubernetes} from "react-icons/si";
 import {TbSql} from "react-icons/tb";
@@ -532,6 +532,10 @@ const skills = {
     {
       icon: <FaJava />,
       name: "Java",
+    },
+    {
+      icon: <FaBitcoin />,
+      name: "Blockchain",
     },
     {
       icon: <FaLinux />,
