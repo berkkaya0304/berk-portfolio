@@ -1,3 +1,5 @@
+"use client";
+
 import Photo from "@/components/Photo";
 import Social from "@/components/Social";
 import Stats from "@/components/Stats";
@@ -6,6 +8,21 @@ import {FiDownload} from "react-icons/fi";
 
 
 const Home = () => {
+
+
+  const handleDownload = () => {
+    // CV dosyasının yolu
+    const cvPath = '/cv/cv.pdf';
+    
+    // Yeni bir <a> elementi oluştur
+    const link = document.createElement('a');
+    link.href = cvPath;
+    link.download = 'cv.pdf'; // İndirilen dosyanın adı
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="h-full">
        <div className="container mx-auto">
@@ -18,6 +35,7 @@ const Home = () => {
             <p className="max-w-[500px] mb-9 text-white/80">Welcome to Future of Computer Sciences</p>
           <div className="flex flex-col xl:flex-row items-center gap-8">
             <Button
+             onClick={handleDownload}
              variant="outline"
              size="lg"
              className="uppercase flex items-center gap-2"
