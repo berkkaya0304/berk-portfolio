@@ -11,7 +11,7 @@ const Home = () => {
        <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span>Computer Scientist</span>
+            <span>AI-Powered Computer Scientist</span>
             <h1 className="h1">
               Hello I&apos;m <br/> <span className="text-accent">Berk Kaya</span>
             </h1>
