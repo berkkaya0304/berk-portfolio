@@ -23,6 +23,10 @@ const links = [
         path: "/work",
     },
     {
+        name: "social",
+        path: "/social",
+    },
+    {
         name: "blog",
         path: "/blog",
     },
