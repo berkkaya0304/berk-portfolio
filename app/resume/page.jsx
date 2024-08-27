@@ -514,6 +514,13 @@ const certifications = [
     image: "https://coursera.org/share/0eab1c8c03e25e6b66066c53d0a8eb89",
     category: "Cloud",
   },
+  {
+    title: "Strategic Leadership and Management",
+    issuer: "University of Illinois Urbana-Champaign",
+    date: "August 2024",
+    image: "https://coursera.org/share/eff189497ea493e984be533f2b422487",
+    category: "Social",
+  },
 ];
 
 
