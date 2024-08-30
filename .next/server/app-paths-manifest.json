@@ -1,7 +1,4 @@
 {
-  "/page": "app/page.js",
-  "/social/page": "app/social/page.js",
-  "/social/book/page": "app/social/book/page.js",
-  "/work/page": "app/work/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/resume/page": "app/resume/page.js"
 }
