@@ -281,7 +281,7 @@ const Work = () => {
                       <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
                         <div className="absolute top-0 bottom-0 w-full h-full "></div>
                         <div className="relative w-full h-full bg-black/10 z-10">
-                          <Image src={a.image} fill className="object-cover" alt=""/>
+                          <Image rel="preload" src={a.image} fill className="object-cover" alt=""/>
                         </div>
                       </div>
                     </SwiperSlide>
@@ -366,7 +366,7 @@ const Work = () => {
                       <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
                         <div className="absolute top-0 bottom-0 w-full h-full "></div>
                         <div className="relative w-full h-full bg-black/10 z-10">
-                          <Image src={b.image} fill className="object-cover" alt=""/>
+                          <Image rel="preload" src={b.image} fill className="object-cover" alt=""/>
                         </div>
                       </div>
                     </SwiperSlide>
@@ -448,7 +448,7 @@ const Work = () => {
                       <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
                         <div className="absolute top-0 bottom-0 w-full h-full "></div>
                         <div className="relative w-full h-full bg-black/10 z-10">
-                          <Image src={project.image} fill className="object-cover" alt=""/>
+                          <Image rel="preload" src={project.image} fill className="object-cover" alt=""/>
                         </div>
                       </div>
                     </SwiperSlide>
@@ -530,7 +530,7 @@ const Work = () => {
                       <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
                         <div className="absolute top-0 bottom-0 w-full h-full "></div>
                         <div className="relative w-full h-full bg-black/10 z-10">
-                          <Image src={project.image} fill className="object-cover" alt=""/>
+                          <Image rel="preload" src={project.image} fill className="object-cover" alt=""/>
                         </div>
                       </div>
                     </SwiperSlide>
