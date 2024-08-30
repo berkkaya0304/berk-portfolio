@@ -1,45 +1,79 @@
 "use client";
 
 import React from "react";
+import { motion } from 'framer-motion';
+import { Card, CardContent } from '@/components/ui/card';
 
-import CountUp from "react-countup";
 
 const today = new Date();
 
 const stats = [
   {
-    num: (today.getFullYear() - 2003),
+    num: today.getFullYear() - 2003,
     text: "Years Old",
+    icon: "🎂"
   },
   {
     num: 12,
     text: "Projects Completed",
+    icon: "🚀"
   },
   {
     num: 10,
-    text: "Technologies Mastered",
+    text: "Technologies Used",
+    icon: "💻"
   },
   {
     num: 225,
     text: "Code Commits",
+    icon: "📊"
   },
-]
+];
+
+const AnimatedNumber = ({ value }) => {
+  const [displayValue, setDisplayValue] = React.useState(0);
+
+  React.useEffect(() => {
+    let start = 0;
+    const end = parseInt(value);
+    const duration = 2000;
+    const increment = end / (duration / 16);
+
+    const timer = setInterval(() => {
+      start += increment;
+      if (start > end) start = end;
+      setDisplayValue(Math.floor(start));
+      if (start === end) clearInterval(timer);
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [value]);
+
+  return <span>{displayValue}</span>;
+};
 
 const Stats = () => {
   return (
-    <section>
-      <div className="container mx-auto mb-10">
-        <div className="flex flex-wrap gap-6 max-w-[80vw] mx-auto xl:max-w-none">
-          {stats.map((item,index) =>{
-            return(
-              <div
-              className="gap-4 flex-1 flex items-center justify-center xl:justify-start"
-              key={index}>
-                <CountUp end={item.num} duration={5} delay={2} className="text-4xl xl:text-6l font-extrabold"/>
-                <p className={`${item.text.length < 15 ? "max-w-[100px]" :"max-w-[150px]"} leading-snug text-white/80`}>{item.text}</p>
-              </div>
-              );
-          })}
+    <section className="mb-5">
+      <div className="container mx-auto ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {stats.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="bg-color border-none transition-shadow duration-300">
+                <CardContent className="p-6">
+                  <div className="text-4xl font-extrabold text-white mb-2">
+                    <AnimatedNumber value={item.num} />
+                  </div>
+                  <p className="text-lg text-white/80">{item.text}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
