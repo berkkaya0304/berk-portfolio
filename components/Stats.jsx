@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 
-
 const today = new Date();
 
 const stats = [
@@ -15,7 +14,7 @@ const stats = [
   },
   {
     num: 12,
-    text: "Projects Completed",
+    text: "Projects Done",
     icon: "🚀"
   },
   {
@@ -55,7 +54,7 @@ const AnimatedNumber = ({ value }) => {
 const Stats = () => {
   return (
     <section className="mb-5">
-      <div className="container mx-auto ">
+      <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((item, index) => (
             <motion.div
@@ -69,7 +68,10 @@ const Stats = () => {
                   <div className="text-4xl font-extrabold text-white mb-2">
                     <AnimatedNumber value={item.num} />
                   </div>
-                  <p className="text-lg text-white/80">{item.text}</p>
+                  <div className="flex items-center">
+                    <span className="text-lg mr-2">{item.icon}</span>
+                    <p className="text-lg text-white/80">{item.text}</p>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
