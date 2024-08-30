@@ -750,10 +750,11 @@ const Resume = () => {
         </ScrollArea>
       </div>
     </TabsContent>
-          <TabsContent value="soft" className="w-full">
+          <TabsContent value="soft" className="w-full text-center">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{soft.title}</h3>
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{soft.description}</p>
+                <div className="flex justify-center">
                 <a
   href="https://drive.google.com/drive/folders/1uJ1czvD6T6Qjjam6DUVmogb6_n6suD8l"
   target="_blank"
@@ -761,17 +762,17 @@ const Resume = () => {
 >
 <Button
                 href="https://drive.google.com/drive/folders/1uJ1czvD6T6Qjjam6DUVmogb6_n6suD8l"
+                className="w-full sm:w-auto"
                 >
-                Inventory of Personality and Resilience Results (in Turkish)
+                Click Here For All Results (Turkish)
                 </Button>
 </a>
-
-                <ScrollArea>
+</div>
                 <ul className="grid grid-cols-1 gap-[30px]">
             {soft.skills.map((skill, index) => (
               <li
                 key={index}
-                className="bg-[#232329] min-w-[370px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-2"
+                className="bg-[#232329] w-full sm:min-w-[370px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-2"
               >
                 <h3 className="text-xl max-w-[370px] min-h-[35px] text-center lg:text-left">
                   {skill.name}
@@ -792,7 +793,6 @@ const Resume = () => {
               </li>
             ))}
           </ul>
-                </ScrollArea>
               </div>
              </TabsContent>
           <TabsContent value="ambassador" className="w-full">
