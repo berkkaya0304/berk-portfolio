@@ -20,6 +20,12 @@ const blog = {
       date: "July 8,2024",
       href:"https://medium.com/@techcareernet/web-sitenizi-cloud-runda-deploy-edin-7baa148fcbf6",
     },
+    {
+      name: "Effective Leadership and Cornerstones",
+      topic: "Leadership",
+      date: "August 29,2024",
+      href:"https://medium.com/@berkkaya0304/effective-leadership-and-cornerstones-a8fb4299cd94",
+    },
   ]
 }
 
