@@ -5,6 +5,7 @@ import {DiDocker} from "react-icons/di";
 import {SiFlutter, SiKubernetes} from "react-icons/si";
 import {TbSql} from "react-icons/tb";
 import { BiLogoSpringBoot } from "react-icons/bi";
+import Image from "next/image";
 
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 
@@ -90,6 +91,34 @@ const experience = {
     ]
 }
 
+const voluntarilyWorks = {
+  icon: "/assets/resume/badge.svg",
+  title: "Voluntarily Work Journey",
+  description:
+  "In this section, you can find information about mu voluntarily works.",
+  items: [
+    {
+      company: "Leader Development Program",
+      position: "Website Team Leader",
+      duration: "October 2023 - October 2024",
+      time: "(1 year)"
+    },
+    {
+      company: "Tübitak Project",
+      position: "Contributor",
+      duration: "October 2023 - August 2024",
+      time: "(11 months)"
+    },
+    {
+      company: "TEDU Science & Technology",
+      position: "President",
+      duration: "July 2022 - August 2023",
+      time: "(1 year 1 month)"
+    },
+  ]
+}
+
+
 const education = {
   icon: "/assets/resume/cap.svg",
   title: "Education Journey",
@@ -115,6 +144,59 @@ const education = {
       institution: "TED University",
       degree: "English Preparation",
       duration: "September 2021 - July 2022"
+    },
+  ]
+}
+
+const soft = {
+  title: "Soft Skills",
+  description:
+  "This page shows you my soft skills. You can access the Turkish test results by clicking the button below.",
+  skills: [
+    {
+      name: "Self-Management",
+      rating: 100,
+      description: "Resilience",
+    },
+    {
+      name: "Self-Competence",
+      rating: 90,
+      description: "Resilience",
+    },
+    {
+      name: "Coping with Stress",
+      rating: 95,
+      description: "Resilience",
+    },
+    {
+      name: "Managing Emotions",
+      rating: 98,
+      description: "Resilience",
+    },
+    {
+      name: "Managing Relationships",
+      rating: 100,
+      description: "Resilience",
+    },
+    {
+      name: "Goal Focus, Planning",
+      rating: 99,
+      description: "Resilience",
+    },
+    {
+      name: "Building Close Relationships",
+      rating: 87,
+      description: "Personality",
+    },
+    {
+      name: "Stress Level",
+      rating: 39,
+      description: "Personality",
+    },
+    {
+      name: "Thought Orientation",
+      rating: 96,
+      description: "Personality",
     },
   ]
 }
@@ -148,6 +230,11 @@ const ambassador = {
 
   ]
 }
+
+const referencesList = [
+  // Daha fazla referans ekleyebilirsiniz
+];
+
 
 const certifications = [
   {
@@ -616,18 +703,98 @@ const Resume = () => {
       <div className="container mx-auto mb-10">
         <Tabs
         defaultValue="experience"
-        className="flex flex-col xl:flex-row gap-[60px]"
+        className="flex flex-col xl:flex-row gap-[60px] xl:h-[650px]"
         >
           <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
-            <TabsTrigger value="skills">Skills</TabsTrigger>
+            <TabsTrigger value="voluntarily">Voluntarily Works</TabsTrigger>
+            <TabsTrigger value="skills">Technical Skills</TabsTrigger>
+            <TabsTrigger value="soft">Soft Skills</TabsTrigger>
             <TabsTrigger value="ambassador">Ambassador</TabsTrigger>
             <TabsTrigger value="Certifications">Certifications</TabsTrigger>
             <TabsTrigger value="about">About Me</TabsTrigger>
+            <TabsTrigger value="reference">References</TabsTrigger>
           </TabsList>
 
           <div className="min-h-[70vh] w-full">
+          <TabsContent value="reference" className="w-full">
+      <div className="flex flex-col gap-[30px] text-center xl:text-left">
+        <h3 className="text-4xl font-bold">References</h3>
+        <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+         Valuable insights about my professional competencies
+        </p>
+        <ScrollArea className="h-[600px]">
+          <ul className="grid grid-cols-1 gap-[30px]">
+            {referencesList.map((reference, index) => (
+              <li
+                key={index}
+                className="bg-[#232329] min-w-[370px] py-6 px-10 rounded-xl flex flex-row items-center gap-6"
+              >
+                <div className="w-24 h-24 relative rounded-full overflow-hidden">
+                  <Image
+                    src={reference.image}
+                    alt={reference.name}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-xl font-semibold">{reference.name}</h3>
+                  <p className="text-white/60 text-sm">{reference.position}</p>
+                  <p className="text-white/80 text-justify mt-2">{reference.testimonial}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </ScrollArea>
+      </div>
+    </TabsContent>
+          <TabsContent value="soft" className="w-full">
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">{soft.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{soft.description}</p>
+                <a
+  href="https://drive.google.com/drive/folders/1uJ1czvD6T6Qjjam6DUVmogb6_n6suD8l"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+<Button
+                href="https://drive.google.com/drive/folders/1uJ1czvD6T6Qjjam6DUVmogb6_n6suD8l"
+                >
+                Inventory of Personality and Resilience Results (in Turkish)
+                </Button>
+</a>
+
+                <ScrollArea>
+                <ul className="grid grid-cols-1 gap-[30px]">
+            {soft.skills.map((skill, index) => (
+              <li
+                key={index}
+                className="bg-[#232329] min-w-[370px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-2"
+              >
+                <h3 className="text-xl max-w-[370px] min-h-[35px] text-center lg:text-left">
+                  {skill.name}
+                </h3>
+                <div className="flex items-center gap-3">
+                  <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                  <p className="max-w-[370px] text-white/60">Rating: {skill.rating}/100</p>
+                </div>
+                <div className="w-full bg-gray-700 rounded-full h-2.5 mt-2">
+                  <div
+                    className="bg-accent h-2.5 rounded-full"
+                    style={{ width: `${skill.rating}%` }}
+                  ></div>
+                </div>
+                <div className="flex items-center justify-center mt-2">
+                  <p className="text-white/60 text-justify">{skill.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+                </ScrollArea>
+              </div>
+             </TabsContent>
           <TabsContent value="ambassador" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{ambassador.title}</h3>
@@ -712,6 +879,26 @@ const Resume = () => {
                 <ScrollArea></ScrollArea>
                 <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                    {experience.items.map((item,index) => {
+                    return (<li key={index} className="bg-[#232329] min-w-[370px] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:item-start gap-2">
+                      <span className="text-accent gap-[50px]">{item.duration}</span>
+                      <span className="text-accent">{item.time}</span>
+                      <h3 className="text-xl max-w-[370px] min-h-[35px] text-center lg:text-left">{item.position}</h3>
+                      <div className="flex items-center gap-3">
+                        <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                        <p className="max-w-[370px] text-white/60">{item.company}</p>
+                      </div>
+                    </li>);
+                   })}
+                </ul>
+              </div>
+             </TabsContent>
+             <TabsContent value="voluntarily" className="w-full">
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">{voluntarilyWorks.title}</h3>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{voluntarilyWorks.description}</p>
+                <ScrollArea></ScrollArea>
+                <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
+                   {voluntarilyWorks.items.map((item,index) => {
                     return (<li key={index} className="bg-[#232329] min-w-[370px] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:item-start gap-2">
                       <span className="text-accent gap-[50px]">{item.duration}</span>
                       <span className="text-accent">{item.time}</span>

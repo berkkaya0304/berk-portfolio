@@ -11,21 +11,15 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/social/page": [
+    "/resume/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/social/page.js"
+      "static/chunks/app/resume/page.js"
     ],
-    "/social/book/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/social/book/page.js"
-    ],
-    "/work/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/work/page.css",
-      "static/chunks/app/work/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }
