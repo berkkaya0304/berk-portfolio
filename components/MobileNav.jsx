@@ -28,7 +28,7 @@ const links = [
     },
     {
         name: "blog",
-        path: "/blog",
+        path: "https://blog.berkkaya.me",
     },
     {
         name: "contact",
