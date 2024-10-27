@@ -1,22 +1,25 @@
 "use client";
 import { useState } from 'react';
-import { ChevronUp, ChevronDown, Camera, Award } from 'lucide-react';
+import { ChevronUp, ChevronDown, Camera, Award, Link as LinkIcon } from 'lucide-react';
 
 const SAMPLE_TIMELINE_DATA = [
   {
     id: 1,
     title: "Full Stack Development Bootcamp",
     company: "Kodluyoruz",
+    companyLogo: "/api/placeholder/100/100", // Opsiyonel
     date: "Ocak 2024 - Mart 2024",
     description: "JavaScript, React, Node.js ve MongoDB ile web uygulamaları geliştirme",
     skills: ["JavaScript", "React", "Node.js", "MongoDB"],
-    photo: "/api/placeholder/400/300",
-    certificate: "/api/placeholder/400/300"
+    photo: "/api/placeholder/400/300", // Opsiyonel
+    certificate: {  // Opsiyonel
+      image: "/api/placeholder/400/300",
+      link: "https://example.com/certificate" // Opsiyonel
+    }
   },
 ];
 
 const TimelineItem = ({ data, isExpanded, onToggle }) => {
-  // ID'ye göre pozisyon belirleme - tek sayılar sola, çift sayılar sağa
   const isLeft = data.id % 2 === 1;
   
   return (
@@ -36,9 +39,20 @@ const TimelineItem = ({ data, isExpanded, onToggle }) => {
             </button>
           </div>
           
-          <div className="mb-2">
-            <p className="text-[#00dcff] font-medium">{data.company}</p>
-            <p className="text-gray-400 text-sm">{data.date}</p>
+          <div className="flex items-center gap-4 mb-2">
+            {data.companyLogo && (
+              <div className="w-12 h-12 rounded-full overflow-hidden border border-[#00dcff]">
+                <img 
+                  src={data.companyLogo} 
+                  alt={`${data.company} logo`} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+            <div>
+              <p className="text-[#00dcff] font-medium">{data.company}</p>
+              <p className="text-gray-400 text-sm">{data.date}</p>
+            </div>
           </div>
 
           <div className={`transition-all duration-300 overflow-hidden ${isExpanded ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
@@ -55,40 +69,72 @@ const TimelineItem = ({ data, isExpanded, onToggle }) => {
               ))}
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="relative group">
-                <div className="relative overflow-hidden rounded-lg border border-[#00dcff] group-hover:border-[#00e187] transition-colors">
-                  <img 
-                    src={data.photo} 
-                    alt="Program photo" 
-                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-[#1c1c22] bg-opacity-0 group-hover:bg-opacity-50 transition-opacity flex items-center justify-center">
-                    <Camera className="text-[#00e187] opacity-0 group-hover:opacity-100 transition-opacity" />
+            {(data.photo || data.certificate) && (
+              <div className="grid grid-cols-2 gap-4">
+                {data.photo && (
+                  <div className="relative group">
+                    <div className="relative overflow-hidden rounded-lg border border-[#00dcff] group-hover:border-[#00e187] transition-colors">
+                      <img 
+                        src={data.photo} 
+                        alt="Program photo" 
+                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-[#1c1c22] bg-opacity-0 group-hover:bg-opacity-50 transition-opacity flex items-center justify-center">
+                        <Camera className="text-[#00e187] opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-400 mt-1">Program Photo</p>
                   </div>
-                </div>
-                <p className="text-sm text-gray-400 mt-1">Program Photo</p>
-              </div>
-              
-              <div className="relative group">
-                <div className="relative overflow-hidden rounded-lg border border-[#00dcff] group-hover:border-[#00e187] transition-colors">
-                  <img 
-                    src={data.certificate} 
-                    alt="Certificate" 
-                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-[#1c1c22] bg-opacity-0 group-hover:bg-opacity-50 transition-opacity flex items-center justify-center">
-                    <Award className="text-[#00e187] opacity-0 group-hover:opacity-100 transition-opacity" />
+                )}
+                
+                {data.certificate?.image && (
+                  <div className="relative group">
+                    {data.certificate.link ? (
+                      <a 
+                        href={data.certificate.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block"
+                      >
+                        <div className="relative overflow-hidden rounded-lg border border-[#00dcff] group-hover:border-[#00e187] transition-colors">
+                          <img 
+                            src={data.certificate.image} 
+                            alt="Certificate" 
+                            className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-[#1c1c22] bg-opacity-0 group-hover:bg-opacity-50 transition-opacity flex items-center justify-center gap-2">
+                            <Award className="text-[#00e187] opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <LinkIcon className="text-[#00e187] opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </div>
+                        </div>
+                        <p className="text-sm text-gray-400 mt-1 flex items-center gap-1">
+                          Certificate 
+                          <LinkIcon size={12} className="text-[#00dcff]" />
+                        </p>
+                      </a>
+                    ) : (
+                      <>
+                        <div className="relative overflow-hidden rounded-lg border border-[#00dcff] group-hover:border-[#00e187] transition-colors">
+                          <img 
+                            src={data.certificate.image} 
+                            alt="Certificate" 
+                            className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-[#1c1c22] bg-opacity-0 group-hover:bg-opacity-50 transition-opacity flex items-center justify-center">
+                            <Award className="text-[#00e187] opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </div>
+                        </div>
+                        <p className="text-sm text-gray-400 mt-1">Certificate</p>
+                      </>
+                    )}
                   </div>
-                </div>
-                <p className="text-sm text-gray-400 mt-1">Certificate</p>
+                )}
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
 
-      {/* Timeline nokta */}
       <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-[#00dcff] rounded-full border-4 border-[#1c1c22] shadow hover:bg-[#00e187] transition-colors" />
     </div>
   );
@@ -114,12 +160,10 @@ const EducationTimeline = () => {
       <h2 className="text-3xl font-bold text-center mb-12 text-white">Programs That I Attended</h2>
       
       <div className="relative">
-        {/* Timeline çizgisi */}
         <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#00dcff] hover:bg-[#00e187] transition-colors">
           <div className="absolute w-full h-full animate-pulse bg-[#1c1c22] mix-blend-overlay" />
         </div>
 
-        {/* Timeline içeriği */}
         <div className="relative">
           {SAMPLE_TIMELINE_DATA.map((item) => (
             <TimelineItem

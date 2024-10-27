@@ -1,5 +1,6 @@
 "use client";
 
+import AnimatedTitle from "@/components/AnimatedTitle/AnimatedTitle";
 import Photo from "@/components/Photo";
 import Social from "@/components/Social";
 import Stats from "@/components/Stats";
@@ -8,6 +9,11 @@ import {FiDownload} from "react-icons/fi";
 
 
 const Home = () => {
+
+  const titles = ['Computer Scientist', 'Software Engineer', 'Computer Engineer'];
+  const titles2 = ['Computer Sciences', 'Software Engineering', 'Computer Engineering'];
+  const first = "AI Powered";
+  const first2 = "Welcome to Future of ";
 
 
   const handleDownload = () => {
@@ -28,11 +34,13 @@ const Home = () => {
        <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span>AI-Powered Computer Scientist</span>
+            <AnimatedTitle titles={titles} first={first}/>
             <h1 className="h1">
-              Hello I&apos;m <br/> <span className="text-accent">Berk Kaya</span>
+              Hello I&apos;m <br/> <span className="text-accent typewriter-text">Berk Kaya</span>
             </h1>
-            <p className="max-w-[500px] mb-9 text-white/80">Welcome to Future of Computer Sciences</p>
+            <p className="max-w-[500px] mb-9 text-white/80">
+            <AnimatedTitle titles={titles2} first={first2}/>
+            </p>
           <div className="flex flex-col xl:flex-row items-center gap-8">
             <Button
              onClick={handleDownload}

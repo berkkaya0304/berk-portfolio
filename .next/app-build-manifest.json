@@ -16,31 +16,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/program/page.js"
     ],
-    "/social/page": [
+    "/services/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/social/page.js"
-    ],
-    "/work/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/work/page.css",
-      "static/chunks/app/work/page.js"
-    ],
-    "/social/book/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/social/book/page.js"
-    ],
-    "/social/movies/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/social/movies/page.js"
-    ],
-    "/social/theaters/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/social/theaters/page.js"
+      "static/chunks/app/services/page.js"
     ]
   }
 }

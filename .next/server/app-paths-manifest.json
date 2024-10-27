@@ -1,7 +1,7 @@
 {
-  "/program/page": "app/program/page.js",
   "/page": "app/page.js",
-  "/social/page": "app/social/page.js",
-  "/work/page": "app/work/page.js",
-  "/social/movies/page": "app/social/movies/page.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/program/page": "app/program/page.js",
+  "/services/page": "app/services/page.js",
+  "/resume/page": "app/resume/page.js"
 }
