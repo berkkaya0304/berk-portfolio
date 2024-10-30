@@ -31,6 +31,16 @@ const SAMPLE_TIMELINE_DATA = [
       link: "https://www.linkedin.com/posts/berkkaya_leader-development-program-activity-7254493460559224832-PADf?utm_source=share&utm_medium=member_desktop"
     }
   },
+  {
+    id: 3,
+    title: "Huawei Coding Marathon'24",
+    company: "Huawei",
+    companyLogo: "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Huawei_Standard_logo.svg/1200px-Huawei_Standard_logo.svg.png",
+    date: "September 2024",
+    description: "Made a Coding Project about SDG 12",
+    skills: ["Coding","Project Management"],
+    photo: "https://media.licdn.com/dms/image/v2/D4D22AQFIc_R7llGhLQ/feedshare-shrink_800/feedshare-shrink_800/0/1728830298187?e=1733356800&v=beta&t=c4CEA7VLbQwHcwwPCPH1eSI0_jjpv5XkLE3_MVR4U2c",
+  },
 ];
 
 const TimelineItem = ({ data, isExpanded, onToggle }) => {
