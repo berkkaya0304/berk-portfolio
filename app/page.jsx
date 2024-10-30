@@ -38,9 +38,7 @@ const Home = () => {
             <h1 className="h1">
               Hello I&apos;m <br/> <span className="text-accent typewriter-text">Berk Kaya</span>
             </h1>
-            <p className="max-w-[500px] mb-9 text-white/80">
             <AnimatedTitle titles={titles2} first={first2}/>
-            </p>
           <div className="flex flex-col xl:flex-row items-center gap-8">
             <Button
              onClick={handleDownload}
