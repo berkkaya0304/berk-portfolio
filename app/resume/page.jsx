@@ -60,6 +60,18 @@ const experience = {
     items: [
       {
         company: "Huawei",
+        position: "Cloud Engineer Long Term Intern",
+        duration: "September 2024 - January 2025",
+        time: "(5 months)"
+      },
+      {
+        company: "Basarsoft",
+        position: "Computer Engineer Intern",
+        duration: "August 2024 - September 2024",
+        time: "(2 months)"
+      },
+      {
+        company: "Huawei",
         position: "Cloud Engineer Intern",
         duration: "July 2024 - August 2024",
         time: "(2 months)"
@@ -97,6 +109,12 @@ const voluntarilyWorks = {
   description:
   "In this section, you can find information about mu voluntarily works.",
   items: [
+    {
+      company: "Model Courts of Justice",
+      position: "Director of IT & Design",
+      duration: "September 2024 - September 2025",
+      time: "(1 year)"
+    },
     {
       company: "Leader Development Program",
       position: "Website Team Leader",
@@ -208,17 +226,17 @@ const ambassador = {
   items: [
     {
       company: "IBM",
+      topic: "Z Captain",
+      duration: "September 2024 - Present",
+      description: " I am one of the 6 captain ambassadors who will lead 150+ ambassadors this year.",
+      level: "(Level 4 - Highest Level)"
+    },
+    {
+      company: "IBM",
       topic: "Z Student Ambassador",
       duration: "November 2023 - Present",
       description: "The IBM Z Student Ambassador program is a global community of university students passionate about technology. Through hands-on learning, mentorship, and networking opportunities, ambassadors gain the skills and experience they need to succeed in the tech industry.",
       level: "(Level 4 - Highest Level)"
-    },
-    {
-      company: "Microsoft",
-      topic: "Student Ambassador",
-      duration: "November 2023 - Present",
-      description: "As a Microsoft Learn Student Ambassador, you'll gain hands-on experience with Microsoft technologies like Azure, Windows, and Office 365 while developing essential skills for the tech industry, including problem-solving, communication, and teamwork. You'll also have the chance to connect with a diverse network of students, Microsoft employees, and industry leaders. By sharing your knowledge, you'll make a meaningful impact by helping others learn and grow.",
-      level: "(Alpha)"
     },
     {
       company: "Xbox",
@@ -226,6 +244,13 @@ const ambassador = {
       duration: "September 2023 - Present",
       description: "The Xbox Ambassador program is a community of gamers who are passionate about making gaming fun for everyone.",
       level: "Level 2"
+    },
+    {
+      company: "Microsoft",
+      topic: "Student Ambassador",
+      duration: "November 2023 - September 2024",
+      description: "As a Microsoft Learn Student Ambassador, you'll gain hands-on experience with Microsoft technologies like Azure, Windows, and Office 365 while developing essential skills for the tech industry, including problem-solving, communication, and teamwork. You'll also have the chance to connect with a diverse network of students, Microsoft employees, and industry leaders. By sharing your knowledge, you'll make a meaningful impact by helping others learn and grow.",
+      level: "(Alpha)"
     },
 
   ]
