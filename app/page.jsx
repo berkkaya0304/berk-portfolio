@@ -10,8 +10,8 @@ import {FiDownload} from "react-icons/fi";
 
 const Home = () => {
 
-  const titles = ['Computer Scientist', 'Software Engineer', 'Computer Engineer'];
-  const titles2 = ['Computer Sciences', 'Software Engineering', 'Computer Engineering'];
+  const titles = ['Computer Scientist', 'Software Eng.', 'Computer Eng.'];
+  const titles2 = ['Computer Sciences', 'Software Eng.', 'Computer Eng.'];
   const first = "AI Powered";
   const first2 = "Welcome to Future of ";
 
