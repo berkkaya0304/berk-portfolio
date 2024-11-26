@@ -13,9 +13,9 @@ const JetBrains_mono = JetBrains_Mono({
   variable: "--font-jetbrainsMono",
 });
 
-export const metadata = {
-  title: "Berk Kaya | Crafting Technology Solutions with Expertise in Engineering",
-  description: "Berk Kaya - Computer Scientist | Engineer | Developer",
+const metadata = {
+  title: "Berk Kaya | Computer Engineer | Crafting Technology Solutions",
+  description: "Welcome to Berk Kaya's portfolio, where innovation meets expertise. As a computer scientist, engineer, and software developer, I specialize in creating cutting-edge solutions that blend technology and creativity. Explore my projects, skills, and professional journey, showcasing a dedication to software development, cloud computing, and impactful design. Let's build the future together.",
 };
 
 export default function RootLayout({ children }) {
