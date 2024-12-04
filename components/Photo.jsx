@@ -19,7 +19,7 @@ const Photo = () => {
     }}
     >
       <div className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute">
-        <Image  rel="preload" src ="https://i.hizliresim.com/nnnztwo.png" priority quality={100} fill alt="Berk Kaya's Photo" className="object-contain"/>
+        <Image  width={500} height={500} rel="preload" src ="https://i.hizliresim.com/nnnztwo.png" priority quality={100} alt="Berk Kaya's Photo" className="object-contain"/>
       </div>
     </motion.div>
 
