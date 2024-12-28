@@ -9,18 +9,25 @@ const socials = [
      {icon: <FaInstagram />, path:"https://www.instagram.com/ber.kaya_"},
 ]
 
-const Social = ({containderStyles, iconStyles}) => {
+const Social = () => {
   return (
-    <div className={containderStyles}>
-      {socials.map((item,index) => {
-        return (
-        <Link key={index} href={item.path} className={iconStyles}>
-        {item.icon}
-        </Link>
-      );
-      })}
+    <div className="h-[50px]">
+      <div className="flex space-x-4">
+        {socials.map((item,index) => {
+          return (
+            <a 
+              key={index} 
+              href={item.path} 
+              className="w-10 h-10 flex items-center justify-center"
+              aria-label="Social Link"
+            >
+              {item.icon}
+            </a>
+          );
+        })}
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Social
