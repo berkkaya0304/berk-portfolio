@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,8 +10,6 @@ const ProgramCard = ({ program }) => {
     <motion.div 
       className="bg-white rounded-lg shadow-lg overflow-hidden h-full"
       style={{ aspectRatio: '3/4' }}
-      role="article"
-      aria-label={`Program: ${program.title}`}
     >
       <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
         <Image
@@ -54,16 +50,8 @@ const ProgramCard = ({ program }) => {
 
           {program.certificate?.link && (
             <div className="mt-2">
-              <Link 
-                href={program.certificate.link} 
-                target="_blank" 
-                className="w-full"
-                aria-label={`View details for ${program.title}`}
-              >
-                <Button 
-                  className="w-full bg-accent hover:bg-accent/90"
-                  aria-label={`View details for ${program.title} program`}
-                >
+              <Link href={program.certificate.link} target="_blank" className="w-full">
+                <Button className="w-full bg-accent hover:bg-accent/90">
                   View Details
                 </Button>
               </Link>
