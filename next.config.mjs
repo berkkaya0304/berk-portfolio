@@ -9,6 +9,17 @@ const nextConfig = {
               pathname: '/**',  // Bu, tüm yolları kapsar. Belirli bir yol veya desen tanımlamak istiyorsanız burayı düzenleyin
             },
           ],
+        domains: [
+            'upload.wikimedia.org',
+            'www.lidergelisim.com',
+            'cdn.sahaexpo.com',
+            'encrypted-tbn0.gstatic.com',
+            'www.huawei-university.com',
+            'cdn.cookielaw.org',
+            'iakademi.com',
+            'media.licdn.com',
+            'i.ibb.co'
+        ],
     },
 };
 

@@ -1,0 +1,9 @@
+export { default as ResumeAbout } from './ResumeAbout';
+export { default as ResumeEducation } from './ResumeEducation';
+export { default as ResumeSkills } from './ResumeSkills';
+export { default as ResumeVoluntarily } from './ResumeVoluntarily';
+export { default as ResumeExperience } from './ResumeExperience';
+export { default as ResumeAmbassador } from './ResumeAmbassador';
+export { default as ResumeCertifications } from './ResumeCertifications';
+export { default as ResumeSoftSkills } from './ResumeSoftSkills';
+export { default as ResumeReferences } from './ResumeReferences'; 
