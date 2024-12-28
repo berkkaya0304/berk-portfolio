@@ -64,13 +64,13 @@ const Resume = () => {
           <div className="min-h-[70vh] w-full">
           <TabsContent value="reference" className="w-full">
             <ResumeReferences referencesList={referencesList} />
-    </TabsContent>
+          </TabsContent>
           <TabsContent value="soft" className="w-full text-center">
             <ResumeSoftSkills soft={soft} />
-             </TabsContent>
+          </TabsContent>
           <TabsContent value="ambassador" className="w-full">
               <ResumeAmbassador ambassador={ambassador} />
-             </TabsContent>
+          </TabsContent>
              <TabsContent value="Certifications" className="w-full text-center xl:text-justify">
              <ResumeCertifications 
                certifications={certifications}
