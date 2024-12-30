@@ -22,7 +22,7 @@ export const about = {
       fieldValue: "2+ Years",
     },
     {
-      fieldName: "Discord",
+      fieldName: "Steam",
       fieldValue: "loadonline",
     },
     {
@@ -242,7 +242,7 @@ export const ambassador = {
 };
 
 export const skills = {
-  title: "My Skills",
+  title: "Technical Skills",
   description: "In this section, you can see which technologies I can use in general and that I have created at least 1 project.",
   skillList: [
     {
@@ -304,7 +304,14 @@ export const skills = {
   ]
 };
 
-export const referencesList = [];
+export const referencesList = [
+  {
+    name: "İlker Canbulut",
+    position: "Leader Development Program Creator",
+    image: "/assets/resume/references/ilkercanbulut.jpg",
+    testimonial: "Berk Kaya is a responsible individual excelling in leadership and teamwork, capable of producing innovative solutions through a multidisciplinary perspective. With his ability to see the big picture, focus on details, and inspire trust, he is poised to become a valuable leader of the future."
+  },
+];
 
 export const certifications = [
   {

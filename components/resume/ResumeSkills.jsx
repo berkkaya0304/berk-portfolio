@@ -1,32 +1,58 @@
-import ResumeLayout from "./ResumeLayout";
+"use client";
+
+import { motion } from "framer-motion";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
-const SkillItem = ({ skill }) => (
-  <li>
-    <TooltipProvider delayDuration={100}>
-      <Tooltip>
-        <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
-          <div className="text-6xl group-hover:text-accent transition-all duration-300">
-            {skill.icon}
-          </div>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p className="capitalize">{skill.name}</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
-  </li>
+const SkillItem = ({ skill, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.1 * index }}
+    className="relative group"
+  >
+    {/* Glow Effect */}
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-700 rounded-2xl blur-md opacity-20 group-hover:opacity-30 transition-opacity" />
+
+    {/* Card Content */}
+    <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm rounded-2xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300 h-full">
+      <TooltipProvider delayDuration={100}>
+        <Tooltip>
+          <TooltipTrigger className="w-full h-[150px] flex justify-center items-center">
+            <div className="text-6xl text-blue-300 group-hover:text-blue-400 transition-all duration-300">
+              {skill.icon}
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p className="capitalize">{skill.name}</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    </div>
+  </motion.div>
 );
 
-const ResumeSkills = ({ skills }) => {
+const ResumeSkills = ({ skills = { skillList: [] } }) => {
+  if (!skills?.skillList || skills.skillList.length === 0) {
+    return null;
+  }
+
   return (
-    <ResumeLayout title={skills.title} description={skills.description}>
-      <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 gap-[30px]">
+    <div className="space-y-8">
+      {/* Başlık ve Açıklama */}
+      <div className="text-center mb-8">
+        <h2 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
+          {skills.title}
+        </h2>
+        <p className="text-blue-400/60 max-w-3xl mx-auto">{skills.description}</p>
+      </div>
+
+      {/* Skills Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {skills.skillList.map((skill, index) => (
-          <SkillItem key={index} skill={skill} />
+          <SkillItem key={index} skill={skill} index={index} />
         ))}
-      </ul>
-    </ResumeLayout>
+      </div>
+    </div>
   );
 };
 

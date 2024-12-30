@@ -34,9 +34,9 @@ const Resume = () => {
     setSelectedCategory(value);
   };
 
-  const filteredCertifications = certifications.filter(
-    (cert) => cert.category === selectedCategory
-  );
+  const filteredCertifications = selectedCategory
+    ? certifications.filter((cert) => cert.category === selectedCategory)
+    : certifications;
 
   return (
     <motion.section
@@ -83,25 +83,25 @@ const Resume = () => {
                 "experience",
                 "education",
                 "voluntarily",
-                "skills",
-                "soft",
+                "technical skills",
+                "soft skills",
                 "ambassador",
-                "Certifications",
+                "certifications",
                 "about",
-                "reference"
+                "references"
               ].map((tab) => (
                 <TabsTrigger
                   key={tab}
-                  value={tab}
+                  value={tab === "technical skills" ? "skills" : tab === "soft skills" ? "soft" : tab}
                   className="w-full px-6 py-4 rounded-xl data-[state=active]:bg-gradient-to-r from-blue-400 to-blue-700 data-[state=active]:text-white transition-all duration-300"
                 >
-                  {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                  {tab.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                 </TabsTrigger>
               ))}
             </TabsList>
 
-            <div className="flex-1 min-h-[600px]">
-              <TabsContent value="reference" className="h-full">
+            <div className="flex-1 min-h-[700px]">
+              <TabsContent value="references" className="h-full">
                 <ResumeReferences referencesList={referencesList} />
               </TabsContent>
               <TabsContent value="soft" className="h-full">
@@ -110,7 +110,7 @@ const Resume = () => {
               <TabsContent value="ambassador" className="h-full">
                 <ResumeAmbassador ambassador={ambassador} />
               </TabsContent>
-              <TabsContent value="Certifications" className="h-full">
+              <TabsContent value="certifications" className="h-full">
                 <ResumeCertifications
                   certifications={certifications}
                   selectedCategory={selectedCategory}
@@ -119,13 +119,13 @@ const Resume = () => {
                 />
               </TabsContent>
               <TabsContent value="experience" className="h-full">
-                <ResumeExperience experience={experience} />
+                <ResumeExperience experiences={experience} />
               </TabsContent>
               <TabsContent value="voluntarily" className="h-full">
                 <ResumeVoluntarily voluntarilyWorks={voluntarilyWorks} />
               </TabsContent>
               <TabsContent value="education" className="h-full">
-                <ResumeEducation education={education} />
+                <ResumeEducation educations={education} />
               </TabsContent>
               <TabsContent value="skills" className="h-full">
                 <ResumeSkills skills={skills} />
