@@ -43,7 +43,7 @@ const BookList = () => {
             Book List
           </h1>
           <p className="text-blue-400/80 text-lg max-w-2xl mx-auto">
-            Books I've read and my reading journey
+            Books I&apos;ve read and my reading journey
           </p>
         </motion.div>
 
