@@ -32,7 +32,7 @@ export const programs = [
         date: "September 2024",
         description: "Made a Coding Project about SDG 12",
         skills: ["Coding","Project Management"],
-        photo: "https://media.licdn.com/dms/image/v2/D4D22AQFIc_R7llGhLQ/feedshare-shrink_800/feedshare-shrink_800/0/1728830298187?e=1733356800&v=beta&t=c4CEA7VLbQwHcwwPCPH1eSI0_jjpv5XkLE3_MVR4U2c",
+        photo: "https://www.linkedin.com/posts/berkkaya_coding-marathon-software-activity-7251239838203478017-SCI_?utm_source=share&utm_medium=member_desktop",
       },
       {
         title: "Defence Industry 401",
@@ -41,12 +41,12 @@ export const programs = [
         date: "September 2024",
         description: "Getting info about Defence Industry in Turkiye",
         skills: ["Defence Industry"],
-        photo: "https://media.licdn.com/dms/image/v2/D4D22AQF-Bm75vnLmRw/feedshare-shrink_800/feedshare-shrink_800/0/1727885588327?e=1733356800&v=beta&t=V-O3G4l2_8nj9MpCuLFL6UhtNzGUmVcNYJVVH7cm3mU",
+        photo: "https://www.linkedin.com/posts/berkkaya_defence-industry-activity-7247500647145607168-cqdX?utm_source=share&utm_medium=member_desktop",
       },
       {
         title: "Aselsan Work Life 101",
         company: "Aselsan",
-        companyLogo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3x0m241kuaHncvJjWl4GVXe-FaLk6Khkr3Q&s",
+        companyLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/ASELSAN_logo.svg/1200px-ASELSAN_logo.svg.png",
         date: "March 2024 - June 2024",
         description: "Learning new things about work life",
         skills: ["Work Life","Defence Industry"],
@@ -63,16 +63,16 @@ export const programs = [
         date: "August 2024",
         description: "Tech 4 Good Competition Europe Grand Final",
         skills: ["Social Entreneurship"],
-        photo: "https://media.licdn.com/dms/image/v2/D4D22AQFuoWmaEeLw7w/feedshare-shrink_800/feedshare-shrink_800/0/1725137265148?e=1733356800&v=beta&t=NSEKX5sd-ab07xq4j0G2bLnnWtwmatoBW1WkVahmlTI",
+        photo: "https://www.linkedin.com/posts/berkkaya_seedsforfuture-seedsforfuture2024-ai-activity-7216305125865230337-4p-m?utm_source=share&utm_medium=member_desktop",
         certificate: {
           image: "https://i.ibb.co/2q33TgB/temp-image-20240710-084701-e634ac69-1ae9-455c-b16b-97a040ce0825.webp",
-          link: ""
+          link: "https://www.linkedin.com/posts/berkkaya_seedsforfuture-seedsforfuture2024-ai-activity-7216305125865230337-4p-m?utm_source=share&utm_medium=member_desktop"
         }
       },
       {
         title: "Take A Step Forward Program",
         company: "McKinsey & Company",
-        companyLogo: "https://cdn.cookielaw.org/logos/353d36fb-3a1c-4021-b831-ee6d50361d6a/07a8989e-cba1-4f60-a67a-0ffe9efc1b3a/5705935c-c99f-48d8-8aef-b78127f4aed3/mckinsey---company_owler_20190728_090718_original.png",
+        companyLogo: "https://download.logo.wine/logo/McKinsey_%26_Company/McKinsey_%26_Company-Logo.wine.png",
         date: "November 2023 - April 2024",
         description: "The Take A Step Forward Program is a 6-month fully-funded virtual program designed to gain the skills and experience they need to succeed in business.",
         skills: ["Business"],
@@ -98,7 +98,7 @@ export const programs = [
       {
         title: "Certified Associate Project Management (CAPM) Program",
         company: "Project Management Institute",
-        companyLogo: "https://iakademi.com/wp-content/uploads/2020/10/pmi_logo_ogShare.png",
+        companyLogo: "https://www.cdnlogo.com/logos/p/5/project-management-institute.svg",
         date: "December 2023",
         description: "The program was led by experienced instructors who have shared their extensive expertise in project management. Their guidance and practical examples have been incredibly helpful in helping me understand the concepts effectively. They have also provided valuable tips and strategies to prepare us for the CAPM exam.",
         skills: ["Project Management"],
@@ -111,7 +111,7 @@ export const programs = [
       {
         title: "Game & Technology Academy",
         company: "Google",
-        companyLogo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO7bUjoYHfD25CGLVLjfHa5Dco_FOHT6E2WQ&s",
+        companyLogo: "https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png",
         date: "December 2022 - July 2023",
         description: " This journey has been an incredible opportunity for me to delve into the world of game development and application design, honing my skills and gaining valuable insights from industry experts.",
         skills: ["Game Development","Unity","App Development","Flutter"],

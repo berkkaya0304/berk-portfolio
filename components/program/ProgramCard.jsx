@@ -1,55 +1,84 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { BsCalendar } from "react-icons/bs";
+import { FiExternalLink } from "react-icons/fi";
 
 const ProgramCard = ({ program }) => {
   return (
-    <div className="bg-[#232329] rounded-xl p-6 flex flex-col gap-4 h-full">
-      <div className="relative w-full h-[140px] rounded-lg overflow-hidden bg-white/5">
-        <Image
-          src={program.companyLogo}
-          alt={program.company}
-          fill
-          className="object-contain p-4"
-        />
-      </div>
-
-      <div className="flex flex-col gap-4 flex-grow">
-        <div>
-          <h3 className="text-2xl font-bold mb-1">{program.title}</h3>
-          <p className="text-accent font-medium">{program.company}</p>
-        </div>
-
-        <div className="flex items-center gap-2 text-white/60">
-          <BsCalendar className="w-4 h-4" />
-          <span className="text-sm">{program.date}</span>
-        </div>
-
-        <p className="text-white/60 text-sm flex-grow">{program.description}</p>
-
-        <div className="flex flex-wrap gap-2">
-          {program.skills.map((skill, index) => (
-            <span 
-              key={index} 
-              className="text-xs font-medium bg-accent/10 text-accent px-2.5 py-1 rounded-full"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-
-        {program.certificate?.link && (
-          <div className="mt-2">
-            <Link href={program.certificate.link} target="_blank" className="w-full">
-              <Button className="w-full bg-accent hover:bg-accent/90">
-                View Details
-              </Button>
-            </Link>
+    <motion.div
+      whileHover={{ y: -5, scale: 1.01 }}
+      className="relative group h-full"
+    >
+      {/* Glow Effect */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-700 rounded-2xl blur-md opacity-20 group-hover:opacity-30 transition-opacity" />
+      
+      {/* Card Content */}
+      <div className="relative bg-gradient-to-r from-blue-400/10 to-blue-700/10 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300 h-full flex flex-col">
+        {/* Header with Company Logo */}
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-32 h-20 relative flex-shrink-0">
+            <Image
+              src={program.companyLogo}
+              alt={program.company}
+              fill
+              className="object-contain"
+            />
           </div>
-        )}
+          <div>
+            <h3 className="text-xl font-bold mb-1 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
+              {program.title}
+            </h3>
+            <p className="text-blue-400/80 font-medium">
+              {program.company}
+            </p>
+          </div>
+        </div>
+
+        {/* Program Info */}
+        <div className="flex-grow">
+          <p className="text-blue-400/60 text-sm mb-4">
+            {program.description}
+          </p>
+        </div>
+
+        {/* Program Details */}
+        <div className="space-y-4">
+          {/* Date */}
+          <div className="flex flex-wrap gap-2">
+            <span className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-blue-400/10 to-blue-700/10 text-blue-400 border border-blue-400/20">
+              {program.date}
+            </span>
+          </div>
+
+          {/* Skills */}
+          <div className="flex flex-wrap gap-2">
+            {program.skills.map((skill, index) => (
+              <span 
+                key={index}
+                className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-blue-400/10 to-blue-700/10 text-blue-400 border border-blue-400/20"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+
+          {/* Links Section */}
+          <div className="flex flex-col gap-3">
+            {/* LinkedIn Link */}
+            {(program.photo || program.certificate?.link) && (
+              <Link
+                href={program.certificate?.link || program.photo}
+                target="_blank"
+                className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-400/10 to-blue-700/10 text-blue-400 border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300"
+              >
+                <span>View on LinkedIn</span>
+                <FiExternalLink size={20} />
+              </Link>
+            )}
+          </div>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -9,8 +9,8 @@ const CloudService = () => {
   return (
     <ServiceDetail 
       title={cloudService.title}
-      description={cloudService.description}
-      image="https://media.licdn.com/dms/image/D5612AQGdJwTfkaVA9A/article-cover_image-shrink_720_1280/0/1695748849925?e=2147483647&v=beta&t=lLpyk_jq2xK54oG6T_W3rZkz-qwtNdVQsyVY8W7X1WE"
+      description="Our cloud technology solutions help businesses leverage the power of cloud computing for enhanced scalability, security, and efficiency. We provide comprehensive cloud services including infrastructure setup, migration, optimization, and management across major cloud platforms."
+      image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1456&h=816&q=80"
     />
   );
 };

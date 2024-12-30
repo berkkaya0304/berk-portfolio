@@ -9,8 +9,8 @@ const DataService = () => {
   return (
     <ServiceDetail 
       title={dataService.title}
-      description={dataService.description}
-      image="https://successive.cloud/wp-content/uploads/2022/04/Data-Analytics-Benefits-768x403.png"
+      description="Transform your raw data into actionable insights with our comprehensive data technology solutions. We specialize in data analysis, processing, and visualization to help you make informed decisions and drive business growth through data-driven strategies."
+      image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1456&h=816&q=80"
     />
   );
 };

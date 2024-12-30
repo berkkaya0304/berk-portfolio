@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ProgramCard from "@/components/program/ProgramCard";
-import { programs } from "@/data/program";
+import BlogCard from "@/components/blog/BlogCard";
+import { getAllPosts } from "@/data/blog";
 
-const Program = () => {
+export default function BlogPage() {
+  const posts = getAllPosts();
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -27,34 +29,32 @@ const Program = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-            All Programs
+            Blog
           </h1>
           <p className="text-blue-400/80 text-lg max-w-2xl mx-auto">
-            All programs I have participated in before
+            Thoughts, tutorials and insights about technology
           </p>
         </motion.div>
 
-        {/* Program Kartları Grid */}
+        {/* Blog Post Grid */}
         <motion.div
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
         >
-          {programs.map((program, index) => (
+          {posts.map((post, index) => (
             <motion.div
-              key={index}
+              key={post.slug}
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 * (index + 1) }}
             >
-              <ProgramCard program={program} />
+              <BlogCard post={post} />
             </motion.div>
           ))}
         </motion.div>
       </div>
     </motion.section>
   );
-};
-
-export default Program;
+} 

@@ -37,8 +37,8 @@ module.exports = {
       colors: {
         primary: '#1c1c22',
         accent: {
-          DEFAULT: '#00dcff',
-          hover: '#00e187',
+          DEFAULT: '#60a5fa',
+          hover: '#1d4ed8',
         },
       },
 
@@ -60,6 +60,8 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'spin-slow': 'spin 8s linear infinite',
+        'spin-slow-reverse': 'spin 6s linear infinite reverse',
       },
       height: {
         'social': '50px',
