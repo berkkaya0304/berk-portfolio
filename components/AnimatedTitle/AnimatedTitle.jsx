@@ -1,51 +1,29 @@
-import { useState, useEffect } from 'react';
+"use client";
 
-const AnimatedTitle = ( {titles, first} ) => {
-  const [currentText, setCurrentText] = useState('Computer Scientist');
+import { useEffect, useState } from "react";
+
+const AnimatedTitle = ({ titles, first }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentText, setCurrentText] = useState(titles[0]);
 
+  // Başlık değişimi için useEffect
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % titles.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [titles.length]);
 
+  // Metin güncellemesi için useEffect
   useEffect(() => {
     setCurrentText(titles[currentIndex]);
-  }, [currentIndex]);
+  }, [currentIndex, titles]);
 
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex flex-col sm:flex-row items-center gap-2 text-lg sm:text-xl text-muted-foreground">
       <span>{first}</span>
-      <div className="relative">
-        <div 
-          key={currentText}
-          className="inline-block"
-          style={{
-            animation: 'fadeInOut 3s infinite'
-          }}
-        >
-          {currentText}
-        </div>
-      </div>
-      <style jsx>{`
-        @keyframes fadeInOut {
-          0% {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          20%, 80% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-          100% {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-        }
-      `}</style>
+      <span className="text-blue-400">{currentText}</span>
     </div>
   );
 };
