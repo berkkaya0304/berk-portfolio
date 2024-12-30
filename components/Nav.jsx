@@ -18,7 +18,7 @@ const links = [
         path: "/resume",
     },
     {
-        name: "Work",
+        name: "Portfolio",
         path: "/work",
     },
     {
@@ -30,7 +30,7 @@ const links = [
         path: "/social",
     },
     {
-        name: "Blog",
+        name: "Articles",
         path: "/blog",
     },
 ];

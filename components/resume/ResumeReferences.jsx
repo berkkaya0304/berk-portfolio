@@ -61,23 +61,16 @@ const ResumeReferences = ({ referencesList = [] }) => {
   return (
     <div className="space-y-8">
       {/* Başlık ve Açıklama */}
-      <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-          References
+      <div className="text-center relative mb-12">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-700/20 blur-[100px] -z-10" />
+        <h2 className="text-3xl font-bold mb-3 inline-block">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700">
+            References
+          </span>
         </h2>
-        <p className="text-blue-400/60 max-w-3xl mx-auto mb-6">
-          Professional references from my academic and professional journey.
+        <p className="text-blue-400/70 max-w-2xl mx-auto text-base">
+          Professional references and recommendations from colleagues and supervisors.
         </p>
-        <a
-          href="https://www.linkedin.com/in/berkkaya0304/details/recommendations/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block"
-        >
-          <Button className="bg-gradient-to-r from-blue-400 to-blue-700 text-white hover:from-blue-500 hover:to-blue-800 transition-all duration-300">
-            View All References on LinkedIn
-          </Button>
-        </a>
       </div>
 
       {/* References Display */}
