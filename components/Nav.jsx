@@ -31,7 +31,7 @@ const links = [
     },
     {
         name: "Blog",
-        path: "https://blog.berkkaya.me",
+        path: "/blog",
     },
 ];
 
