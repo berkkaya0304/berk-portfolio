@@ -22,7 +22,7 @@ const Work = () => {
   return (
     <AnimatePresence mode="wait">
       <motion.section
-        key="work-section"
+        key={index}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -37,7 +37,7 @@ const Work = () => {
         <div className="container mx-auto px-4 relative z-10">
           {/* Başlık */}
           <motion.div
-            key="work-title"
+            key={index}
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -53,7 +53,7 @@ const Work = () => {
 
           {/* Kategori Filtreleme */}
           <motion.div
-            key="category-filters"
+            key={index}
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -78,7 +78,7 @@ const Work = () => {
           {/* Projeler Grid */}
           <AnimatePresence mode="wait">
             <motion.div
-              key={`projects-grid-${selectedCategory}`}
+              key={index}
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -40, opacity: 0 }}
