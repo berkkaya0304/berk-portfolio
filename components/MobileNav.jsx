@@ -52,8 +52,14 @@ const MobileNav = () => {
         <div className="flex flex-col h-full justify-between py-8">
           <div className="text-center">
             <Link href="/">
-              <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-                Berk<span className="text-blue-400">.</span>
+              <h1 className="text-3xl">
+                <span className="font-normal bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+                  Berk
+                </span>
+                {" "}
+                <span className="font-light text-blue-500">
+                  Kaya
+                </span>
               </h1>
             </Link>
           </div>

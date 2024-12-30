@@ -81,16 +81,7 @@ export const movieData = `Title,Director,Genre,Release Year,Duration (min),Watch
 `;
 
 export const theaterData = `Name,Location,Capacity,Last Visit Date,Performance Watched,Rating
-"TED University Theater","Ankara, Turkey",500,"March 15, 2024","Hamlet",9
-"State Theater","Ankara, Turkey",800,"February 20, 2024","Romeo and Juliet",8
-"City Theater","Istanbul, Turkey",600,"January 10, 2024","The Cherry Orchard",9
-"Art Theater","Izmir, Turkey",400,"December 5, 2023","A Streetcar Named Desire",7
-"Cultural Center","Ankara, Turkey",700,"November 15, 2023","Death of a Salesman",8
-"Modern Stage","Istanbul, Turkey",450,"October 20, 2023","The Glass Menagerie",9
-"National Theater","Ankara, Turkey",900,"September 5, 2023","Waiting for Godot",8
-"Experimental Theater","Istanbul, Turkey",300,"August 15, 2023","Six Characters in Search of an Author",7
-"Drama Studio","Ankara, Turkey",250,"July 20, 2023","A Doll's House",9
-"Contemporary Arts Theater","Istanbul, Turkey",550,"June 5, 2023","The Importance of Being Earnest",8
+"x","x, x",x,"x","x",x
 `;
 
 export const bookColumns = ["Title", "Author", "Genre", "Read Date", "Number of Pages"];
