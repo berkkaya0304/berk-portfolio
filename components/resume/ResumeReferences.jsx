@@ -35,7 +35,7 @@ const ReferenceItem = ({ reference, index }) => (
           </h3>
           <p className="text-blue-300 mb-4">{reference.position}</p>
           <blockquote className="text-blue-300/80 italic">
-            "{reference.testimonial}"
+            &ldquo;{reference.testimonial}&rdquo;
           </blockquote>
         </div>
       </div>
