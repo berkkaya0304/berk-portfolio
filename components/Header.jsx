@@ -23,22 +23,42 @@ const Header = () => {
             {/* Logo */}
             <Link href="/">
               <motion.div 
-                className="relative group"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.2 }}
+                className="relative group cursor-pointer"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg blur opacity-20 group-hover:opacity-30 transition duration-200" />
-                <div className="relative flex items-center">
+                {/* Subtle glow effect */}
+                <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                
+                {/* Logo container */}
+                <div className="relative px-1">
                   <motion.h1 
-                    className="text-3xl font-bold"
+                    className="text-2xl font-light tracking-wide"
                   >
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 hover:to-blue-400 transition-all duration-300">
-                      Berk
-                    </span>
-                    <span className="inline-flex items-center">
-                      <span className="text-blue-400 group-hover:text-blue-500 transition-colors duration-300">.</span>
-                      <span className="absolute w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 -right-1 -top-1 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                    </span>
+                    <motion.span 
+                      className="inline-flex items-center space-x-2"
+                    >
+                      <span className="font-normal bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+                        Berk
+                      </span>
+                      <span className="font-light text-blue-500">
+                        Kaya
+                      </span>
+                    </motion.span>
+
+                    {/* Subtle hover line */}
+                    <motion.div 
+                      className="absolute -bottom-1 left-0 w-full h-[1px] bg-gradient-to-r from-blue-500/0 via-blue-500/50 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-all duration-500"
+                      initial={false}
+                      animate={{ 
+                        scaleX: [0.3, 1, 0.3],
+                      }}
+                      transition={{ 
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    />
                   </motion.h1>
                 </div>
               </motion.div>
