@@ -136,7 +136,7 @@ const Photo = () => {
             alt="Berk Kaya"
             width={500}
             height={500}
-            priority
+            priority={true}
             quality={100}
             className="w-full h-full object-contain mix-blend-lighten"
           />

@@ -48,6 +48,8 @@ const ServiceDetail = ({ title, description, image }) => {
                     alt={title}
                     width={1456}
                     height={816}
+                    loading="lazy"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover w-full h-full"
                   />
                 </div>

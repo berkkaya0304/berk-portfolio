@@ -24,6 +24,8 @@ const ReferenceItem = ({ reference, index }) => (
             src={reference.image}
             alt={reference.name}
             fill
+            loading="lazy"
+            sizes="(max-width: 640px) 100vw, 192px"
             className="object-cover"
           />
         </div>

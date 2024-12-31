@@ -21,6 +21,8 @@ const WorkCard = ({ work }) => {
             alt={work.title}
             width={640}
             height={360}
+            loading="lazy"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover w-full h-full"
           />
         </div>

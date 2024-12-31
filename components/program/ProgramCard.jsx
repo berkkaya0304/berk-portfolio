@@ -21,6 +21,8 @@ const ProgramCard = ({ program }) => {
               src={program.companyLogo}
               alt={program.company}
               fill
+              loading="lazy"
+              sizes="(max-width: 640px) 100vw, 128px"
               className="object-contain"
             />
           </div>

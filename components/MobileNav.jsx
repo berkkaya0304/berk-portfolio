@@ -4,6 +4,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CiMenuFries } from 'react-icons/ci';
+import { useState } from "react";
 
 const links = [
     {
@@ -42,16 +43,17 @@ const links = [
 
 const MobileNav = () => {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <CiMenuFries className="cursor-pointer text-[32px] text-blue-400 hover:text-blue-600 transition-colors" />
       </SheetTrigger>
       <SheetContent side="right" className="bg-secondary/95 backdrop-blur-lg border-none">
         <div className="flex flex-col h-full justify-between py-8">
           <div className="text-center">
-            <Link href="/">
+            <Link href="/" onClick={() => setIsOpen(false)}>
               <h1 className="text-3xl">
                 <span className="font-normal bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
                   Berk
@@ -71,6 +73,7 @@ const MobileNav = () => {
                 <Link
                   href={link.path}
                   key={index}
+                  onClick={() => setIsOpen(false)}
                   className="relative group py-1"
                 >
                   <span className={`text-base font-medium transition-colors ${
