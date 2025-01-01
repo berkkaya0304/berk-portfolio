@@ -285,6 +285,7 @@ export const tr = {
     title: "İletişim",
     getInTouch: "İletişime Geçelim",
     description: "İş birliği veya sadece dostça bir sohbet için benimle iletişime geçebilirsiniz",
+    contactMe: "İletişime Geç",
     form: {
       firstName: "Ad",
       lastName: "Soyad",

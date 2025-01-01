@@ -285,6 +285,7 @@ export const en = {
     title: "Contact",
     getInTouch: "Let's Connect",
     description: "Feel free to reach out for collaborations or just a friendly chat",
+    contactMe: "Contact Me",
     form: {
       firstName: "First Name",
       lastName: "Last Name",
