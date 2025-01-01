@@ -1,13 +1,2 @@
 User-agent: *
 Allow: /
-
-# Sitemaps
-Sitemap: https://berkkaya.me/sitemap.xml
-
-# Crawl-delay
-Crawl-delay: 10
-
-# Disallow specific paths
-Disallow: /api/
-Disallow: /_next/
-Disallow: /static/
