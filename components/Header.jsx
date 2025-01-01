@@ -3,12 +3,16 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 //Components
 import Nav from "./Nav";
 import MobileNav from "./MobileNav";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Header = () => {
+  const { translations } = useLanguage();
+
   return (
     <>
       <div className="h-24" /> {/* Spacer for fixed header */}
@@ -67,11 +71,14 @@ const Header = () => {
             {/* Desktop Nav & hire me button*/}
             <div className="hidden xl:flex items-center gap-8">
               <Nav />
-              <Link href="/contact">
-                <Button className="bg-gradient-to-r from-blue-400 to-blue-700 text-white hover:opacity-90">
-                  Contact me!
-                </Button>
-              </Link>
+              <div className="flex items-center gap-4">
+                <LanguageSwitcher />
+                <Link href="/contact">
+                  <Button className="bg-gradient-to-r from-blue-400 to-blue-700 text-white hover:opacity-90">
+                    {translations.contact.contactMe}
+                  </Button>
+                </Link>
+              </div>
             </div>
 
             {/* Mobile Nav*/}

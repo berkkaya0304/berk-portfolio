@@ -1,50 +1,70 @@
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
-import { useRouter } from 'next/navigation';
-import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import Papa from 'papaparse';
 
-const ActivityList = ({ title, data, columns }) => {
-  const router = useRouter();
+const ActivityList = ({ data, columns }) => {
+  const { translations } = useLanguage();
+
+  // Veriyi parse et
+  const parsedData = typeof data === 'string' 
+    ? Papa.parse(data, { header: true }).data 
+    : data;
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="container mx-auto py-10"
-    >
-      <div className="flex items-center space-x-2 mb-5">
-        <Button variant="outline" onClick={() => router.push('/social')}>
-          Back
-        </Button>
-        <span className="font-medium text-5xl text-center flex-1">{title}</span>
-      </div>
-      <div className="bg-[#27272c] rounded-xl p-6">
-        <Table>
-          <TableCaption>{title}</TableCaption>
-          <TableHeader>
-            <TableRow>
-              {columns.map((column, index) => (
-                <TableHead key={index} className="text-accent">
-                  {column}
-                </TableHead>
-              ))}
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {data.map((item, index) => (
-              <TableRow key={index} className="hover:bg-[#1c1c22] transition-colors">
-                {Object.values(item).map((value, valueIndex) => (
-                  <TableCell key={valueIndex} className="text-white/80">
-                    {value}
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
-    </motion.div>
+    <div className="w-full">
+      <table className="w-full border-collapse">
+        <thead>
+          <tr className="border-b border-blue-400/20">
+            {columns.map((column, index) => {
+              if (column.field.endsWith('_TR')) return null;
+              
+              return (
+                <th
+                  key={index}
+                  className="p-4 text-left text-xs font-medium text-blue-400 uppercase"
+                >
+                  <div className="flex flex-col">
+                    <span>{translations.social.table[column.key]}</span>
+                    <span className="text-blue-300/60 text-[10px]">{column.key}</span>
+                  </div>
+                </th>
+              );
+            })}
+          </tr>
+        </thead>
+        <tbody>
+          {parsedData.map((item, index) => (
+            <tr 
+              key={index} 
+              className="border-b border-blue-400/20 hover:bg-blue-400/5 transition-colors"
+            >
+              {columns.map((column, colIndex) => {
+                if (column.field.endsWith('_TR')) return null;
+
+                let content = item[column.field] || item[column.key];
+                let contentTR = item[`${column.field}_TR`] || item[`${column.key}_TR`];
+
+                if (contentTR && contentTR !== content) {
+                  content = `${content} / ${contentTR}`;
+                }
+
+                if (typeof content === 'string' && content.length > 50) {
+                  content = content.substring(0, 47) + '...';
+                }
+                
+                return (
+                  <td
+                    key={colIndex}
+                    className="p-4 text-sm text-blue-300"
+                  >
+                    {content}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

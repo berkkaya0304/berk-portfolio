@@ -6,8 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ContactForm = () => {
+  const { translations } = useLanguage();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -38,7 +40,7 @@ const ContactForm = () => {
         formData,
         "SxOOOhi_LC1TpP44r"
       );
-      alert("Email sent successfully!");
+      alert(translations.contact.form.successMessage);
       setFormData({
         firstName: "",
         lastName: "",
@@ -48,7 +50,7 @@ const ContactForm = () => {
         message: "",
       });
     } catch (error) {
-      alert("Today's limit is finished. Please try again tomorrow.");
+      alert(translations.contact.form.errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -68,7 +70,7 @@ const ContactForm = () => {
             <Input 
               type="text" 
               name="firstName" 
-              placeholder="First Name" 
+              placeholder={translations.contact.form.firstName}
               value={formData.firstName} 
               onChange={handleChange} 
               required 
@@ -77,7 +79,7 @@ const ContactForm = () => {
             <Input 
               type="text" 
               name="lastName" 
-              placeholder="Last Name" 
+              placeholder={translations.contact.form.lastName}
               value={formData.lastName} 
               onChange={handleChange} 
               required 
@@ -86,7 +88,7 @@ const ContactForm = () => {
             <Input 
               type="email" 
               name="email" 
-              placeholder="Email Address" 
+              placeholder={translations.contact.form.email}
               value={formData.email} 
               onChange={handleChange} 
               required 
@@ -95,7 +97,7 @@ const ContactForm = () => {
             <Input 
               type="text" 
               name="phone" 
-              placeholder="Phone Number" 
+              placeholder={translations.contact.form.phone}
               value={formData.phone} 
               onChange={handleChange}
               className="bg-white/5 border-0 focus-visible:ring-1 focus-visible:ring-blue-400"
@@ -103,22 +105,22 @@ const ContactForm = () => {
           </div>
           <Select onValueChange={handleSelectChange}>
             <SelectTrigger className="bg-white/5 border-0 focus:ring-1 focus:ring-blue-400">
-              <SelectValue placeholder="Select a Service" />
+              <SelectValue placeholder={translations.contact.form.selectService} />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectLabel>Select a Service</SelectLabel>
-                <SelectItem value="Web Development">Web Development</SelectItem>
-                <SelectItem value="Cloud">Cloud</SelectItem>
-                <SelectItem value="Data">Data</SelectItem>
-                <SelectItem value="Digitalisation">Digitalisation</SelectItem>
+                <SelectLabel>{translations.contact.form.selectService}</SelectLabel>
+                <SelectItem value="Web Development">{translations.services.fullstack.title}</SelectItem>
+                <SelectItem value="Cloud">{translations.services.cloud.title}</SelectItem>
+                <SelectItem value="Data">{translations.services.data.title}</SelectItem>
+                <SelectItem value="Digitalisation">{translations.services.digitalization.title}</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
           <Textarea 
             name="message" 
             className="h-[180px] resize-none bg-white/5 border-0 focus-visible:ring-1 focus-visible:ring-blue-400" 
-            placeholder="Type your message here" 
+            placeholder={translations.contact.form.message}
             value={formData.message} 
             onChange={handleChange} 
             required 
@@ -127,7 +129,7 @@ const ContactForm = () => {
             type="submit"
             className="bg-gradient-to-r from-blue-400 to-blue-700 text-white hover:opacity-90"
           >
-            Send Message
+            {translations.contact.form.submit}
           </Button>
         </form>
       )}

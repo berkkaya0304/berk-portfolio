@@ -1,13 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import WorkCard from "@/components/work/WorkCard";
 import { works } from "@/data/works";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Work = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const { translations } = useLanguage();
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
@@ -44,10 +46,10 @@ const Work = () => {
             className="text-center mb-12"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-              My Projects
+              {translations.work.title}
             </h1>
             <p className="text-blue-400/80 text-lg max-w-2xl mx-auto">
-              A showcase of my latest work and projects
+              {translations.work.description}
             </p>
           </motion.div>
 
@@ -70,35 +72,32 @@ const Work = () => {
                   : 'bg-gradient-to-r from-blue-400/10 to-blue-700/10 backdrop-blur-sm text-blue-400 hover:from-blue-400/20 hover:to-blue-700/20'
                 }`}
               >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
+                {category === "all" 
+                  ? translations.work.filterAll
+                  : category.charAt(0).toUpperCase() + category.slice(1)}
               </Button>
             ))}
           </motion.div>
 
           {/* Projeler Grid */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key="projects-grid"
-              initial={{ y: 40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -40, opacity: 0 }}
-              transition={{ delay: 0.4 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
-              {filteredWorks.map((work) => (
-                <motion.div
-                  layout
-                  key={work.id}
-                  initial={{ y: 50, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -50, opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <WorkCard work={work} />
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+          <motion.div
+            key="work-grid"
+            initial={{ y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+          >
+            {filteredWorks.map((work, index) => (
+              <motion.div
+                key={work.title}
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2 * (index + 1) }}
+              >
+                <WorkCard work={work} />
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </motion.section>
     </AnimatePresence>

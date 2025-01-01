@@ -7,6 +7,7 @@ export const posts = [
     image: "https://picsum.photos/1200/630",
     readingTime: 8,
     tags: ["Business", "Leadership", "Innovation", "Career"],
+    language: "en",
     content: `
 # Being a Chief Young Officer (CYO)
 
@@ -72,6 +73,7 @@ In this article, I have mentioned the importance of young people in a company th
     image: "https://picsum.photos/1200/630?random=1",
     readingTime: 10,
     tags: ["Cloud Computing", "MySQL", "Docker", "Huawei Cloud"],
+    language: "en",
     content: `
 # ☁️Creating a MySQL Container in Huawei Cloud w/ Cloud Container Engine
 
@@ -137,6 +139,7 @@ Now you have seen how you can install mysql on CCE in general. I hope this artic
     image: "https://picsum.photos/1200/630?random=2",
     readingTime: 7,
     tags: ["Web Development", "Technology", "Programming", "Education"],
+    language: "en",
     content: `
 # Different Look at Web Development
 
@@ -196,6 +199,7 @@ In general, in this article I have tried to provide you with a different perspec
     image: "https://picsum.photos/1200/630?random=3",
     readingTime: 5,
     tags: ["Leadership", "Personal Growth", "Learning", "Success"],
+    language: "en",
     content: `
 # Do true leaders never lose or do they learn from every loss?
 
@@ -235,6 +239,7 @@ In the end, leaders don't lose, they just burn a new learning opportunity. I hav
     image: "https://picsum.photos/1200/630?random=4",
     readingTime: 12,
     tags: ["Leadership", "Business", "Personal Growth", "Management"],
+    language: "en",
     content: `
 # Effective Leadership and Cornerstones
 
@@ -314,6 +319,7 @@ In this article, I have focused on effective leadership in general and touched u
     image: "https://picsum.photos/1200/630?random=5",
     readingTime: 6,
     tags: ["Leadership", "Empathy", "Business", "Personal Growth"],
+    language: "en",
     content: `
 # Empathy: The Secret Weapon of Successful Leaders
 
@@ -357,6 +363,7 @@ In this article, I have focused on why leaders should have empathy in general an
     image: "https://picsum.photos/1200/630?random=6",
     readingTime: 10,
     tags: ["Leadership", "Crisis Management", "Business", "Personal Growth"],
+    language: "en",
     content: `
 # Leadership in a Crisis: A Guide to Dealing with Challenges
 
@@ -450,6 +457,7 @@ In this article we have focused on why leadership is important in times of crisi
     image: "https://picsum.photos/1200/630?random=7",
     readingTime: 8,
     tags: ["Leadership", "Management", "Business", "Personal Growth"],
+    language: "en",
     content: `
 # What is the Difference Between a Leader and a Boss?
 
@@ -521,6 +529,7 @@ In this article we focused on the differences between a boss and a leader, where
     image: "https://picsum.photos/1200/630?random=8",
     readingTime: 6,
     tags: ["Leadership", "Remote Work", "Management", "Business"],
+    language: "en",
     content: `
 # Leading in the Age of Remote Work
 
@@ -545,13 +554,13 @@ While leadership processes change hands even in a simple classroom setting, lead
 ## Conclusion
 
 As a result, leadership has been and will continue to be greatly affected by the online process. Therefore, it would be better to look at leadership from a larger perspective rather than from smaller perspectives.`
-  }
+  },
 ];
 
 export function getAllPosts() {
-  return posts.sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1));
+  return posts;
 }
 
 export function getPost(slug) {
-  return posts.find(post => post.slug === slug);
+  return posts.find((post) => post.slug === slug);
 } 

@@ -7,20 +7,10 @@ import { Button } from "@/components/ui/button";
 import { FiDownload } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { IoMdTime } from "react-icons/io";
-
-const updates = [
-  {
-    id: 1,
-    text: "Launched new portfolio website",
-    date: "March 2024"
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const Home = () => {
-  const titles = ['Computer Scientist', 'Software Eng.', 'Computer Eng.'];
-  const titles2 = ['Computer Sciences', 'Software Eng.', 'Computer Eng.'];
-  const first = "AI Powered";
-  const first2 = "Welcome to Future of ";
+  const { translations } = useLanguage();
 
   const handleDownload = () => {
     const cvPath = '/cv/cv.pdf';
@@ -56,19 +46,15 @@ const Home = () => {
           >
             <div className="space-y-4">
               <div className="hidden lg:block">
-                <AnimatedTitle titles={titles} first={first}/>
+                <AnimatedTitle titles={translations.home.titles.roles} first={translations.home.titles.first}/>
               </div>
               
               <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tighter">
-                Hello I&apos;m <br className="hidden sm:block"/>
+                {translations.home.greeting} <br className="hidden sm:block"/>
                 <span className="text-accent bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700">
                   Berk Kaya
                 </span>
               </h1>
-              
-              <div className="hidden lg:block">
-                <AnimatedTitle titles={titles2} first={first2}/>
-              </div>
             </div>
 
             <motion.div 
@@ -84,7 +70,7 @@ const Home = () => {
                 className="group relative px-6 sm:px-8 py-2.5 sm:py-3 border-none bg-gradient-to-r from-blue-400/10 to-blue-700/10 hover:from-blue-400 hover:to-blue-700 backdrop-blur-sm rounded-xl transition-all duration-300 w-full sm:w-auto"
               >
                 <span className="relative z-10 font-medium text-blue-400 group-hover:text-white transition-colors">
-                  Download CV
+                  {translations.home.downloadCV}
                 </span>
                 <FiDownload className="ml-2 inline-block group-hover:translate-y-1 transition-all duration-300 text-blue-400 group-hover:text-white"/>
               </Button>
@@ -108,10 +94,12 @@ const Home = () => {
               <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm p-4 rounded-xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
                 <div className="flex items-center gap-2 mb-3">
                   <IoMdTime className="text-lg text-blue-400" />
-                  <h3 className="text-base font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">Last Updates</h3>
+                  <h3 className="text-base font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
+                    {translations.home.lastUpdates}
+                  </h3>
                 </div>
                 <div className="space-y-2">
-                  {updates.map((update) => (
+                  {translations.home.updates.map((update) => (
                     <motion.div
                       key={update.id}
                       initial={{ opacity: 0, x: -20 }}
@@ -175,7 +163,7 @@ const Home = () => {
                   2+
                 </div>
                 <div className="text-sm text-blue-300/80 font-medium">
-                  Years of Experience
+                  {translations.home.stats.experience}
                 </div>
               </div>
             </motion.div>
@@ -190,7 +178,7 @@ const Home = () => {
                   20+
                 </div>
                 <div className="text-sm text-blue-300/80 font-medium">
-                  Projects Completed
+                  {translations.home.stats.projects}
                 </div>
               </div>
             </motion.div>
@@ -205,7 +193,7 @@ const Home = () => {
                   20+
                 </div>
                 <div className="text-sm text-blue-300/80 font-medium">
-                  Technology Used
+                  {translations.home.stats.technologies}
                 </div>
               </div>
             </motion.div>
@@ -220,7 +208,7 @@ const Home = () => {
                   2+
                 </div>
                 <div className="text-sm text-blue-300/80 font-medium">
-                  Awards Won
+                  {translations.home.stats.awards}
                 </div>
               </div>
             </motion.div>

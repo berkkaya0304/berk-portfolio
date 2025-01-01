@@ -1,16 +1,18 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaCode, FaCloud, FaDatabase, FaDigitalTachograph } from 'react-icons/fa';
+import { useLanguage } from "@/context/LanguageContext";
 
 const icons = {
-  "Full-Stack Development": FaCode,
-  "Cloud Technologies": FaCloud,
-  "Data Technologies": FaDatabase,
-  "Digitalization": FaDigitalTachograph
+  "/services/fullstack": FaCode,
+  "/services/cloud": FaCloud,
+  "/services/data": FaDatabase,
+  "/services/digitalization": FaDigitalTachograph
 };
 
 const ServiceCard = ({ service }) => {
-  const Icon = icons[service.title];
+  const Icon = icons[service.href];
+  const { translations } = useLanguage();
   
   return (
     <Link href={service.href}>
@@ -40,7 +42,7 @@ const ServiceCard = ({ service }) => {
 
           {/* Learn More Button */}
           <div className="inline-flex items-center text-blue-400 text-sm font-medium group-hover:text-blue-500 transition-colors">
-            Learn More
+            {translations.common.learnMore}
             <svg
               className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
               fill="none"

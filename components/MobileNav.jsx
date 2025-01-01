@@ -5,45 +5,48 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CiMenuFries } from 'react-icons/ci';
 import { useState } from "react";
-
-const links = [
-    {
-        name: "Home",
-        path: "/",
-    },
-    {
-        name: "Services",
-        path: "/services",
-    },
-    {
-        name: "Resume",
-        path: "/resume",
-    },
-    {
-        name: "Work",
-        path: "/work",
-    },
-    {
-        name: "Programs",
-        path: "/program",
-    },
-    {
-        name: "Social",
-        path: "/social",
-    },
-    {
-        name: "Blog",
-        path: "/blog",
-    },
-    {
-        name: "Contact",
-        path: "/contact",
-    },
-];
+import { useLanguage } from "@/context/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const MobileNav = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const { translations } = useLanguage();
+  
+  const links = [
+    {
+      name: translations.nav.home,
+      path: "/",
+    },
+    {
+      name: translations.nav.services,
+      path: "/services",
+    },
+    {
+      name: translations.nav.resume,
+      path: "/resume",
+    },
+    {
+      name: translations.nav.portfolio,
+      path: "/work",
+    },
+    {
+      name: translations.nav.programs,
+      path: "/program",
+    },
+    {
+      name: translations.nav.social,
+      path: "/social",
+    },
+    {
+      name: translations.nav.articles,
+      path: "/blog",
+    },
+    {
+      name: translations.nav.contact,
+      path: "/contact",
+    },
+  ];
   
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -92,8 +95,11 @@ const MobileNav = () => {
               );
             })}
           </nav>
-          <div className="text-center text-sm text-muted-foreground">
-            © 2024 Berk Kaya
+          <div className="flex flex-col items-center gap-4">
+            <LanguageSwitcher />
+            <div className="text-center text-sm text-muted-foreground">
+              © 2024 Berk Kaya
+            </div>
           </div>
         </div>
       </SheetContent>

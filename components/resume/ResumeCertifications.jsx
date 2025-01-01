@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const CertificationItem = ({ certification, index }) => (
+const CertificationItem = ({ certification, index, translations }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
@@ -49,7 +49,7 @@ const CertificationItem = ({ certification, index }) => (
             variant="outline" 
             className="text-[10px] px-2 py-1 h-7 bg-gradient-to-r from-blue-400 to-blue-700 text-white hover:from-blue-500 hover:to-blue-800 transition-all duration-300"
           >
-            View Certificate
+            {translations.resume.viewCertificate}
           </Button>
         </a>
       )}
@@ -62,6 +62,7 @@ const ResumeCertifications = ({
   selectedCategory,
   handleCategoryChange,
   filteredCertifications,
+  translations,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
@@ -90,24 +91,21 @@ const ResumeCertifications = ({
         <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-700/20 blur-[100px] -z-10" />
         <h2 className="text-3xl font-bold mb-3 inline-block">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700">
-            My Certifications
+            {translations.resume.certifications}
           </span>
         </h2>
-        <p className="text-blue-400/70 max-w-2xl mx-auto text-base">
-          Here are my certifications from various institutions and platforms.
-        </p>
       </div>
 
       {/* Category Filter */}
       <div className="flex justify-center mb-8">
         <Select onValueChange={handleCategorySelect} defaultValue={selectedCategory || "All"}>
           <SelectTrigger className="w-[280px] bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm border-blue-400/20">
-            <SelectValue placeholder="Select Category" />
+            <SelectValue placeholder={translations.resume.selectCategory} />
           </SelectTrigger>
           <SelectContent className="bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm border-blue-400/20">
             {categories.map((category) => (
               <SelectItem key={category} value={category} className="hover:bg-blue-400/10">
-                {category}
+                {category === "All" ? translations.resume.filterAll : category}
               </SelectItem>
             ))}
           </SelectContent>
@@ -121,6 +119,7 @@ const ResumeCertifications = ({
             key={startIndex + index}
             certification={certification}
             index={index}
+            translations={translations}
           />
         ))}
       </div>

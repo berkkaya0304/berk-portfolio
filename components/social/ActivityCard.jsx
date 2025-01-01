@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ActivityCard = ({ title, description, href }) => {
+  const { translations } = useLanguage();
+
   return (
     <Link href={href}>
       <motion.div
@@ -26,7 +29,7 @@ const ActivityCard = ({ title, description, href }) => {
 
           {/* Explore Button */}
           <div className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-slate-900/80 to-slate-900/80 text-blue-300 border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
-            <span>Explore</span>
+            <span>{translations.common.learnMore}</span>
             <FiArrowRight />
           </div>
         </div>

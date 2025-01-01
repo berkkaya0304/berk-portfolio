@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import ContactForm from "@/components/contact/ContactForm";
 import ContactInfo from "@/components/contact/ContactInfo";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Contact = () => {
+  const { translations } = useLanguage();
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -27,10 +30,10 @@ const Contact = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-            Let&apos;s Connect
+            {translations.contact.getInTouch}
           </h1>
           <p className="text-blue-400/80 text-lg max-w-2xl mx-auto">
-            Feel free to reach out for collaborations or just a friendly chat
+            {translations.contact.description}
           </p>
         </motion.div>
 

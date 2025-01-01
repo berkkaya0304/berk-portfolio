@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ContactInfo = () => {
+  const { translations } = useLanguage();
+
   const socialLinks = [
     {
       name: "GitHub",
@@ -20,7 +23,7 @@ const ContactInfo = () => {
   const contactDetails = [
     {
       icon: <FaPhoneAlt className="text-2xl" />,
-      text: "Available upon request",
+      text: translations.contact.info.phoneAvailable,
       isPhone: true,
     },
     {
@@ -30,7 +33,7 @@ const ContactInfo = () => {
     },
     {
       icon: <FaMapMarkerAlt className="text-2xl" />,
-      text: "Yenimahalle, Ankara, Türkiye",
+      text: translations.contact.info.address,
       href: "https://maps.app.goo.gl/NspC6TA6BGzKEg836",
     }
   ];
@@ -41,7 +44,7 @@ const ContactInfo = () => {
         {/* Contact Details */}
         <div>
           <h3 className="text-2xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-            Contact Details
+            {translations.contact.info.title}
           </h3>
           <div className="space-y-4">
             {contactDetails.map((detail, index) => (
@@ -74,7 +77,7 @@ const ContactInfo = () => {
         {/* Social Links */}
         <div>
           <h3 className="text-2xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-            Follow Me
+            {translations.contact.info.followMe}
           </h3>
           <div className="flex gap-4">
             {socialLinks.map((social, index) => (

@@ -1,37 +1,38 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { motion } from "framer-motion";
 import { useState } from "react";
-import {
-  about,
-  experience,
-  voluntarilyWorks,
-  education,
-  soft,
-  ambassador,
-  skills,
-  referencesList,
-  certifications
-} from "@/data/resume";
+import { motion } from "framer-motion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useLanguage } from "@/context/LanguageContext";
 
-import {
-  ResumeAbout,
-  ResumeEducation,
-  ResumeSkills,
-  ResumeVoluntarily,
-  ResumeExperience,
-  ResumeAmbassador,
-  ResumeCertifications,
-  ResumeSoftSkills,
-  ResumeReferences
-} from "@/components/resume";
+// Components
+import ResumeExperience from "@/components/resume/ResumeExperience";
+import ResumeEducation from "@/components/resume/ResumeEducation";
+import ResumeSkills from "@/components/resume/ResumeSkills";
+import ResumeSoftSkills from "@/components/resume/ResumeSoftSkills";
+import ResumeCertifications from "@/components/resume/ResumeCertifications";
+import ResumeVoluntarily from "@/components/resume/ResumeVoluntarily";
+import ResumeAmbassador from "@/components/resume/ResumeAmbassador";
+import ResumeAbout from "@/components/resume/ResumeAbout";
+import ResumeReferences from "@/components/resume/ResumeReferences";
+
+// Data
+import { experience } from "@/data/resume";
+import { education } from "@/data/resume";
+import { skills } from "@/data/resume";
+import { soft } from "@/data/resume";
+import { certifications } from "@/data/resume";
+import { voluntarilyWorks } from "@/data/resume";
+import { ambassador } from "@/data/resume";
+import { about } from "@/data/resume";
+import { referencesList } from "@/data/resume";
 
 const Resume = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
+  const { translations } = useLanguage();
 
-  const handleCategoryChange = (value) => {
-    setSelectedCategory(value);
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
   };
 
   const filteredCertifications = selectedCategory
@@ -60,11 +61,8 @@ const Resume = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-            My Resume
+            {translations.resume.title}
           </h1>
-          <p className="text-blue-400/80 text-lg max-w-2xl mx-auto">
-            Professional background, skills, and achievements
-          </p>
         </motion.div>
 
         {/* Tabs Container */}
@@ -79,30 +77,74 @@ const Resume = () => {
             className="flex flex-col xl:flex-row gap-8 xl:gap-12"
           >
             <TabsList className="flex flex-col w-full xl:w-64 gap-2 bg-transparent">
-              {[
-                "experience",
-                "education",
-                "voluntarily",
-                "technical skills",
-                "soft skills",
-                "ambassador",
-                "certifications",
-                "about",
-                "references"
-              ].map((tab) => (
-                <TabsTrigger
-                  key={tab}
-                  value={tab === "technical skills" ? "skills" : tab === "soft skills" ? "soft" : tab}
-                  className="w-full px-6 py-4 rounded-xl data-[state=active]:bg-gradient-to-r from-blue-400 to-blue-700 data-[state=active]:text-white transition-all duration-300"
-                >
-                  {tab.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-                </TabsTrigger>
-              ))}
+              <TabsTrigger
+                value="experience"
+                className="w-full px-6 py-4 rounded-xl data-[state=active]:bg-gradient-to-r from-blue-400 to-blue-700 data-[state=active]:text-white transition-all duration-300"
+              >
+                {translations.resume.experience}
+              </TabsTrigger>
+              <TabsTrigger
+                value="education"
+                className="w-full px-6 py-4 rounded-xl data-[state=active]:bg-gradient-to-r from-blue-400 to-blue-700 data-[state=active]:text-white transition-all duration-300"
+              >
+                {translations.resume.education}
+              </TabsTrigger>
+              <TabsTrigger
+                value="voluntarily"
+                className="w-full px-6 py-4 rounded-xl data-[state=active]:bg-gradient-to-r from-blue-400 to-blue-700 data-[state=active]:text-white transition-all duration-300"
+              >
+                {translations.resume.voluntarily}
+              </TabsTrigger>
+              <TabsTrigger
+                value="skills"
+                className="w-full px-6 py-4 rounded-xl data-[state=active]:bg-gradient-to-r from-blue-400 to-blue-700 data-[state=active]:text-white transition-all duration-300"
+              >
+                {translations.resume.skills}
+              </TabsTrigger>
+              <TabsTrigger
+                value="soft"
+                className="w-full px-6 py-4 rounded-xl data-[state=active]:bg-gradient-to-r from-blue-400 to-blue-700 data-[state=active]:text-white transition-all duration-300"
+              >
+                {translations.resume.softSkills}
+              </TabsTrigger>
+              <TabsTrigger
+                value="ambassador"
+                className="w-full px-6 py-4 rounded-xl data-[state=active]:bg-gradient-to-r from-blue-400 to-blue-700 data-[state=active]:text-white transition-all duration-300"
+              >
+                {translations.resume.ambassador}
+              </TabsTrigger>
+              <TabsTrigger
+                value="certifications"
+                className="w-full px-6 py-4 rounded-xl data-[state=active]:bg-gradient-to-r from-blue-400 to-blue-700 data-[state=active]:text-white transition-all duration-300"
+              >
+                {translations.resume.certifications}
+              </TabsTrigger>
+              <TabsTrigger
+                value="about"
+                className="w-full px-6 py-4 rounded-xl data-[state=active]:bg-gradient-to-r from-blue-400 to-blue-700 data-[state=active]:text-white transition-all duration-300"
+              >
+                {translations.about.title}
+              </TabsTrigger>
+              <TabsTrigger
+                value="references"
+                className="w-full px-6 py-4 rounded-xl data-[state=active]:bg-gradient-to-r from-blue-400 to-blue-700 data-[state=active]:text-white transition-all duration-300"
+              >
+                {translations.resume.references}
+              </TabsTrigger>
             </TabsList>
 
             <div className="flex-1 min-h-[700px]">
-              <TabsContent value="references" className="h-full">
-                <ResumeReferences referencesList={referencesList} />
+              <TabsContent value="experience" className="h-full">
+                <ResumeExperience experiences={experience} />
+              </TabsContent>
+              <TabsContent value="education" className="h-full">
+                <ResumeEducation educations={education} />
+              </TabsContent>
+              <TabsContent value="voluntarily" className="h-full">
+                <ResumeVoluntarily voluntarilyWorks={voluntarilyWorks} />
+              </TabsContent>
+              <TabsContent value="skills" className="h-full">
+                <ResumeSkills skills={skills} />
               </TabsContent>
               <TabsContent value="soft" className="h-full">
                 <ResumeSoftSkills soft={soft} />
@@ -116,22 +158,14 @@ const Resume = () => {
                   selectedCategory={selectedCategory}
                   handleCategoryChange={handleCategoryChange}
                   filteredCertifications={filteredCertifications}
+                  translations={translations}
                 />
-              </TabsContent>
-              <TabsContent value="experience" className="h-full">
-                <ResumeExperience experiences={experience} />
-              </TabsContent>
-              <TabsContent value="voluntarily" className="h-full">
-                <ResumeVoluntarily voluntarilyWorks={voluntarilyWorks} />
-              </TabsContent>
-              <TabsContent value="education" className="h-full">
-                <ResumeEducation educations={education} />
-              </TabsContent>
-              <TabsContent value="skills" className="h-full">
-                <ResumeSkills skills={skills} />
               </TabsContent>
               <TabsContent value="about" className="h-full">
                 <ResumeAbout about={about} />
+              </TabsContent>
+              <TabsContent value="references" className="h-full">
+                <ResumeReferences referencesList={referencesList} />
               </TabsContent>
             </div>
           </Tabs>

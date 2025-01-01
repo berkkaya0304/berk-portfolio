@@ -1,89 +1,172 @@
 export const activities = [
   {
-    title: "Books I've Read",
-    description: "Check out the books I've been reading recently.",
+    title: "Okuduğum Kitaplar",
+    description: "Son zamanlarda okuduğum kitapları inceleyin.",
     href: "/social/book"
   },
   {
-    title: "Movies I've Watched",
-    description: "Find out what movies I've watched.",
+    title: "İzlediğim Filmler",
+    description: "İzlediğim filmleri keşfedin.",
     href: "/social/movies"
   },
   {
-    title: "Theaters and Plays",
-    description: "See the theaters and plays I've attended.",
+    title: "Tiyatro ve Oyunlar",
+    description: "Katıldığım tiyatro ve oyunları görün.",
     href: "/social/theaters"
   }
 ];
 
-export const bookData = `Title,Author,Genre,Read Date,Number of Pages,Completed?
-"The Psychology of Emotions","Nevzat Tarhan",Self-Help,"November 1, 2021",240,Yes
-"Reformat Your Mind in 21 Days","Debbie Ford",Self-Help,"November 1, 2021",190,Yes
-"Feynman's Lost Lecture","David L. GoodStein",Science,"November 1, 2021",182,Yes
-"A Whack on the Side of the Head","Roger Von Oech",Self-Help,"December 1, 2021",280,Yes
-"Artificial Intelligence","İsmail Hakkı Aydın",Computer Science,"December 1, 2021",285,Yes
-"Your Brain 2.0","İsmail Hakkı Aydın",Science,"December 1, 2021",264,Yes
-"The Time Machine","H. G. Wells",English,"December 1, 2021",80,Yes
-"Business Skills","Douglas Davis",Social Sciences,"December 1, 2021",232,Yes
-"The 100 Most Influential Scientists","Jon Balchin","Science, Social Sciences","January 1, 2022",432,Yes
-"A Short History of Nearly Everything","Bill Bryson",Social Sciences,"January 1, 2022",518,Yes
-"The Creative Species","David Eagleman & Anthony Brandt",Science,"February 1, 2022",304,Yes
-"Nuclear Power Wars","Selim Sunal",Social Sciences,"February 1, 2022",216,Yes
-"Group Psychology","Sigmund Freud",Social Sciences,"February 1, 2022",142,Yes
-"Brilliant Blunders","Mario Livio",Social Sciences,"February 1, 2022",328,Yes
-"Elon Musk","Ashlee Vance",Biography,"February 1, 2022",455,Yes
-"100 Psychological Assumptions","Jana Nikitin & Marie Hennecke",Social Sciences,"February 1, 2022",272,Yes
-"Systematic Thinking","Steven Schuster",Social Sciences,"February 1, 2022",176,Yes
-"Be 100% Yourself","Matthew Kelly",Social Sciences,"March 1, 2022",288,Yes
-"Artificial Intelligence at Work","Bernard Marr & Matt Ward",Computer Science,"March 1, 2022",348,Yes
-"Genetics 101","Beth Skwarecki",Science,"March 1, 2022",232,Yes
-"Speed Reading with Comprehension","Yaprak Baran Tecir & Gülyan Kabaş",Social Sciences,"March 1, 2022",247,Yes
-"Utopia","Thomas More",Social Sciences,"April 1, 2022",160,Yes
-"The Meaning and Purpose of Life","Alfred Adler",Social Sciences,"April 1, 2022",293,Yes
-"Artificial Intelligence: 101 Things You Need to Know About Our Future","Lasse Rouhiainen",Computer Science,"May 1, 2022",317,Yes
-"How to Live a Life","İlber Ortaylı",Biography,"July 1, 2022",285,Yes
-"The Social Contract","Jean Jacques Rousseau",Social Sciences,"August 1, 2022",136,Yes
-"The Book of Mistakes","Skip Prichard",Self-Help,"August 1, 2022",187,Yes
-"Rich Dad Poor Dad","Robert Kiyosaki",Personal Finance,"September 1, 2022",396,Yes
-"Personal Development","Feyzullah Budak",Self-Help,"September 1, 2022",272,Yes
-"Atomic Habits","James Clear",Self-Help,"February 1, 2023",341,Yes
-"Outliers","Malcolm Gladwell",Self-Help,"February 1, 2023",244,Yes
-"The Art of Saying No","Müthiş Psikoloji",Self-Help,"March 1, 2023",173,Yes
-"Body Language","Joe Navarro & Marvin Karlins",Self-Help,"July 1, 2023",300,Yes
-"Emotional Intelligence and Leadership","Daniel Goleman",Self-Help,"March 1, 2024",159,Yes
-"Small Things, Big Freedoms","Mert Başaran",Personal Finance,"May 1, 2024",194,Yes
-"Think and Grow Rich","Napoleon Hill","Personal Finance, Social Sciences","June 19, 2024",226,Yes
-"You Are a Badass at Making Money","Jen Sincero",Personal Finance,"August 15, 2024",240,Yes
-"Building a Brand","Donald Miller","Self-Help, Social Sciences","August 25, 2024",222,Yes
-`;
+export const bookData = `Title,Title_TR,Author,Author_TR,Genre,Genre_TR,Read Date,Number of Pages
+"The Alchemist","Simyacı","Paulo Coelho","Paulo Coelho","Novel","Roman","1 Kasım 2021",240
+"21 Days to Reset Your Mind","21 Günde Zihninizi Yeniden Formatlayın","Debbie Ford","Debbie Ford","Personal Development","Kişisel Gelişim","1 Kasım 2021",190
+"Feynman's Lost Lecture","Feynman'ın Kayıp Dersi","David L. GoodStein","David L. GoodStein","Science","Bilim","1 Kasım 2021",182
+"A Whack on the Side of the Head","Kafaya Bir Yumruk","Roger Von Oech","Roger Von Oech","Personal Development","Kişisel Gelişim","1 Aralık 2021",280
+"Artificial Intelligence","Yapay Zeka","İsmail Hakkı Aydın","İsmail Hakkı Aydın","Computer Science","Bilgisayar Bilimi","1 Aralık 2021",285
+"Brain 2.0","Beyin 2.0","İsmail Hakkı Aydın","İsmail Hakkı Aydın","Science","Bilim","1 Aralık 2021",264
+"The Time Machine","Zaman Makinesi","H. G. Wells","H. G. Wells","Science Fiction","Bilim Kurgu","1 Aralık 2021",80
+"Business Skills","İş Becerileri","Douglas Davis","Douglas Davis","Social Sciences","Sosyal Bilimler","1 Aralık 2021",232
+"The 100 Most Influential Scientists","En Etkili 100 Bilim İnsanı","Jon Balchin","Jon Balchin","Science, Social Sciences","Bilim, Sosyal Bilimler","1 Ocak 2022",432
+"A Short History of Nearly Everything","Neredeyse Her Şeyin Kısa Tarihi","Bill Bryson","Bill Bryson","Social Sciences","Sosyal Bilimler","1 Ocak 2022",518
+"Creative Species","Yaratıcı Türler","David Eagleman & Anthony Brandt","David Eagleman & Anthony Brandt","Science","Bilim","1 Şubat 2022",304
+"Nuclear Power Wars","Nükleer Güç Savaşları","Selim Sunal","Selim Sunal","Social Sciences","Sosyal Bilimler","1 Şubat 2022",216
+"Group Psychology","Grup Psikolojisi","Sigmund Freud","Sigmund Freud","Social Sciences","Sosyal Bilimler","1 Şubat 2022",142
+"Brilliant Blunders","Parlak Hatalar","Mario Livio","Mario Livio","Social Sciences","Sosyal Bilimler","1 Şubat 2022",328
+"Elon Musk","Elon Musk","Ashlee Vance","Ashlee Vance","Biography","Biyografi","1 Şubat 2022",455
+"100 Psychological Assumptions","100 Psikolojik Varsayım","Jana Nikitin & Marie Hennecke","Jana Nikitin & Marie Hennecke","Social Sciences","Sosyal Bilimler","1 Şubat 2022",272
+"Systematic Thinking","Sistematik Düşünme","Steven Schuster","Steven Schuster","Social Sciences","Sosyal Bilimler","1 Şubat 2022",176
+"Be 100% Yourself","%100 Kendin Ol","Matthew Kelly","Matthew Kelly","Social Sciences","Sosyal Bilimler","1 Mart 2022",288
+"This is AI","İşte Yapay Zeka","Bernard Marr & Matt Ward","Bernard Marr & Matt Ward","Computer Science","Bilgisayar Bilimi","1 Mart 2022",348
+"Genetics 101","Genetik 101","Beth Skwarecki","Beth Skwarecki","Science","Bilim","1 Mart 2022",232
+"Speed Reading with Understanding","Anlayarak Hızlı Okuma","Yaprak Baran Tecir & Gülyan Kabaş","Yaprak Baran Tecir & Gülyan Kabaş","Social Sciences","Sosyal Bilimler","1 Mart 2022",247
+"Utopia","Ütopya","Thomas More","Thomas More","Social Sciences","Sosyal Bilimler","1 Nisan 2022",160
+"The Meaning and Purpose of Life","Yaşamın Anlamı ve Amacı","Alfred Adler","Alfred Adler","Social Sciences","Sosyal Bilimler","1 Nisan 2022",293
+"AI: 101 Things You Need to Know About Our Future","Yapay Zeka: Geleceğimiz Hakkında Bilmeniz Gereken 101 Şey","Lasse Rouhiainen","Lasse Rouhiainen","Computer Science","Bilgisayar Bilimi","1 Mayıs 2022",317
+"How to Live a Life","Bir Ömür Nasıl Yaşanır","İlber Ortaylı","İlber Ortaylı","Biography","Biyografi","1 Temmuz 2022",285
+"The Social Contract","Toplum Sözleşmesi","Jean Jacques Rousseau","Jean Jacques Rousseau","Social Sciences","Sosyal Bilimler","1 Ağustos 2022",136
+"Book of Mistakes","Hatalar Kitabı","Skip Prichard","Skip Prichard","Personal Development","Kişisel Gelişim","1 Ağustos 2022",187
+"Rich Dad Poor Dad","Zengin Baba Yoksul Baba","Robert Kiyosaki","Robert Kiyosaki","Personal Finance","Kişisel Finans","1 Eylül 2022",396
+"Personal Development","Kişisel Gelişim","Feyzullah Budak","Feyzullah Budak","Personal Development","Kişisel Gelişim","1 Eylül 2022",272
+"Atomic Habits","Atomik Alışkanlıklar","James Clear","James Clear","Personal Development","Kişisel Gelişim","1 Şubat 2023",341
+"Outliers","Çizginin Dışındakiler","Malcolm Gladwell","Malcolm Gladwell","Personal Development","Kişisel Gelişim","1 Şubat 2023",244
+"The Art of Saying No","Hayır Deme Sanatı","Müthiş Psikoloji","Müthiş Psikoloji","Personal Development","Kişisel Gelişim","1 Mart 2023",173
+"Body Language","Beden Dili","Joe Navarro & Marvin Karlins","Joe Navarro & Marvin Karlins","Personal Development","Kişisel Gelişim","1 Temmuz 2023",300
+"Emotional Intelligence and Leadership","Duygusal Zeka ve Liderlik","Daniel Goleman","Daniel Goleman","Personal Development","Kişisel Gelişim","1 Mart 2024",159
+"Small Things, Big Freedom","Küçük Şeyler, Büyük Özgürlükler","Mert Başaran","Mert Başaran","Personal Finance","Kişisel Finans","1 Mayıs 2024",194
+"Think and Grow Rich","Düşün ve Zengin Ol","Napoleon Hill","Napoleon Hill","Personal Finance, Social Sciences","Kişisel Finans, Sosyal Bilimler","19 Haziran 2024",226
+"You Are a Badass at Making Money","Para Kazanmada Harikasın","Jen Sincero","Jen Sincero","Personal Finance","Kişisel Finans","15 Ağustos 2024",240
+"Building a Story Brand","Marka İnşa Etmek","Donald Miller","Donald Miller","Personal Development, Social Sciences","Kişisel Gelişim, Sosyal Bilimler","25 Ağustos 2024",222`;
 
-export const movieData = `Title,Director,Genre,Release Year,Duration (min),Watched?
-"Inception","Christopher Nolan","Sci-Fi, Action",2010,148,Yes
-"The Dark Knight","Christopher Nolan","Action, Drama",2008,152,Yes
-"Interstellar","Christopher Nolan","Sci-Fi, Drama",2014,169,Yes
-"The Matrix","Wachowski Sisters","Sci-Fi, Action",1999,136,Yes
-"Pulp Fiction","Quentin Tarantino","Crime, Drama",1994,154,Yes
-"Fight Club","David Fincher","Drama",1999,139,Yes
-"The Shawshank Redemption","Frank Darabont","Drama",1994,142,Yes
-"Forrest Gump","Robert Zemeckis","Drama, Romance",1994,142,Yes
-"The Godfather","Francis Ford Coppola","Crime, Drama",1972,175,Yes
-"Goodfellas","Martin Scorsese","Crime, Drama",1990,146,Yes
-"The Silence of the Lambs","Jonathan Demme","Crime, Drama",1991,118,Yes
-"Se7en","David Fincher","Crime, Drama",1995,127,Yes
-"The Usual Suspects","Bryan Singer","Crime, Mystery",1995,106,Yes
-"Memento","Christopher Nolan","Mystery, Thriller",2000,113,Yes
-"The Prestige","Christopher Nolan","Drama, Mystery",2006,130,Yes
-"The Social Network","David Fincher","Biography, Drama",2010,120,Yes
-"A Beautiful Mind","Ron Howard","Biography, Drama",2001,135,Yes
-"The Theory of Everything","James Marsh","Biography, Drama",2014,123,Yes
-"The Imitation Game","Morten Tyldum","Biography, Drama",2014,114,Yes
-"Ex Machina","Alex Garland","Sci-Fi, Drama",2014,108,Yes
-`;
+export const movieData = `Title,Title_TR,Director,Director_TR,Genre,Genre_TR,Release Year,Duration (min)
+"Inception","Başlangıç","Christopher Nolan","Christopher Nolan","Sci-Fi, Action","Bilim Kurgu, Aksiyon",2010,148
+"The Dark Knight","Kara Şövalye","Christopher Nolan","Christopher Nolan","Action, Drama","Aksiyon, Drama",2008,152
+"Interstellar","Yıldızlararası","Christopher Nolan","Christopher Nolan","Sci-Fi, Drama","Bilim Kurgu, Drama",2014,169
+"The Matrix","Matrix","Wachowski Brothers","Wachowski Kardeşler","Sci-Fi, Action","Bilim Kurgu, Aksiyon",1999,136
+"Pulp Fiction","Ucuz Roman","Quentin Tarantino","Quentin Tarantino","Crime, Drama","Suç, Drama",1994,154
+"Fight Club","Dövüş Kulübü","David Fincher","David Fincher","Drama","Drama",1999,139
+"The Shawshank Redemption","Esaretin Bedeli","Frank Darabont","Frank Darabont","Drama","Drama",1994,142
+"Forrest Gump","Forrest Gump","Robert Zemeckis","Robert Zemeckis","Drama, Romance","Drama, Romantik",1994,142
+"The Godfather","Baba","Francis Ford Coppola","Francis Ford Coppola","Crime, Drama","Suç, Drama",1972,175
+"Goodfellas","Sıkı Dostlar","Martin Scorsese","Martin Scorsese","Crime, Drama","Suç, Drama",1990,146
+"The Silence of the Lambs","Kuzuların Sessizliği","Jonathan Demme","Jonathan Demme","Crime, Drama","Suç, Drama",1991,118
+"Seven","Yedi","David Fincher","David Fincher","Crime, Drama","Suç, Drama",1995,127
+"The Usual Suspects","Olağan Şüpheliler","Bryan Singer","Bryan Singer","Crime, Mystery","Suç, Gizem",1995,106
+"Memento","Akıl Defteri","Christopher Nolan","Christopher Nolan","Mystery, Thriller","Gizem, Gerilim",2000,113
+"The Prestige","Prestij","Christopher Nolan","Christopher Nolan","Drama, Mystery","Drama, Gizem",2006,130
+"The Social Network","Sosyal Ağ","David Fincher","David Fincher","Biography, Drama","Biyografi, Drama",2010,120
+"A Beautiful Mind","Akıl Oyunları","Ron Howard","Ron Howard","Biography, Drama","Biyografi, Drama",2001,135
+"The Theory of Everything","Her Şeyin Teorisi","James Marsh","James Marsh","Biography, Drama","Biyografi, Drama",2014,123
+"The Imitation Game","İmitasyon Oyunu","Morten Tyldum","Morten Tyldum","Biography, Drama","Biyografi, Drama",2014,114
+"Ex Machina","Ex Machina","Alex Garland","Alex Garland","Sci-Fi, Drama","Bilim Kurgu, Drama",2014,108`;
 
-export const theaterData = `Name,Location,Capacity,Last Visit Date,Performance Watched,Rating
-"x","x, x",x,"x","x",x
-`;
+export const theaterData = `Play,Play_TR,Theater,Theater_TR,Venue,Venue_TR,Date,Rating
+"Hamlet","Hamlet","State Theater","Devlet Tiyatrosu","National Theater Hall","Milli Sahne","2023-01-25",5
+"Romeo and Juliet","Romeo ve Juliet","City Theater","Şehir Tiyatrosu","Cultural Center","Kültür Merkezi","2023-02-28",4.5
+"Macbeth","Macbeth","Art Theater","Sanat Tiyatrosu","Modern Stage","Modern Sahne","2023-03-15",5
+"Othello","Othello","Classic Theater","Klasik Tiyatro","Historic Theater","Tarihi Tiyatro","2023-04-20",4.5`;
 
-export const bookColumns = ["Title", "Author", "Genre", "Read Date", "Number of Pages"];
-export const movieColumns = ["Title", "Director", "Genre", "Release Year", "Duration (min)", "Watched?"];
-export const theaterColumns = ["Name", "Location", "Capacity", "Last Visit Date", "Performance Watched", "Rating"]; 
+export const bookColumns = [
+  { key: 'title', field: 'Title' },
+  { key: 'title', field: 'Title_TR' },
+  { key: 'author', field: 'Author' },
+  { key: 'genre', field: 'Genre' },
+  { key: 'genre', field: 'Genre_TR' },
+  { key: 'date', field: 'Read Date' },
+  { key: 'pages', field: 'Number of Pages' }
+];
+
+export const movieColumns = [
+  { key: 'title', field: 'Title' },
+  { key: 'title', field: 'Title_TR' },
+  { key: 'director', field: 'Director' },
+  { key: 'genre', field: 'Genre' },
+  { key: 'genre', field: 'Genre_TR' },
+  { key: 'year', field: 'Release Year' },
+  { key: 'duration', field: 'Duration (min)' }
+];
+
+export const theaterColumns = [
+  { key: 'play', field: 'Play' },
+  { key: 'play', field: 'Play_TR' },
+  { key: 'theater', field: 'Theater' },
+  { key: 'theater', field: 'Theater_TR' },
+  { key: 'venue', field: 'Venue' },
+  { key: 'venue', field: 'Venue_TR' },
+  { key: 'date', field: 'Date' },
+  { key: 'rating', field: 'Rating' }
+];
+
+export const articleColumnsEN = [
+  { key: 'title', field: 'Title' },
+  { key: 'author', field: 'Author' },
+  { key: 'publication', field: 'Publication' },
+  { key: 'date', field: 'Date' },
+  { key: 'category', field: 'Category' },
+  { key: 'link', field: 'Link' }
+];
+
+export const articleColumnsTR = [
+  { key: 'title', field: 'Başlık' },
+  { key: 'author', field: 'Yazar' },
+  { key: 'publication', field: 'Yayın' },
+  { key: 'date', field: 'Tarih' },
+  { key: 'category', field: 'Kategori' },
+  { key: 'link', field: 'Bağlantı' }
+];
+
+export const articleDataEN = [
+  {
+    title: "The Future of AI in Software Development",
+    author: "John Doe",
+    publication: "Medium",
+    date: "2023-12-15",
+    category: "Technology",
+    link: "https://medium.com/article1"
+  },
+  {
+    title: "Understanding Modern Web Development",
+    author: "Jane Smith",
+    publication: "Dev.to",
+    date: "2023-11-20",
+    category: "Web Development",
+    link: "https://dev.to/article2"
+  }
+];
+
+export const articleDataTR = [
+  {
+    title: "Yazılım Geliştirmede Yapay Zekanın Geleceği",
+    author: "Ahmet Yılmaz",
+    publication: "Medium",
+    date: "2023-12-10",
+    category: "Teknoloji",
+    link: "https://medium.com/makale1"
+  },
+  {
+    title: "Modern Web Geliştirmeyi Anlamak",
+    author: "Ayşe Demir",
+    publication: "Dev.to",
+    date: "2023-11-15",
+    category: "Web Geliştirme",
+    link: "https://dev.to/makale2"
+  }
+]; 

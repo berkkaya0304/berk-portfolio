@@ -3,41 +3,43 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-
-const links = [
-    {
-        name: "Home",
-        path: "/",
-    },
-    {
-        name: "Services",
-        path: "/services",
-    },
-    {
-        name: "Resume",
-        path: "/resume",
-    },
-    {
-        name: "Portfolio",
-        path: "/work",
-    },
-    {
-        name: "Programs",
-        path: "/program",
-    },
-    {
-        name: "Social",
-        path: "/social",
-    },
-    {
-        name: "Articles",
-        path: "/blog",
-    },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const Nav = () => {
     const pathname = usePathname();
+    const { translations } = useLanguage();
     
+    const links = [
+        {
+            name: translations.nav.home,
+            path: "/",
+        },
+        {
+            name: translations.nav.services,
+            path: "/services",
+        },
+        {
+            name: translations.nav.resume,
+            path: "/resume",
+        },
+        {
+            name: translations.nav.portfolio,
+            path: "/work",
+        },
+        {
+            name: translations.nav.programs,
+            path: "/program",
+        },
+        {
+            name: translations.nav.social,
+            path: "/social",
+        },
+        {
+            name: translations.nav.articles,
+            path: "/blog",
+        },
+    ];
+
     return (
         <nav className="flex items-center gap-6">
             {links.map((link, index) => {

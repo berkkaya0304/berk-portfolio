@@ -2,8 +2,27 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import BackButton from "@/components/BackButton";
+import { useLanguage } from "@/context/LanguageContext";
 
-const ServiceDetail = ({ title, description, image }) => {
+const ServiceDetail = ({ title, description, image, serviceKey }) => {
+  const { translations } = useLanguage();
+
+  const getFeatures = () => {
+    switch(serviceKey) {
+      case 'fullstack':
+        return translations.services.fullstack.features;
+      case 'cloud':
+        return translations.services.cloud.features;
+      case 'data':
+        return translations.services.data.features;
+      case 'digitalization':
+        return translations.services.digitalization.features;
+      default:
+        return [];
+    }
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -11,6 +30,8 @@ const ServiceDetail = ({ title, description, image }) => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gradient-to-b from-primary via-background to-background relative overflow-hidden py-20"
     >
+      <BackButton />
+      
       {/* Arkaplan dekoratif elementleri */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-[120px]" />
@@ -73,10 +94,10 @@ const ServiceDetail = ({ title, description, image }) => {
                   {/* Özellikler Listesi */}
                   <div className="mt-8">
                     <h3 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-                      Key Features
+                      {translations.common.keyFeatures}
                     </h3>
                     <ul className="space-y-3">
-                      {getServiceFeatures(title).map((feature, index) => (
+                      {getFeatures().map((feature, index) => (
                         <motion.li
                           key={index}
                           initial={{ x: 50, opacity: 0 }}
@@ -100,42 +121,6 @@ const ServiceDetail = ({ title, description, image }) => {
       </div>
     </motion.section>
   );
-};
-
-// Her servis için özellikler
-const getServiceFeatures = (serviceTitle) => {
-  const features = {
-    "Full-Stack Development": [
-      "Modern frontend frameworks (React, Next.js)",
-      "Robust backend development",
-      "Database design and optimization",
-      "API development and integration",
-      "Responsive and mobile-first design"
-    ],
-    "Cloud Technologies": [
-      "Cloud infrastructure setup",
-      "AWS/Azure/GCP services",
-      "Cloud security implementation",
-      "Scalability optimization",
-      "Cost management"
-    ],
-    "Data Technologies": [
-      "Data analysis and visualization",
-      "Big data processing",
-      "Machine learning integration",
-      "Real-time analytics",
-      "Data pipeline development"
-    ],
-    "Digitalization": [
-      "Digital transformation strategy",
-      "Process automation",
-      "Legacy system modernization",
-      "Digital workflow optimization",
-      "Integration solutions"
-    ]
-  };
-
-  return features[serviceTitle] || [];
 };
 
 export default ServiceDetail; 

@@ -2,9 +2,13 @@
 
 import { motion } from "framer-motion";
 import ServiceCard from "@/components/services/ServiceCard";
-import { services } from "@/data/services";
+import { getServices } from "@/data/services";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Services = () => {
+  const { translations } = useLanguage();
+  const services = getServices();
+
   return (
     <motion.section 
       initial={{ opacity: 0 }}
@@ -27,7 +31,7 @@ const Services = () => {
             transition={{ delay: 0.2 }}
             className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700"
           >
-            My Services
+            {translations.services.title}
           </motion.h1>
           <motion.p 
             initial={{ y: 20, opacity: 0 }}
@@ -35,7 +39,7 @@ const Services = () => {
             transition={{ delay: 0.3 }}
             className="text-blue-400/80 text-lg max-w-2xl mx-auto"
           >
-            Specialized solutions in software development, cloud computing, and digital transformation
+            {translations.services.description}
           </motion.p>
         </div>
 

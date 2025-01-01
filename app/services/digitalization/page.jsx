@@ -1,16 +1,17 @@
 "use client";
 
 import ServiceDetail from "@/components/services/ServiceDetail";
-import { services } from "@/data/services";
+import { useLanguage } from "@/context/LanguageContext";
 
 const DigitalizationService = () => {
-  const digitalizationService = services.find(service => service.title === "Digitalization");
+  const { translations } = useLanguage();
   
   return (
     <ServiceDetail 
-      title={digitalizationService.title}
-      description="Embrace digital transformation with our comprehensive digitalization services. We help organizations modernize their processes, implement digital solutions, and create efficient workflows that drive productivity and innovation in the digital age."
-      image="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1456&h=816&q=80"
+      title={translations.services.digitalization.title}
+      description={translations.services.digitalization.description}
+      image="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1456&h=816&q=80"
+      serviceKey="digitalization"
     />
   );
 };

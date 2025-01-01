@@ -1,16 +1,17 @@
 "use client";
 
 import ServiceDetail from "@/components/services/ServiceDetail";
-import { services } from "@/data/services";
+import { useLanguage } from "@/context/LanguageContext";
 
 const CloudService = () => {
-  const cloudService = services.find(service => service.title === "Cloud Technologies");
+  const { translations } = useLanguage();
   
   return (
     <ServiceDetail 
-      title={cloudService.title}
-      description="Our cloud technology solutions help businesses leverage the power of cloud computing for enhanced scalability, security, and efficiency. We provide comprehensive cloud services including infrastructure setup, migration, optimization, and management across major cloud platforms."
+      title={translations.services.cloud.title}
+      description={translations.services.cloud.description}
       image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1456&h=816&q=80"
+      serviceKey="cloud"
     />
   );
 };

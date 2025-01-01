@@ -2,8 +2,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { FiExternalLink } from "react-icons/fi";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ProgramCard = ({ program }) => {
+  const { translations } = useLanguage();
+
   return (
     <motion.div
       whileHover={{ y: -5, scale: 1.01 }}
@@ -73,7 +76,7 @@ const ProgramCard = ({ program }) => {
                 target="_blank"
                 className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-slate-900/80 to-slate-900/80 text-blue-300 border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300"
               >
-                <span>View on LinkedIn</span>
+                <span>{translations.program.viewOnLinkedIn}</span>
                 <FiExternalLink size={20} />
               </Link>
             )}

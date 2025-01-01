@@ -1,10 +1,33 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ActivityCard from "@/components/social/ActivityCard";
-import { activities } from "@/data/social";
+import { useLanguage } from "@/context/LanguageContext";
+import Link from "next/link";
 
-export default function SocialPage() {
+const SocialPage = () => {
+  const { translations } = useLanguage();
+
+  const activities = [
+    {
+      title: translations.social.books.title,
+      description: translations.social.books.description,
+      link: "/social/book",
+      icon: "📚"
+    },
+    {
+      title: translations.social.movies.title,
+      description: translations.social.movies.description,
+      link: "/social/movies",
+      icon: "🎬"
+    },
+    {
+      title: translations.social.theaters.title,
+      description: translations.social.theaters.description,
+      link: "/social/theaters",
+      icon: "🎭"
+    }
+  ];
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -27,36 +50,39 @@ export default function SocialPage() {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-            Social Activities
+            {translations.social.title}
           </h1>
-          <p className="text-blue-400/80 text-lg max-w-2xl mx-auto">
-            Explore my cultural and entertainment activities
+          <p className="text-lg text-blue-400/80 max-w-2xl mx-auto">
+            {translations.social.description}
           </p>
         </motion.div>
 
         {/* Aktivite Kartları */}
-        <motion.div
-          initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {activities.map((activity, index) => (
             <motion.div
               key={index}
-              initial={{ y: 50, opacity: 0 }}
+              initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2 * (index + 1) }}
+              transition={{ delay: 0.3 + index * 0.1 }}
             >
-              <ActivityCard
-                title={activity.title}
-                description={activity.description}
-                href={activity.href}
-              />
+              <Link href={activity.link}>
+                <div className="bg-slate-900/50 backdrop-blur-sm rounded-xl p-6 border border-blue-400/20 hover:border-blue-400/40 transition-colors group cursor-pointer h-full">
+                  <div className="text-4xl mb-4">{activity.icon}</div>
+                  <h3 className="text-2xl font-bold text-blue-400 mb-2 group-hover:text-blue-300 transition-colors">
+                    {activity.title}
+                  </h3>
+                  <p className="text-blue-300/80">
+                    {activity.description}
+                  </p>
+                </div>
+              </Link>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </motion.section>
   );
-}
+};
+
+export default SocialPage;

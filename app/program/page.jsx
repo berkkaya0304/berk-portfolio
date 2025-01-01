@@ -2,9 +2,13 @@
 
 import { motion } from "framer-motion";
 import ProgramCard from "@/components/program/ProgramCard";
-import { programs } from "@/data/program";
+import { getPrograms } from "@/data/program";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Program = () => {
+  const { translations } = useLanguage();
+  const programs = getPrograms();
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -27,10 +31,10 @@ const Program = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-            All Programs
+            {translations.program.title}
           </h1>
           <p className="text-blue-400/80 text-lg max-w-2xl mx-auto">
-            All programs I have participated in before
+            {translations.program.description}
           </p>
         </motion.div>
 
