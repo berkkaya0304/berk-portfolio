@@ -87,11 +87,11 @@ const getProgramPhoto = (title) => {
 const getProgramCertificate = (title) => {
   const certificates = {
     "Coding with IBM: CyberStart": {
-      image: "https://media.licdn.com/dms/image/v2/D4D22AQH9F5ZKKGLC4g/feedshare-shrink_1280/feedshare-shrink_1280/0/1729624403111?e=1733356800&v=beta&t=ZM-zf0-iquivjYl96TlB42PtVVamRHQQeYOFnwR309A",
+          image: "https://media.licdn.com/dms/image/v2/D4D22AQH9F5ZKKGLC4g/feedshare-shrink_1280/feedshare-shrink_1280/0/1729624403111?e=1733356800&v=beta&t=ZM-zf0-iquivjYl96TlB42PtVVamRHQQeYOFnwR309A",
       link: "https://www.linkedin.com/posts_berkkaya_ibm-cyberstart-kodluyoruz-activity-7254733388786352128-kTEV?utm_source=share&utm_medium=member_desktop"
     },
     "Leader Development Program": {
-      image: "https://media.licdn.com/dms/image/v2/D4D22AQGO1Y2AcSgfSA/feedshare-shrink_800/feedshare-shrink_800/0/1729606021102?e=1733356800&v=beta&t=NVYXK2R8hg9wLNoDW-_vJp4BXRPumhNZLdiC2Exin3o",
+          image: "https://media.licdn.com/dms/image/v2/D4D22AQGO1Y2AcSgfSA/feedshare-shrink_800/feedshare-shrink_800/0/1729606021102?e=1733356800&v=beta&t=NVYXK2R8hg9wLNoDW-_vJp4BXRPumhNZLdiC2Exin3o",
       link: "https://www.linkedin.com/posts_berkkaya_leader-development-program-activity-7254493460559224832-PADf?utm_source=share&utm_medium=member_desktop"
     },
     "Lider Geliştirme Programı": {
@@ -103,7 +103,7 @@ const getProgramCertificate = (title) => {
       link: "https://www.linkedin.com/posts-berkkaya_business-life-iaovagn-activity-7239316755058180097-n8Qg?utm_source=share&utm_medium=member_desktop"
     },
     "Aselsan İş Yaşamı 101": {
-      image: "https://media.licdn.com/dms/image/v2/D4D22AQHVuwDzCV7v9g/feedshare-shrink_800/feedshare-shrink_800/0/1725866820299?e=1733356800&v=beta&t=LkCGD8FSHNgbhX-g6jSqTdAgg70Jj6cDKG2tZ5S3ckI",
+          image: "https://media.licdn.com/dms/image/v2/D4D22AQHVuwDzCV7v9g/feedshare-shrink_800/feedshare-shrink_800/0/1725866820299?e=1733356800&v=beta&t=LkCGD8FSHNgbhX-g6jSqTdAgg70Jj6cDKG2tZ5S3ckI",
       link: "https://www.linkedin.com/posts-berkkaya_business-life-iaovagn-activity-7239316755058180097-n8Qg?utm_source=share&utm_medium=member_desktop"
     },
     "Seeds for the Future Italy'24": {
@@ -111,7 +111,7 @@ const getProgramCertificate = (title) => {
       link: "https://www.linkedin.com/posts-berkkaya_seedsforfuture-seedsforfuture2024-ai-activity-7216305125865230337-4p-m?utm_source=share&utm_medium=member_desktop"
     },
     "Seeds for the Future İtalya'24": {
-      image: "https://i.ibb.co/2q33TgB/temp-image-20240710-084701-e634ac69-1ae9-455c-b16b-97a040ce0825.webp",
+          image: "https://i.ibb.co/2q33TgB/temp-image-20240710-084701-e634ac69-1ae9-455c-b16b-97a040ce0825.webp",
       link: "https://www.linkedin.com/posts-berkkaya_seedsforfuture-seedsforfuture2024-ai-activity-7216305125865230337-4p-m?utm_source=share&utm_medium=member_desktop"
     },
     "Take A Step Forward Program": {
@@ -119,7 +119,7 @@ const getProgramCertificate = (title) => {
       link: "https://www.linkedin.com/posts-berkkaya_learning-skills-mckinseyforward-activity-7187441096853962753-PDCg?utm_source=share&utm_medium=member_desktop"
     },
     "Take A Step Forward Programı": {
-      image: "https://media.licdn.com/dms/image/v2/D4D22AQH3F-f71dVXGQ/feedshare-shrink_800/feedshare-shrink_800/0/1713619492433?e=1733356800&v=beta&t=x3_gwOGjiE-1NGkEfYiZTL3xP2aWWxjIvbZibP22WZ4",
+          image: "https://media.licdn.com/dms/image/v2/D4D22AQH3F-f71dVXGQ/feedshare-shrink_800/feedshare-shrink_800/0/1713619492433?e=1733356800&v=beta&t=x3_gwOGjiE-1NGkEfYiZTL3xP2aWWxjIvbZibP22WZ4",
       link: "https://www.linkedin.com/posts-berkkaya_learning-skills-mckinseyforward-activity-7187441096853962753-PDCg?utm_source=share&utm_medium=member_desktop"
     },
     "AWS AI&ML Scholarship": {
@@ -127,7 +127,7 @@ const getProgramCertificate = (title) => {
       link: "https://www.linkedin.com/posts-berkkaya_aws-awsai-udacity-activity-7209119024759111682-hwiO?utm_source=share&utm_medium=member_desktop"
     },
     "AWS AI&ML Bursu": {
-      image: "https://media.licdn.com/dms/image/v2/D4D22AQFFgaS2DnxNqw/feedshare-shrink_800/feedshare-shrink_800/0/1718787912958?e=1733356800&v=beta&t=KEzrZssxWsV6pnB7hw36wWsR5LVrWiNlJFstGUtFCQ0",
+          image: "https://media.licdn.com/dms/image/v2/D4D22AQFFgaS2DnxNqw/feedshare-shrink_800/feedshare-shrink_800/0/1718787912958?e=1733356800&v=beta&t=KEzrZssxWsV6pnB7hw36wWsR5LVrWiNlJFstGUtFCQ0",
       link: "https://www.linkedin.com/posts-berkkaya_aws-awsai-udacity-activity-7209119024759111682-hwiO?utm_source=share&utm_medium=member_desktop"
     },
     "Certified Associate Project Management (CAPM) Program": {
@@ -135,7 +135,7 @@ const getProgramCertificate = (title) => {
       link: "https://www.linkedin.com/posts-berkkaya_projectmanagement-project-pmi-activity-7156361650042724352-izHE?utm_source=share&utm_medium=member_desktop"
     },
     "Sertifikalı Yardımcı Proje Yönetimi (CAPM) Programı": {
-      image: "https://media.licdn.com/dms/image/v2/D4D22AQFIf5Fdcih42g/feedshare-shrink_800/feedshare-shrink_800/0/1706209574609?e=1733356800&v=beta&t=lETA_GtQDSfnESkEoSH7Jlfy-6eo4MiDo844WdO5x78",
+          image: "https://media.licdn.com/dms/image/v2/D4D22AQFIf5Fdcih42g/feedshare-shrink_800/feedshare-shrink_800/0/1706209574609?e=1733356800&v=beta&t=lETA_GtQDSfnESkEoSH7Jlfy-6eo4MiDo844WdO5x78",
       link: "https://www.linkedin.com/posts-berkkaya_projectmanagement-project-pmi-activity-7156361650042724352-izHE?utm_source=share&utm_medium=member_desktop"
     },
     "Game & Technology Academy": {
@@ -143,7 +143,7 @@ const getProgramCertificate = (title) => {
       link: "https://www.linkedin.com/posts-berkkaya_gameandappacademygrad-game-application-activity-7098017482979852288--sOx?utm_source=share&utm_medium=member_desktop"
     },
     "Oyun & Teknoloji Akademisi": {
-      image: "https://media.licdn.com/dms/image/v2/D4D22AQENTR0YnfJVmw/feedshare-shrink_800/feedshare-shrink_800/0/1692299241965?e=1733356800&v=beta&t=DDmjCorXIk6Hl0xLEFOFoHg7a5A0cUfabHB_HApx74M",
+          image: "https://media.licdn.com/dms/image/v2/D4D22AQENTR0YnfJVmw/feedshare-shrink_800/feedshare-shrink_800/0/1692299241965?e=1733356800&v=beta&t=DDmjCorXIk6Hl0xLEFOFoHg7a5A0cUfabHB_HApx74M",
       link: "https://www.linkedin.com/posts-berkkaya_gameandappacademygrad-game-application-activity-7098017482979852288--sOx?utm_source=share&utm_medium=member_desktop"
     },
     "Software Engineering Virtual Experience Program": {
@@ -151,9 +151,9 @@ const getProgramCertificate = (title) => {
       link: "https://www.linkedin.com/posts-berkkaya_softwareengineering-virtualprogram-careerdevelopment-activity-7081362365123878912-fYka?utm_source=share&utm_medium=member_desktop"
     },
     "Yazılım Mühendisliği Sanal Deneyim Programı": {
-      image: "https://media.licdn.com/dms/image/v2/D4D22AQGjnZFCSJ7BqA/feedshare-shrink_800/feedshare-shrink_800/0/1688328351775?e=1733356800&v=beta&t=zCYpzYskgmLB0Mo3VaNhNiVl_OMPpwsVieV1l7K_p4s",
+          image: "https://media.licdn.com/dms/image/v2/D4D22AQGjnZFCSJ7BqA/feedshare-shrink_800/feedshare-shrink_800/0/1688328351775?e=1733356800&v=beta&t=zCYpzYskgmLB0Mo3VaNhNiVl_OMPpwsVieV1l7K_p4s",
       link: "https://www.linkedin.com/posts-berkkaya_softwareengineering-virtualprogram-careerdevelopment-activity-7081362365123878912-fYka?utm_source=share&utm_medium=member_desktop"
-    }
+        }
   };
   return certificates[title] || null;
 }; 

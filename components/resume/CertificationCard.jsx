@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/context/LanguageContext";
 
 const CertificationCard = ({ certification }) => {
+  const { translations } = useLanguage();
+  
   return (
     <motion.div className="relative group">
       {/* Glow Effect */}
@@ -37,7 +40,7 @@ const CertificationCard = ({ certification }) => {
               variant="outline" 
               className="text-[10px] px-2 py-1 h-7 bg-gradient-to-r from-blue-400 to-blue-700 text-white hover:from-blue-500 hover:to-blue-800 transition-all duration-300"
             >
-              View Certificate
+              {translations.resume.viewCertificate}
             </Button>
           </a>
         )}
