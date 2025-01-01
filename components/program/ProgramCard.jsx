@@ -13,7 +13,7 @@ const ProgramCard = ({ program }) => {
       <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-700 rounded-2xl blur-md opacity-20 group-hover:opacity-30 transition-opacity" />
       
       {/* Card Content */}
-      <div className="relative bg-gradient-to-r from-blue-400/10 to-blue-700/10 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300 h-full flex flex-col">
+      <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300 h-full flex flex-col">
         {/* Header with Company Logo */}
         <div className="flex items-center gap-4 mb-6">
           <div className="w-32 h-20 relative flex-shrink-0">
@@ -30,7 +30,7 @@ const ProgramCard = ({ program }) => {
             <h3 className="text-xl font-bold mb-1 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
               {program.title}
             </h3>
-            <p className="text-blue-400/80 font-medium">
+            <p className="text-blue-300 font-medium">
               {program.company}
             </p>
           </div>
@@ -38,7 +38,7 @@ const ProgramCard = ({ program }) => {
 
         {/* Program Info */}
         <div className="flex-grow">
-          <p className="text-blue-400/60 text-sm mb-4">
+          <p className="text-blue-300/80 text-sm mb-4">
             {program.description}
           </p>
         </div>
@@ -47,7 +47,7 @@ const ProgramCard = ({ program }) => {
         <div className="space-y-4">
           {/* Date */}
           <div className="flex flex-wrap gap-2">
-            <span className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-blue-400/10 to-blue-700/10 text-blue-400 border border-blue-400/20">
+            <span className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-slate-900/80 to-slate-900/80 text-blue-300 border border-blue-400/20">
               {program.date}
             </span>
           </div>
@@ -57,7 +57,7 @@ const ProgramCard = ({ program }) => {
             {program.skills.map((skill, index) => (
               <span 
                 key={index}
-                className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-blue-400/10 to-blue-700/10 text-blue-400 border border-blue-400/20"
+                className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-slate-900/80 to-slate-900/80 text-blue-300 border border-blue-400/20"
               >
                 {skill}
               </span>
@@ -71,7 +71,7 @@ const ProgramCard = ({ program }) => {
               <Link
                 href={program.certificate?.link || program.photo}
                 target="_blank"
-                className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-400/10 to-blue-700/10 text-blue-400 border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300"
+                className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-slate-900/80 to-slate-900/80 text-blue-300 border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300"
               >
                 <span>View on LinkedIn</span>
                 <FiExternalLink size={20} />

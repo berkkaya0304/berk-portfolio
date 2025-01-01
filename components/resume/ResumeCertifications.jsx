@@ -129,19 +129,101 @@ const ResumeCertifications = ({
       {totalPages > 1 && (
         <div className="flex justify-center items-center gap-4 mt-8">
           <div className="flex items-center gap-2">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-              <Button
-                key={pageNum}
-                onClick={() => setCurrentPage(pageNum)}
-                className={`w-10 h-10 rounded-xl ${
-                  currentPage === pageNum
-                    ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
-                    : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
-                } transition-all duration-300`}
-              >
-                {pageNum}
-              </Button>
-            ))}
+            {totalPages <= 4 ? (
+              // Normal pagination for 4 or fewer pages
+              Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                <Button
+                  key={pageNum}
+                  onClick={() => setCurrentPage(pageNum)}
+                  className={`w-10 h-10 rounded-xl ${
+                    currentPage === pageNum
+                      ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
+                      : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
+                  } transition-all duration-300`}
+                >
+                  {pageNum}
+                </Button>
+              ))
+            ) : (
+              // Advanced pagination for more than 4 pages
+              <>
+                {/* First page */}
+                <Button
+                  onClick={() => setCurrentPage(1)}
+                  className={`w-10 h-10 rounded-xl ${
+                    currentPage === 1
+                      ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
+                      : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
+                  } transition-all duration-300`}
+                >
+                  1
+                </Button>
+
+                {/* Show dots if not in first 2 pages */}
+                {currentPage > 2 && <span className="text-blue-400">...</span>}
+
+                {/* Show current page and one surrounding page */}
+                {Array.from({ length: 2 }, (_, i) => {
+                  let pageNum;
+                  if (currentPage <= 2) {
+                    pageNum = 2 + i;
+                  } else if (currentPage >= totalPages - 1) {
+                    pageNum = (totalPages - 2) + i;
+                  } else {
+                    pageNum = currentPage + i - 1;
+                  }
+
+                  if (pageNum <= 1 || pageNum >= totalPages) return null;
+                  
+                  return (
+                    <Button
+                      key={`page_${pageNum}`}
+                      onClick={() => setCurrentPage(pageNum)}
+                      className={`w-10 h-10 rounded-xl ${
+                        currentPage === pageNum
+                          ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
+                          : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
+                      } transition-all duration-300`}
+                    >
+                      {pageNum}
+                    </Button>
+                  );
+                }).filter(Boolean)}
+
+                {/* Show dots if not in last 2 pages */}
+                {currentPage < totalPages - 1 && <span className="text-blue-400">...</span>}
+
+                {/* Last page */}
+                <Button
+                  onClick={() => setCurrentPage(totalPages)}
+                  className={`w-10 h-10 rounded-xl ${
+                    currentPage === totalPages
+                      ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
+                      : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
+                  } transition-all duration-300`}
+                >
+                  {totalPages}
+                </Button>
+              </>
+            )}
+          </div>
+
+          {/* Navigation arrows */}
+          <div className="flex items-center gap-2">
+            <Button
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              ←
+            </Button>
+            <Button
+              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              →
+            </Button>
           </div>
         </div>
       )}

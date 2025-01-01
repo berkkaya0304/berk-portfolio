@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const ResumeEducation = ({ educations = { items: [] } }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3;
+  const itemsPerPage = 4;
 
   // Mevcut sayfadaki eğitimleri al
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -64,23 +64,43 @@ const ResumeEducation = ({ educations = { items: [] } }) => {
         ))}
       </div>
 
-      {/* Sayfalama */}
+      {/* Pagination */}
       {totalPages > 1 && (
-        <div className="flex justify-center gap-2 mt-8">
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
-            <Button
-              key={pageNumber}
-              onClick={() => handlePageChange(pageNumber)}
-              variant="outline"
-              className={`w-10 h-10 p-0 rounded-xl border-none transition-all duration-300 ${
-                currentPage === pageNumber
-                  ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
-                  : "bg-gradient-to-r from-blue-400/10 to-blue-700/10 backdrop-blur-sm text-blue-400 hover:from-blue-400/20 hover:to-blue-700/20"
-              }`}
-            >
-              {pageNumber}
-            </Button>
-          ))}
+        <div className="flex justify-center items-center gap-4 mt-8">
+          <div className="flex items-center gap-2">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+              <Button
+                key={pageNum}
+                onClick={() => setCurrentPage(pageNum)}
+                className={`w-10 h-10 rounded-xl ${
+                  currentPage === pageNum
+                    ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
+                    : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
+                } transition-all duration-300`}
+              >
+                {pageNum}
+              </Button>
+            ))}
+          </div>
+
+          {totalPages > 4 && (
+            <div className="flex items-center gap-2">
+              <Button
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                ←
+              </Button>
+              <Button
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                →
+              </Button>
+            </div>
+          )}
         </div>
       )}
     </div>

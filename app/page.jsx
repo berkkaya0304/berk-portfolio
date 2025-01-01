@@ -14,16 +14,6 @@ const updates = [
     text: "Launched new portfolio website",
     date: "March 2024"
   },
-  {
-    id: 2,
-    text: "Started working on AI Integration project",
-    date: "February 2024"
-  },
-  {
-    id: 3,
-    text: "Upcoming tech talk about modern web development",
-    date: "April 2024"
-  }
 ];
 
 const Home = () => {
@@ -114,11 +104,11 @@ const Home = () => {
               transition={{ delay: 0.5 }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-700 rounded-xl blur-md opacity-10" />
-              <div className="relative bg-gradient-to-r from-blue-400/5 to-blue-700/5 backdrop-blur-sm p-4 rounded-xl border border-blue-400/10">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-700 rounded-xl blur-md opacity-20 group-hover:opacity-30 transition-opacity" />
+              <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm p-4 rounded-xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
                 <div className="flex items-center gap-2 mb-3">
-                  <IoMdTime className="text-xl text-blue-400" />
-                  <h3 className="text-lg font-semibold text-blue-400">Last Updates</h3>
+                  <IoMdTime className="text-lg text-blue-400" />
+                  <h3 className="text-base font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">Last Updates</h3>
                 </div>
                 <div className="space-y-2">
                   {updates.map((update) => (
@@ -127,10 +117,10 @@ const Home = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.6 + update.id * 0.1 }}
-                      className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 group/item hover:bg-blue-400/10 p-2 rounded-lg transition-all duration-300"
+                      className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 group/item hover:bg-slate-800/50 p-2 rounded-lg transition-all duration-300"
                     >
-                      <span className="text-sm text-blue-400/80 group-hover/item:text-blue-400 line-clamp-2 sm:line-clamp-1">{update.text}</span>
-                      <span className="text-xs text-blue-400/60 group-hover/item:text-blue-400/80 whitespace-nowrap">{update.date}</span>
+                      <span className="text-sm text-blue-300/80 group-hover/item:text-blue-300 line-clamp-2 sm:line-clamp-1">{update.text}</span>
+                      <span className="text-xs text-blue-300/60 group-hover/item:text-blue-300/80 whitespace-nowrap">{update.date}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -168,7 +158,7 @@ const Home = () => {
         </div>
 
         {/* Stats kartları - 4 sütun */}
-        <div className="w-full px-0 lg:px-0 mt-12 lg:mt-16">
+        <div className="w-full lg:px-0 mt-12 lg:mt-4">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -180,11 +170,11 @@ const Home = () => {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-700 rounded-xl blur-md opacity-20 group-hover:opacity-30 transition-opacity" />
-              <div className="relative bg-gradient-to-r from-blue-400/10 to-blue-700/10 backdrop-blur-sm p-2 sm:p-3 rounded-xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
+              <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm p-4 sm:p-5 rounded-xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
                 <div className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
                   2+
                 </div>
-                <div className="text-xs sm:text-sm text-blue-400/80 font-medium">
+                <div className="text-sm text-blue-300/80 font-medium">
                   Years of Experience
                 </div>
               </div>
@@ -195,11 +185,11 @@ const Home = () => {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-700 rounded-xl blur-md opacity-20 group-hover:opacity-30 transition-opacity" />
-              <div className="relative bg-gradient-to-r from-blue-400/10 to-blue-700/10 backdrop-blur-sm p-2 sm:p-3 rounded-xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
+              <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm p-4 sm:p-5 rounded-xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
                 <div className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
                   20+
                 </div>
-                <div className="text-xs sm:text-sm text-blue-400/80 font-medium">
+                <div className="text-sm text-blue-300/80 font-medium">
                   Projects Completed
                 </div>
               </div>
@@ -210,11 +200,11 @@ const Home = () => {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-700 rounded-xl blur-md opacity-20 group-hover:opacity-30 transition-opacity" />
-              <div className="relative bg-gradient-to-r from-blue-400/10 to-blue-700/10 backdrop-blur-sm p-2 sm:p-3 rounded-xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
+              <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm p-4 sm:p-5 rounded-xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
                 <div className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
                   20+
                 </div>
-                <div className="text-xs sm:text-sm text-blue-400/80 font-medium">
+                <div className="text-sm text-blue-300/80 font-medium">
                   Technology Used
                 </div>
               </div>
@@ -225,11 +215,11 @@ const Home = () => {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-700 rounded-xl blur-md opacity-20 group-hover:opacity-30 transition-opacity" />
-              <div className="relative bg-gradient-to-r from-blue-400/10 to-blue-700/10 backdrop-blur-sm p-2 sm:p-3 rounded-xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
+              <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm p-4 sm:p-5 rounded-xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
                 <div className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
                   2+
                 </div>
-                <div className="text-xs sm:text-sm text-blue-400/80 font-medium">
+                <div className="text-sm text-blue-300/80 font-medium">
                   Awards Won
                 </div>
               </div>

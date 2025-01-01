@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const SkillItem = ({ skill, index }) => (
   <motion.div
@@ -32,6 +34,17 @@ const SkillItem = ({ skill, index }) => (
 );
 
 const ResumeSkills = ({ skills = { skillList: [] } }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 15; // Show 15 skills per page (3x5 grid)
+
+  // Calculate current items
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = skills.skillList.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Calculate total pages
+  const totalPages = Math.ceil(skills.skillList.length / itemsPerPage);
+
   if (!skills?.skillList || skills.skillList.length === 0) {
     return null;
   }
@@ -53,10 +66,50 @@ const ResumeSkills = ({ skills = { skillList: [] } }) => {
 
       {/* Skills Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-        {skills.skillList.map((skill, index) => (
+        {currentItems.map((skill, index) => (
           <SkillItem key={index} skill={skill} index={index} />
         ))}
       </div>
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center gap-4 mt-8">
+          <div className="flex items-center gap-2">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+              <Button
+                key={pageNum}
+                onClick={() => setCurrentPage(pageNum)}
+                className={`w-10 h-10 rounded-xl ${
+                  currentPage === pageNum
+                    ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
+                    : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
+                } transition-all duration-300`}
+              >
+                {pageNum}
+              </Button>
+            ))}
+          </div>
+
+          {totalPages > 4 && (
+            <div className="flex items-center gap-2">
+              <Button
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                ←
+              </Button>
+              <Button
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                →
+              </Button>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

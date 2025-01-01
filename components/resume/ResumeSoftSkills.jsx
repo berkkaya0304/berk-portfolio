@@ -102,6 +102,25 @@ const ResumeSoftSkills = ({ soft = { skills: [] } }) => {
               </Button>
             ))}
           </div>
+
+          {totalPages > 4 && (
+            <div className="flex items-center gap-2">
+              <Button
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                ←
+              </Button>
+              <Button
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                →
+              </Button>
+            </div>
+          )}
         </div>
       )}
     </div>

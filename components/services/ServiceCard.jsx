@@ -22,7 +22,7 @@ const ServiceCard = ({ service }) => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-700 rounded-2xl blur-md opacity-20 group-hover:opacity-30 transition-opacity" />
         
         {/* Card Content */}
-        <div className="relative bg-gradient-to-r from-blue-400/10 to-blue-700/10 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300 h-full flex flex-col">
+        <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300 h-full flex flex-col">
           {/* Icon */}
           <div className="w-16 h-16 mb-6 flex items-center justify-center text-blue-400">
             <Icon size={40} />
@@ -34,7 +34,7 @@ const ServiceCard = ({ service }) => {
           </h3>
 
           {/* Description */}
-          <p className="text-blue-400/80 text-sm mb-6 flex-grow">
+          <p className="text-blue-300/80 text-sm mb-6 flex-grow">
             {service.description}
           </p>
 
