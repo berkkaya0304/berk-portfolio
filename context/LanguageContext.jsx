@@ -18,7 +18,6 @@ const LanguageContext = createContext();
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState('en');
   
-  // Sayfa yüklendiğinde localStorage'dan dil tercihini kontrol et
   useEffect(() => {
     const savedLanguage = localStorage.getItem('preferredLanguage');
     if (savedLanguage) {
@@ -40,17 +39,8 @@ export function LanguageProvider({ children }) {
     ru,
   };
 
-  const toggleLanguage = () => {
-    const languages = ['en', 'tr', 'zh', 'ja', 'nl', 'pl', 'es', 'fr', 'de', 'it', 'ru'];
-    const currentIndex = languages.indexOf(language);
-    const nextIndex = (currentIndex + 1) % languages.length;
-    const newLanguage = languages[nextIndex];
-    setLanguage(newLanguage);
-    localStorage.setItem('preferredLanguage', newLanguage);
-  };
-
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, translations: translations[language] }}>
+    <LanguageContext.Provider value={{ language, setLanguage, translations: translations[language] }}>
       {children}
     </LanguageContext.Provider>
   );
