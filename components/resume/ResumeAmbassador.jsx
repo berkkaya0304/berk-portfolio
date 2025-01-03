@@ -3,39 +3,38 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const ResumeAmbassador = ({ ambassador = { items: [] } }) => {
+const ResumeAmbassador = () => {
+  const { translations } = useLanguage();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 2;
 
-  // Mevcut sayfadaki elçilikleri al
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = ambassador.items.slice(indexOfFirstItem, indexOfLastItem);
+  const programs = translations.resume.ambassadorPrograms;
 
-  // Toplam sayfa sayısını hesapla
-  const totalPages = Math.ceil(ambassador.items.length / itemsPerPage);
-
-  // Sayfa değiştirme fonksiyonu
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
-  if (!ambassador?.items || ambassador.items.length === 0) {
+  if (!programs || programs.length === 0) {
     return null;
   }
+
+  // Calculate current items
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = programs.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Calculate total pages
+  const totalPages = Math.ceil(programs.length / itemsPerPage);
 
   return (
     <div className="space-y-8">
       {/* Başlık ve Açıklama */}
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-          {ambassador.title}
+          {translations.resume.ambassador}
         </h2>
-        <p className="text-blue-400/60">{ambassador.description}</p>
+        <p className="text-blue-400/60">{translations.resume.ambassadorDescription}</p>
       </div>
 
-      {/* Ambassador Grid */}
+      {/* Elçilikler Grid */}
       <div className="grid grid-cols-1 gap-6">
         {currentItems.map((item, index) => (
           <motion.div
@@ -69,13 +68,13 @@ const ResumeAmbassador = ({ ambassador = { items: [] } }) => {
         ))}
       </div>
 
-      {/* Sayfalama */}
+      {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex justify-center gap-2 mt-8">
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
             <Button
               key={pageNumber}
-              onClick={() => handlePageChange(pageNumber)}
+              onClick={() => setCurrentPage(pageNumber)}
               variant="outline"
               className={`w-10 h-10 p-0 rounded-xl border-none transition-all duration-300 ${
                 currentPage === pageNumber

@@ -1,8 +1,8 @@
 export const works = [
   {
     id: 1,
-    title: "Yapay Zeka Destekli Portfolyo",
-    description: "Next.js ve React kullanılarak geliştirilmiş, modern tasarım prensiplerini içeren kişisel portfolyo web sitesi.",
+    titleKey: "works.aiPortfolio.title",
+    descriptionKey: "works.aiPortfolio.description",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1456&h=816&q=80",
     tech: ["Next.js", "React", "Tailwind CSS", "Framer Motion", "Shadcn/ui"],
     category: "frontend",
@@ -11,8 +11,8 @@ export const works = [
   },
   {
     id: 2,
-    title: "Tribute Page",
-    description: "Temel web teknolojileri kullanılarak geliştirilmiş anma sayfası projesi.",
+    titleKey: "works.tributePage.title",
+    descriptionKey: "works.tributePage.description",
     image: "https://i.hizliresim.com/jq981ic.jpg",
     tech: ["HTML", "CSS", "JavaScript"],
     category: "frontend",
@@ -21,8 +21,8 @@ export const works = [
   },
   {
     id: 3,
-    title: "Technical Documentation",
-    description: "Teknik dokümantasyon sayfası projesi.",
+    titleKey: "works.technicalDocs.title",
+    descriptionKey: "works.technicalDocs.description",
     image: "https://i.hizliresim.com/6382reu.png",
     tech: ["HTML", "CSS", "JavaScript"],
     category: "frontend",
@@ -31,8 +31,8 @@ export const works = [
   },
   {
     id: 4,
-    title: "Survey Page",
-    description: "Anket formu sayfası projesi.",
+    titleKey: "works.surveyPage.title",
+    descriptionKey: "works.surveyPage.description",
     image: "https://i.hizliresim.com/f3uvhj0.png",
     tech: ["HTML", "CSS", "JavaScript"],
     category: "frontend",
@@ -41,8 +41,8 @@ export const works = [
   },
   {
     id: 5,
-    title: "One Page Portfolio",
-    description: "Tek sayfa portfolyo web sitesi projesi.",
+    titleKey: "works.onePagePortfolio.title",
+    descriptionKey: "works.onePagePortfolio.description",
     image: "https://i.hizliresim.com/grj5qao.png",
     tech: ["HTML", "CSS", "JavaScript"],
     category: "frontend",
@@ -51,8 +51,8 @@ export const works = [
   },
   {
     id: 6,
-    title: "Firewall",
-    description: "Wildfires can occur naturally, but they often caused by humans. In recent years number of wildfires has increased day by day. Even in some countries wildfires raged out of control. Because of that we created an app to fight against it. Introducing: Firewall.",
+    titleKey: "works.firewall.title",
+    descriptionKey: "works.firewall.description",
     image: "https://i.hizliresim.com/hi1xjzw.png",
     tech: ["Flutter"],
     category: "mobile",

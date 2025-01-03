@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const SoftSkillItem = ({ skill, index }) => (
+const SoftSkillItem = ({ skill, index, translations }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
@@ -22,7 +23,7 @@ const SoftSkillItem = ({ skill, index }) => (
       
       <div className="flex items-center gap-3 mb-2">
         <span className="w-[6px] h-[6px] rounded-full bg-blue-400"></span>
-        <p className="text-blue-300">Rating: {skill.rating}/100</p>
+        <p className="text-blue-300">{translations.resume.rating}: {skill.rating}/100</p>
       </div>
       
       <div className="w-full bg-blue-900/20 rounded-full h-2.5 mb-4">
@@ -37,17 +38,20 @@ const SoftSkillItem = ({ skill, index }) => (
   </motion.div>
 );
 
-const ResumeSoftSkills = ({ soft = { skills: [] } }) => {
+const ResumeSoftSkills = () => {
+  const { translations } = useLanguage();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
-  if (!soft?.skills || soft.skills.length === 0) {
+  const skills = translations.resume.softSkillsList;
+
+  if (!skills || skills.length === 0) {
     return null;
   }
 
-  const totalPages = Math.ceil(soft.skills.length / itemsPerPage);
+  const totalPages = Math.ceil(skills.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentSkills = soft.skills.slice(startIndex, startIndex + itemsPerPage);
+  const currentSkills = skills.slice(startIndex, startIndex + itemsPerPage);
 
   return (
     <div className="space-y-8">
@@ -56,11 +60,11 @@ const ResumeSoftSkills = ({ soft = { skills: [] } }) => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-700/20 blur-[100px] -z-10" />
         <h2 className="text-3xl font-bold mb-3 inline-block">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700">
-            Soft Skills
+            {translations.resume.softSkills}
           </span>
         </h2>
         <p className="text-blue-400/70 max-w-2xl mx-auto text-base">
-          Here are my interpersonal and professional soft skills.
+          {translations.resume.softSkillsDescription}
         </p>
       </div>
 
@@ -72,7 +76,7 @@ const ResumeSoftSkills = ({ soft = { skills: [] } }) => {
           rel="noopener noreferrer"
         >
           <Button className="bg-gradient-to-r from-blue-400 to-blue-700 text-white hover:from-blue-500 hover:to-blue-800 transition-all duration-300">
-            Click Here For All Results (Turkish)
+            {translations.resume.viewResults}
           </Button>
         </a>
       </div>
@@ -80,7 +84,7 @@ const ResumeSoftSkills = ({ soft = { skills: [] } }) => {
       {/* Skills Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentSkills.map((skill, index) => (
-          <SoftSkillItem key={startIndex + index} skill={skill} index={index} />
+          <SoftSkillItem key={startIndex + index} skill={skill} index={index} translations={translations} />
         ))}
       </div>
 

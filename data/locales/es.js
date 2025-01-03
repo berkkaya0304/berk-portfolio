@@ -1,5 +1,5 @@
 export const es = {
-  nav: {
+    nav: {
     home: "Inicio",
     services: "Servicios",
     resume: "Currículum",
@@ -8,400 +8,568 @@ export const es = {
     social: "Social",
     articles: "Artículos",
     contact: "Contacto",
-  },
-  common: {
-    learnMore: "Saber más",
-    back: "Volver",
-    keyFeatures: "Características principales",
-  },
-  home: {
+    },
+    common: {
+    learnMore: "Aprender más",
+    back: "Atrás",
+    keyFeatures: "Características clave",
+    },
+    home: {
     greeting: "Hola, soy",
-    role: "Ingeniero en Computación",
-    description: "Creando soluciones tecnológicas",
+    role: "Ingeniero Informático",
+    description: "Creando Soluciones Tecnológicas",
     downloadCV: "Descargar CV",
-    lastUpdates: "Últimas actualizaciones",
+    lastUpdates: "Últimas Actualizaciones",
     stats: {
-      experience: "años de experiencia",
-      projects: "proyectos completados",
-      technologies: "tecnologías utilizadas",
-      awards: "premios recibidos",
+    experience: "Años de Experiencia",
+    projects: "Proyectos Completados",
+    technologies: "Tecnologías Utilizadas",
+    awards: "Premios Ganados",
     },
     titles: {
-      first: "Impulsado por IA",
-      roles: ["Científico de la Computación", "Ingeniero de Software", "Ingeniero en Computación"]
+    first: "Impulsado por IA",
+    roles: ["Científico Informático", "Ing. de Software", "Ing. Informático"]
     },
     updates: [
-      {
-        id: 1,
-        text: "Nuevo sitio web de portafolio lanzado",
-        date: "Marzo 2024"
-      }
+    {
+    id: 1,
+    text: "Lanzado nuevo sitio web de portafolio",
+    date: "Marzo 2024"
+    }
     ]
-  },
-  about: {
-    title: "Sobre mí",
-    description: "Científico de la computación, ingeniero y desarrollador de software con experiencia en soluciones innovadoras de software y tecnología.",
-  },
-  work: {
-    title: "Mis proyectos",
-    description: "Muestra de mis últimos trabajos y proyectos",
-    viewProject: "Ver proyecto",
+    },
+    about: {
+    title: "Sobre Mí",
+    description: "He estado interesado en aprender desde que era joven. Mi interés por la ingeniería proviene de mi juventud. Yo era quien controlaba la computadora del aula usando códigos de scratch que desarrollé en las clases de informática y me di cuenta incluso cuando era muy joven. Ahora estoy tomando las medidas necesarias para convertirme en un ingeniero exitoso. Con esfuerzo arduo y la experiencia que obtuve de mi institución, estoy seguro en lugar de esperanzado de que esto se logrará. Estoy intentando obtener numerosas credenciales y capacitación para esto.",
+    info: [
+    {
+    fieldName: "Nombre",
+    fieldValue: "Berk Kaya"
+    },
+    {
+    fieldName: "Teléfono",
+    fieldValue: "Proporcionado si es necesario"
+    },
+    {
+    fieldName: "Experiencia",
+    fieldValue: "2+ Años"
+    },
+    {
+    fieldName: "Steam",
+    fieldValue: "loadonline"
+    },
+    {
+    fieldName: "Nacionalidad",
+    fieldValue: "Turco"
+    },
+    {
+    fieldName: "Correo Electrónico",
+    fieldValue: "berkkaya0304@hotmail.com"
+    },
+    {
+    fieldName: "Freelance",
+    fieldValue: "Disponible"
+    },
+    {
+    fieldName: "Idiomas",
+    fieldValue: "Turco, Inglés, Alemán"
+    }
+    ]
+    },
+    work: {
+    title: "Mis Proyectos",
+    description: "Mis últimos trabajos y proyectos",
+    viewProject: "Ver Proyecto",
     filterAll: "Todos",
     categories: {
-      frontend: "Frontend",
-      backend: "Backend",
-      mobile: "Móvil",
-      ai: "Inteligencia Artificial",
-      cloud: "Nube",
-      other: "Otros"
+    frontend: "Frontend",
+    backend: "Backend",
+    mobile: "Móvil",
+    desktop: "Escritorio",
+    fullstack: "Full Stack",
+    other: "Otro"
     },
-    projects: {
-      portfolio: {
-        title: "Portfolio Impulsado por IA",
-        description: "Sitio web portfolio personal desarrollado con Next.js y React, incorporando principios de diseño modernos",
-        category: "frontend"
-      },
-      aiChatbot: {
-        title: "Chatbot de IA",
-        description: "Aplicación de chat inteligente basada en la API de OpenAI",
-        category: "ai"
-      },
-      mobileApp: {
-        title: "Aplicación Móvil",
-        description: "Aplicación móvil multiplataforma desarrollada con React Native",
-        category: "mobile"
-      },
-      cloudService: {
-        title: "Plataforma en la Nube",
-        description: "Solución escalable en la nube basada en AWS",
-        category: "cloud"
-      }
+    works: {
+    aiPortfolio: {
+    title: "Portafolio impulsado por IA",
+    description: "Sitio web de portafolio personal desarrollado con Next.js y React, incorporando principios de diseño moderno."
+    },
+    tributePage: {
+    title: "Página de Tributo",
+    description: "Proyecto de página de tributo desarrollado usando tecnologías web básicas."
+    },
+    technicalDocs: {
+    title: "Documentación Técnica",
+    description: "Proyecto de página de documentación técnica."
+    },
+    surveyPage: {
+    title: "Página de Encuesta",
+    description: "Proyecto de página de formulario de encuesta."
+    },
+    onePagePortfolio: {
+    title: "Portafolio de Una Página",
+    description: "Proyecto de sitio web de portafolio de una sola página."
+    },
+    firewall: {
+    title: "Cortafuegos",
+    description: "Los incendios forestales pueden ocurrir naturalmente, pero a menudo son causados por humanos. En los últimos años, el número de incendios forestales ha aumentado día a día. Incluso en algunos países, los incendios forestales se descontrolaron. Por eso, creamos una aplicación para combatirlos: Cortafuegos."
     }
-  },
-  services: {
-    title: "Mis servicios",
-    description: "Soluciones profesionales en desarrollo de software, computación en la nube y transformación digital",
+    }
+    },
+    services: {
+    title: "Mis Servicios",
+    description: "Soluciones especializadas en desarrollo de software, computación en la nube y transformación digital",
     fullstack: {
-      title: "Desarrollo Full Stack",
-      description: "El desarrollo full stack abarca todo el proceso de desarrollo de aplicaciones web, desde el diseño de la interfaz de usuario hasta la lógica del servidor. Creamos aplicaciones escalables, eficientes y mantenibles que satisfacen sus necesidades comerciales.",
-      features: [
-        "Frameworks frontend modernos (React, Next.js)",
-        "Desarrollo backend robusto",
-        "Diseño y optimización de bases de datos",
-        "Desarrollo e integración de APIs",
-        "Diseño responsivo y mobile-first"
-      ]
+    title: "Desarrollo Full-Stack",
+    description: "El Desarrollo Full-Stack abarca todo el proceso de desarrollo de aplicaciones web, desde el diseño de la interfaz de usuario hasta la lógica del lado del servidor. Usando tecnologías modernas y mejores prácticas, creamos aplicaciones escalables, eficientes y mantenibles que satisfacen las necesidades de su negocio. Nuestro enfoque combina la excelencia del frontend con soluciones robustas de backend para ofrecer experiencias de usuario sin problemas.",
+    features: [
+    "Frameworks modernos de frontend (React, Next.js)",
+    "Desarrollo robusto de backend",
+    "Diseño y optimización de bases de datos",
+    "Desarrollo e integración de API",
+    "Diseño responsivo y móvil primero"
+    ]
     },
     cloud: {
-      title: "Tecnología en la Nube",
-      description: "Nuestras soluciones de tecnología en la nube ayudan a las empresas a aprovechar el poder de la computación en la nube para mejorar la escalabilidad, seguridad y eficiencia.",
-      features: [
-        "Configuración de infraestructura en la nube",
-        "Servicios AWS/Azure/GCP",
-        "Implementación de seguridad en la nube",
-        "Optimización de escalabilidad",
-        "Gestión de costos"
-      ]
+    title: "Tecnologías en la Nube",
+    description: "Nuestras soluciones de tecnología en la nube ayudan a las empresas a aprovechar el poder de la computación en la nube para mejorar la escalabilidad, la seguridad y la eficiencia. Proporcionamos servicios integrales en la nube, incluyendo configuración de infraestructura, migración, optimización y gestión en las principales plataformas de nube.",
+    features: [
+    "Configuración de infraestructura en la nube",
+    "Servicios de AWS/Azure/GCP",
+    "Implementación de seguridad en la nube",
+    "Optimización de escalabilidad",
+    "Gestión de costos"
+    ]
     },
     data: {
-      title: "Tecnología de Datos",
-      description: "Con nuestras soluciones integrales de tecnología de datos, transformamos datos sin procesar en información útil. Nos especializamos en análisis, procesamiento y visualización de datos.",
-      features: [
-        "Análisis y visualización de datos",
-        "Procesamiento de big data",
-        "Integración de machine learning",
-        "Análisis en tiempo real",
-        "Desarrollo de pipelines de datos"
-      ]
+    title: "Tecnologías de Datos",
+    description: "Transforme sus datos en bruto en información procesable con nuestras soluciones integrales de tecnología de datos. Nos especializamos en análisis, procesamiento y visualización de datos para ayudarle a tomar decisiones informadas y fomentar el crecimiento empresarial a través de estrategias basadas en datos.",
+    features: [
+    "Análisis y visualización de datos",
+    "Procesamiento de big data",
+    "Integración de aprendizaje automático",
+    "Análisis en tiempo real",
+    "Desarrollo de pipelines de datos"
+    ]
     },
     digitalization: {
-      title: "Digitalización",
-      description: "Adopte la transformación digital con nuestros servicios integrales de digitalización. Ayudamos a las organizaciones a modernizar procesos e implementar soluciones digitales.",
-      features: [
-        "Estrategia de transformación digital",
-        "Automatización de procesos",
-        "Modernización de sistemas heredados",
-        "Optimización de flujos de trabajo digitales",
-        "Soluciones de integración"
-      ]
+    title: "Digitalización",
+    description: "Adopte la transformación digital con nuestros servicios integrales de digitalización. Ayudamos a las organizaciones a modernizar sus procesos, implementar soluciones digitales y crear flujos de trabajo eficientes que impulsen la productividad y la innovación en la era digital.",
+    features: [
+    "Estrategia de transformación digital",
+    "Automatización de procesos",
+    "Modernización de sistemas heredados",
+    "Optimización de flujos de trabajo digitales",
+    "Soluciones de integración"
+    ]
     }
-  },
-  resume: {
+    },
+    resume: {
     title: "Currículum",
-    experience: "Experiencia",
-    education: "Educación",
-    skills: "Habilidades",
-    softSkills: "Habilidades blandas",
-    certifications: "Certificaciones",
-    voluntarily: "Voluntariado",
-    ambassador: "Programa de embajadores",
-    filterAll: "Todos los certificados",
-    references: "Referencias",
-    viewCertificate: "Ver certificado",
-    selectCategory: "Seleccionar categoría",
-    sections: {
-      experience: {
-        title: "Experiencia laboral",
-        description: "Experiencia adquirida en mi carrera profesional"
-      },
-      education: {
-        title: "Trayectoria educativa",
-        description: "En esta sección, verá la educación que he recibido en general.",
-        sections: {
-          university: {
-            title: "Educación universitaria",
-            description: "Educación académica a nivel de grado y posgrado"
-          },
-          certifications: {
-            title: "Certificaciones y cursos",
-            description: "Programas de certificación completados para el desarrollo profesional"
-          },
-          languages: {
-            title: "Formación en idiomas",
-            description: "Idiomas extranjeros aprendidos y desarrollados"
-          }
-        }
-      },
-      skills: {
-        title: "Habilidades técnicas",
-        description: "Mis áreas de especialización y capacidades técnicas"
-      },
-      softSkills: {
-        title: "Habilidades blandas",
-        description: "Mis capacidades de comunicación y sociales"
-      },
-      certifications: {
-        title: "Certificaciones",
-        description: "Certificados y logros obtenidos"
-      },
-      voluntarily: {
-        title: "Voluntariado",
-        description: "Actividades voluntarias contribuyendo a la sociedad"
-      },
-      ambassador: {
-        title: "Programa de embajadores",
-        description: "Programas de embajador de marca en los que he participado"
-      },
-      references: {
-        title: "Referencias",
-        description: "Referencias profesionales y recomendaciones"
-      }
+    experience: "Trayectoria de Experiencia",
+    experienceDescription: "En esta sección, puede encontrar información sobre mis prácticas, trabajos a tiempo parcial y a tiempo completo.",
+    experienceList: [
+    {
+    company: "Huawei",
+    position: "Ingeniero de Nube Interno a Largo Plazo",
+    duration: "Septiembre 2024 - Enero 2025",
+    time: "(5 meses)"
+    },
+    {
+    company: "Basarsoft",
+    position: "Ingeniero Informático Interno",
+    duration: "Agosto 2024 - Septiembre 2024",
+    time: "(2 meses)"
+    },
+    {
+    company: "Huawei",
+    position: "Ingeniero de Nube Interno",
+    duration: "Julio 2024 - Agosto 2024",
+    time: "(2 meses)"
+    },
+    {
+    company: "Nurol Technology",
+    position: "Trabajador de Proyecto",
+    duration: "Enero 2024 - Junio 2024",
+    time: "(6 meses)"
+    },
+    {
+    company: "QNB Finansbank",
+    position: "Interno de Finanzas 101",
+    duration: "Enero 2024 - Febrero 2024",
+    time: "(2 meses)"
+    },
+    {
+    company: "Huawei",
+    position: "Interno de Desarrollo FullStack",
+    duration: "Agosto 2023 - Septiembre 2023",
+    time: "(2 meses)"
+    },
+    {
+    company: "Bolsa Mercantil de Turquía",
+    position: "Interno de Desarrollo FullStack",
+    duration: "Julio 2023 - Agosto 2023",
+    time: "(2 meses)"
     }
-  },
-  program: {
-    title: "Todos los programas",
-    description: "Todos los programas en los que he participado",
+    ],
+    education: "Trayectoria Educativa",
+    educationDescription: "En esta sección, verá la educación que he recibido en general.",
+    educationList: [
+    {
+    institution: "Universidad TED",
+    degree: "Ingeniería Informática",
+    duration: "Septiembre 2022 - Julio 2026"
+    },
+    {
+    institution: "Academia de Google",
+    degree: "Juego-App",
+    duration: "Diciembre 2022 - Agosto 2023"
+    },
+    {
+    institution: "Academia de Jóvenes Ejecutivos",
+    degree: "Ser Ejecutivo",
+    duration: "Enero 2023 - Junio 2023"
+    },
+    {
+    institution: "Universidad TED",
+    degree: "Preparación de Inglés",
+    duration: "Septiembre 2021 - Julio 2022"
+    }
+    ],
+    voluntarily: "Trayectoria de Trabajo Voluntario",
+    voluntarilyDescription: "En esta sección, puede encontrar información sobre mis trabajos voluntarios.",
+    voluntarilyList: [
+    {
+    company: "Modelos de Tribunales de Justicia",
+    position: "Director de TI y Diseño",
+    duration: "Septiembre 2024 - Septiembre 2025",
+    time: "(1 año)"
+    },
+    {
+    company: "Programa de Desarrollo de Líderes",
+    position: "Líder del Equipo de Sitio Web",
+    duration: "Octubre 2023 - Octubre 2024",
+    time: "(1 año)"
+    },
+    {
+    company: "Proyecto Tübitak",
+    position: "Colaborador",
+    duration: "Octubre 2023 - Agosto 2024",
+    time: "(11 meses)"
+    },
+    {
+    company: "TEDU Ciencia y Tecnología",
+    position: "Presidente",
+    duration: "Julio 2022 - Agosto 2023",
+    time: "(1 año 1 mes)"
+    }
+    ],
+    skills: "Habilidades Técnicas",
+    skillsDescription: "Aquí están mis habilidades técnicas y niveles de competencia.",
+    softSkills: "Habilidades Blandas",
+    softSkillsDescription: "Aquí están mis habilidades interpersonales y profesionales.",
+    viewResults: "Haga clic aquí para ver todos los resultados (Turco)",
+    rating: "Calificación",
+    references: "Referencias",
+    referencesDescription: "Referencias profesionales y recomendaciones de colegas y supervisores.",
+    referencesList: [
+    {
+    name: "İlker Canbulut",
+    position: "Creador del Programa de Desarrollo de Líderes",
+    image: "/assets/resume/references/ilkercanbulut.jpg",
+    testimonial: "Berk Kaya es una persona responsable que se destaca en liderazgo y trabajo en equipo, capaz de producir soluciones innovadoras a través de una perspectiva multidisciplinaria. Con su capacidad para ver el panorama general, centrarse en los detalles e inspirar confianza, está preparado para convertirse en un líder valioso del futuro."
+    }
+    ],
+    softSkillsList: [
+    {
+    name: "Autogestión",
+    rating: 100,
+    description: "Resiliencia",
+    },
+    {
+    name: "Autocompetencia",
+    rating: 90,
+    description: "Resiliencia",
+    },
+    {
+    name: "Manejo del Estrés",
+    rating: 95,
+    description: "Resiliencia",
+    },
+    {
+    name: "Gestión de Emociones",
+    rating: 98,
+    description: "Resiliencia",
+    },
+    {
+    name: "Gestión de Relaciones",
+    rating: 100,
+    description: "Resiliencia",
+    },
+    {
+    name: "Enfoque en Metas, Planificación",
+    rating: 99,
+    description: "Resiliencia",
+    },
+    {
+    name: "Construcción de Relaciones Cercanas",
+    rating: 87,
+    description: "Personalidad",
+    },
+    {
+    name: "Nivel de Estrés",
+    rating: 39,
+    description: "Personalidad",
+    },
+    {
+    name: "Orientación del Pensamiento",
+    rating: 96,
+    description: "Personalidad",
+    },
+    ],
+    ambassadorPrograms: [
+    {
+    company: "IBM",
+    topic: "Z Capitán",
+    duration: "Septiembre 2024 - Presente",
+    description: "Soy uno de los 6 capitanes embajadores que liderarán a más de 150 embajadores este año.",
+    level: "(Nivel 4 - Nivel Más Alto)"
+    },
+    {
+    company: "IBM",
+    topic: "Embajador Estudiantil Z",
+    duration: "Noviembre 2023 - Presente",
+    description: "El programa de Embajadores Estudiantiles de IBM Z es una comunidad global de estudiantes universitarios apasionados por la tecnología. A través del aprendizaje práctico, la tutoría y las oportunidades de networking, los embajadores adquieren las habilidades y la experiencia que necesitan para tener éxito en la industria tecnológica.",
+    level: "(Nivel 4 - Nivel Más Alto)"
+    },
+    {
+    company: "Xbox",
+    topic: "Embajador",
+    duration: "Septiembre 2023 - Presente",
+    description: "El programa de Embajadores de Xbox es una comunidad de jugadores apasionados por hacer que los juegos sean divertidos para todos.",
+    level: "Nivel 2"
+    },
+    {
+    company: "Microsoft",
+    topic: "Embajador Estudiantil",
+    duration: "Noviembre 2023 - Septiembre 2024",
+    description: "Como Embajador Estudiantil de Microsoft Learn, obtendrás experiencia práctica con tecnologías de Microsoft como Azure, Windows y Office 365 mientras desarrollas habilidades esenciales para la industria tecnológica, incluyendo resolución de problemas, comunicación y trabajo en equipo. También tendrás la oportunidad de conectarte con una red diversa de estudiantes, empleados de Microsoft y líderes de la industria. Al compartir tu conocimiento, harás un impacto significativo al ayudar a otros a aprender y crecer.",
+    level: "(Alfa)"
+    }
+    ],
+    certifications: "Certificaciones",
+    ambassador: "Trayectoria de Programas de Embajadores",
+    ambassadorDescription: "En esta sección, puede encontrar información sobre mis programas de embajadores.",
+    filterAll: "Todos los Certificados",
+    references: "Referencias",
+    viewCertificate: "Ver Certificado",
+    selectCategory: "Seleccionar Categoría",
+    },
+    program: {
+    title: "Todos los Programas",
+    description: "Todos los programas en los que he participado antes",
     viewOnLinkedIn: "Ver en LinkedIn",
     programs: [
-      {
-        title: "Coding with IBM: CyberStart",
-        company: "IBM",
-        description: "Aprendiendo nuevas cosas sobre ciberseguridad",
-        skills: ["Ciberseguridad"],
-      },
-      {
-        title: "Leader Development Program",
-        company: "Leader Development Program",
-        description: "Aprendiendo nuevas cosas sobre liderazgo",
-        skills: ["Liderazgo", "Gestión", "Marca personal"],
-      },
-      {
-        title: "Huawei Coding Marathon'24",
-        company: "Huawei",
-        description: "Realización de un proyecto de codificación sobre ODS 12",
-        skills: ["Codificación", "Gestión de proyectos"],
-      },
-      {
-        title: "Defence Industry 401",
-        company: "Secretariat of Defence Industries",
-        description: "Obtención de información sobre la industria de defensa en Turquía",
-        skills: ["Industria de defensa"],
-      },
-      {
-        title: "Aselsan Work Life 101",
-        company: "Aselsan",
-        description: "Aprendiendo nuevas cosas sobre la vida laboral",
-        skills: ["Vida laboral", "Industria de defensa"],
-      },
-      {
-        title: "Seeds for the Future Italy'24",
-        company: "Huawei",
-        description: "Competición Tech 4 Good Final Europea",
-        skills: ["Emprendimiento social"],
-      },
-      {
-        title: "Take A Step Forward Program",
-        company: "McKinsey & Company",
-        description: "El programa Take A Step Forward es un programa virtual completamente financiado de 6 meses diseñado para adquirir las habilidades y experiencia necesarias para tener éxito en los negocios",
-        skills: ["Negocios"],
-      },
-      {
-        title: "AWS AI&ML Scholarship",
-        company: "Amazon Web Services",
-        description: "Este curso me apoyará en el futuro, especialmente para estar preparado para las tendencias emergentes en inteligencia artificial",
-        skills: ["Inteligencia Artificial", "Machine Learning"],
-      },
-      {
-        title: "Certified Associate Project Management (CAPM) Program",
-        company: "Project Management Institute",
-        description: "El programa fue dirigido por instructores experimentados que compartieron su amplia experiencia en gestión de proyectos",
-        skills: ["Gestión de proyectos"],
-      },
-      {
-        title: "Game & Technology Academy",
-        company: "Google",
-        description: "Una oportunidad increíble para sumergirme en el mundo del desarrollo de juegos y diseño de aplicaciones",
-        skills: ["Desarrollo de juegos", "Unity", "Desarrollo de aplicaciones", "Flutter"],
-      },
-      {
-        title: "Software Engineering Virtual Experience Program",
-        company: "Electronic Arts",
-        description: "Tuve la oportunidad de aprender en profundidad sobre muchos aspectos de la ingeniería de software y adquirir experiencia trabajando en problemas reales",
-        skills: ["Ingeniería de software"],
-      }
+    {
+    title: "Codificación con IBM: CyberStart",
+    company: "IBM",
+    description: "Aprendiendo cosas nuevas sobre Ciberseguridad",
+    skills: ["Ciberseguridad"],
+    },
+    {
+    title: "Programa de Desarrollo de Líderes",
+    company: "Programa de Desarrollo de Líderes",
+    description: "Aprendiendo cosas nuevas sobre Liderazgo",
+    skills: ["Liderazgo", "Gestión", "Autobranding"],
+    },
+    {
+    title: "Maratón de Codificación Huawei'24",
+    company: "Huawei",
+    description: "Realización de un Proyecto de Codificación sobre SDG 12",
+    skills: ["Codificación", "Gestión de Proyectos"],
+    },
+    {
+    title: "Industria de Defensa 401",
+    company: "Secretaría de Industrias de Defensa",
+    description: "Obteniendo información sobre la Industria de Defensa en Turquía",
+    skills: ["Industria de Defensa"],
+    },
+    {
+    title: "Aselsan Vida Laboral 101",
+    company: "Aselsan",
+    description: "Aprendiendo cosas nuevas sobre la vida laboral",
+    skills: ["Vida Laboral", "Industria de Defensa"],
+    },
+    {
+    title: "Semillas para el Futuro Italia'24",
+    company: "Huawei",
+    description: "Tech 4 Good Competition Europe Grand Final",
+    skills: ["Emprendimiento Social"],
+    },
+    {
+    title: "Programa Da un Paso Adelante",
+    company: "McKinsey & Company",
+    description: "El Programa Da un Paso Adelante es un programa virtual de 6 meses totalmente financiado diseñado para adquirir las habilidades y la experiencia necesarias para tener éxito en los negocios.",
+    skills: ["Negocios"],
+    },
+    {
+    title: "Beca AWS AI&ML",
+    company: "Amazon Web Services",
+    description: "Este curso me apoyará en el futuro, especialmente para estar preparado para las tendencias emergentes en inteligencia artificial y reconocer las nuevas oportunidades que surgirán frente a la inteligencia artificial.",
+    skills: ["Inteligencia Artificial", "Aprendizaje Automático"],
+    },
+    {
+    title: "Programa de Asociado Certificado en Gestión de Proyectos (CAPM)",
+    company: "Instituto de Gestión de Proyectos",
+    description: "El programa fue dirigido por instructores experimentados que compartieron su amplia experiencia en gestión de proyectos. Su orientación y ejemplos prácticos han sido increíblemente útiles para ayudarme a comprender los conceptos de manera efectiva. También proporcionaron valiosos consejos y estrategias para prepararnos para el examen CAPM.",
+    skills: ["Gestión de Proyectos"],
+    },
+    {
+    title: "Academia de Juegos y Tecnología",
+    company: "Google",
+    description: "Este viaje ha sido una oportunidad increíble para profundizar en el mundo del desarrollo de juegos y el diseño de aplicaciones, perfeccionando mis habilidades y obteniendo valiosas ideas de expertos de la industria.",
+    skills: ["Desarrollo de Juegos", "Unity", "Desarrollo de Aplicaciones", "Flutter"],
+    },
+    {
+    title: "Programa de Experiencia Virtual en Ingeniería de Software",
+    company: "Electronic Arts",
+    description: "Tuve la oportunidad de aprender en profundidad sobre muchos aspectos de la ingeniería de software y adquirir experiencia trabajando en problemas reales durante este riguroso programa.",
+    skills: ["Ingeniería de Software"],
+    }
     ]
-  },
-  social: {
-    title: "Actividades sociales",
+    },
+    social: {
+    title: "Actividades Sociales",
     description: "Explora mis actividades culturales y de entretenimiento",
     books: {
-      title: "Lista de libros",
-      description: "Mi viaje de lectura y libros leídos",
-      totalBooks: "Total de libros",
-      totalPages: "Total de páginas"
+    title: "Lista de Libros",
+    description: "Mi viaje de lectura y los libros que he leído",
+    totalBooks: "Total de Libros",
+    totalPages: "Total de Páginas"
     },
     movies: {
-      title: "Lista de películas",
-      description: "Mi viaje cinematográfico y películas vistas",
-      totalMovies: "Total de películas",
-      totalDuration: "Duración total"
+    title: "Lista de Películas",
+    description: "Mi viaje de visualización y las películas que he visto",
+    totalMovies: "Total de Películas",
+    totalDuration: "Duración Total"
     },
     theaters: {
-      title: "Lista de teatros",
-      description: "Teatros y espectáculos que he visto",
-      totalShows: "Total de espectáculos",
-      averageRating: "Calificación promedio"
+    title: "Lista de Teatros",
+    description: "Obras de teatro y actuaciones a las que he asistido",
+    totalShows: "Total de Espectáculos",
+    averageRating: "Calificación Promedio"
     },
     categories: {
-      all: "Todos",
-      movies: "Películas",
-      books: "Libros",
-      music: "Música",
-      games: "Juegos",
-      sports: "Deportes"
-    },
-    table: {
-      title: "Título",
-      author: "Autor",
-      pages: "Páginas",
-      rating: "Calificación",
-      date: "Fecha",
-      director: "Director",
-      duration: "Duración",
-      genre: "Género",
-      theater: "Teatro",
-      play: "Obra",
-      venue: "Lugar",
-      year: "Año",
-      completed: "Completado",
-      watched: "Visto"
+    all: "Todos",
+    movies: "Películas",
+    books: "Libros",
+    music: "Música",
+    games: "Juegos",
+    sports: "Deportes"
     },
     items: [
-      {
-        title: "Noche de cine",
-        category: "movies",
-        description: "Ver las últimas películas y discutirlas",
-        date: "Semanal"
-      },
-      {
-        title: "Club de lectura",
-        category: "books",
-        description: "Leer y discutir varios libros",
-        date: "Mensual"
-      },
-      {
-        title: "Sesiones de música",
-        category: "music",
-        description: "Tocar la guitarra y cantar con amigos",
-        date: "Semanal"
-      },
-      {
-        title: "Torneos de juegos",
-        category: "games",
-        description: "Participar en torneos de juegos en línea",
-        date: "Mensual"
-      },
-      {
-        title: "Partidos de baloncesto",
-        category: "sports",
-        description: "Jugar al baloncesto con amigos",
-        date: "Semanal"
-      }
+    {
+    title: "Noche de Películas",
+    category: "movies",
+    description: "Viendo las últimas películas y discutiéndolas",
+    date: "Semanalmente"
+    },
+    {
+    title: "Club de Lectura",
+    category: "books",
+    description: "Leyendo y discutiendo varios libros",
+    date: "Mensualmente"
+    },
+    {
+    title: "Sesiones de Música",
+    category: "music",
+    description: "Tocando guitarra y cantando con amigos",
+    date: "Semanalmente"
+    },
+    {
+    title: "Torneos de Juegos",
+    category: "games",
+    description: "Participando en torneos de juegos en línea",
+    date: "Mensualmente"
+    },
+    {
+    title: "Partidos de Baloncesto",
+    category: "sports",
+    description: "Jugando baloncesto con amigos",
+    date: "Semanalmente"
+    }
     ],
-    viewMore: "Ver más",
+    viewMore: "Ver Más",
     filterBy: "Filtrar por categoría",
-    noItems: "No se encontraron elementos en esta categoría"
-  },
-  blog: {
+    noItems: "No se encontraron elementos en esta categoría",
+    table: {
+    title: "Título",
+    author: "Autor",
+    pages: "Páginas",
+    rating: "Calificación",
+    date: "Fecha",
+    director: "Director",
+    duration: "Duración",
+    genre: "Género",
+    theater: "Teatro",
+    play: "Obra",
+    venue: "Lugar",
+    year: "Año",
+    completed: "Completado",
+    watched: "Visto"
+    }
+    },
+    blog: {
     title: "Artículos",
-    description: "Mi colección de artículos y escritos sobre tecnología y desarrollo de software.",
+    description: "Una colección de mis artículos y escritos sobre varios temas en tecnología y desarrollo de software.",
     filters: {
-      all: "Todos los artículos",
-      english: "Inglés",
-      turkish: "Turco",
-      chinese: "Chino",
-      japanese: "Japonés",
-      dutch: "Holandés",
-      polish: "Polaco",
-      spanish: "Español",
-      french: "Francés",
-      german: "Alemán",
-      italian: "Italiano",
-      russian: "Ruso"
+    all: "Todos los Artículos",
+    english: "Inglés",
+    turkish: "Turco"
     },
     table: {
-      title: "Título",
-      author: "Autor",
-      publication: "Publicación",
-      date: "Fecha",
-      category: "Categoría",
-      link: "Enlace"
+    title: "Título",
+    author: "Autor",
+    publication: "Publicación",
+    date: "Fecha",
+    category: "Categoría",
+    link: "Enlace"
     }
-  },
-  contact: {
+    },
+    contact: {
     title: "Contacto",
-    getInTouch: "Ponte en contacto",
-    description: "Contáctame para colaboraciones o una charla amistosa",
+    getInTouch: "Ponerse en Contacto",
+    description: "No dude en comunicarse para colaboraciones en proyectos o simplemente para una charla amistosa",
     contactMe: "Contáctame",
     form: {
-      firstName: "Nombre",
-      lastName: "Apellido",
-      email: "Correo electrónico",
-      phone: "Número de teléfono",
-      selectService: "Seleccionar servicio",
-      message: "Escribe tu mensaje aquí",
-      submit: "Enviar mensaje",
-      successMessage: "¡Correo enviado exitosamente!",
-      errorMessage: "Límite diario alcanzado. Inténtalo de nuevo mañana."
+    firstName: "Nombre",
+    lastName: "Apellido",
+    email: "Correo Electrónico",
+    phone: "Teléfono",
+    selectService: "Seleccionar Servicio",
+    message: "Ingrese su mensaje",
+    submit: "Enviar",
+    successMessage: "¡Correo enviado con éxito!",
+    errorMessage: "Límite diario alcanzado. Por favor, inténtelo de nuevo mañana."
     },
     info: {
-      title: "Detalles de contacto",
-      phoneAvailable: "Disponible bajo petición",
-      address: "Yenimahalle, Ankara, Türkiye",
-      followMe: "Sígueme"
+    title: "Información de Contacto",
+    phoneAvailable: "Disponible a pedido",
+    address: "Yenimahalle, Ankara, Turquía",
+    followMe: "Sígueme"
     }
-  },
-  dates: {
+    },
+    dates: {
     months: {
-      march: "marzo",
-      april: "abril",
-      june: "junio",
-      july: "julio",
-      august: "agosto",
-      september: "septiembre",
-      october: "octubre",
-      november: "noviembre",
-      december: "diciembre"
+    march: "Marzo",
+    april: "Abril",
+    june: "Junio",
+    july: "Julio",
+    august: "Agosto",
+    september: "Septiembre",
+    october: "Octubre",
+    november: "Noviembre",
+    december: "Diciembre"
     }
-  },
-}; 
+    },
+    };

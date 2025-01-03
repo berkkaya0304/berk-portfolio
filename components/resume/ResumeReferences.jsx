@@ -1,61 +1,52 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ReferenceItem = ({ reference, index }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.1 * index }}
-    className="relative group max-w-4xl mx-auto"
+    className="relative group"
   >
     {/* Glow Effect */}
     <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-700 rounded-2xl blur-md opacity-20 group-hover:opacity-30 transition-opacity" />
 
     {/* Card Content */}
-    <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm p-8 rounded-2xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
-      <div className="flex flex-col md:flex-row items-center gap-8">
-        {/* Image Section */}
-        <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-blue-400/20">
-          <Image
-            src={reference.image}
-            alt={reference.name}
-            fill
-            loading="lazy"
-            sizes="(max-width: 640px) 100vw, 192px"
-            className="object-cover"
-          />
-        </div>
-
-        {/* Content Section */}
-        <div className="flex-1 text-center md:text-left">
-          <h3 className="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700 mb-2">
+    <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300 h-full">
+      <div className="flex items-center gap-4 mb-4">
+        <img
+          src={reference.image}
+          alt={reference.name}
+          className="w-16 h-16 rounded-full object-cover border-2 border-blue-400/20"
+        />
+        <div>
+          <h3 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
             {reference.name}
           </h3>
-          <p className="text-blue-300 mb-4">{reference.position}</p>
-          <blockquote className="text-blue-300/80 italic">
-            &ldquo;{reference.testimonial}&rdquo;
-          </blockquote>
+          <p className="text-blue-400/60 text-sm">{reference.position}</p>
         </div>
       </div>
+      <p className="text-blue-300/80 text-sm italic">"{reference.testimonial}"</p>
     </div>
   </motion.div>
 );
 
-const ResumeReferences = ({ referencesList = [] }) => {
+const ResumeReferences = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 1;
+  const { translations } = useLanguage();
 
-  if (!referencesList || referencesList.length === 0) {
+  if (!translations.resume.referencesList || translations.resume.referencesList.length === 0) {
     return null;
   }
 
-  const totalPages = Math.ceil(referencesList.length / itemsPerPage);
+  const totalPages = Math.ceil(translations.resume.referencesList.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentReferences = referencesList.slice(
+  const currentReferences = translations.resume.referencesList.slice(
     startIndex,
     startIndex + itemsPerPage
   );
@@ -67,11 +58,11 @@ const ResumeReferences = ({ referencesList = [] }) => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-700/20 blur-[100px] -z-10" />
         <h2 className="text-3xl font-bold mb-3 inline-block">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700">
-            References
+            {translations.resume.references}
           </span>
         </h2>
         <p className="text-blue-400/70 max-w-2xl mx-auto text-base">
-          Professional references and recommendations from colleagues and supervisors.
+          {translations.resume.referencesDescription}
         </p>
       </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 const AboutItem = ({ field, index }) => (
   <motion.div
@@ -31,8 +32,11 @@ const AboutItem = ({ field, index }) => (
   </motion.div>
 );
 
-const ResumeAbout = ({ about = { info: [] } }) => {
-  if (!about?.info || about.info.length === 0) {
+const ResumeAbout = () => {
+  const { translations } = useLanguage();
+  const info = translations.about.info;
+
+  if (!info || info.length === 0) {
     return null;
   }
 
@@ -41,14 +45,14 @@ const ResumeAbout = ({ about = { info: [] } }) => {
       {/* Başlık ve Açıklama */}
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-          {about.title}
+          {translations.about.title}
         </h2>
-        <p className="text-blue-400/60 max-w-3xl mx-auto">{about.description}</p>
+        <p className="text-blue-400/60 max-w-3xl mx-auto">{translations.about.description}</p>
       </div>
 
       {/* About Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {about.info.map((field, index) => (
+        {info.map((field, index) => (
           <AboutItem key={index} field={field} index={index} />
         ))}
       </div>

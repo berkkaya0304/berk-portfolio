@@ -21,6 +21,11 @@ const Work = () => {
 
   const categories = ["all", ...new Set(works.map(work => work.category))];
 
+  const getCategoryTranslation = (category) => {
+    if (category === "all") return translations.work.filterAll;
+    return translations.work.categories[category];
+  };
+
   return (
     <AnimatePresence mode="wait">
       <motion.section
@@ -72,9 +77,7 @@ const Work = () => {
                   : 'bg-gradient-to-r from-blue-400/10 to-blue-700/10 backdrop-blur-sm text-blue-400 hover:from-blue-400/20 hover:to-blue-700/20'
                 }`}
               >
-                {category === "all" 
-                  ? translations.work.filterAll
-                  : category.charAt(0).toUpperCase() + category.slice(1)}
+                {getCategoryTranslation(category)}
               </Button>
             ))}
           </motion.div>
@@ -89,7 +92,7 @@ const Work = () => {
           >
             {filteredWorks.map((work, index) => (
               <motion.div
-                key={work.title}
+                key={work.titleKey}
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 * (index + 1) }}

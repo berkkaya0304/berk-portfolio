@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const SkillItem = ({ skill, index }) => (
   <motion.div
@@ -34,6 +35,7 @@ const SkillItem = ({ skill, index }) => (
 );
 
 const ResumeSkills = ({ skills = { skillList: [] } }) => {
+  const { translations } = useLanguage();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 15; // Show 15 skills per page (3x5 grid)
 
@@ -56,11 +58,11 @@ const ResumeSkills = ({ skills = { skillList: [] } }) => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-700/20 blur-[100px] -z-10" />
         <h2 className="text-3xl font-bold mb-3 inline-block">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700">
-            Technical Skills
+            {translations.resume.skills}
           </span>
         </h2>
         <p className="text-blue-400/70 max-w-2xl mx-auto text-base">
-          Here are my technical skills and proficiency levels.
+          {translations.resume.skillsDescription}
         </p>
       </div>
 

@@ -2,8 +2,13 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
+import { useLanguage } from "@/context/LanguageContext";
 
 const WorkCard = ({ work }) => {
+  const { translations } = useLanguage();
+  const title = translations.work.works[work.titleKey.split('.')[1]][work.titleKey.split('.')[2]];
+  const description = translations.work.works[work.descriptionKey.split('.')[1]][work.descriptionKey.split('.')[2]];
+
   return (
     <motion.div
       whileHover={{ y: -5, scale: 1.01 }}
@@ -18,7 +23,7 @@ const WorkCard = ({ work }) => {
         <div className="aspect-video relative rounded-xl overflow-hidden mb-6">
           <Image
             src={work.image}
-            alt={work.title}
+            alt={title}
             width={640}
             height={360}
             loading="lazy"
@@ -30,10 +35,10 @@ const WorkCard = ({ work }) => {
         {/* Project Info */}
         <div className="flex-grow">
           <h3 className="text-xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-            {work.title}
+            {title}
           </h3>
           <p className="text-blue-300/80 text-sm mb-6">
-            {work.description}
+            {description}
           </p>
         </div>
 

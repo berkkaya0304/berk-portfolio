@@ -3,64 +3,65 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const ResumeEducation = ({ educations = { items: [] } }) => {
+const EducationItem = ({ item, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.1 * index }}
+    className="relative group"
+  >
+    {/* Glow Effect */}
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-700 rounded-2xl blur-md opacity-20 group-hover:opacity-30 transition-opacity" />
+
+    {/* Card Content */}
+    <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
+      <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+        <div>
+          <h3 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
+            {item.institution}
+          </h3>
+          <h4 className="text-blue-300 font-medium mt-1">{item.degree}</h4>
+        </div>
+        <div className="flex flex-col items-end">
+          <span className="text-sm text-blue-300">{item.duration}</span>
+        </div>
+      </div>
+    </div>
+  </motion.div>
+);
+
+const ResumeEducation = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 4;
+  const { translations } = useLanguage();
 
-  // Mevcut sayfadaki eğitimleri al
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = educations.items.slice(indexOfFirstItem, indexOfLastItem);
-
-  // Toplam sayfa sayısını hesapla
-  const totalPages = Math.ceil(educations.items.length / itemsPerPage);
-
-  // Sayfa değiştirme fonksiyonu
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
-  if (!educations?.items || educations.items.length === 0) {
+  if (!translations.resume.educationList || translations.resume.educationList.length === 0) {
     return null;
   }
+
+  const totalPages = Math.ceil(translations.resume.educationList.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = translations.resume.educationList.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   return (
     <div className="space-y-8">
       {/* Başlık ve Açıklama */}
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-          {educations.title}
+          {translations.resume.education}
         </h2>
-        <p className="text-blue-400/60">{educations.description}</p>
+        <p className="text-blue-400/60">{translations.resume.educationDescription}</p>
       </div>
 
-      {/* Eğitimler Grid */}
+      {/* Education Grid */}
       <div className="grid grid-cols-1 gap-6">
         {currentItems.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 * (index % itemsPerPage) }}
-            className="relative group"
-          >
-            {/* Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-700 rounded-2xl blur-md opacity-20 group-hover:opacity-30 transition-opacity" />
-
-            {/* Card Content */}
-            <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
-              <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                <div>
-                  <h3 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
-                    {item.institution}
-                  </h3>
-                  <h4 className="text-blue-300 font-medium mt-1">{item.degree}</h4>
-                </div>
-                <span className="text-sm text-blue-300">{item.duration}</span>
-              </div>
-            </div>
-          </motion.div>
+          <EducationItem key={startIndex + index} item={item} index={index} />
         ))}
       </div>
 

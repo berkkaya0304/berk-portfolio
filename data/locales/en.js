@@ -40,13 +40,81 @@ export const en = {
   },
   about: {
     title: "About Me",
-    description: "Computer scientist, engineer, and software developer showcasing expertise in innovative software and technology solutions.",
+    description: "I've been interested in learning since I was a youngster. My interest in engineering stems from my youth. I was the one who controlled the classroom computer using scratch codes I developed in computer classes and realized even when I was very young. Now I'm taking the measures necessary to become a successful engineer. With strenuous effort and the expertise, I gained from my institution, I am confident rather than hopeful that this will be accomplished. I'm attempting to obtain numerous credentials and training for this.",
+    info: [
+      {
+        fieldName: "Name",
+        fieldValue: "Berk Kaya"
+      },
+      {
+        fieldName: "Phone",
+        fieldValue: "Provided If You Need"
+      },
+      {
+        fieldName: "Experience",
+        fieldValue: "2+ Years"
+      },
+      {
+        fieldName: "Steam",
+        fieldValue: "loadonline"
+      },
+      {
+        fieldName: "Nationality",
+        fieldValue: "Turkish"
+      },
+      {
+        fieldName: "Email",
+        fieldValue: "berkkaya0304@hotmail.com"
+      },
+      {
+        fieldName: "Freelance",
+        fieldValue: "Available"
+      },
+      {
+        fieldName: "Languages",
+        fieldValue: "Turkish, English, German"
+      }
+    ]
   },
   work: {
     title: "My Projects",
-    description: "A showcase of my latest work and projects",
+    description: "My latest works and projects",
     viewProject: "View Project",
     filterAll: "All",
+    categories: {
+      frontend: "Frontend",
+      backend: "Backend",
+      mobile: "Mobile",
+      desktop: "Desktop",
+      fullstack: "Full Stack",
+      other: "Other"
+    },
+    works: {
+      aiPortfolio: {
+        title: "AI-Powered Portfolio",
+        description: "Personal portfolio website developed using Next.js and React, incorporating modern design principles."
+      },
+      tributePage: {
+        title: "Tribute Page",
+        description: "A tribute page project developed using basic web technologies."
+      },
+      technicalDocs: {
+        title: "Technical Documentation",
+        description: "Technical documentation page project."
+      },
+      surveyPage: {
+        title: "Survey Page",
+        description: "Survey form page project."
+      },
+      onePagePortfolio: {
+        title: "One Page Portfolio",
+        description: "Single page portfolio website project."
+      },
+      firewall: {
+        title: "Firewall",
+        description: "Wildfires can occur naturally, but they are often caused by humans. In recent years, the number of wildfires has increased day by day. Even in some countries, wildfires raged out of control. Because of that, we created an app to fight against it: Firewall."
+      }
+    }
   },
   services: {
     title: "My Services",
@@ -98,13 +166,200 @@ export const en = {
   },
   resume: {
     title: "Resume",
-    experience: "Experience",
-    education: "Education",
-    skills: "Skills",
+    experience: "Experience Journey",
+    experienceDescription: "In this section, you can find information about my internship, part-time and full-time work.",
+    experienceList: [
+      {
+        company: "Huawei",
+        position: "Cloud Engineer Long Term Intern",
+        duration: "September 2024 - January 2025",
+        time: "(5 months)"
+      },
+      {
+        company: "Basarsoft",
+        position: "Computer Engineer Intern",
+        duration: "August 2024 - September 2024",
+        time: "(2 months)"
+      },
+      {
+        company: "Huawei",
+        position: "Cloud Engineer Intern",
+        duration: "July 2024 - August 2024",
+        time: "(2 months)"
+      },
+      {
+        company: "Nurol Technology",
+        position: "Project Worker",
+        duration: "January 2024 - June 2024",
+        time: "(6 months)"
+      },
+      {
+        company: "QNB Finansbank",
+        position: "Finance 101 Intern",
+        duration: "January 2024 - February 2024",
+        time: "(2 months)"
+      },
+      {
+        company: "Huawei",
+        position: "FullStack Dev. Intern",
+        duration: "August 2023 - September 2023",
+        time: "(2 months)"
+      },
+      {
+        company: "Turkish Mercantile Exchange",
+        position: "FullStack Dev. Intern",
+        duration: "July 2023 - August 2023",
+        time: "(2 months)"
+      }
+    ],
+    education: "Education Journey",
+    educationDescription: "In this section, you will see the education I have received in general.",
+    educationList: [
+      {
+        institution: "TED University",
+        degree: "Computer Engineering",
+        duration: "September 2022 - July 2026"
+      },
+      {
+        institution: "Google Academy",
+        degree: "Game-App",
+        duration: "December 2022 - August 2023"
+      },
+      {
+        institution: "Young Executive Academy",
+        degree: "Being Executive",
+        duration: "January 2023 - June 2023"
+      },
+      {
+        institution: "TED University",
+        degree: "English Preparation",
+        duration: "September 2021 - July 2022"
+      }
+    ],
+    voluntarily: "Voluntary Work Journey",
+    voluntarilyDescription: "In this section, you can find information about my voluntary works.",
+    voluntarilyList: [
+      {
+        company: "Model Courts of Justice",
+        position: "Director of IT & Design",
+        duration: "September 2024 - September 2025",
+        time: "(1 year)"
+      },
+      {
+        company: "Leader Development Program",
+        position: "Website Team Leader",
+        duration: "October 2023 - October 2024",
+        time: "(1 year)"
+      },
+      {
+        company: "Tübitak Project",
+        position: "Contributor",
+        duration: "October 2023 - August 2024",
+        time: "(11 months)"
+      },
+      {
+        company: "TEDU Science & Technology",
+        position: "President",
+        duration: "July 2022 - August 2023",
+        time: "(1 year 1 month)"
+      }
+    ],
+    skills: "Technical Skills",
+    skillsDescription: "Here are my technical skills and proficiency levels.",
     softSkills: "Soft Skills",
+    softSkillsDescription: "Here are my interpersonal and professional soft skills.",
+    viewResults: "Click Here For All Results (Turkish)",
+    rating: "Rating",
+    references: "References",
+    referencesDescription: "Professional references and recommendations from colleagues and supervisors.",
+    referencesList: [
+      {
+        name: "İlker Canbulut",
+        position: "Leader Development Program Creator",
+        image: "/assets/resume/references/ilkercanbulut.jpg",
+        testimonial: "Berk Kaya is a responsible individual excelling in leadership and teamwork, capable of producing innovative solutions through a multidisciplinary perspective. With his ability to see the big picture, focus on details, and inspire trust, he is poised to become a valuable leader of the future."
+      }
+    ],
+    softSkillsList: [
+      {
+        name: "Self-Management",
+        rating: 100,
+        description: "Resilience",
+      },
+      {
+        name: "Self-Competence",
+        rating: 90,
+        description: "Resilience",
+      },
+      {
+        name: "Coping with Stress",
+        rating: 95,
+        description: "Resilience",
+      },
+      {
+        name: "Managing Emotions",
+        rating: 98,
+        description: "Resilience",
+      },
+      {
+        name: "Managing Relationships",
+        rating: 100,
+        description: "Resilience",
+      },
+      {
+        name: "Goal Focus, Planning",
+        rating: 99,
+        description: "Resilience",
+      },
+      {
+        name: "Building Close Relationships",
+        rating: 87,
+        description: "Personality",
+      },
+      {
+        name: "Stress Level",
+        rating: 39,
+        description: "Personality",
+      },
+      {
+        name: "Thought Orientation",
+        rating: 96,
+        description: "Personality",
+      },
+    ],
+    ambassadorPrograms: [
+      {
+        company: "IBM",
+        topic: "Z Captain",
+        duration: "September 2024 - Present",
+        description: "I am one of the 6 captain ambassadors who will lead 150+ ambassadors this year.",
+        level: "(Level 4 - Highest Level)"
+      },
+      {
+        company: "IBM",
+        topic: "Z Student Ambassador",
+        duration: "November 2023 - Present",
+        description: "The IBM Z Student Ambassador program is a global community of university students passionate about technology. Through hands-on learning, mentorship, and networking opportunities, ambassadors gain the skills and experience they need to succeed in the tech industry.",
+        level: "(Level 4 - Highest Level)"
+      },
+      {
+        company: "Xbox",
+        topic: "Ambassador",
+        duration: "September 2023 - Present",
+        description: "The Xbox Ambassador program is a community of gamers who are passionate about making gaming fun for everyone.",
+        level: "Level 2"
+      },
+      {
+        company: "Microsoft",
+        topic: "Student Ambassador",
+        duration: "November 2023 - September 2024",
+        description: "As a Microsoft Learn Student Ambassador, you'll gain hands-on experience with Microsoft technologies like Azure, Windows, and Office 365 while developing essential skills for the tech industry, including problem-solving, communication, and teamwork. You'll also have the chance to connect with a diverse network of students, Microsoft employees, and industry leaders. By sharing your knowledge, you'll make a meaningful impact by helping others learn and grow.",
+        level: "(Alpha)"
+      }
+    ],
     certifications: "Certifications",
-    voluntarily: "Voluntary Work",
-    ambassador: "Ambassador Programs",
+    ambassador: "Ambassador Programs Journey",
+    ambassadorDescription: "In this section, you can find information about my ambassador programs.",
     filterAll: "All Certificates",
     references: "References",
     viewCertificate: "View Certificate",
@@ -283,22 +538,22 @@ export const en = {
   },
   contact: {
     title: "Contact",
-    getInTouch: "Let's Connect",
-    description: "Feel free to reach out for collaborations or just a friendly chat",
+    getInTouch: "Get in Touch",
+    description: "Feel free to reach out for project collaborations or just a friendly chat",
     contactMe: "Contact Me",
     form: {
       firstName: "First Name",
       lastName: "Last Name",
-      email: "Email Address",
-      phone: "Phone Number",
-      selectService: "Select a Service",
-      message: "Type your message here",
-      submit: "Send Message",
+      email: "Email",
+      phone: "Phone",
+      selectService: "Select Service",
+      message: "Enter your message",
+      submit: "Submit",
       successMessage: "Email sent successfully!",
-      errorMessage: "Today's limit is finished. Please try again tomorrow."
+      errorMessage: "Daily limit reached. Please try again tomorrow."
     },
     info: {
-      title: "Contact Details",
+      title: "Contact Information",
       phoneAvailable: "Available upon request",
       address: "Yenimahalle, Ankara, Türkiye",
       followMe: "Follow Me"
