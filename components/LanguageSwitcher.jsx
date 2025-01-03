@@ -47,20 +47,20 @@ const LanguageSwitcher = ({ isMobile }) => {
 
   if (isMobile) {
     return (
-      <div className="relative w-full flex justify-center items-center py-4" ref={dropdownRef}>
+      <div className="relative w-full flex justify-center items-center py-2" ref={dropdownRef}>
         {/* Ana dünya ikonu butonu */}
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
           className={`
             relative z-20
-            p-4 rounded-full
+            p-2.5 rounded-full
             bg-secondary border-2
             ${isOpen ? 'border-blue-400 text-blue-400' : 'border-white/10 text-muted-foreground'}
             transition-all duration-300
           `}
           whileTap={{ scale: 0.95 }}
         >
-          <IoLanguageOutline className="w-6 h-6" />
+          <IoLanguageOutline className="w-4 h-4" />
         </motion.button>
 
         {/* Dil seçenekleri */}
@@ -81,7 +81,7 @@ const LanguageSwitcher = ({ isMobile }) => {
                 {languages.map((lang, index) => {
                   // Dairenin çevresinde konumlandırma için açı hesaplama
                   const angle = (index * (360 / languages.length)) * (Math.PI / 180);
-                  const radius = 120; // Dairenin yarıçapı
+                  const radius = 90; // Dairenin yarıçapını 120'den 90'a düşürdüm
                   const x = Math.cos(angle) * radius;
                   const y = Math.sin(angle) * radius;
 
@@ -112,8 +112,8 @@ const LanguageSwitcher = ({ isMobile }) => {
                       }}
                       className={`
                         absolute z-20
-                        flex flex-col items-center gap-1
-                        p-2 rounded-full
+                        flex flex-col items-center gap-0.5
+                        p-1 rounded-full
                         ${language === lang.code 
                           ? 'bg-blue-500/20 text-blue-400 scale-110' 
                           : 'bg-secondary text-muted-foreground'
@@ -122,7 +122,7 @@ const LanguageSwitcher = ({ isMobile }) => {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <div className="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-white/10">
+                      <div className="relative w-6 h-6 rounded-full overflow-hidden ring-1 ring-white/10">
                         <Image
                           src={lang.flag}
                           alt={lang.name}
@@ -130,7 +130,7 @@ const LanguageSwitcher = ({ isMobile }) => {
                           className="object-cover"
                         />
                       </div>
-                      <span className="text-xs font-medium whitespace-nowrap">
+                      <span className="text-[10px] font-medium whitespace-nowrap">
                         {lang.code.toUpperCase()}
                       </span>
                     </motion.button>
@@ -148,73 +148,122 @@ const LanguageSwitcher = ({ isMobile }) => {
     <div className="relative" ref={dropdownRef}>
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="
-          flex items-center gap-2
-          px-3 py-2 rounded-xl
+        className={`
+          flex items-center justify-center
+          w-8 h-8 rounded-xl
           bg-secondary hover:bg-secondary/80
           text-muted-foreground hover:text-blue-400
           transition-all duration-200
-          border border-white/10
-        "
+          border ${isOpen ? 'border-blue-400' : 'border-white/10'}
+        `}
         whileTap={{ scale: 0.98 }}
       >
-        <div className="relative w-5 h-5 rounded-full overflow-hidden">
-          <Image
-            src={currentLanguage?.flag}
-            alt={currentLanguage?.name}
-            fill
-            className="object-cover"
-          />
-        </div>
-        <span className="text-sm font-medium">{currentLanguage?.nativeName}</span>
-        <HiChevronDown className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+        <IoLanguageOutline className="w-4 h-4" />
       </motion.button>
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 4 }}
-            transition={{ duration: 0.15 }}
-            className="
-              absolute right-0 mt-2
-              bg-[#1a1a1a]
-              rounded-xl overflow-hidden
-              shadow-xl shadow-black/20
-              min-w-[200px]
-              border border-white/10
-              z-50
-            "
-          >
-            <div className="py-1">
-              {languages.map((lang) => (
-                <motion.button
-                  key={lang.code}
-                  onClick={() => handleLanguageChange(lang.code)}
-                  className={`
-                    w-full flex items-center gap-3
-                    px-3 py-2
-                    text-sm transition-all duration-150
-                    ${language === lang.code 
-                      ? 'bg-blue-500/20 text-blue-400' 
-                      : 'hover:bg-blue-500/10 text-muted-foreground hover:text-blue-400'
-                    }
-                  `}
-                >
-                  <div className="relative w-5 h-5 rounded-full overflow-hidden">
-                    <Image
-                      src={lang.flag}
-                      alt={lang.name}
-                      fill
-                      className="object-cover"
-                    />
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-40 bg-black/60"
+              onClick={() => setIsOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute right-0 mt-2 z-50 origin-top-right"
+            >
+              <div className="bg-[#0a0a0a] rounded-xl border border-white/10 shadow-xl shadow-black/50 w-[160px]">
+                <div className="flex flex-col">
+                  <div className="bg-gradient-to-r from-blue-400/10 via-blue-400/5 to-transparent px-2 py-1.5 border-b border-white/5">
+                    <div className="flex items-center gap-1.5">
+                      <div className="relative w-3.5 h-3.5 rounded-full overflow-hidden ring-1 ring-white/10">
+                        <Image
+                          src={currentLanguage?.flag}
+                          alt={currentLanguage?.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <span className="text-[10px] font-medium text-white/80">
+                        {currentLanguage?.nativeName}
+                      </span>
+                    </div>
                   </div>
-                  <span>{lang.nativeName}</span>
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
+                  <div className="py-1">
+                    {languages.map((lang, index) => (
+                      <motion.button
+                        key={lang.code}
+                        onClick={() => handleLanguageChange(lang.code)}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ 
+                          opacity: 1,
+                          x: 0,
+                          transition: { 
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 25,
+                            delay: index * 0.03,
+                          }
+                        }}
+                        exit={{ 
+                          opacity: 0,
+                          x: 20,
+                          transition: { 
+                            duration: 0.15,
+                            delay: (languages.length - index) * 0.02 
+                          }
+                        }}
+                        className={`
+                          group relative w-full
+                          flex items-center justify-between
+                          px-2 py-1
+                          ${language === lang.code 
+                            ? 'bg-gradient-to-r from-blue-400/10 via-blue-400/5 to-transparent text-blue-400' 
+                            : 'hover:bg-gradient-to-r hover:from-white/5 hover:to-transparent text-white/60 hover:text-white/90'
+                          }
+                          transition-all duration-300 ease-out
+                        `}
+                        whileHover={{ x: 2 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <div className="flex items-center gap-1.5">
+                          <div className={`
+                            relative w-3.5 h-3.5 rounded-full overflow-hidden
+                            ring-1 transition-all duration-300
+                            ${language === lang.code 
+                              ? 'ring-blue-400 ring-offset-[0.5px] ring-offset-[#0a0a0a]' 
+                              : 'ring-white/20 group-hover:ring-white/40'
+                            }
+                          `}>
+                            <Image
+                              src={lang.flag}
+                              alt={lang.name}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <span className="text-[10px] font-medium">
+                              {lang.nativeName}
+                            </span>
+                            <span className="text-[8px] font-medium opacity-40 uppercase">
+                              {lang.code}
+                            </span>
+                          </div>
+                        </div>
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </div>

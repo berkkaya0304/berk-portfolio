@@ -6,7 +6,6 @@ import Link from "next/link";
 import { CiMenuFries } from 'react-icons/ci';
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import LanguageSwitcher from "./LanguageSwitcher";
 
 const MobileNav = () => {
   const pathname = usePathname();
@@ -96,7 +95,6 @@ const MobileNav = () => {
             })}
           </nav>
           <div className="flex flex-col items-center gap-4">
-            <LanguageSwitcher isMobile={true} />
             <div className="text-center text-sm text-muted-foreground">
               © 2024 Berk Kaya
             </div>

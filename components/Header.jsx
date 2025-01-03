@@ -72,12 +72,12 @@ const Header = () => {
             <div className="hidden xl:flex items-center gap-8">
               <Nav />
               <div className="flex items-center gap-4">
-                <LanguageSwitcher />
                 <Link href="/contact">
                   <Button className="bg-gradient-to-r from-blue-400 to-blue-700 text-white hover:opacity-90">
                     {translations.contact.contactMe}
                   </Button>
                 </Link>
+                <LanguageSwitcher />
               </div>
             </div>
 
