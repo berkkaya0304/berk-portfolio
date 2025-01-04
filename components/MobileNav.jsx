@@ -6,6 +6,7 @@ import Link from "next/link";
 import { CiMenuFries } from 'react-icons/ci';
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const MobileNav = () => {
   const pathname = usePathname();

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
+import Image from "next/image";
 
 const ReferenceItem = ({ reference, index }) => (
   <motion.div
@@ -18,11 +19,14 @@ const ReferenceItem = ({ reference, index }) => (
     {/* Card Content */}
     <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300 h-full">
       <div className="flex items-center gap-4 mb-4">
-        <img
-          src={reference.image}
-          alt={reference.name}
-          className="w-16 h-16 rounded-full object-cover border-2 border-blue-400/20"
-        />
+        <div className="relative w-16 h-16">
+          <Image
+            src={reference.image}
+            alt={reference.name}
+            fill
+            className="rounded-full object-cover border-2 border-blue-400/20"
+          />
+        </div>
         <div>
           <h3 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
             {reference.name}
