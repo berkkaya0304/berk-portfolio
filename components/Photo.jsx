@@ -132,7 +132,7 @@ const Photo = () => {
         {/* Fotoğraf */}
         <div className="relative z-10">
           <Image 
-            src="https://i.hizliresim.com/nnnztwo.png"
+            src="/assets/photo2.png"
             alt="Berk Kaya"
             width={500}
             height={500}
