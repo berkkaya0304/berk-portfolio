@@ -78,11 +78,7 @@ export const movieData = `Title,Title_TR,Director,Director_TR,Genre,Genre_TR,Rel
 "The Imitation Game","İmitasyon Oyunu","Morten Tyldum","Morten Tyldum","Biography, Drama","Biyografi, Drama",2014,114
 "Ex Machina","Ex Machina","Alex Garland","Alex Garland","Sci-Fi, Drama","Bilim Kurgu, Drama",2014,108`;
 
-export const theaterData = `Play,Play_TR,Theater,Theater_TR,Venue,Venue_TR,Date,Rating
-"Hamlet","Hamlet","State Theater","Devlet Tiyatrosu","National Theater Hall","Milli Sahne","2023-01-25",5
-"Romeo and Juliet","Romeo ve Juliet","City Theater","Şehir Tiyatrosu","Cultural Center","Kültür Merkezi","2023-02-28",4.5
-"Macbeth","Macbeth","Art Theater","Sanat Tiyatrosu","Modern Stage","Modern Sahne","2023-03-15",5
-"Othello","Othello","Classic Theater","Klasik Tiyatro","Historic Theater","Tarihi Tiyatro","2023-04-20",4.5`;
+export const theaterData = `Play,Play_TR,Theater,Theater_TR,Venue,Venue_TR,Date,Rating`;
 
 export const bookColumns = [
   { key: 'title', field: 'Title' },
@@ -132,41 +128,3 @@ export const articleColumnsTR = [
   { key: 'category', field: 'Kategori' },
   { key: 'link', field: 'Bağlantı' }
 ];
-
-export const articleDataEN = [
-  {
-    title: "The Future of AI in Software Development",
-    author: "John Doe",
-    publication: "Medium",
-    date: "2023-12-15",
-    category: "Technology",
-    link: "https://medium.com/article1"
-  },
-  {
-    title: "Understanding Modern Web Development",
-    author: "Jane Smith",
-    publication: "Dev.to",
-    date: "2023-11-20",
-    category: "Web Development",
-    link: "https://dev.to/article2"
-  }
-];
-
-export const articleDataTR = [
-  {
-    title: "Yazılım Geliştirmede Yapay Zekanın Geleceği",
-    author: "Ahmet Yılmaz",
-    publication: "Medium",
-    date: "2023-12-10",
-    category: "Teknoloji",
-    link: "https://medium.com/makale1"
-  },
-  {
-    title: "Modern Web Geliştirmeyi Anlamak",
-    author: "Ayşe Demir",
-    publication: "Dev.to",
-    date: "2023-11-15",
-    category: "Web Geliştirme",
-    link: "https://dev.to/makale2"
-  }
-]; 
