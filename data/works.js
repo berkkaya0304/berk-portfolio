@@ -3,11 +3,12 @@ export const works = [
     id: 1,
     titleKey: "works.aiPortfolio.title",
     descriptionKey: "works.aiPortfolio.description",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1456&h=816&q=80",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1456&h=816&q=80",
     tech: ["Next.js", "React", "Tailwind CSS", "Framer Motion", "Shadcn/ui"],
     category: "frontend",
     github: "",
-    link: "https://berkkaya.me"
+    link: "https://berkkaya.me",
   },
   {
     id: 2,
@@ -17,7 +18,7 @@ export const works = [
     tech: ["HTML", "CSS", "JavaScript"],
     category: "frontend",
     github: "",
-    link: "https://codepen.io/berkkaya0304/full/dyzmqOW"
+    link: "https://codepen.io/berkkaya0304/full/dyzmqOW",
   },
   {
     id: 3,
@@ -27,7 +28,7 @@ export const works = [
     tech: ["HTML", "CSS", "JavaScript"],
     category: "frontend",
     github: "",
-    link: "https://codepen.io/berkkaya0304/full/YzxaOeY"
+    link: "https://codepen.io/berkkaya0304/full/YzxaOeY",
   },
   {
     id: 4,
@@ -37,7 +38,7 @@ export const works = [
     tech: ["HTML", "CSS", "JavaScript"],
     category: "frontend",
     github: "",
-    link: "https://codepen.io/berkkaya0304/full/dyzmqvR"
+    link: "https://codepen.io/berkkaya0304/full/dyzmqvR",
   },
   {
     id: 5,
@@ -47,7 +48,7 @@ export const works = [
     tech: ["HTML", "CSS", "JavaScript"],
     category: "frontend",
     github: "",
-    link: "https://codepen.io/berkkaya0304/full/dyzmqjZ"
+    link: "https://codepen.io/berkkaya0304/full/dyzmqjZ",
   },
   {
     id: 6,
@@ -57,6 +58,6 @@ export const works = [
     tech: ["Flutter"],
     category: "mobile",
     github: "https://github.com/berkkaya0304/google_solution_challenge",
-    link: "https://www.youtube.com/watch?v=mPKkLCz-zBc"
-  }
-]; 
+    link: "https://www.youtube.com/watch?v=mPKkLCz-zBc",
+  },
+];

@@ -1,20 +1,20 @@
-import React from 'react';
+import React from "react";
 
 const BackButton = ({ onClick }) => {
   return (
     <button
       onClick={onClick}
       style={{
-        padding: '10px 20px',
-        fontSize: '16px',
-        backgroundColor: 'transparent',
-        border: 'none',
-        borderRadius: '5px',
-        cursor: 'pointer',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '5px',
-        color: '#4DA8DA',
+        padding: "10px 20px",
+        fontSize: "16px",
+        backgroundColor: "transparent",
+        border: "none",
+        borderRadius: "5px",
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        gap: "5px",
+        color: "#4DA8DA",
       }}
     >
       <svg
@@ -28,7 +28,7 @@ const BackButton = ({ onClick }) => {
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M19 12H5M12 19l-7-7 7-7"/>
+        <path d="M19 12H5M12 19l-7-7 7-7" />
       </svg>
       Back
     </button>

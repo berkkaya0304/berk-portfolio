@@ -1,8 +1,8 @@
 const ResumeItem = ({ item, type }) => {
   const renderContent = () => {
     switch (type) {
-      case 'experience':
-      case 'voluntarily':
+      case "experience":
+      case "voluntarily":
         return (
           <>
             <span className="text-accent gap-[50px]">{item.duration}</span>
@@ -16,7 +16,7 @@ const ResumeItem = ({ item, type }) => {
             </div>
           </>
         );
-      case 'education':
+      case "education":
         return (
           <>
             <span className="text-accent gap-[50px]">{item.duration}</span>
@@ -29,7 +29,7 @@ const ResumeItem = ({ item, type }) => {
             </div>
           </>
         );
-      case 'ambassador':
+      case "ambassador":
         return (
           <>
             <span className="text-accent gap-[50px]">{item.duration}</span>
@@ -52,10 +52,12 @@ const ResumeItem = ({ item, type }) => {
   };
 
   return (
-    <li className={`bg-[#232329] min-w-[370px] ${type !== 'ambassador' ? 'h-[184px]' : ''} py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:item-start gap-2`}>
+    <li
+      className={`bg-[#232329] min-w-[370px] ${type !== "ambassador" ? "h-[184px]" : ""} py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:item-start gap-2`}
+    >
       {renderContent()}
     </li>
   );
 };
 
-export default ResumeItem; 
+export default ResumeItem;

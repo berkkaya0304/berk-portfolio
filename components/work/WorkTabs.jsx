@@ -1,8 +1,8 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ProjectCard from "./ProjectCard";
 
-const WorkTabs = ({ 
-  projectFrontend, 
+const WorkTabs = ({
+  projectFrontend,
   projectDigital,
   projectData,
   projectCloud,
@@ -13,7 +13,7 @@ const WorkTabs = ({
   setProjectFrontend,
   setProjectDigital,
   setProjectData,
-  setProjectCloud
+  setProjectCloud,
 }) => {
   return (
     <Tabs defaultValue="front-end" className="flex flex-col gap-[100px]">
@@ -26,39 +26,47 @@ const WorkTabs = ({
 
       <TabsContent value="front-end" className="w-full">
         {projectFrontend && projectFrontend.num && (
-          <ProjectCard 
+          <ProjectCard
             projects={projectsFrontend}
             currentProject={projectFrontend}
-            onSlideChange={(swiper) => setProjectFrontend(projectsFrontend[swiper.activeIndex])}
+            onSlideChange={(swiper) =>
+              setProjectFrontend(projectsFrontend[swiper.activeIndex])
+            }
           />
         )}
       </TabsContent>
 
       <TabsContent value="digital" className="w-full">
-        <ProjectCard 
+        <ProjectCard
           projects={projectsDigital}
           currentProject={projectDigital}
-          onSlideChange={(swiper) => setProjectDigital(projectsDigital[swiper.activeIndex])}
+          onSlideChange={(swiper) =>
+            setProjectDigital(projectsDigital[swiper.activeIndex])
+          }
         />
       </TabsContent>
 
       <TabsContent value="data" className="w-full">
-        <ProjectCard 
+        <ProjectCard
           projects={projectsData}
           currentProject={projectData}
-          onSlideChange={(swiper) => setProjectData(projectsData[swiper.activeIndex])}
+          onSlideChange={(swiper) =>
+            setProjectData(projectsData[swiper.activeIndex])
+          }
         />
       </TabsContent>
 
       <TabsContent value="cloud" className="w-full">
-        <ProjectCard 
+        <ProjectCard
           projects={projectsCloud}
           currentProject={projectCloud}
-          onSlideChange={(swiper) => setProjectCloud(projectsCloud[swiper.activeIndex])}
+          onSlideChange={(swiper) =>
+            setProjectCloud(projectsCloud[swiper.activeIndex])
+          }
         />
       </TabsContent>
     </Tabs>
   );
 };
 
-export default WorkTabs; 
+export default WorkTabs;

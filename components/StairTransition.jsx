@@ -6,26 +6,26 @@ import { motion } from "framer-motion";
 
 const PageTransition = () => {
   const pathName = usePathname();
-  
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
         key={pathName}
         className="fixed inset-0 z-50"
         initial={{ x: "100%" }}
-        animate={{ 
+        animate={{
           x: "-100%",
           transition: {
             duration: 0.7,
-            ease: [0.32, 0, 0.67, 0]
-          }
+            ease: [0.32, 0, 0.67, 0],
+          },
         }}
-        exit={{ 
+        exit={{
           x: "-100%",
           transition: {
             duration: 0.7,
-            ease: [0.32, 0, 0.67, 0]
-          }
+            ease: [0.32, 0, 0.67, 0],
+          },
         }}
       >
         <div className="w-full h-full bg-gradient-to-l from-blue-400 via-blue-500 to-blue-600 opacity-90" />

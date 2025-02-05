@@ -1,9 +1,10 @@
 export const posts = [
   {
-    slug: 'chief-young-officer',
+    slug: "chief-young-officer",
     title: "Being a Chief Young Officer (CYO)",
     date: "2024-11-01",
-    excerpt: "Exploring the emerging role of Chief Young Officer and its importance for modern companies",
+    excerpt:
+      "Exploring the emerging role of Chief Young Officer and its importance for modern companies",
     image: "/assets/blog/business.png",
     readingTime: 8,
     tags: ["Business", "Leadership", "Innovation", "Career"],
@@ -63,13 +64,15 @@ In fact, some companies are currently working on several reverse mentoring progr
 
 ## Conclusion
 
-In this article, I have mentioned the importance of young people in a company through a general concept.`
+In this article, I have mentioned the importance of young people in a company through a general concept.`,
   },
   {
-    slug: 'mysql-container-huawei-cloud',
-    title: "☁️Creating a MySQL Container in Huawei Cloud w/ Cloud Container Engine",
+    slug: "mysql-container-huawei-cloud",
+    title:
+      "☁️Creating a MySQL Container in Huawei Cloud w/ Cloud Container Engine",
     date: "2024-10-16",
-    excerpt: "A step-by-step guide to setting up a MySQL container using Huawei Cloud's Container Engine",
+    excerpt:
+      "A step-by-step guide to setting up a MySQL container using Huawei Cloud's Container Engine",
     image: "/assets/blog/technology.png",
     readingTime: 10,
     tags: ["Cloud Computing", "MySQL", "Docker", "Huawei Cloud"],
@@ -129,13 +132,14 @@ If you have done everything correctly, the mysql statefulset should be running a
 
 In this article, I showed you how you can create a CCE and a Node using Cloud Container Engine (CCE). I also showed you how you can install mysql container with statefulset on the Node.
 
-Now you have seen how you can install mysql on CCE in general. I hope this article was useful for you. See you in my other articles 😊`
+Now you have seen how you can install mysql on CCE in general. I hope this article was useful for you. See you in my other articles 😊`,
   },
   {
-    slug: 'different-look-web-development',
+    slug: "different-look-web-development",
     title: "Different Look at Web Development",
     date: "2024-09-18",
-    excerpt: "A unique perspective on web development from an undergraduate student's point of view",
+    excerpt:
+      "A unique perspective on web development from an undergraduate student's point of view",
     image: "/assets/blog/technology.png",
     readingTime: 7,
     tags: ["Web Development", "Technology", "Programming", "Education"],
@@ -189,13 +193,14 @@ And now I want to move on to my other question:
 
 ## Conclusion😊
 
-In general, in this article I have tried to provide you with a different perspective on web development. I hope these different perspectives have been useful to you.`
+In general, in this article I have tried to provide you with a different perspective on web development. I hope these different perspectives have been useful to you.`,
   },
   {
-    slug: 'leaders-never-lose',
+    slug: "leaders-never-lose",
     title: "Do true leaders never lose or do they learn from every loss?",
     date: "2024-10-14",
-    excerpt: "Exploring how great leaders transform defeats into valuable learning experiences",
+    excerpt:
+      "Exploring how great leaders transform defeats into valuable learning experiences",
     image: "/assets/blog/business.png",
     readingTime: 5,
     tags: ["Leadership", "Personal Growth", "Learning", "Success"],
@@ -229,13 +234,14 @@ If you want to become one of the great leaders who have made a name for themselv
 
 ## Conclusion
 
-In the end, leaders don't lose, they just burn a new learning opportunity. I have tried to emphasize this as much as I can in this article.`
+In the end, leaders don't lose, they just burn a new learning opportunity. I have tried to emphasize this as much as I can in this article.`,
   },
   {
-    slug: 'effective-leadership-cornerstones',
+    slug: "effective-leadership-cornerstones",
     title: "Effective Leadership and Cornerstones",
     date: "2024-08-29",
-    excerpt: "Exploring the five essential cornerstones of effective leadership through real-world examples",
+    excerpt:
+      "Exploring the five essential cornerstones of effective leadership through real-world examples",
     image: "/assets/blog/business.png",
     readingTime: 12,
     tags: ["Leadership", "Business", "Personal Growth", "Management"],
@@ -309,13 +315,14 @@ In this section where I talk about current and past leaders, I would like to giv
 
 ## Conclusion
 
-In this article, I have focused on effective leadership in general and touched upon its cornerstones, giving examples from the present and the past. By making you think of yourself in that environment, I made the subject more reinforced.`
+In this article, I have focused on effective leadership in general and touched upon its cornerstones, giving examples from the present and the past. By making you think of yourself in that environment, I made the subject more reinforced.`,
   },
   {
-    slug: 'empathy-secret-weapon',
+    slug: "empathy-secret-weapon",
     title: "Empathy: The Secret Weapon of Successful Leaders",
     date: "2024-09-15",
-    excerpt: "Understanding why empathy is crucial for leadership success and how it can transform organizations",
+    excerpt:
+      "Understanding why empathy is crucial for leadership success and how it can transform organizations",
     image: "/assets/blog/business.png",
     readingTime: 6,
     tags: ["Leadership", "Empathy", "Business", "Personal Growth"],
@@ -353,13 +360,14 @@ As CEO of Starbucks, Howard Schultz is known for his empathy towards his employe
 
 ## Conclusion
 
-In this article, I have focused on why leaders should have empathy in general and tried to reinforce the topic by giving a real life example.`
+In this article, I have focused on why leaders should have empathy in general and tried to reinforce the topic by giving a real life example.`,
   },
   {
-    slug: 'leadership-crisis',
+    slug: "leadership-crisis",
     title: "Leadership in a Crisis: A Guide to Dealing with Challenges",
     date: "2024-09-01",
-    excerpt: "Understanding the importance of leadership during crisis and essential qualities leaders need to navigate challenging times",
+    excerpt:
+      "Understanding the importance of leadership during crisis and essential qualities leaders need to navigate challenging times",
     image: "/assets/blog/business.png",
     readingTime: 10,
     tags: ["Leadership", "Crisis Management", "Business", "Personal Growth"],
@@ -447,13 +455,14 @@ Simon Sinek offers us a succinct suggestion in this regard. He explains how we c
 
 ## Conclusion
 
-In this article we have focused on why leadership is important in times of crisis and what characteristics a leader should have in times of crisis. While focusing on these issues, I had the chance to share with you the words of some important thinkers while focusing on real world examples.`
+In this article we have focused on why leadership is important in times of crisis and what characteristics a leader should have in times of crisis. While focusing on these issues, I had the chance to share with you the words of some important thinkers while focusing on real world examples.`,
   },
   {
-    slug: 'what-difference-between-leader-boss',
+    slug: "what-difference-between-leader-boss",
     title: "What is the Difference Between a Leader and a Boss?",
     date: "2024-09-09",
-    excerpt: "Understanding the key differences between leadership and management styles",
+    excerpt:
+      "Understanding the key differences between leadership and management styles",
     image: "/assets/blog/business.png",
     readingTime: 8,
     tags: ["Leadership", "Management", "Business", "Personal Growth"],
@@ -519,13 +528,14 @@ Bosses love to give commands. That's why they always prefer to give commands. Le
 
 ## Conclusion
 
-In this article we focused on the differences between a boss and a leader, where we shared several explanations comparing their characteristics.`
+In this article we focused on the differences between a boss and a leader, where we shared several explanations comparing their characteristics.`,
   },
   {
-    slug: 'leading-age-remote-work',
+    slug: "leading-age-remote-work",
     title: "Leading in the Age of Remote Work",
     date: "2024-09-22",
-    excerpt: "Exploring the challenges and opportunities of leadership in remote work environments",
+    excerpt:
+      "Exploring the challenges and opportunities of leadership in remote work environments",
     image: "/assets/blog/business.png",
     readingTime: 6,
     tags: ["Leadership", "Remote Work", "Management", "Business"],
@@ -553,7 +563,7 @@ While leadership processes change hands even in a simple classroom setting, lead
 
 ## Conclusion
 
-As a result, leadership has been and will continue to be greatly affected by the online process. Therefore, it would be better to look at leadership from a larger perspective rather than from smaller perspectives.`
+As a result, leadership has been and will continue to be greatly affected by the online process. Therefore, it would be better to look at leadership from a larger perspective rather than from smaller perspectives.`,
   },
 ];
 
@@ -563,4 +573,4 @@ export function getAllPosts() {
 
 export function getPost(slug) {
   return posts.find((post) => post.slug === slug);
-} 
+}

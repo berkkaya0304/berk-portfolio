@@ -6,7 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const CertificationCard = ({ certification }) => {
   const { translations } = useLanguage();
-  
+
   return (
     <motion.div className="relative group">
       {/* Glow Effect */}
@@ -17,17 +17,17 @@ const CertificationCard = ({ certification }) => {
         <h3 className="text-base font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700 mb-2">
           {certification.title}
         </h3>
-        
+
         <div className="flex items-center gap-2 mb-1.5">
           <span className="w-[4px] h-[4px] rounded-full bg-blue-400"></span>
           <p className="text-blue-300 text-sm">{certification.issuer}</p>
         </div>
-        
+
         <div className="flex items-center gap-2 mb-3">
           <span className="w-[4px] h-[4px] rounded-full bg-blue-400"></span>
           <p className="text-blue-300 text-sm">{certification.date}</p>
         </div>
-        
+
         {certification.image && (
           <a
             href={certification.image}
@@ -35,9 +35,9 @@ const CertificationCard = ({ certification }) => {
             rel="noopener noreferrer"
             className="inline-block"
           >
-            <Button 
-              size="sm" 
-              variant="outline" 
+            <Button
+              size="sm"
+              variant="outline"
               className="text-[10px] px-2 py-1 h-7 bg-gradient-to-r from-blue-400 to-blue-700 text-white hover:from-blue-500 hover:to-blue-800 transition-all duration-300"
             >
               {translations.resume.viewCertificate}
@@ -49,4 +49,4 @@ const CertificationCard = ({ certification }) => {
   );
 };
 
-export default CertificationCard; 
+export default CertificationCard;

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -29,6 +29,6 @@ export const getServices = () => {
       description: translations.services.digitalization.description,
       href: "/services/digitalization",
       icon: "/icons/digital.png",
-    }
+    },
   ];
-}; 
+};

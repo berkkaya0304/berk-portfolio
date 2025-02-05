@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import { getPost } from "@/data/blog";
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from "react-markdown";
 import MDXComponents from "@/components/blog/MDXComponents";
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
-import { use } from 'react';
+import { use } from "react";
 
 export default function BlogPost({ params }) {
   const slug = use(Promise.resolve(params.slug));
@@ -82,4 +82,4 @@ export default function BlogPost({ params }) {
       </div>
     </motion.article>
   );
-} 
+}

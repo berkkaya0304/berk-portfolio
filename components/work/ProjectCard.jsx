@@ -2,7 +2,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Image from "next/image";
 import Link from "next/link";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { BsArrowUpRight, BsGithub, BsYoutube } from "react-icons/bs";
 import { FaCodepen } from "react-icons/fa";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
@@ -29,39 +34,39 @@ const ProjectCard = ({ projects, currentProject, onSlideChange }) => {
           <div className="border border-white/20"></div>
           <div className="flex items-center gap-4">
             {currentProject.live && (
-              <ProjectLink 
-                href={currentProject.live} 
-                icon={<BsArrowUpRight />} 
-                tooltip="Live project" 
+              <ProjectLink
+                href={currentProject.live}
+                icon={<BsArrowUpRight />}
+                tooltip="Live project"
               />
             )}
             {currentProject.github && (
-              <ProjectLink 
-                href={currentProject.github} 
-                icon={<BsGithub />} 
-                tooltip="Github Repository" 
+              <ProjectLink
+                href={currentProject.github}
+                icon={<BsGithub />}
+                tooltip="Github Repository"
               />
             )}
             {currentProject.youtube && (
-              <ProjectLink 
-                href={currentProject.youtube} 
-                icon={<BsYoutube />} 
-                tooltip="Youtube Video" 
+              <ProjectLink
+                href={currentProject.youtube}
+                icon={<BsYoutube />}
+                tooltip="Youtube Video"
               />
             )}
             {currentProject.codepen && (
-              <ProjectLink 
-                href={currentProject.codepen} 
-                icon={<FaCodepen />} 
-                tooltip="CodePen project" 
+              <ProjectLink
+                href={currentProject.codepen}
+                icon={<FaCodepen />}
+                tooltip="CodePen project"
               />
             )}
           </div>
         </div>
       </div>
       <div className="w-full xl:w-[50%] relative">
-        <Swiper 
-          spaceBetween={30} 
+        <Swiper
+          spaceBetween={30}
           slidesPerView={1}
           className="h-[460px] xl:h-[520px]"
           onSlideChange={onSlideChange}
@@ -69,9 +74,9 @@ const ProjectCard = ({ projects, currentProject, onSlideChange }) => {
           {projects.map((project, index) => (
             <SwiperSlide key={index}>
               <div className="relative w-full h-full">
-                <Image 
-                  src={project.image} 
-                  fill 
+                <Image
+                  src={project.image}
+                  fill
                   className="object-cover rounded-lg"
                   alt={`Project ${project.num}`}
                   priority={index === 0}
@@ -79,7 +84,7 @@ const ProjectCard = ({ projects, currentProject, onSlideChange }) => {
               </div>
             </SwiperSlide>
           ))}
-          <WorkSliderBtns 
+          <WorkSliderBtns
             containerStyles="flex gap-2 absolute right-0 bottom-0 z-20 xl:bottom-[4rem]"
             btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
           />
@@ -106,4 +111,4 @@ const ProjectLink = ({ href, icon, tooltip }) => (
   </Link>
 );
 
-export default ProjectCard; 
+export default ProjectCard;

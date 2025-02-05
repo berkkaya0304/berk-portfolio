@@ -1,4 +1,13 @@
-import { FaAngular, FaBitcoin, FaCloud, FaJava, FaLinux, FaPython, FaReact, FaUnity } from "react-icons/fa";
+import {
+  FaAngular,
+  FaBitcoin,
+  FaCloud,
+  FaJava,
+  FaLinux,
+  FaPython,
+  FaReact,
+  FaUnity,
+} from "react-icons/fa";
 import { DiDocker } from "react-icons/di";
 import { SiFlutter, SiKubernetes } from "react-icons/si";
 import { TbSql } from "react-icons/tb";
@@ -7,7 +16,8 @@ import { PiFileCSharp } from "react-icons/pi";
 
 export const about = {
   title: "About Me",
-  description: "I've been interested in learning since I was a youngster. My interest in engineering stems from my youth. I was the one who controlled the classroom computer using scratch codes I developed in computer classes and realized even when I was very young. Now I'm taking the measures necessary to become a successful engineer. With strenuous effort and the expertise, I gained from my institution, I am confident rather than hopeful that this will be accomplished. I'm attempting to obtain numerous credentials and training for this.",
+  description:
+    "I've been interested in learning since I was a youngster. My interest in engineering stems from my youth. I was the one who controlled the classroom computer using scratch codes I developed in computer classes and realized even when I was very young. Now I'm taking the measures necessary to become a successful engineer. With strenuous effort and the expertise, I gained from my institution, I am confident rather than hopeful that this will be accomplished. I'm attempting to obtain numerous credentials and training for this.",
   info: [
     {
       fieldName: "Name",
@@ -41,122 +51,126 @@ export const about = {
       fieldName: "Languages",
       fieldValue: "Turkish, English, German",
     },
-  ]
+  ],
 };
 
 export const experience = {
   icon: "/assets/resume/badge.svg",
   title: "Experience Journey",
-  description: "In this section, you can find information about my internship, part-time and full-time work.",
+  description:
+    "In this section, you can find information about my internship, part-time and full-time work.",
   items: [
     {
       company: "Huawei",
       position: "Cloud Engineer Long Term Intern",
       duration: "September 2024 - January 2025",
-      time: "(5 months)"
+      time: "(5 months)",
     },
     {
       company: "Basarsoft",
       position: "Computer Engineer Intern",
       duration: "August 2024 - September 2024",
-      time: "(2 months)"
+      time: "(2 months)",
     },
     {
       company: "Huawei",
       position: "Cloud Engineer Intern",
       duration: "July 2024 - August 2024",
-      time: "(2 months)"
+      time: "(2 months)",
     },
     {
       company: "Nurol Technology",
       position: "Project Worker",
       duration: "January 2024 - June 2024",
-      time: "(6 months)"
+      time: "(6 months)",
     },
     {
       company: "QNB Finansbank",
       position: "Finance 101 Intern",
       duration: "January 2024 - February 2024",
-      time: "(2 months)"
+      time: "(2 months)",
     },
     {
       company: "Huawei",
       position: "FullStack Dev. Intern",
       duration: "August 2023 - September 2023",
-      time: "(2 months)"
+      time: "(2 months)",
     },
     {
       company: "Turkish Mercantile Exchange",
       position: "FullStack Dev. Intern",
       duration: "July 2023 - August 2023",
-      time: "(2 months)"
+      time: "(2 months)",
     },
-  ]
+  ],
 };
 
 export const voluntarilyWorks = {
   icon: "/assets/resume/badge.svg",
   title: "Voluntarily Work Journey",
-  description: "In this section, you can find information about mu voluntarily works.",
+  description:
+    "In this section, you can find information about mu voluntarily works.",
   items: [
     {
       company: "Model Courts of Justice",
       position: "Director of IT & Design",
       duration: "September 2024 - September 2025",
-      time: "(1 year)"
+      time: "(1 year)",
     },
     {
       company: "Leader Development Program",
       position: "Website Team Leader",
       duration: "October 2023 - October 2024",
-      time: "(1 year)"
+      time: "(1 year)",
     },
     {
       company: "Tübitak Project",
       position: "Contributor",
       duration: "October 2023 - August 2024",
-      time: "(11 months)"
+      time: "(11 months)",
     },
     {
       company: "TEDU Science & Technology",
       position: "President",
       duration: "July 2022 - August 2023",
-      time: "(1 year 1 month)"
+      time: "(1 year 1 month)",
     },
-  ]
+  ],
 };
 
 export const education = {
   icon: "/assets/resume/cap.svg",
   title: "Education Journey",
-  description: "In this section, you will see the education I have received in general.",
+  description:
+    "In this section, you will see the education I have received in general.",
   items: [
     {
       institution: "TED University",
       degree: "Computer Engineering",
-      duration: "September 2022 - July 2026"
+      duration: "September 2022 - July 2026",
     },
     {
       institution: "Google Academy",
       degree: "Game-App",
-      duration: "December 2022 - August 2023"
+      duration: "December 2022 - August 2023",
     },
     {
       institution: "Young Executive Academy",
       degree: "Being Executive",
-      duration: "January 2023 - June 2023"
+      duration: "January 2023 - June 2023",
     },
     {
       institution: "TED University",
       degree: "English Preparation",
-      duration: "September 2021 - July 2022"
+      duration: "September 2021 - July 2022",
     },
-  ]
+  ],
 };
 
 export const soft = {
   title: "Soft Skills",
-  description: "This page shows you my soft skills. You can access the Turkish test results by clicking the button below.",
+  description:
+    "This page shows you my soft skills. You can access the Turkish test results by clicking the button below.",
   skills: [
     {
       name: "Self-Management",
@@ -203,7 +217,7 @@ export const soft = {
       rating: 96,
       description: "Personality",
     },
-  ]
+  ],
 };
 
 export const ambassador = {
@@ -214,36 +228,41 @@ export const ambassador = {
       company: "IBM",
       topic: "Z Captain",
       duration: "September 2024 - Present",
-      description: "I am one of the 6 captain ambassadors who will lead 150+ ambassadors this year.",
-      level: "(Level 4 - Highest Level)"
+      description:
+        "I am one of the 6 captain ambassadors who will lead 150+ ambassadors this year.",
+      level: "(Level 4 - Highest Level)",
     },
     {
       company: "IBM",
       topic: "Z Student Ambassador",
       duration: "November 2023 - Present",
-      description: "The IBM Z Student Ambassador program is a global community of university students passionate about technology. Through hands-on learning, mentorship, and networking opportunities, ambassadors gain the skills and experience they need to succeed in the tech industry.",
-      level: "(Level 4 - Highest Level)"
+      description:
+        "The IBM Z Student Ambassador program is a global community of university students passionate about technology. Through hands-on learning, mentorship, and networking opportunities, ambassadors gain the skills and experience they need to succeed in the tech industry.",
+      level: "(Level 4 - Highest Level)",
     },
     {
       company: "Xbox",
       topic: "Ambassador",
       duration: "September 2023 - Present",
-      description: "The Xbox Ambassador program is a community of gamers who are passionate about making gaming fun for everyone.",
-      level: "Level 2"
+      description:
+        "The Xbox Ambassador program is a community of gamers who are passionate about making gaming fun for everyone.",
+      level: "Level 2",
     },
     {
       company: "Microsoft",
       topic: "Student Ambassador",
       duration: "November 2023 - September 2024",
-      description: "As a Microsoft Learn Student Ambassador, you'll gain hands-on experience with Microsoft technologies like Azure, Windows, and Office 365 while developing essential skills for the tech industry, including problem-solving, communication, and teamwork. You'll also have the chance to connect with a diverse network of students, Microsoft employees, and industry leaders. By sharing your knowledge, you'll make a meaningful impact by helping others learn and grow.",
-      level: "(Alpha)"
+      description:
+        "As a Microsoft Learn Student Ambassador, you'll gain hands-on experience with Microsoft technologies like Azure, Windows, and Office 365 while developing essential skills for the tech industry, including problem-solving, communication, and teamwork. You'll also have the chance to connect with a diverse network of students, Microsoft employees, and industry leaders. By sharing your knowledge, you'll make a meaningful impact by helping others learn and grow.",
+      level: "(Alpha)",
     },
-  ]
+  ],
 };
 
 export const skills = {
   title: "Technical Skills",
-  description: "In this section, you can see which technologies I can use in general and that I have created at least 1 project.",
+  description:
+    "In this section, you can see which technologies I can use in general and that I have created at least 1 project.",
   skillList: [
     {
       icon: <FaJava />,
@@ -282,7 +301,7 @@ export const skills = {
       name: "Docker",
     },
     {
-      icon: <SiKubernetes/>,
+      icon: <SiKubernetes />,
       name: "Kubernetes",
     },
     {
@@ -301,7 +320,7 @@ export const skills = {
       icon: <BiLogoSpringBoot />,
       name: "Spring Boot",
     },
-  ]
+  ],
 };
 
 export const referencesList = [
@@ -309,7 +328,8 @@ export const referencesList = [
     name: "İlker Canbulut",
     position: "Leader Development Program Creator",
     image: "/assets/resume/references/ilkercanbulut.jpg",
-    testimonial: "Berk Kaya is a responsible individual excelling in leadership and teamwork, capable of producing innovative solutions through a multidisciplinary perspective. With his ability to see the big picture, focus on details, and inspire trust, he is poised to become a valuable leader of the future."
+    testimonial:
+      "Berk Kaya is a responsible individual excelling in leadership and teamwork, capable of producing innovative solutions through a multidisciplinary perspective. With his ability to see the big picture, focus on details, and inspire trust, he is poised to become a valuable leader of the future.",
   },
 ];
 
@@ -318,49 +338,56 @@ export const certifications = [
     title: "Developer Associate - AI",
     issuer: "Huawei Cloud",
     date: "July 2024",
-    image: "https://fs-intl-en-us.connect.huaweicloud.com/FileServer/getFile/vector/011/111/111/0000000000011111111.20240726151007.20996619988002026016639861969173:50550813202105:2800:547B88EB84C44CE67D389804E100894EB83A5B2AFE24EADDF327380BC700A279.png",
+    image:
+      "https://fs-intl-en-us.connect.huaweicloud.com/FileServer/getFile/vector/011/111/111/0000000000011111111.20240726151007.20996619988002026016639861969173:50550813202105:2800:547B88EB84C44CE67D389804E100894EB83A5B2AFE24EADDF327380BC700A279.png",
     category: "Cloud",
   },
   {
     title: "Developer Associate - Tech Essentials",
     issuer: "Huawei Cloud",
     date: "Dec 2023",
-    image: "https://fs-intl-en-us.connect.huaweicloud.com/FileServer/getFile/vector/011/111/111/0000000000011111111.20231229154003.26748684713176376740678732337194:50550813202022:2800:6E4E181FEDBA518C7DFF8EC5AD985340C0E8F77F7BA05A98BA5281035C14007F.png",
+    image:
+      "https://fs-intl-en-us.connect.huaweicloud.com/FileServer/getFile/vector/011/111/111/0000000000011111111.20231229154003.26748684713176376740678732337194:50550813202022:2800:6E4E181FEDBA518C7DFF8EC5AD985340C0E8F77F7BA05A98BA5281035C14007F.png",
     category: "Cloud",
   },
   {
     title: "Extended Reality For Everybody",
     issuer: "University of Michigan - Coursera",
     date: "June 2023",
-    image: "https://www.coursera.org/account/accomplishments/specialization/certificate/5VGTX77AQPMT",
+    image:
+      "https://www.coursera.org/account/accomplishments/specialization/certificate/5VGTX77AQPMT",
     category: "Extended Reality",
   },
   {
     title: "Data Analyst",
     issuer: "IBM - Coursera",
     date: "May 2023",
-    image: "https://www.coursera.org/account/accomplishments/specialization/certificate/VUU4VNKUCEUL",
+    image:
+      "https://www.coursera.org/account/accomplishments/specialization/certificate/VUU4VNKUCEUL",
     category: "Data",
   },
   {
     title: "Data Science",
     issuer: "IBM - Coursera",
     date: "May 2023",
-    image: "https://www.coursera.org/account/accomplishments/specialization/certificate/69FNTFBWMNCJ",
+    image:
+      "https://www.coursera.org/account/accomplishments/specialization/certificate/69FNTFBWMNCJ",
     category: "Data",
   },
   {
     title: "Project Management",
     issuer: "Google",
     date: "Feb 2023",
-    image: "https://www.coursera.org/account/accomplishments/specialization/certificate/Q4FAA9HL66NY",
+    image:
+      "https://www.coursera.org/account/accomplishments/specialization/certificate/Q4FAA9HL66NY",
     category: "Project Management",
   },
   {
     title: "Modern and Contemporary Art and Design",
     issuer: "MoMA",
     date: "Feb 2023",
-    image: "https://www.coursera.org/account/accomplishments/specialization/certificate/LUX8G3FX86AD",
+    image:
+      "https://www.coursera.org/account/accomplishments/specialization/certificate/LUX8G3FX86AD",
     category: "Art & Culture",
   },
   {
@@ -388,7 +415,8 @@ export const certifications = [
     title: "Introduction to AI, Robotics and Data",
     issuer: "Global AI Hub",
     date: "Jan 2022",
-    image: "https://globalaihub.com/certificate-share/eyJ1c2VyLWlkIjo5MzU5MiwiY291cnNlLWlkIjo2MDg1MCwiY2VydC1pZCI6IjczMDUxIn0=",
+    image:
+      "https://globalaihub.com/certificate-share/eyJ1c2VyLWlkIjo5MzU5MiwiY291cnNlLWlkIjo2MDg1MCwiY2VydC1pZCI6IjczMDUxIn0=",
     category: "Artificial Intelligence",
   },
   {
@@ -409,14 +437,16 @@ export const certifications = [
     title: "Responsive Web Design",
     issuer: "freeCodeCamp",
     date: "Nov 2021",
-    image: "https://freecodecamp.org/certification/berkkaya0304/responsive-web-design",
+    image:
+      "https://freecodecamp.org/certification/berkkaya0304/responsive-web-design",
     category: "Front-End",
   },
   {
     title: "Effective Communication Techniques Training",
     issuer: "Boenstitü",
     date: "Oct 2021",
-    image: "https://istanbulbogazicienstitu.com/hesap/sertifika-sorgula?sertifika=MTEzNDI2LS0tNDEzOTItLS1kYTRiOTIzN2JhY2NjZGYxOWMwNzYwY2FiN2FlYzRhODM1OTAxMGIw",
+    image:
+      "https://istanbulbogazicienstitu.com/hesap/sertifika-sorgula?sertifika=MTEzNDI2LS0tNDEzOTItLS1kYTRiOTIzN2JhY2NjZGYxOWMwNzYwY2FiN2FlYzRhODM1OTAxMGIw",
     category: "Social",
   },
   {
@@ -643,4 +673,4 @@ export const certifications = [
     image: "https://coursera.org/share/eff189497ea493e984be533f2b422487",
     category: "Social",
   },
-]; 
+];

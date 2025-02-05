@@ -26,17 +26,17 @@ const CertificationItem = ({ certification, index, translations }) => (
       <h3 className="text-base font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700 mb-2">
         {certification.title}
       </h3>
-      
+
       <div className="flex items-center gap-2 mb-1.5">
         <span className="w-[4px] h-[4px] rounded-full bg-blue-400"></span>
         <p className="text-blue-300 text-sm">{certification.issuer}</p>
       </div>
-      
+
       <div className="flex items-center gap-2 mb-3">
         <span className="w-[4px] h-[4px] rounded-full bg-blue-400"></span>
         <p className="text-blue-300 text-sm">{certification.date}</p>
       </div>
-      
+
       {certification.image && (
         <a
           href={certification.image}
@@ -44,9 +44,9 @@ const CertificationItem = ({ certification, index, translations }) => (
           rel="noopener noreferrer"
           className="inline-block"
         >
-          <Button 
-            size="sm" 
-            variant="outline" 
+          <Button
+            size="sm"
+            variant="outline"
             className="text-[10px] px-2 py-1 h-7 bg-gradient-to-r from-blue-400 to-blue-700 text-white hover:from-blue-500 hover:to-blue-800 transition-all duration-300"
           >
             {translations.resume.viewCertificate}
@@ -71,12 +71,15 @@ const ResumeCertifications = ({
     return null;
   }
 
-  const categories = ["All", ...new Set(certifications.map((cert) => cert.category))];
+  const categories = [
+    "All",
+    ...new Set(certifications.map((cert) => cert.category)),
+  ];
   const totalPages = Math.ceil(filteredCertifications.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentCertifications = filteredCertifications.slice(
     startIndex,
-    startIndex + itemsPerPage
+    startIndex + itemsPerPage,
   );
 
   const handleCategorySelect = (value) => {
@@ -98,13 +101,20 @@ const ResumeCertifications = ({
 
       {/* Category Filter */}
       <div className="flex justify-center mb-8">
-        <Select onValueChange={handleCategorySelect} defaultValue={selectedCategory || "All"}>
+        <Select
+          onValueChange={handleCategorySelect}
+          defaultValue={selectedCategory || "All"}
+        >
           <SelectTrigger className="w-[280px] bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm border-blue-400/20">
             <SelectValue placeholder={translations.resume.selectCategory} />
           </SelectTrigger>
           <SelectContent className="bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm border-blue-400/20">
             {categories.map((category) => (
-              <SelectItem key={category} value={category} className="hover:bg-blue-400/10">
+              <SelectItem
+                key={category}
+                value={category}
+                className="hover:bg-blue-400/10"
+              >
                 {category === "All" ? translations.resume.filterAll : category}
               </SelectItem>
             ))}
@@ -130,19 +140,21 @@ const ResumeCertifications = ({
           <div className="flex items-center gap-2">
             {totalPages <= 4 ? (
               // Normal pagination for 4 or fewer pages
-              Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-                <Button
-                  key={pageNum}
-                  onClick={() => setCurrentPage(pageNum)}
-                  className={`w-10 h-10 rounded-xl ${
-                    currentPage === pageNum
-                      ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
-                      : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
-                  } transition-all duration-300`}
-                >
-                  {pageNum}
-                </Button>
-              ))
+              Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (pageNum) => (
+                  <Button
+                    key={pageNum}
+                    onClick={() => setCurrentPage(pageNum)}
+                    className={`w-10 h-10 rounded-xl ${
+                      currentPage === pageNum
+                        ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
+                        : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
+                    } transition-all duration-300`}
+                  >
+                    {pageNum}
+                  </Button>
+                ),
+              )
             ) : (
               // Advanced pagination for more than 4 pages
               <>
@@ -167,13 +179,13 @@ const ResumeCertifications = ({
                   if (currentPage <= 2) {
                     pageNum = 2 + i;
                   } else if (currentPage >= totalPages - 1) {
-                    pageNum = (totalPages - 2) + i;
+                    pageNum = totalPages - 2 + i;
                   } else {
                     pageNum = currentPage + i - 1;
                   }
 
                   if (pageNum <= 1 || pageNum >= totalPages) return null;
-                  
+
                   return (
                     <Button
                       key={`page_${pageNum}`}
@@ -190,7 +202,9 @@ const ResumeCertifications = ({
                 }).filter(Boolean)}
 
                 {/* Show dots if not in last 2 pages */}
-                {currentPage < totalPages - 1 && <span className="text-blue-400">...</span>}
+                {currentPage < totalPages - 1 && (
+                  <span className="text-blue-400">...</span>
+                )}
 
                 {/* Last page */}
                 <Button
@@ -210,14 +224,16 @@ const ResumeCertifications = ({
           {/* Navigation arrows */}
           <div className="flex items-center gap-2">
             <Button
-              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
               className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               ←
             </Button>
             <Button
-              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
               disabled={currentPage === totalPages}
               className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
             >
@@ -230,4 +246,4 @@ const ResumeCertifications = ({
   );
 };
 
-export default ResumeCertifications; 
+export default ResumeCertifications;

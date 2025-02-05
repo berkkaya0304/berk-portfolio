@@ -20,19 +20,21 @@ const SoftSkillItem = ({ skill, index, translations }) => (
       <h3 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700 mb-4">
         {skill.name}
       </h3>
-      
+
       <div className="flex items-center gap-3 mb-2">
         <span className="w-[6px] h-[6px] rounded-full bg-blue-400"></span>
-        <p className="text-blue-300">{translations.resume.rating}: {skill.rating}/100</p>
+        <p className="text-blue-300">
+          {translations.resume.rating}: {skill.rating}/100
+        </p>
       </div>
-      
+
       <div className="w-full bg-blue-900/20 rounded-full h-2.5 mb-4">
         <div
           className="bg-gradient-to-r from-blue-400 to-blue-700 h-2.5 rounded-full transition-all duration-300"
           style={{ width: `${skill.rating}%` }}
         ></div>
       </div>
-      
+
       <p className="text-blue-300/60">{skill.description}</p>
     </div>
   </motion.div>
@@ -84,7 +86,12 @@ const ResumeSoftSkills = () => {
       {/* Skills Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentSkills.map((skill, index) => (
-          <SoftSkillItem key={startIndex + index} skill={skill} index={index} translations={translations} />
+          <SoftSkillItem
+            key={startIndex + index}
+            skill={skill}
+            index={index}
+            translations={translations}
+          />
         ))}
       </div>
 
@@ -92,32 +99,36 @@ const ResumeSoftSkills = () => {
       {totalPages > 1 && (
         <div className="flex justify-center items-center gap-4 mt-8">
           <div className="flex items-center gap-2">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-              <Button
-                key={pageNum}
-                onClick={() => setCurrentPage(pageNum)}
-                className={`w-10 h-10 rounded-xl ${
-                  currentPage === pageNum
-                    ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
-                    : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
-                } transition-all duration-300`}
-              >
-                {pageNum}
-              </Button>
-            ))}
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+              (pageNum) => (
+                <Button
+                  key={pageNum}
+                  onClick={() => setCurrentPage(pageNum)}
+                  className={`w-10 h-10 rounded-xl ${
+                    currentPage === pageNum
+                      ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
+                      : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
+                  } transition-all duration-300`}
+                >
+                  {pageNum}
+                </Button>
+              ),
+            )}
           </div>
 
           {totalPages > 4 && (
             <div className="flex items-center gap-2">
               <Button
-                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
                 className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 ←
               </Button>
               <Button
-                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                onClick={() =>
+                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                }
                 disabled={currentPage === totalPages}
                 className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
@@ -131,4 +142,4 @@ const ResumeSoftSkills = () => {
   );
 };
 
-export default ResumeSoftSkills; 
+export default ResumeSoftSkills;

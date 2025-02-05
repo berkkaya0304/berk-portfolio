@@ -5,7 +5,15 @@ import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useLanguage } from "@/context/LanguageContext";
 
 const ContactForm = () => {
@@ -38,7 +46,7 @@ const ContactForm = () => {
         "service_mwtogzd",
         "template_3fb1h4k",
         formData,
-        "SxOOOhi_LC1TpP44r"
+        "SxOOOhi_LC1TpP44r",
       );
       alert(translations.contact.form.successMessage);
       setFormData({
@@ -67,65 +75,77 @@ const ContactForm = () => {
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Input 
-              type="text" 
-              name="firstName" 
+            <Input
+              type="text"
+              name="firstName"
               placeholder={translations.contact.form.firstName}
-              value={formData.firstName} 
-              onChange={handleChange} 
-              required 
+              value={formData.firstName}
+              onChange={handleChange}
+              required
               className="bg-white/5 border-0 focus-visible:ring-1 focus-visible:ring-blue-400"
             />
-            <Input 
-              type="text" 
-              name="lastName" 
+            <Input
+              type="text"
+              name="lastName"
               placeholder={translations.contact.form.lastName}
-              value={formData.lastName} 
-              onChange={handleChange} 
-              required 
+              value={formData.lastName}
+              onChange={handleChange}
+              required
               className="bg-white/5 border-0 focus-visible:ring-1 focus-visible:ring-blue-400"
             />
-            <Input 
-              type="email" 
-              name="email" 
+            <Input
+              type="email"
+              name="email"
               placeholder={translations.contact.form.email}
-              value={formData.email} 
-              onChange={handleChange} 
-              required 
+              value={formData.email}
+              onChange={handleChange}
+              required
               className="bg-white/5 border-0 focus-visible:ring-1 focus-visible:ring-blue-400"
             />
-            <Input 
-              type="text" 
-              name="phone" 
+            <Input
+              type="text"
+              name="phone"
               placeholder={translations.contact.form.phone}
-              value={formData.phone} 
+              value={formData.phone}
               onChange={handleChange}
               className="bg-white/5 border-0 focus-visible:ring-1 focus-visible:ring-blue-400"
             />
           </div>
           <Select onValueChange={handleSelectChange}>
             <SelectTrigger className="bg-white/5 border-0 focus:ring-1 focus:ring-blue-400">
-              <SelectValue placeholder={translations.contact.form.selectService} />
+              <SelectValue
+                placeholder={translations.contact.form.selectService}
+              />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectLabel>{translations.contact.form.selectService}</SelectLabel>
-                <SelectItem value="Web Development">{translations.services.fullstack.title}</SelectItem>
-                <SelectItem value="Cloud">{translations.services.cloud.title}</SelectItem>
-                <SelectItem value="Data">{translations.services.data.title}</SelectItem>
-                <SelectItem value="Digitalisation">{translations.services.digitalization.title}</SelectItem>
+                <SelectLabel>
+                  {translations.contact.form.selectService}
+                </SelectLabel>
+                <SelectItem value="Web Development">
+                  {translations.services.fullstack.title}
+                </SelectItem>
+                <SelectItem value="Cloud">
+                  {translations.services.cloud.title}
+                </SelectItem>
+                <SelectItem value="Data">
+                  {translations.services.data.title}
+                </SelectItem>
+                <SelectItem value="Digitalisation">
+                  {translations.services.digitalization.title}
+                </SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
-          <Textarea 
-            name="message" 
-            className="h-[180px] resize-none bg-white/5 border-0 focus-visible:ring-1 focus-visible:ring-blue-400" 
+          <Textarea
+            name="message"
+            className="h-[180px] resize-none bg-white/5 border-0 focus-visible:ring-1 focus-visible:ring-blue-400"
             placeholder={translations.contact.form.message}
-            value={formData.message} 
-            onChange={handleChange} 
-            required 
+            value={formData.message}
+            onChange={handleChange}
+            required
           />
-          <Button 
+          <Button
             type="submit"
             className="bg-gradient-to-r from-blue-400 to-blue-700 text-white hover:opacity-90"
           >
@@ -137,4 +157,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm; 
+export default ContactForm;

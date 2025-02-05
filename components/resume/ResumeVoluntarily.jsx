@@ -38,15 +38,20 @@ const ResumeVoluntarily = () => {
   const itemsPerPage = 4;
   const { translations } = useLanguage();
 
-  if (!translations.resume.voluntarilyList || translations.resume.voluntarilyList.length === 0) {
+  if (
+    !translations.resume.voluntarilyList ||
+    translations.resume.voluntarilyList.length === 0
+  ) {
     return null;
   }
 
-  const totalPages = Math.ceil(translations.resume.voluntarilyList.length / itemsPerPage);
+  const totalPages = Math.ceil(
+    translations.resume.voluntarilyList.length / itemsPerPage,
+  );
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = translations.resume.voluntarilyList.slice(
     startIndex,
-    startIndex + itemsPerPage
+    startIndex + itemsPerPage,
   );
 
   return (
@@ -56,7 +61,9 @@ const ResumeVoluntarily = () => {
         <h2 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
           {translations.resume.voluntarily}
         </h2>
-        <p className="text-blue-400/60">{translations.resume.voluntarilyDescription}</p>
+        <p className="text-blue-400/60">
+          {translations.resume.voluntarilyDescription}
+        </p>
       </div>
 
       {/* Voluntarily Grid */}
@@ -70,32 +77,36 @@ const ResumeVoluntarily = () => {
       {totalPages > 1 && (
         <div className="flex justify-center items-center gap-4 mt-8">
           <div className="flex items-center gap-2">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-              <Button
-                key={pageNum}
-                onClick={() => setCurrentPage(pageNum)}
-                className={`w-10 h-10 rounded-xl ${
-                  currentPage === pageNum
-                    ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
-                    : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
-                } transition-all duration-300`}
-              >
-                {pageNum}
-              </Button>
-            ))}
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+              (pageNum) => (
+                <Button
+                  key={pageNum}
+                  onClick={() => setCurrentPage(pageNum)}
+                  className={`w-10 h-10 rounded-xl ${
+                    currentPage === pageNum
+                      ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
+                      : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
+                  } transition-all duration-300`}
+                >
+                  {pageNum}
+                </Button>
+              ),
+            )}
           </div>
 
           {totalPages > 4 && (
             <div className="flex items-center gap-2">
               <Button
-                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
                 className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 ←
               </Button>
               <Button
-                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                onClick={() =>
+                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                }
                 disabled={currentPage === totalPages}
                 className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
@@ -109,4 +120,4 @@ const ResumeVoluntarily = () => {
   );
 };
 
-export default ResumeVoluntarily; 
+export default ResumeVoluntarily;

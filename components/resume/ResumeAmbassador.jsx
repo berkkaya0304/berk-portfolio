@@ -31,7 +31,9 @@ const ResumeAmbassador = () => {
         <h2 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
           {translations.resume.ambassador}
         </h2>
-        <p className="text-blue-400/60">{translations.resume.ambassadorDescription}</p>
+        <p className="text-blue-400/60">
+          {translations.resume.ambassadorDescription}
+        </p>
       </div>
 
       {/* Elçilikler Grid */}
@@ -54,14 +56,18 @@ const ResumeAmbassador = () => {
                   <h3 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
                     {item.company}
                   </h3>
-                  <h4 className="text-blue-300 font-medium mt-1">{item.topic}</h4>
-                  <span className="text-sm text-blue-300/60 mt-1 block">{item.level}</span>
+                  <h4 className="text-blue-300 font-medium mt-1">
+                    {item.topic}
+                  </h4>
+                  <span className="text-sm text-blue-300/60 mt-1 block">
+                    {item.level}
+                  </span>
                 </div>
                 <div className="flex flex-col items-end">
                   <span className="text-sm text-blue-300">{item.duration}</span>
                 </div>
               </div>
-              
+
               <p className="text-blue-300/60 mt-4">{item.description}</p>
             </div>
           </motion.div>
@@ -71,24 +77,26 @@ const ResumeAmbassador = () => {
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex justify-center gap-2 mt-8">
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNumber) => (
-            <Button
-              key={pageNumber}
-              onClick={() => setCurrentPage(pageNumber)}
-              variant="outline"
-              className={`w-10 h-10 p-0 rounded-xl border-none transition-all duration-300 ${
-                currentPage === pageNumber
-                  ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
-                  : "bg-gradient-to-r from-blue-400/10 to-blue-700/10 backdrop-blur-sm text-blue-400 hover:from-blue-400/20 hover:to-blue-700/20"
-              }`}
-            >
-              {pageNumber}
-            </Button>
-          ))}
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+            (pageNumber) => (
+              <Button
+                key={pageNumber}
+                onClick={() => setCurrentPage(pageNumber)}
+                variant="outline"
+                className={`w-10 h-10 p-0 rounded-xl border-none transition-all duration-300 ${
+                  currentPage === pageNumber
+                    ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
+                    : "bg-gradient-to-r from-blue-400/10 to-blue-700/10 backdrop-blur-sm text-blue-400 hover:from-blue-400/20 hover:to-blue-700/20"
+                }`}
+              >
+                {pageNumber}
+              </Button>
+            ),
+          )}
         </div>
       )}
     </div>
   );
 };
 
-export default ResumeAmbassador; 
+export default ResumeAmbassador;

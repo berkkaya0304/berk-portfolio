@@ -1,19 +1,24 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaCode, FaCloud, FaDatabase, FaDigitalTachograph } from 'react-icons/fa';
+import {
+  FaCode,
+  FaCloud,
+  FaDatabase,
+  FaDigitalTachograph,
+} from "react-icons/fa";
 import { useLanguage } from "@/context/LanguageContext";
 
 const icons = {
   "/services/fullstack": FaCode,
   "/services/cloud": FaCloud,
   "/services/data": FaDatabase,
-  "/services/digitalization": FaDigitalTachograph
+  "/services/digitalization": FaDigitalTachograph,
 };
 
 const ServiceCard = ({ service }) => {
   const Icon = icons[service.href];
   const { translations } = useLanguage();
-  
+
   return (
     <Link href={service.href}>
       <motion.div
@@ -22,7 +27,7 @@ const ServiceCard = ({ service }) => {
       >
         {/* Glow Effect */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-700 rounded-2xl blur-md opacity-20 group-hover:opacity-30 transition-opacity" />
-        
+
         {/* Card Content */}
         <div className="relative bg-gradient-to-r from-slate-900/80 to-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300 h-full flex flex-col">
           {/* Icon */}
@@ -63,4 +68,4 @@ const ServiceCard = ({ service }) => {
   );
 };
 
-export default ServiceCard; 
+export default ServiceCard;

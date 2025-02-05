@@ -1,7 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -42,7 +47,10 @@ const ResumeSkills = ({ skills = { skillList: [] } }) => {
   // Calculate current items
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = skills.skillList.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = skills.skillList.slice(
+    indexOfFirstItem,
+    indexOfLastItem,
+  );
 
   // Calculate total pages
   const totalPages = Math.ceil(skills.skillList.length / itemsPerPage);
@@ -77,32 +85,36 @@ const ResumeSkills = ({ skills = { skillList: [] } }) => {
       {totalPages > 1 && (
         <div className="flex justify-center items-center gap-4 mt-8">
           <div className="flex items-center gap-2">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-              <Button
-                key={pageNum}
-                onClick={() => setCurrentPage(pageNum)}
-                className={`w-10 h-10 rounded-xl ${
-                  currentPage === pageNum
-                    ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
-                    : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
-                } transition-all duration-300`}
-              >
-                {pageNum}
-              </Button>
-            ))}
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+              (pageNum) => (
+                <Button
+                  key={pageNum}
+                  onClick={() => setCurrentPage(pageNum)}
+                  className={`w-10 h-10 rounded-xl ${
+                    currentPage === pageNum
+                      ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
+                      : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
+                  } transition-all duration-300`}
+                >
+                  {pageNum}
+                </Button>
+              ),
+            )}
           </div>
 
           {totalPages > 4 && (
             <div className="flex items-center gap-2">
               <Button
-                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
                 className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 ←
               </Button>
               <Button
-                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                onClick={() =>
+                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                }
                 disabled={currentPage === totalPages}
                 className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
@@ -116,4 +128,4 @@ const ResumeSkills = ({ skills = { skillList: [] } }) => {
   );
 };
 
-export default ResumeSkills; 
+export default ResumeSkills;

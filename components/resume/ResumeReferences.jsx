@@ -34,7 +34,9 @@ const ReferenceItem = ({ reference, index }) => (
           <p className="text-blue-400/60 text-sm">{reference.position}</p>
         </div>
       </div>
-      <p className="text-blue-300/80 text-sm italic">"{reference.testimonial}"</p>
+      <p className="text-blue-300/80 text-sm italic">
+        "{reference.testimonial}"
+      </p>
     </div>
   </motion.div>
 );
@@ -44,15 +46,20 @@ const ResumeReferences = () => {
   const itemsPerPage = 1;
   const { translations } = useLanguage();
 
-  if (!translations.resume.referencesList || translations.resume.referencesList.length === 0) {
+  if (
+    !translations.resume.referencesList ||
+    translations.resume.referencesList.length === 0
+  ) {
     return null;
   }
 
-  const totalPages = Math.ceil(translations.resume.referencesList.length / itemsPerPage);
+  const totalPages = Math.ceil(
+    translations.resume.referencesList.length / itemsPerPage,
+  );
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentReferences = translations.resume.referencesList.slice(
     startIndex,
-    startIndex + itemsPerPage
+    startIndex + itemsPerPage,
   );
 
   return (
@@ -85,32 +92,36 @@ const ResumeReferences = () => {
       {totalPages > 1 && (
         <div className="flex justify-center items-center gap-4 mt-8">
           <div className="flex items-center gap-2">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-              <Button
-                key={pageNum}
-                onClick={() => setCurrentPage(pageNum)}
-                className={`w-10 h-10 rounded-xl ${
-                  currentPage === pageNum
-                    ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
-                    : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
-                } transition-all duration-300`}
-              >
-                {pageNum}
-              </Button>
-            ))}
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+              (pageNum) => (
+                <Button
+                  key={pageNum}
+                  onClick={() => setCurrentPage(pageNum)}
+                  className={`w-10 h-10 rounded-xl ${
+                    currentPage === pageNum
+                      ? "bg-gradient-to-r from-blue-400 to-blue-700 text-white"
+                      : "bg-blue-400/10 text-blue-400 hover:bg-blue-400/20"
+                  } transition-all duration-300`}
+                >
+                  {pageNum}
+                </Button>
+              ),
+            )}
           </div>
 
           {totalPages > 4 && (
             <div className="flex items-center gap-2">
               <Button
-                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
                 className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 ←
               </Button>
               <Button
-                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                onClick={() =>
+                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                }
                 disabled={currentPage === totalPages}
                 className="w-10 h-10 rounded-xl bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
@@ -124,4 +135,4 @@ const ResumeReferences = () => {
   );
 };
 
-export default ResumeReferences; 
+export default ResumeReferences;

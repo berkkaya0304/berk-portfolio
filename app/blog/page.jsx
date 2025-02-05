@@ -9,12 +9,13 @@ import { useState } from "react";
 export default function BlogPage() {
   const posts = getAllPosts();
   const { translations } = useLanguage();
-  const [selectedLanguage, setSelectedLanguage] = useState('all'); // 'all', 'en', 'tr'
+  const [selectedLanguage, setSelectedLanguage] = useState("all"); // 'all', 'en', 'tr'
 
   // Makaleleri dile göre filtrele
-  const filteredPosts = selectedLanguage === 'all' 
-    ? posts 
-    : posts.filter(post => post.language === selectedLanguage);
+  const filteredPosts =
+    selectedLanguage === "all"
+      ? posts
+      : posts.filter((post) => post.language === selectedLanguage);
 
   return (
     <motion.section
@@ -53,31 +54,31 @@ export default function BlogPage() {
           className="flex justify-center gap-4 mb-8"
         >
           <button
-            onClick={() => setSelectedLanguage('all')}
+            onClick={() => setSelectedLanguage("all")}
             className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-              selectedLanguage === 'all'
-                ? 'bg-blue-500 text-white'
-                : 'bg-slate-800 text-blue-400 hover:bg-slate-700'
+              selectedLanguage === "all"
+                ? "bg-blue-500 text-white"
+                : "bg-slate-800 text-blue-400 hover:bg-slate-700"
             }`}
           >
             {translations.blog.filters.all}
           </button>
           <button
-            onClick={() => setSelectedLanguage('en')}
+            onClick={() => setSelectedLanguage("en")}
             className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-              selectedLanguage === 'en'
-                ? 'bg-blue-500 text-white'
-                : 'bg-slate-800 text-blue-400 hover:bg-slate-700'
+              selectedLanguage === "en"
+                ? "bg-blue-500 text-white"
+                : "bg-slate-800 text-blue-400 hover:bg-slate-700"
             }`}
           >
             {translations.blog.filters.english}
           </button>
           <button
-            onClick={() => setSelectedLanguage('tr')}
+            onClick={() => setSelectedLanguage("tr")}
             className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-              selectedLanguage === 'tr'
-                ? 'bg-blue-500 text-white'
-                : 'bg-slate-800 text-blue-400 hover:bg-slate-700'
+              selectedLanguage === "tr"
+                ? "bg-blue-500 text-white"
+                : "bg-slate-800 text-blue-400 hover:bg-slate-700"
             }`}
           >
             {translations.blog.filters.turkish}
@@ -105,4 +106,4 @@ export default function BlogPage() {
       </div>
     </motion.section>
   );
-} 
+}

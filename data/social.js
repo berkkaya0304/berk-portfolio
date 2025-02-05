@@ -2,18 +2,18 @@ export const activities = [
   {
     title: "Okuduğum Kitaplar",
     description: "Son zamanlarda okuduğum kitapları inceleyin.",
-    href: "/social/book"
+    href: "/social/book",
   },
   {
     title: "İzlediğim Filmler",
     description: "İzlediğim filmleri keşfedin.",
-    href: "/social/movies"
+    href: "/social/movies",
   },
   {
     title: "Tiyatro ve Oyunlar",
     description: "Katıldığım tiyatro ve oyunları görün.",
-    href: "/social/theaters"
-  }
+    href: "/social/theaters",
+  },
 ];
 
 export const bookData = `Title,Title_TR,Author,Author_TR,Genre,Genre_TR,Read Date,Number of Pages
@@ -81,50 +81,50 @@ export const movieData = `Title,Title_TR,Director,Director_TR,Genre,Genre_TR,Rel
 export const theaterData = `Play,Play_TR,Theater,Theater_TR,Venue,Venue_TR,Date,Rating`;
 
 export const bookColumns = [
-  { key: 'title', field: 'Title' },
-  { key: 'title', field: 'Title_TR' },
-  { key: 'author', field: 'Author' },
-  { key: 'genre', field: 'Genre' },
-  { key: 'genre', field: 'Genre_TR' },
-  { key: 'date', field: 'Read Date' },
-  { key: 'pages', field: 'Number of Pages' }
+  { key: "title", field: "Title" },
+  { key: "title", field: "Title_TR" },
+  { key: "author", field: "Author" },
+  { key: "genre", field: "Genre" },
+  { key: "genre", field: "Genre_TR" },
+  { key: "date", field: "Read Date" },
+  { key: "pages", field: "Number of Pages" },
 ];
 
 export const movieColumns = [
-  { key: 'title', field: 'Title' },
-  { key: 'title', field: 'Title_TR' },
-  { key: 'director', field: 'Director' },
-  { key: 'genre', field: 'Genre' },
-  { key: 'genre', field: 'Genre_TR' },
-  { key: 'year', field: 'Release Year' },
-  { key: 'duration', field: 'Duration (min)' }
+  { key: "title", field: "Title" },
+  { key: "title", field: "Title_TR" },
+  { key: "director", field: "Director" },
+  { key: "genre", field: "Genre" },
+  { key: "genre", field: "Genre_TR" },
+  { key: "year", field: "Release Year" },
+  { key: "duration", field: "Duration (min)" },
 ];
 
 export const theaterColumns = [
-  { key: 'play', field: 'Play' },
-  { key: 'play', field: 'Play_TR' },
-  { key: 'theater', field: 'Theater' },
-  { key: 'theater', field: 'Theater_TR' },
-  { key: 'venue', field: 'Venue' },
-  { key: 'venue', field: 'Venue_TR' },
-  { key: 'date', field: 'Date' },
-  { key: 'rating', field: 'Rating' }
+  { key: "play", field: "Play" },
+  { key: "play", field: "Play_TR" },
+  { key: "theater", field: "Theater" },
+  { key: "theater", field: "Theater_TR" },
+  { key: "venue", field: "Venue" },
+  { key: "venue", field: "Venue_TR" },
+  { key: "date", field: "Date" },
+  { key: "rating", field: "Rating" },
 ];
 
 export const articleColumnsEN = [
-  { key: 'title', field: 'Title' },
-  { key: 'author', field: 'Author' },
-  { key: 'publication', field: 'Publication' },
-  { key: 'date', field: 'Date' },
-  { key: 'category', field: 'Category' },
-  { key: 'link', field: 'Link' }
+  { key: "title", field: "Title" },
+  { key: "author", field: "Author" },
+  { key: "publication", field: "Publication" },
+  { key: "date", field: "Date" },
+  { key: "category", field: "Category" },
+  { key: "link", field: "Link" },
 ];
 
 export const articleColumnsTR = [
-  { key: 'title', field: 'Başlık' },
-  { key: 'author', field: 'Yazar' },
-  { key: 'publication', field: 'Yayın' },
-  { key: 'date', field: 'Tarih' },
-  { key: 'category', field: 'Kategori' },
-  { key: 'link', field: 'Bağlantı' }
+  { key: "title", field: "Başlık" },
+  { key: "author", field: "Yazar" },
+  { key: "publication", field: "Yayın" },
+  { key: "date", field: "Tarih" },
+  { key: "category", field: "Kategori" },
+  { key: "link", field: "Bağlantı" },
 ];

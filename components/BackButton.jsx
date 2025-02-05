@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { IoArrowBack } from 'react-icons/io5';
-import { useLanguage } from '@/context/LanguageContext';
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { IoArrowBack } from "react-icons/io5";
+import { useLanguage } from "@/context/LanguageContext";
 
 const BackButton = () => {
   const router = useRouter();
@@ -22,4 +22,4 @@ const BackButton = () => {
   );
 };
 
-export default BackButton; 
+export default BackButton;

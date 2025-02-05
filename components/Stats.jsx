@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
 
 const today = new Date();
 
@@ -10,22 +10,22 @@ const stats = [
   {
     num: today.getFullYear() - 2003,
     text: "Years Old",
-    icon: "🎂"
+    icon: "🎂",
   },
   {
     num: 12,
     text: "Projects Done",
-    icon: "🚀"
+    icon: "🚀",
   },
   {
     num: 10,
     text: "Technologies Used",
-    icon: "💻"
+    icon: "💻",
   },
   {
     num: 225,
     text: "Code Commits",
-    icon: "📊"
+    icon: "📊",
   },
 ];
 
@@ -79,7 +79,7 @@ const Stats = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Stats
+export default Stats;

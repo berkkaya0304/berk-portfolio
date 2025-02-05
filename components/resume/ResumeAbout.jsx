@@ -19,7 +19,7 @@ const AboutItem = ({ field, index }) => (
         {field.fieldName}
       </h3>
       {field.fieldName === "Email" ? (
-        <a 
+        <a
           href={`mailto:${field.fieldValue}`}
           className="text-blue-300 break-words text-sm hover:text-blue-400 transition-colors"
         >
@@ -47,7 +47,9 @@ const ResumeAbout = () => {
         <h2 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
           {translations.about.title}
         </h2>
-        <p className="text-blue-400/60 max-w-3xl mx-auto">{translations.about.description}</p>
+        <p className="text-blue-400/60 max-w-3xl mx-auto">
+          {translations.about.description}
+        </p>
       </div>
 
       {/* About Grid */}
@@ -60,4 +62,4 @@ const ResumeAbout = () => {
   );
 };
 
-export default ResumeAbout; 
+export default ResumeAbout;

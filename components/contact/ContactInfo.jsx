@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+} from "react-icons/fa";
 import { useLanguage } from "@/context/LanguageContext";
 
 const ContactInfo = () => {
@@ -10,13 +17,13 @@ const ContactInfo = () => {
       name: "GitHub",
       icon: <FaGithub className="text-2xl" />,
       href: "https://github.com/berkkaya0304",
-      color: "hover:text-[#2dba4e]"
+      color: "hover:text-[#2dba4e]",
     },
     {
       name: "LinkedIn",
       icon: <FaLinkedin className="text-2xl" />,
       href: "https://www.linkedin.com/in/berkkaya",
-      color: "hover:text-[#0077b5]"
+      color: "hover:text-[#0077b5]",
     },
   ];
 
@@ -35,7 +42,7 @@ const ContactInfo = () => {
       icon: <FaMapMarkerAlt className="text-2xl" />,
       text: translations.contact.info.address,
       href: "https://maps.app.goo.gl/NspC6TA6BGzKEg836",
-    }
+    },
   ];
 
   return (
@@ -50,7 +57,7 @@ const ContactInfo = () => {
             {contactDetails.map((detail, index) => (
               <motion.div
                 key={index}
-                className={`flex items-center gap-4 text-muted-foreground ${!detail.isPhone && 'hover:text-blue-400'} transition-colors duration-300`}
+                className={`flex items-center gap-4 text-muted-foreground ${!detail.isPhone && "hover:text-blue-400"} transition-colors duration-300`}
                 whileHover={{ x: detail.isPhone ? 0 : 10 }}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -60,7 +67,7 @@ const ContactInfo = () => {
                 {detail.isPhone ? (
                   <span className="italic">{detail.text}</span>
                 ) : (
-                  <a 
+                  <a
                     href={detail.href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -102,4 +109,4 @@ const ContactInfo = () => {
   );
 };
 
-export default ContactInfo; 
+export default ContactInfo;

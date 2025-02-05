@@ -13,4 +13,4 @@ const ResumeGrid = ({ items, type, columns = "lg:grid-cols-2" }) => {
   );
 };
 
-export default ResumeGrid; 
+export default ResumeGrid;

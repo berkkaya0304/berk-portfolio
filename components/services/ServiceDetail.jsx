@@ -9,14 +9,14 @@ const ServiceDetail = ({ title, description, image, serviceKey }) => {
   const { translations } = useLanguage();
 
   const getFeatures = () => {
-    switch(serviceKey) {
-      case 'fullstack':
+    switch (serviceKey) {
+      case "fullstack":
         return translations.services.fullstack.features;
-      case 'cloud':
+      case "cloud":
         return translations.services.cloud.features;
-      case 'data':
+      case "data":
         return translations.services.data.features;
-      case 'digitalization':
+      case "digitalization":
         return translations.services.digitalization.features;
       default:
         return [];
@@ -31,7 +31,7 @@ const ServiceDetail = ({ title, description, image, serviceKey }) => {
       className="min-h-screen bg-gradient-to-b from-primary via-background to-background relative overflow-hidden py-20"
     >
       <BackButton />
-      
+
       {/* Arkaplan dekoratif elementleri */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-[120px]" />
@@ -90,7 +90,7 @@ const ServiceDetail = ({ title, description, image, serviceKey }) => {
                   <p className="text-blue-400/80 leading-relaxed">
                     {description}
                   </p>
-                  
+
                   {/* Özellikler Listesi */}
                   <div className="mt-8">
                     <h3 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-700">
@@ -105,8 +105,18 @@ const ServiceDetail = ({ title, description, image, serviceKey }) => {
                           transition={{ delay: 0.5 + index * 0.1 }}
                           className="flex items-center text-blue-400/80"
                         >
-                          <svg className="w-5 h-5 mr-3 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          <svg
+                            className="w-5 h-5 mr-3 text-blue-400"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M5 13l4 4L19 7"
+                            />
                           </svg>
                           {feature}
                         </motion.li>
@@ -123,4 +133,4 @@ const ServiceDetail = ({ title, description, image, serviceKey }) => {
   );
 };
 
-export default ServiceDetail; 
+export default ServiceDetail;

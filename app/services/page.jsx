@@ -10,7 +10,7 @@ const Services = () => {
   const services = getServices();
 
   return (
-    <motion.section 
+    <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -25,7 +25,7 @@ const Services = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Başlık Bölümü */}
         <div className="text-center mb-16">
-          <motion.h1 
+          <motion.h1
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -33,7 +33,7 @@ const Services = () => {
           >
             {translations.services.title}
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
