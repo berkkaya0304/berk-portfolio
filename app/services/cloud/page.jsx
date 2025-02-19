@@ -11,6 +11,7 @@ const CloudService = () => {
       title={translations.services.cloud.title}
       description={translations.services.cloud.description}
       image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1456&h=816&q=80"
+      loading="lazy"
       serviceKey="cloud"
     />
   );

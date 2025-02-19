@@ -264,6 +264,9 @@ const LanguageSwitcher = ({ isMobile }) => {
                               src={lang.flag}
                               alt={lang.name}
                               fill
+                              loading="lazy"
+                              decoding="async"
+                              sizes="24px"
                               className="object-cover"
                             />
                           </div>

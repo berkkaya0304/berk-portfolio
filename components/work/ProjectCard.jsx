@@ -80,6 +80,9 @@ const ProjectCard = ({ projects, currentProject, onSlideChange }) => {
                   className="object-cover rounded-lg"
                   alt={`Project ${project.num}`}
                   priority={index === 0}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
             </SwiperSlide>

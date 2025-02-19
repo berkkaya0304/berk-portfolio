@@ -8,6 +8,11 @@ import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
 import { use } from "react";
 
+const CustomMDXComponents = {
+  ...MDXComponents,
+  img: (props) => <img loading="lazy" {...props} />,
+};
+
 export default function BlogPost({ params }) {
   const slug = use(Promise.resolve(params.slug));
   const post = getPost(slug);
@@ -74,7 +79,7 @@ export default function BlogPost({ params }) {
             transition={{ delay: 0.4 }}
             className="prose prose-invert prose-blue max-w-none"
           >
-            <ReactMarkdown components={MDXComponents}>
+            <ReactMarkdown components={CustomMDXComponents}>
               {post.content}
             </ReactMarkdown>
           </motion.div>
