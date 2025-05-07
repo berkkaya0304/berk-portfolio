@@ -3,28 +3,10 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { tr } from "@/data/locales/tr";
 import { en } from "@/data/locales/en";
-import { zh } from "@/data/locales/zh";
-import { ru } from "@/data/locales/ru";
-import { pl } from "@/data/locales/pl";
-import { nl } from "@/data/locales/nl";
-import { ja } from "@/data/locales/ja";
-import { it } from "@/data/locales/it";
-import { fr } from "@/data/locales/fr";
-import { es } from "@/data/locales/es";
-import { de } from "@/data/locales/de";
 
 const languages = {
   tr,
   en,
-  zh,
-  ru,
-  pl,
-  nl,
-  ja,
-  it,
-  fr,
-  es,
-  de,
 };
 
 const TranslationsContext = createContext();

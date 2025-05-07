@@ -18,7 +18,7 @@ const MobileNav = () => {
 
   const navCategories = [
     {
-      name: "Main",
+      name: translations.nav.categories.main,
       items: [
         {
           name: translations.nav.home,
@@ -35,7 +35,7 @@ const MobileNav = () => {
       ],
     },
     {
-      name: "Work",
+      name: translations.nav.categories.work,
       items: [
         {
           name: translations.nav.portfolio,
@@ -48,7 +48,16 @@ const MobileNav = () => {
       ],
     },
     {
-      name: "Social",
+      name: translations.nav.categories.tools,
+      items: [
+        {
+          name: translations.nav.personalBrand,
+          path: "/personal-brand",
+        },
+      ],
+    },
+    {
+      name: translations.nav.categories.social,
       items: [
         {
           name: translations.nav.social,
@@ -61,14 +70,6 @@ const MobileNav = () => {
         {
           name: translations.nav.travel,
           path: "/travel",
-        },
-        {
-          name: translations.nav.contact,
-          path: "/contact",
-        },
-        {
-          name: translations.nav.personalBrand,
-          path: "/personalbrand",
         },
       ],
     },

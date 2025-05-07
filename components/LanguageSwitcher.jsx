@@ -10,25 +10,6 @@ import Image from "next/image";
 const languages = [
   { code: "en", name: "English", nativeName: "English", flag: "/flags/gb.svg" },
   { code: "tr", name: "Turkish", nativeName: "Türkçe", flag: "/flags/tr.svg" },
-  { code: "zh", name: "Chinese", nativeName: "中文", flag: "/flags/cn.svg" },
-  { code: "ja", name: "Japanese", nativeName: "日本語", flag: "/flags/jp.svg" },
-  {
-    code: "nl",
-    name: "Dutch",
-    nativeName: "Nederlands",
-    flag: "/flags/nl.svg",
-  },
-  { code: "pl", name: "Polish", nativeName: "Polski", flag: "/flags/pl.svg" },
-  { code: "es", name: "Spanish", nativeName: "Español", flag: "/flags/es.svg" },
-  { code: "fr", name: "French", nativeName: "Français", flag: "/flags/fr.svg" },
-  { code: "de", name: "German", nativeName: "Deutsch", flag: "/flags/de.svg" },
-  {
-    code: "it",
-    name: "Italian",
-    nativeName: "Italiano",
-    flag: "/flags/it.svg",
-  },
-  { code: "ru", name: "Russian", nativeName: "Русский", flag: "/flags/ru.svg" },
 ];
 
 const LanguageSwitcher = ({ isMobile }) => {

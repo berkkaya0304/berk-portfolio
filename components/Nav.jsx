@@ -11,7 +11,7 @@ const Nav = () => {
 
   const navCategories = [
     {
-      name: "Main",
+      name: translations.nav.categories.main,
       items: [
         {
           name: translations.nav.home,
@@ -28,7 +28,7 @@ const Nav = () => {
       ],
     },
     {
-      name: "Work",
+      name: translations.nav.categories.work,
       items: [
         {
           name: translations.nav.portfolio,
@@ -41,7 +41,16 @@ const Nav = () => {
       ],
     },
     {
-      name: "Social",
+      name: translations.nav.categories.tools,
+      items: [
+        {
+          name: translations.nav.personalBrand,
+          path: "/personal-brand",
+        },
+      ],
+    },
+    {
+      name: translations.nav.categories.social,
       items: [
         {
           name: translations.nav.social,
@@ -54,10 +63,6 @@ const Nav = () => {
         {
           name: translations.nav.travel,
           path: "/travel",
-        },
-        {
-          name: translations.nav.personalBrand,
-          path: "/personalbrand",
         },
       ],
     },
