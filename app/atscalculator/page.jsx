@@ -1,8 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ATSCalculator from "@/components/tools/ATSCalculator";
+import dynamic from "next/dynamic";
 import { useLanguage } from "@/context/LanguageContext";
+import { Suspense } from "react";
+
+const ATSCalculator = dynamic(
+  () => import("@/components/tools/ATSCalculator"),
+  {
+    loading: () => (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <div className="text-blue-400">Loading ATS Calculator...</div>
+      </div>
+    ),
+    ssr: false,
+  }
+);
 
 const Tools = () => {
   const { translations } = useLanguage();
@@ -44,7 +57,15 @@ const Tools = () => {
 
         {/* Tools Section */}
         <div className="max-w-4xl mx-auto">
-          <ATSCalculator />
+          <Suspense
+            fallback={
+              <div className="flex items-center justify-center min-h-[400px]">
+                <div className="text-blue-400">Loading ATS Calculator...</div>
+              </div>
+            }
+          >
+            <ATSCalculator />
+          </Suspense>
         </div>
       </div>
     </motion.section>

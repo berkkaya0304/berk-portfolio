@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TravelCard from "@/components/travel/TravelCard";
 import { useTranslations } from "@/context/TranslationsContext";
@@ -14,35 +14,38 @@ const TravelPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   // Örnek seyahat verileri
-  const travels = [
-    {
-      id: 1,
-      title: "Roma'nın Kalbi",
-      country: "İtalya",
-      description: "Antik Roma'nın ihtişamını keşfedin",
-      date: "Haziran 2024",
-      category: "Kültür",
-      images: [
-        "/assets/images/travel/rome1.jpg",
-        "/assets/images/travel/rome2.jpg",
-        "/assets/images/travel/rome3.jpg",
-      ],
-    },
-    {
-      id: 2,
-      title: "Paris'in Büyüsü",
-      country: "Fransa",
-      description: "Aşk şehrinin romantik sokaklarında kaybolun",
-      date: "Temmuz 2024",
-      category: "Romantik",
-      images: [
-        "/assets/images/travel/paris1.jpg",
-        "/assets/images/travel/paris2.jpg",
-        "/assets/images/travel/paris3.jpg",
-      ],
-    },
-    // Daha fazla seyahat eklenebilir
-  ];
+  const travels = useMemo(
+    () => [
+      {
+        id: 1,
+        title: "Roma'nın Kalbi",
+        country: "İtalya",
+        description: "Antik Roma'nın ihtişamını keşfedin",
+        date: "Haziran 2024",
+        category: "Kültür",
+        images: [
+          "/assets/images/travel/rome1.jpg",
+          "/assets/images/travel/rome2.jpg",
+          "/assets/images/travel/rome3.jpg",
+        ],
+      },
+      {
+        id: 2,
+        title: "Paris'in Büyüsü",
+        country: "Fransa",
+        description: "Aşk şehrinin romantik sokaklarında kaybolun",
+        date: "Temmuz 2024",
+        category: "Romantik",
+        images: [
+          "/assets/images/travel/paris1.jpg",
+          "/assets/images/travel/paris2.jpg",
+          "/assets/images/travel/paris3.jpg",
+        ],
+      },
+      // Daha fazla seyahat eklenebilir
+    ],
+    []
+  );
 
   const categories = [
     { id: "all", name: translations.travel?.categories?.all || "All" },
@@ -71,21 +74,14 @@ const TravelPage = () => {
   }, []);
 
   useEffect(() => {
-    const filtered = travels.filter((travel) => {
-      const matchesSearch =
+    const filteredTravels = travels.filter(
+      (travel) =>
         travel.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         travel.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        travel.description.toLowerCase().includes(searchTerm.toLowerCase());
-
-      const matchesCategory =
-        selectedCategory === "all" ||
-        travel.category.toLowerCase() === selectedCategory;
-
-      return matchesSearch && matchesCategory;
-    });
-
-    setFilteredTravels(filtered);
-  }, [searchTerm, selectedCategory]);
+        travel.category.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredTravels(filteredTravels);
+  }, [searchTerm, travels]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white py-20">

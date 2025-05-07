@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import { FaMapMarkerAlt, FaCalendarAlt, FaHeart } from "react-icons/fa";
+import Image from "next/image";
 
 const TravelCard = ({ travel }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -68,10 +69,13 @@ const TravelCard = ({ travel }) => {
         {travel.images.map((image, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-full">
-              <img
+              <Image
                 src={image}
                 alt={`${travel.country} - ${index + 1}`}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={false}
               />
             </div>
           </SwiperSlide>

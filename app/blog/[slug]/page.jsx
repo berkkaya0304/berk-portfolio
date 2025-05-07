@@ -7,10 +7,23 @@ import MDXComponents from "@/components/blog/MDXComponents";
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
 import { use } from "react";
+import Image from "next/image";
 
 const CustomMDXComponents = {
   ...MDXComponents,
-  img: (props) => <img loading="lazy" {...props} />,
+  img: ({ src, alt, ...props }) => (
+    <div className="relative w-full h-[400px] my-8">
+      <Image
+        src={src}
+        alt={alt || "Blog post image"}
+        fill
+        className="object-cover rounded-xl"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        loading="lazy"
+        {...props}
+      />
+    </div>
+  ),
 };
 
 export default function BlogPost({ params }) {
@@ -79,6 +92,16 @@ export default function BlogPost({ params }) {
             transition={{ delay: 0.4 }}
             className="prose prose-invert prose-blue max-w-none"
           >
+            <div className="relative w-full h-[400px] mb-8 rounded-xl overflow-hidden">
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
+              />
+            </div>
             <ReactMarkdown components={CustomMDXComponents}>
               {post.content}
             </ReactMarkdown>
