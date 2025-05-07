@@ -66,6 +66,10 @@ const MobileNav = () => {
           name: translations.nav.contact,
           path: "/contact",
         },
+        {
+          name: translations.nav.personalBrand,
+          path: "/personalbrand",
+        },
       ],
     },
   ];

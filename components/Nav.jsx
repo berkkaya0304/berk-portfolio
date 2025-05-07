@@ -55,6 +55,10 @@ const Nav = () => {
           name: translations.nav.travel,
           path: "/travel",
         },
+        {
+          name: translations.nav.personalBrand,
+          path: "/personalbrand",
+        },
       ],
     },
   ];

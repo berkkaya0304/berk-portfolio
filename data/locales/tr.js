@@ -7,8 +7,9 @@ export const tr = {
     programs: "Programlar",
     social: "Sosyal",
     articles: "Makaleler",
-    travel: "Seyahatler",
+    travel: "Seyahat",
     contact: "İletişim",
+    personalBrand: "Kişisel Marka",
   },
   common: {
     learnMore: "Daha Fazla Bilgi",
@@ -616,5 +617,16 @@ export const tr = {
       romantic: "Romantik",
       nature: "Doğa",
     },
+  },
+  personalBrand: {
+    title: "LinkedIn Profil Analizi",
+    description:
+      "Profesyonel varlığınızı geliştirmek için kişiselleştirilmiş öneriler alın",
+    inputPlaceholder: "LinkedIn profil URL'nizi girin",
+    analyzeButton: "Önerileri Al",
+    analyzing: "Analiz Ediliyor...",
+    profileAnalysis: "Profil Analiziniz",
+    profileStrength: "Profil Gücü",
+    recommendations: "Öneriler",
   },
 };

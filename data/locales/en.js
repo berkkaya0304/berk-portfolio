@@ -9,6 +9,7 @@ export const en = {
     articles: "Articles",
     travel: "Travel",
     contact: "Contact",
+    personalBrand: "Personal Brand",
   },
   common: {
     learnMore: "Learn More",
@@ -613,5 +614,16 @@ export const en = {
       romantic: "Romantic",
       nature: "Nature",
     },
+  },
+  personalBrand: {
+    title: "LinkedIn Profile Analysis",
+    description:
+      "Get personalized recommendations to enhance your professional presence",
+    inputPlaceholder: "Enter your LinkedIn profile URL",
+    analyzeButton: "Get Recommendations",
+    analyzing: "Analyzing...",
+    profileAnalysis: "Your Profile Analysis",
+    profileStrength: "Profile Strength",
+    recommendations: "Recommendations",
   },
 };
