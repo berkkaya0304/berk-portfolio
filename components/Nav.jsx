@@ -47,6 +47,10 @@ const Nav = () => {
           name: translations.nav.personalBrand,
           path: "/personal-brand",
         },
+        {
+          name: translations.nav.atsCalculator,
+          path: "/atscalculator",
+        },
       ],
     },
     {

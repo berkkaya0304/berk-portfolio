@@ -10,6 +10,7 @@ export const en = {
     travel: "Travel",
     contact: "Contact",
     personalBrand: "Personal Brand",
+    atsCalculator: "ATS Calculator",
     categories: {
       main: "Main",
       work: "Work",
@@ -671,5 +672,40 @@ export const en = {
     profileAnalysis: "Your Profile Analysis",
     profileStrength: "Profile Strength",
     recommendations: "Recommendations",
+  },
+  tools: {
+    title: "Tools",
+    description: "Useful tools to help you in your career journey",
+    atsCalculator: {
+      title: "ATS Score Calculator",
+      description:
+        "Upload your CV to calculate its ATS compatibility score and get suggestions for improvement",
+      upload: {
+        title: "Upload your CV",
+        dragAndDrop: "Click to upload or drag and drop",
+        pdfOnly: "PDF only",
+        selectedFile: "Selected file:",
+        calculate: "Calculate ATS Score",
+        calculating: "Calculating...",
+      },
+      results: {
+        title: "ATS Compatibility Score",
+        bestMatch: "Best Job Match",
+        excellent: "Excellent! Your CV is well-optimized for ATS systems.",
+        good: "Good, but there's room for improvement.",
+        needsImprovement:
+          "Your CV needs optimization for better ATS compatibility.",
+      },
+      errors: {
+        selectFile: "Please select a file first",
+        pdfOnly: "Please upload a PDF file",
+        calculationError: "Error calculating ATS score. Please try again.",
+        pdfReadError: "Error reading PDF file. Please try again.",
+        fileTooLarge: "File is too large. Maximum size is 10MB.",
+        timeout: "PDF processing took too long. Please try again.",
+        noTextContent: "No readable text found in the PDF.",
+        invalidPDF: "Invalid or corrupted PDF file.",
+      },
+    },
   },
 };

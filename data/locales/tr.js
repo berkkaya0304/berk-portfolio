@@ -10,6 +10,7 @@ export const tr = {
     travel: "Seyahat",
     contact: "İletişim",
     personalBrand: "Kişisel Marka",
+    atsCalculator: "ATS Hesaplayıcı",
     categories: {
       main: "Ana",
       work: "Çalışma",
@@ -674,5 +675,42 @@ export const tr = {
     profileAnalysis: "Profil Analiziniz",
     profileStrength: "Profil Gücü",
     recommendations: "Öneriler",
+  },
+  tools: {
+    title: "Araçlar",
+    description: "Kariyer yolculuğunuzda size yardımcı olacak faydalı araçlar",
+    atsCalculator: {
+      title: "ATS Puan Hesaplayıcı",
+      description:
+        "CV'nizi yükleyerek ATS uyumluluk puanını hesaplayın ve geliştirme önerileri alın",
+      upload: {
+        title: "CV'nizi Yükleyin",
+        dragAndDrop: "Yüklemek için tıklayın veya sürükleyip bırakın",
+        pdfOnly: "Sadece PDF",
+        selectedFile: "Seçilen dosya:",
+        calculate: "ATS Puanını Hesapla",
+        calculating: "Hesaplanıyor...",
+      },
+      results: {
+        title: "ATS Uyumluluk Puanı",
+        bestMatch: "En Uygun İş",
+        excellent: "Mükemmel! CV'niz ATS sistemleri için iyi optimize edilmiş.",
+        good: "İyi, ancak geliştirilebilecek alanlar var.",
+        needsImprovement:
+          "CV'nizin ATS uyumluluğu için optimizasyona ihtiyacı var.",
+      },
+      errors: {
+        selectFile: "Lütfen önce bir dosya seçin",
+        pdfOnly: "Lütfen bir PDF dosyası yükleyin",
+        calculationError:
+          "ATS puanı hesaplanırken bir hata oluştu. Lütfen tekrar deneyin.",
+        pdfReadError:
+          "PDF dosyası okunurken bir hata oluştu. Lütfen tekrar deneyin.",
+        fileTooLarge: "Dosya boyutu çok büyük. Maksimum boyut 10MB'dır.",
+        timeout: "PDF işleme çok uzun sürdü. Lütfen tekrar deneyin.",
+        noTextContent: "PDF'de okunabilir metin bulunamadı.",
+        invalidPDF: "Geçersiz veya bozuk PDF dosyası.",
+      },
+    },
   },
 };
