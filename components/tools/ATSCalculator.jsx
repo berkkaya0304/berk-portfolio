@@ -58,47 +58,59 @@ const ATSCalculator = () => {
     const loadJobCategories = async () => {
       try {
         setIsLoadingCategories(true);
-        console.log("Fetching CSV file...");
+        setError(null);
+        console.log("Starting to fetch CSV file...");
 
+        // Try to fetch the CSV file
         const response = await fetch("/data/csv/skills.csv");
+        console.log("Fetch response status:", response.status);
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        console.log("CSV file fetched, parsing data...");
+        console.log("CSV file fetched successfully, starting to parse...");
         const csvText = await response.text();
+        console.log("CSV text length:", csvText.length);
 
         // Parse CSV in chunks
         const lines = csvText.split("\n");
+        console.log("Total lines in CSV:", lines.length);
+
+        if (lines.length < 2) {
+          throw new Error("CSV file is empty or has no data");
+        }
+
         const headers = lines[0].split(",").map((h) => h.trim());
+        console.log("CSV Headers:", headers);
 
-        console.log("Headers:", headers);
+        const titleIndex = headers.findIndex((h) => h === "Title");
+        const elementNameIndex = headers.findIndex((h) => h === "Element Name");
 
-        const titleIndex = headers.findIndex((h) =>
-          h.toLowerCase().includes("title"),
-        );
-        const skillIndex = headers.findIndex((h) =>
-          h.toLowerCase().includes("skill"),
-        );
+        console.log("Column indices:", { titleIndex, elementNameIndex });
 
-        console.log("Column indices:", { titleIndex, skillIndex });
-
-        if (titleIndex === -1 || skillIndex === -1) {
-          throw new Error("Required columns not found in CSV");
+        if (titleIndex === -1 || elementNameIndex === -1) {
+          throw new Error(
+            "Required columns (Title, Element Name) not found in CSV",
+          );
         }
 
         // Process data in chunks
         const categories = {};
         const chunkSize = 1000; // Process 1000 lines at a time
+        let processedLines = 0;
 
         for (let i = 1; i < lines.length; i += chunkSize) {
           const chunk = lines.slice(i, i + chunkSize);
+          processedLines += chunk.length;
 
           for (const line of chunk) {
+            if (!line.trim()) continue; // Skip empty lines
+
             const row = line.split(",").map((cell) => cell.trim());
-            if (row[titleIndex] && row[skillIndex]) {
+            if (row[titleIndex] && row[elementNameIndex]) {
               const title = row[titleIndex];
-              const skill = row[skillIndex];
+              const skill = row[elementNameIndex];
 
               if (!categories[title]) {
                 categories[title] = {
@@ -112,18 +124,29 @@ const ATSCalculator = () => {
               }
             }
           }
+
+          // Log progress every 5000 lines
+          if (processedLines % 5000 === 0) {
+            console.log(`Processed ${processedLines} lines...`);
+          }
         }
 
-        console.log("Processed categories:", Object.keys(categories));
+        console.log(
+          "Finished processing CSV. Categories found:",
+          Object.keys(categories).length,
+        );
+        console.log("Sample categories:", Object.keys(categories).slice(0, 3));
 
         if (Object.keys(categories).length === 0) {
-          console.log("No categories found, using fallback");
+          console.log("No categories found in CSV, using fallback");
           setJobCategories(fallbackCategories);
         } else {
+          console.log("Setting job categories from CSV");
           setJobCategories(categories);
         }
       } catch (error) {
         console.error("Error loading job categories:", error);
+        setError(`Failed to load job categories: ${error.message}`);
         setJobCategories(fallbackCategories);
       } finally {
         setIsLoadingCategories(false);
