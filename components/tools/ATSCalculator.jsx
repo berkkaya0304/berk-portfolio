@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
@@ -13,31 +13,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
 
 // Fallback categories in case CSV loading fails
 const fallbackCategories = {
   "Software Engineer": {
-    keywords: [
-      "programming",
-      "code",
-      "software",
-      "development",
-      "javascript",
-      "python",
-      "java",
-      "react",
-    ],
+    skills: ["programming", "code", "software", "development"],
+    techSkills: ["javascript", "python", "java", "react"],
     description: "Software development and programming",
   },
   "Data Scientist": {
-    keywords: [
-      "data",
-      "analysis",
-      "machine learning",
-      "python",
-      "statistics",
-      "sql",
-    ],
+    skills: ["data", "analysis", "statistics"],
+    techSkills: ["machine learning", "python", "sql"],
     description: "Data analysis and machine learning",
   },
 };
@@ -45,105 +33,170 @@ const fallbackCategories = {
 const ATSCalculator = () => {
   const { translations } = useLanguage();
   const [file, setFile] = useState(null);
-  const [score, setScore] = useState(null);
+  const [scores, setScores] = useState({
+    overall: null,
+    tech: null,
+    skills: null,
+    berkScore: null,
+    distribution: {
+      tech: null,
+      regular: null,
+    },
+  });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [selectedJob, setSelectedJob] = useState("");
-  const [missingKeywords, setMissingKeywords] = useState([]);
-  const [matchedKeywords, setMatchedKeywords] = useState([]);
+  const [missingKeywords, setMissingKeywords] = useState({
+    skills: [],
+    techSkills: [],
+  });
+  const [matchedKeywords, setMatchedKeywords] = useState({
+    skills: [],
+    techSkills: [],
+  });
   const [jobCategories, setJobCategories] = useState(fallbackCategories);
   const [isLoadingCategories, setIsLoadingCategories] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const searchInputRef = useRef(null);
+
+  // Memoize filtered jobs to prevent unnecessary recalculations
+  const filteredJobs = useMemo(() => {
+    if (!searchQuery.trim()) {
+      return Object.entries(jobCategories);
+    }
+
+    const query = searchQuery.toLowerCase();
+    return Object.entries(jobCategories).filter(([job, { description }]) => {
+      return (
+        job.toLowerCase().includes(query) ||
+        description.toLowerCase().includes(query)
+      );
+    });
+  }, [jobCategories, searchQuery]);
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSelectOpenChange = (open) => {
+    setIsSearchOpen(open);
+    if (!open) {
+      setSearchQuery("");
+    } else {
+      // Focus the search input after the select content is mounted
+      setTimeout(() => {
+        if (searchInputRef.current) {
+          searchInputRef.current.focus();
+        }
+      }, 0);
+    }
+  };
 
   useEffect(() => {
     const loadJobCategories = async () => {
       try {
         setIsLoadingCategories(true);
         setError(null);
-        console.log("Starting to fetch CSV file...");
+        console.log("Starting to fetch CSV files...");
 
-        // Try to fetch the CSV file
-        const response = await fetch("/data/csv/skills.csv");
-        console.log("Fetch response status:", response.status);
+        // Fetch both CSV files
+        const [skillsResponse, techSkillsResponse] = await Promise.all([
+          fetch("/data/csv/skills.csv"),
+          fetch("/data/csv/Technology Skills.csv"),
+        ]);
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        if (!skillsResponse.ok || !techSkillsResponse.ok) {
+          throw new Error("Failed to fetch CSV files");
         }
 
-        console.log("CSV file fetched successfully, starting to parse...");
-        const csvText = await response.text();
-        console.log("CSV text length:", csvText.length);
+        const [skillsText, techSkillsText] = await Promise.all([
+          skillsResponse.text(),
+          techSkillsResponse.text(),
+        ]);
 
-        // Parse CSV in chunks
-        const lines = csvText.split("\n");
-        console.log("Total lines in CSV:", lines.length);
+        // Process Skills CSV
+        const skillsLines = skillsText.split("\n");
+        const skillsHeaders = skillsLines[0].split(",").map((h) => h.trim());
+        const titleIndex = skillsHeaders.findIndex((h) => h === "Title");
+        const elementIndex = skillsHeaders.findIndex(
+          (h) => h === "Element Name",
+        );
 
-        if (lines.length < 2) {
-          throw new Error("CSV file is empty or has no data");
-        }
+        // Process Technology Skills CSV
+        const techSkillsLines = techSkillsText.split("\n");
+        const techSkillsHeaders = techSkillsLines[0]
+          .split(",")
+          .map((h) => h.trim());
+        const techTitleIndex = techSkillsHeaders.findIndex(
+          (h) => h === "Title",
+        );
+        const exampleIndex = techSkillsHeaders.findIndex(
+          (h) => h === "Example",
+        );
+        const commodityTitleIndex = techSkillsHeaders.findIndex(
+          (h) => h === "Commodity Title",
+        );
 
-        const headers = lines[0].split(",").map((h) => h.trim());
-        console.log("CSV Headers:", headers);
-
-        const titleIndex = headers.findIndex((h) => h === "Title");
-        const elementNameIndex = headers.findIndex((h) => h === "Element Name");
-
-        console.log("Column indices:", { titleIndex, elementNameIndex });
-
-        if (titleIndex === -1 || elementNameIndex === -1) {
-          throw new Error(
-            "Required columns (Title, Element Name) not found in CSV",
-          );
-        }
-
-        // Process data in chunks
         const categories = {};
-        const chunkSize = 1000; // Process 1000 lines at a time
-        let processedLines = 0;
 
-        for (let i = 1; i < lines.length; i += chunkSize) {
-          const chunk = lines.slice(i, i + chunkSize);
-          processedLines += chunk.length;
+        // Process Skills data
+        for (let i = 1; i < skillsLines.length; i++) {
+          const line = skillsLines[i].trim();
+          if (!line) continue;
 
-          for (const line of chunk) {
-            if (!line.trim()) continue; // Skip empty lines
+          const row = line.split(",").map((cell) => cell.trim());
+          if (row[titleIndex]) {
+            const title = row[titleIndex];
+            const element = row[elementIndex] || "";
 
-            const row = line.split(",").map((cell) => cell.trim());
-            if (row[titleIndex] && row[elementNameIndex]) {
-              const title = row[titleIndex];
-              const skill = row[elementNameIndex];
+            if (!categories[title]) {
+              categories[title] = {
+                skills: [],
+                techSkills: [],
+                description: `${title} skills and expertise`,
+              };
+            }
 
-              if (!categories[title]) {
-                categories[title] = {
-                  keywords: [],
-                  description: `${title} related skills and expertise`,
-                };
-              }
-
-              if (skill && !categories[title].keywords.includes(skill)) {
-                categories[title].keywords.push(skill);
-              }
+            if (element && !categories[title].skills.includes(element)) {
+              categories[title].skills.push(element);
             }
           }
+        }
 
-          // Log progress every 5000 lines
-          if (processedLines % 5000 === 0) {
-            console.log(`Processed ${processedLines} lines...`);
+        // Process Technology Skills data
+        for (let i = 1; i < techSkillsLines.length; i++) {
+          const line = techSkillsLines[i].trim();
+          if (!line) continue;
+
+          const row = line.split(",").map((cell) => cell.trim());
+          if (row[techTitleIndex]) {
+            const title = row[techTitleIndex];
+            const example = row[exampleIndex] || "";
+            const commodityTitle = row[commodityTitleIndex] || "";
+
+            if (!categories[title]) {
+              categories[title] = {
+                skills: [],
+                techSkills: [],
+                description: `${title} technical skills and expertise`,
+              };
+            }
+
+            if (example && !categories[title].techSkills.includes(example)) {
+              categories[title].techSkills.push(example);
+            }
+            if (
+              commodityTitle &&
+              !categories[title].techSkills.includes(commodityTitle)
+            ) {
+              categories[title].techSkills.push(commodityTitle);
+            }
           }
         }
 
-        console.log(
-          "Finished processing CSV. Categories found:",
-          Object.keys(categories).length,
-        );
-        console.log("Sample categories:", Object.keys(categories).slice(0, 3));
-
-        if (Object.keys(categories).length === 0) {
-          console.log("No categories found in CSV, using fallback");
-          setJobCategories(fallbackCategories);
-        } else {
-          console.log("Setting job categories from CSV");
-          setJobCategories(categories);
-        }
+        console.log("Setting job categories from CSV");
+        setJobCategories(categories);
       } catch (error) {
         console.error("Error loading job categories:", error);
         setError(`Failed to load job categories: ${error.message}`);
@@ -203,22 +256,96 @@ const ATSCalculator = () => {
       throw new Error("Please select a job category first");
     }
 
-    const keywords = jobCategories[selectedJob].keywords;
-    const matched = [];
-    const missing = [];
+    const { skills, techSkills } = jobCategories[selectedJob];
+    const matched = { skills: [], techSkills: [] };
+    const missing = { skills: [], techSkills: [] };
 
-    for (const keyword of keywords) {
-      if (text.includes(keyword.toLowerCase())) {
-        matched.push(keyword);
+    // Check skills matches
+    for (const skill of skills) {
+      if (text.includes(skill.toLowerCase())) {
+        matched.skills.push(skill);
       } else {
-        missing.push(keyword);
+        missing.skills.push(skill);
       }
     }
 
-    const score = Math.round((matched.length / keywords.length) * 100);
+    // Check tech skills matches
+    for (const techSkill of techSkills) {
+      if (text.includes(techSkill.toLowerCase())) {
+        matched.techSkills.push(techSkill);
+      } else {
+        missing.techSkills.push(techSkill);
+      }
+    }
+
+    // Calculate different scores
+    const techScore = Math.round(
+      (matched.techSkills.length / techSkills.length) * 100,
+    );
+    const skillsScore = Math.round(
+      (matched.skills.length / skills.length) * 100,
+    );
+    const overallScore = Math.round(
+      ((matched.techSkills.length + matched.skills.length) /
+        (techSkills.length + skills.length)) *
+        100,
+    );
+
+    // Calculate Berk's Special Score (1000 points max)
+    // Base points
+    const baseTechPoints = matched.techSkills.length * 30; // 30 points per tech skill
+    const baseSkillPoints = matched.skills.length * 15; // 15 points per regular skill
+
+    // Bonus points for high match rates
+    const techMatchRate = matched.techSkills.length / techSkills.length;
+    const skillMatchRate = matched.skills.length / skills.length;
+
+    const techBonus =
+      techMatchRate >= 0.8
+        ? 200 // 80% or more tech skills matched
+        : techMatchRate >= 0.6
+          ? 100 // 60% or more tech skills matched
+          : techMatchRate >= 0.4
+            ? 50
+            : 0; // 40% or more tech skills matched
+
+    const skillBonus =
+      skillMatchRate >= 0.8
+        ? 100 // 80% or more skills matched
+        : skillMatchRate >= 0.6
+          ? 50 // 60% or more skills matched
+          : skillMatchRate >= 0.4
+            ? 25
+            : 0; // 40% or more skills matched
+
+    // Calculate final score with bonuses
+    const berkScore = Math.min(
+      baseTechPoints + baseSkillPoints + techBonus + skillBonus,
+      1000,
+    );
+
+    // Calculate skill distribution
+    const skillDistribution = {
+      tech: Math.round(
+        (matched.techSkills.length /
+          (matched.techSkills.length + matched.skills.length)) *
+          100,
+      ),
+      regular: Math.round(
+        (matched.skills.length /
+          (matched.techSkills.length + matched.skills.length)) *
+          100,
+      ),
+    };
 
     return {
-      score,
+      scores: {
+        overall: overallScore,
+        tech: techScore,
+        skills: skillsScore,
+        berkScore: berkScore,
+        distribution: skillDistribution,
+      },
       matched,
       missing,
     };
@@ -253,7 +380,7 @@ const ATSCalculator = () => {
       const text = await readPDFContent(file);
       const analysis = analyzeJobMatch(text);
 
-      setScore(analysis.score);
+      setScores(analysis.scores);
       setMatchedKeywords(analysis.matched);
       setMissingKeywords(analysis.missing);
     } catch (err) {
@@ -303,21 +430,44 @@ const ATSCalculator = () => {
             <div className="text-center text-blue-400 mb-4">
               Select your target job role
             </div>
-            <Select onValueChange={setSelectedJob} value={selectedJob}>
+            <Select
+              onValueChange={setSelectedJob}
+              value={selectedJob}
+              onOpenChange={handleSelectOpenChange}
+            >
               <SelectTrigger className="w-full bg-slate-800/50 border-blue-400/20">
                 <SelectValue placeholder="Select a job role" />
               </SelectTrigger>
               <SelectContent>
-                {Object.entries(jobCategories).map(([job, { description }]) => (
-                  <SelectItem key={job} value={job}>
-                    <div className="flex flex-col">
-                      <span>{job}</span>
-                      <span className="text-xs text-blue-400/70">
-                        {description}
-                      </span>
+                {isSearchOpen && (
+                  <div className="flex items-center px-3 pb-2 sticky top-0 bg-slate-900/95 z-10 w-full">
+                    <Search className="w-4 h-4 mr-2 text-blue-400 flex-shrink-0" />
+                    <Input
+                      ref={searchInputRef}
+                      placeholder="Search jobs..."
+                      value={searchQuery}
+                      onChange={handleSearchChange}
+                      className="bg-slate-800/50 border-blue-400/20 text-blue-400 w-full"
+                    />
+                  </div>
+                )}
+                <div className="max-h-[300px] overflow-y-auto">
+                  {filteredJobs.map(([job, { description }]) => (
+                    <SelectItem key={job} value={job}>
+                      <div className="flex flex-col">
+                        <span>{job}</span>
+                        <span className="text-xs text-blue-400/70">
+                          {description}
+                        </span>
+                      </div>
+                    </SelectItem>
+                  ))}
+                  {filteredJobs.length === 0 && (
+                    <div className="px-3 py-2 text-sm text-blue-400/70">
+                      No jobs found matching "{searchQuery}"
                     </div>
-                  </SelectItem>
-                ))}
+                  )}
+                </div>
               </SelectContent>
             </Select>
           </div>
@@ -393,7 +543,7 @@ const ATSCalculator = () => {
       </Card>
 
       {/* Results Section */}
-      {score !== null && (
+      {scores.overall !== null && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -401,59 +551,160 @@ const ATSCalculator = () => {
         >
           <Card className="bg-slate-900/50 border border-blue-400/20">
             <CardContent className="p-6">
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <h3 className="text-xl font-semibold text-center text-blue-400">
                   {translations.tools.atsCalculator.results.title}
                 </h3>
-                <div className="flex flex-col items-center space-y-4">
-                  <div className="w-full max-w-md">
-                    <Progress value={score} className="h-4" />
+                <div className="flex flex-col items-center space-y-6">
+                  {/* Overall Score */}
+                  <div className="w-full max-w-md space-y-2">
+                    <h4 className="text-lg font-semibold text-blue-400">
+                      Overall Match
+                    </h4>
+                    <Progress value={scores.overall} className="h-4" />
+                    <div className="text-2xl font-bold text-blue-400 text-center">
+                      {scores.overall}%
+                    </div>
                   </div>
-                  <div className="text-3xl font-bold text-blue-400">
-                    {score}%
+
+                  {/* Tech Skills Score */}
+                  <div className="w-full max-w-md space-y-2">
+                    <h4 className="text-lg font-semibold text-blue-400">
+                      Technical Skills Match
+                    </h4>
+                    <Progress value={scores.tech} className="h-4" />
+                    <div className="text-2xl font-bold text-blue-400 text-center">
+                      {scores.tech}%
+                    </div>
                   </div>
+
+                  {/* Regular Skills Score */}
+                  <div className="w-full max-w-md space-y-2">
+                    <h4 className="text-lg font-semibold text-blue-400">
+                      Skills Match
+                    </h4>
+                    <Progress value={scores.skills} className="h-4" />
+                    <div className="text-2xl font-bold text-blue-400 text-center">
+                      {scores.skills}%
+                    </div>
+                  </div>
+
+                  {/* Berk's Special Score */}
+                  <div className="w-full max-w-md space-y-2">
+                    <h4 className="text-lg font-semibold text-blue-400 flex items-center justify-center gap-2">
+                      <span>Berk's Special Score</span>
+                      <span className="text-yellow-400">®</span>
+                    </h4>
+                    <Progress
+                      value={(scores.berkScore / 1000) * 100}
+                      className="h-4"
+                    />
+                    <div className="text-2xl font-bold text-yellow-400 text-center">
+                      {scores.berkScore}/1000
+                    </div>
+                    <div className="text-sm text-blue-400/70 space-y-2">
+                      <p className="text-center">
+                        ® This score is a proprietary algorithm developed by
+                        Berk. It is not a traditional score and is not
+                        comparable to other scores.
+                      </p>
+                    </div>
+                  </div>
+
                   <div className="text-lg text-blue-400/70">
                     Match for: {selectedJob}
                   </div>
 
-                  {/* Matched Keywords */}
-                  {matchedKeywords.length > 0 && (
-                    <div className="w-full max-w-md">
-                      <h4 className="text-blue-400 mb-2">Matched Keywords:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {matchedKeywords.map((keyword) => (
-                          <span
-                            key={keyword}
-                            className="px-2 py-1 bg-green-500/20 text-green-400 rounded-md text-sm"
-                          >
-                            {keyword}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  {/* Skills Analysis */}
+                  <div className="w-full max-w-md space-y-4">
+                    <h4 className="text-xl font-semibold text-blue-400">
+                      Skills Analysis
+                    </h4>
 
-                  {/* Missing Keywords */}
-                  {missingKeywords.length > 0 && (
-                    <div className="w-full max-w-md">
-                      <h4 className="text-blue-400 mb-2">Missing Keywords:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {missingKeywords.map((keyword) => (
-                          <span
-                            key={keyword}
-                            className="px-2 py-1 bg-red-500/20 text-red-400 rounded-md text-sm"
-                          >
-                            {keyword}
-                          </span>
-                        ))}
+                    {/* Matched Skills */}
+                    {matchedKeywords.skills.length > 0 && (
+                      <div>
+                        <h5 className="text-blue-400 mb-2">Matched Skills:</h5>
+                        <div className="flex flex-wrap gap-2">
+                          {matchedKeywords.skills.map((skill) => (
+                            <span
+                              key={skill}
+                              className="px-2 py-1 bg-green-500/20 text-green-400 rounded-md text-sm"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+
+                    {/* Missing Skills */}
+                    {missingKeywords.skills.length > 0 && (
+                      <div>
+                        <h5 className="text-blue-400 mb-2">Missing Skills:</h5>
+                        <div className="flex flex-wrap gap-2">
+                          {missingKeywords.skills.map((skill) => (
+                            <span
+                              key={skill}
+                              className="px-2 py-1 bg-red-500/20 text-red-400 rounded-md text-sm"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Technology Skills Analysis */}
+                  <div className="w-full max-w-md space-y-4">
+                    <h4 className="text-xl font-semibold text-blue-400">
+                      Technology Skills Analysis
+                    </h4>
+
+                    {/* Matched Tech Skills */}
+                    {matchedKeywords.techSkills.length > 0 && (
+                      <div>
+                        <h5 className="text-blue-400 mb-2">
+                          Matched Technology Skills:
+                        </h5>
+                        <div className="flex flex-wrap gap-2">
+                          {matchedKeywords.techSkills.map((techSkill) => (
+                            <span
+                              key={techSkill}
+                              className="px-2 py-1 bg-green-500/20 text-green-400 rounded-md text-sm"
+                            >
+                              {techSkill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Missing Tech Skills */}
+                    {missingKeywords.techSkills.length > 0 && (
+                      <div>
+                        <h5 className="text-blue-400 mb-2">
+                          Missing Technology Skills:
+                        </h5>
+                        <div className="flex flex-wrap gap-2">
+                          {missingKeywords.techSkills.map((techSkill) => (
+                            <span
+                              key={techSkill}
+                              className="px-2 py-1 bg-red-500/20 text-red-400 rounded-md text-sm"
+                            >
+                              {techSkill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
 
                   <p className="text-center text-blue-400/70">
-                    {score >= 80
+                    {scores.overall >= 80
                       ? translations.tools.atsCalculator.results.excellent
-                      : score >= 60
+                      : scores.overall >= 60
                         ? translations.tools.atsCalculator.results.good
                         : translations.tools.atsCalculator.results
                             .needsImprovement}
