@@ -4,29 +4,27 @@ import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import TravelCard from "@/components/travel/TravelCard";
 import { useTranslations } from "@/context/TranslationsContext";
-import { FaGlobe, FaFilter, FaSearch } from "react-icons/fa";
+import { FaGlobe, FaSearch } from "react-icons/fa";
 
 const TravelPage = () => {
   const { translations } = useTranslations();
   const [filteredTravels, setFilteredTravels] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
   const [isLoading, setIsLoading] = useState(true);
 
-  // Örnek seyahat verileri
+  // Seyahat verileri
   const travels = useMemo(
     () => [
       {
         id: 1,
-        title: "Roma'nın Kalbi",
-        country: "İtalya",
-        description: "Antik Roma'nın ihtişamını keşfedin",
+        title: "Varşova'nın Tarihi",
+        country: "Polonya",
+        description: "Orta Avrupa'nın kalbinde tarihi bir yolculuk",
         date: "Haziran 2024",
-        category: "Kültür",
         images: [
-          "/assets/images/travel/rome1.jpg",
-          "/assets/images/travel/rome2.jpg",
-          "/assets/images/travel/rome3.jpg",
+          "/assets/images/travel/warsaw1.jpg",
+          "/assets/images/travel/warsaw2.jpg",
+          "/assets/images/travel/warsaw3.jpg",
         ],
       },
       {
@@ -35,34 +33,111 @@ const TravelPage = () => {
         country: "Fransa",
         description: "Aşk şehrinin romantik sokaklarında kaybolun",
         date: "Temmuz 2024",
-        category: "Romantik",
         images: [
           "/assets/images/travel/paris1.jpg",
           "/assets/images/travel/paris2.jpg",
           "/assets/images/travel/paris3.jpg",
         ],
       },
-      // Daha fazla seyahat eklenebilir
+      {
+        id: 3,
+        title: "Alpler'in İhtişamı",
+        country: "İsviçre",
+        description: "Karlı dağların eşsiz manzarası",
+        date: "Ağustos 2024",
+        images: [
+          "/assets/images/travel/swiss1.jpg",
+          "/assets/images/travel/swiss2.jpg",
+          "/assets/images/travel/swiss3.jpg",
+        ],
+      },
+      {
+        id: 4,
+        title: "Roma'nın Kalbi",
+        country: "İtalya",
+        description: "Antik Roma'nın ihtişamını keşfedin",
+        date: "Eylül 2024",
+        images: [
+          "/assets/images/travel/rome1.jpg",
+          "/assets/images/travel/rome2.jpg",
+          "/assets/images/travel/rome3.jpg",
+        ],
+      },
+      {
+        id: 5,
+        title: "Berlin'in Ruhu",
+        country: "Almanya",
+        description: "Modern ve tarihi dokunun buluşması",
+        date: "Ekim 2024",
+        images: [
+          "/assets/images/travel/berlin1.jpg",
+          "/assets/images/travel/berlin2.jpg",
+          "/assets/images/travel/berlin3.jpg",
+        ],
+      },
+      {
+        id: 6,
+        title: "Prag'ın Masalsı Sokakları",
+        country: "Çek Cumhuriyeti",
+        description: "Orta Çağ'dan günümüze uzanan bir masal",
+        date: "Kasım 2024",
+        images: [
+          "/assets/images/travel/prague1.jpg",
+          "/assets/images/travel/prague2.jpg",
+          "/assets/images/travel/prague3.jpg",
+        ],
+      },
+      {
+        id: 7,
+        title: "Viyana'nın Zarafeti",
+        country: "Avusturya",
+        description: "Müzik ve sanatın başkenti",
+        date: "Aralık 2024",
+        images: [
+          "/assets/images/travel/vienna1.jpg",
+          "/assets/images/travel/vienna2.jpg",
+          "/assets/images/travel/vienna3.jpg",
+        ],
+      },
+      {
+        id: 8,
+        title: "Bratislava'nın Gizemi",
+        country: "Slovakya",
+        description: "Tuna Nehri'nin incisi",
+        date: "Ocak 2025",
+        images: [
+          "/assets/images/travel/bratislava1.jpg",
+          "/assets/images/travel/bratislava2.jpg",
+          "/assets/images/travel/bratislava3.jpg",
+        ],
+      },
+      {
+        id: 9,
+        title: "Budapeşte'nin Termal Suları",
+        country: "Macaristan",
+        description: "Termal kaplıcaların şehri",
+        date: "Şubat 2025",
+        images: [
+          "/assets/images/travel/budapest1.jpg",
+          "/assets/images/travel/budapest2.jpg",
+          "/assets/images/travel/budapest3.jpg",
+        ],
+      },
+      {
+        id: 10,
+        title: "Vatikan'ın Kutsal Toprakları",
+        country: "Vatikan",
+        description: "Dünyanın en küçük ülkesinde büyük bir deneyim",
+        date: "Mart 2025",
+        images: [
+          "/assets/images/travel/vatican1.jpg",
+          "/assets/images/travel/vatican2.jpg",
+          "/assets/images/travel/vatican3.jpg",
+        ],
+      },
     ],
     []
   );
-
-  const categories = [
-    { id: "all", name: translations.travel?.categories?.all || "All" },
-    {
-      id: "culture",
-      name: translations.travel?.categories?.culture || "Culture",
-    },
-    {
-      id: "adventure",
-      name: translations.travel?.categories?.adventure || "Adventure",
-    },
-    {
-      id: "romantic",
-      name: translations.travel?.categories?.romantic || "Romantic",
-    },
-    { id: "nature", name: translations.travel?.categories?.nature || "Nature" },
-  ];
 
   useEffect(() => {
     // Simüle edilmiş yükleme süresi
@@ -77,8 +152,7 @@ const TravelPage = () => {
     const filteredTravels = travels.filter(
       (travel) =>
         travel.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        travel.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        travel.category.toLowerCase().includes(searchTerm.toLowerCase())
+        travel.country.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredTravels(filteredTravels);
   }, [searchTerm, travels]);
@@ -109,14 +183,14 @@ const TravelPage = () => {
           </p>
         </motion.div>
 
-        {/* Search and Filter Section */}
+        {/* Search Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           className="mb-12"
         >
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+          <div className="flex justify-center">
             <div className="relative w-full md:w-96">
               <input
                 type="text"
@@ -129,21 +203,6 @@ const TravelPage = () => {
                 className="w-full px-4 py-3 pl-12 bg-white/10 backdrop-blur-sm rounded-full text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
-            </div>
-
-            <div className="flex items-center gap-2">
-              <FaFilter className="text-gray-400" />
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="bg-white/10 backdrop-blur-sm rounded-full px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                {categories.map((category) => (
-                  <option key={category.id} value={category.id}>
-                    {category.name}
-                  </option>
-                ))}
-              </select>
             </div>
           </div>
         </motion.div>

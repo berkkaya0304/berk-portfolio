@@ -117,7 +117,9 @@ const ATSCalculator = () => {
 
         // Process Skills CSV
         const skillsLines = skillsText.split("\n");
-        const skillsHeaders = skillsLines[0].split(",").map((h) => h.trim());
+        const skillsHeaders = skillsLines[0]
+          .split(",")
+          .map((h) => h.trim().replace(/^"|"$/g, ""));
         const titleIndex = skillsHeaders.findIndex((h) => h === "Title");
         const elementIndex = skillsHeaders.findIndex(
           (h) => h === "Element Name",
@@ -127,7 +129,7 @@ const ATSCalculator = () => {
         const techSkillsLines = techSkillsText.split("\n");
         const techSkillsHeaders = techSkillsLines[0]
           .split(",")
-          .map((h) => h.trim());
+          .map((h) => h.trim().replace(/^"|"$/g, ""));
         const techTitleIndex = techSkillsHeaders.findIndex(
           (h) => h === "Title",
         );
@@ -145,7 +147,9 @@ const ATSCalculator = () => {
           const line = skillsLines[i].trim();
           if (!line) continue;
 
-          const row = line.split(",").map((cell) => cell.trim());
+          const row = line
+            .split(",")
+            .map((cell) => cell.trim().replace(/^"|"$/g, ""));
           if (row[titleIndex]) {
             const title = row[titleIndex];
             const element = row[elementIndex] || "";
@@ -169,7 +173,9 @@ const ATSCalculator = () => {
           const line = techSkillsLines[i].trim();
           if (!line) continue;
 
-          const row = line.split(",").map((cell) => cell.trim());
+          const row = line
+            .split(",")
+            .map((cell) => cell.trim().replace(/^"|"$/g, ""));
           if (row[techTitleIndex]) {
             const title = row[techTitleIndex];
             const example = row[exampleIndex] || "";
@@ -199,8 +205,7 @@ const ATSCalculator = () => {
         setJobCategories(categories);
       } catch (error) {
         console.error("Error loading job categories:", error);
-        setError(`Failed to load job categories: ${error.message}`);
-        setJobCategories(fallbackCategories);
+        setError(error.message);
       } finally {
         setIsLoadingCategories(false);
       }

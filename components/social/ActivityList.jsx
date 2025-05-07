@@ -4,9 +4,15 @@ import Papa from "papaparse";
 const ActivityList = ({ data, columns }) => {
   const { translations } = useLanguage();
 
-  // Veriyi parse et
+  // Veriyi parse et ve fazladan tırnakları kaldır
   const parsedData =
-    typeof data === "string" ? Papa.parse(data, { header: true }).data : data;
+    typeof data === "string"
+      ? Papa.parse(data, {
+          header: true,
+          transform: (value) => value.replace(/^"|"$/g, ""), // Baştaki ve sondaki tırnakları kaldır
+          skipEmptyLines: true,
+        }).data
+      : data;
 
   return (
     <div className="w-full">
@@ -54,7 +60,7 @@ const ActivityList = ({ data, columns }) => {
                 }
 
                 return (
-                  <td key={colIndex} className="p-4 text-sm text-blue-300">
+                  <td key={colIndex} className="p-4 text-sm text-blue-400/80">
                     {content}
                   </td>
                 );
