@@ -1,7 +1,0 @@
-{
-  "/travel/page": "app/travel/page.js",
-  "/blog/page": "app/blog/page.js",
-  "/page": "app/page.js",
-  "/services/page": "app/services/page.js",
-  "/program/page": "app/program/page.js"
-}
