@@ -2,14 +2,34 @@
 
 import { useState, useRef } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, EffectFade } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-fade";
-import { FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
-import Image from "next/image";
+import { FaCalendarAlt } from "react-icons/fa";
+import {
+  GB,
+  PL,
+  FR,
+  CH,
+  IT,
+  DE,
+  CZ,
+  AT,
+  SK,
+  HU,
+  VA,
+} from "country-flag-icons/react/3x2";
+
+const countryFlags = {
+  Polonya: PL,
+  Fransa: FR,
+  İsviçre: CH,
+  İtalya: IT,
+  Almanya: DE,
+  "Çek Cumhuriyeti": CZ,
+  Avusturya: AT,
+  Slovakya: SK,
+  Macaristan: HU,
+  Vatikan: VA,
+  İngiltere: GB,
+};
 
 const TravelCard = ({ travel }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -17,8 +37,8 @@ const TravelCard = ({ travel }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const rotateX = useTransform(y, [-100, 100], [30, -30]);
-  const rotateY = useTransform(x, [-100, 100], [-30, 30]);
+  const rotateX = useTransform(y, [-100, 100], [10, -10]);
+  const rotateY = useTransform(x, [-100, 100], [-10, 10]);
 
   const springConfig = { damping: 20, stiffness: 300 };
   const springRotateX = useSpring(rotateX, springConfig);
@@ -39,10 +59,12 @@ const TravelCard = ({ travel }) => {
     setIsHovered(false);
   };
 
+  const FlagComponent = countryFlags[travel.country];
+
   return (
     <motion.div
       ref={cardRef}
-      className="relative w-full h-[500px] rounded-2xl overflow-hidden cursor-pointer"
+      className="relative w-full h-[400px] rounded-2xl overflow-hidden cursor-pointer bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700/50"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
@@ -53,55 +75,51 @@ const TravelCard = ({ travel }) => {
       animate={{
         rotateX: isHovered ? springRotateX : 0,
         rotateY: isHovered ? springRotateY : 0,
-        scale: isHovered ? 1.05 : 1,
+        scale: isHovered ? 1.02 : 1,
       }}
       transition={{ duration: 0.3 }}
     >
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10" />
 
-      <Swiper
-        modules={[Navigation, Pagination, EffectFade]}
-        effect="fade"
-        navigation
-        pagination={{ clickable: true }}
-        className="w-full h-full"
-      >
-        {travel.images.map((image, index) => (
-          <SwiperSlide key={index}>
-            <div className="relative w-full h-full">
-              <Image
-                src={image}
-                alt={`${travel.country} - ${index + 1}`}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                priority={false}
-              />
+      <div className="relative h-full p-8 flex flex-col">
+        <div className="flex items-center gap-3 mb-6">
+          {FlagComponent && (
+            <div className="w-8 h-6 rounded-md overflow-hidden shadow-lg">
+              <FlagComponent className="w-full h-full object-cover" />
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-      <motion.div
-        className="absolute bottom-0 left-0 right-0 p-6 z-20 text-white"
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: isHovered ? 0 : 100, opacity: isHovered ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <div className="flex items-center gap-2 mb-2">
-          <FaMapMarkerAlt className="text-red-500" />
-          <span className="text-sm font-medium">{travel.country}</span>
-        </div>
-        <h3 className="text-2xl font-bold mb-2">{travel.title}</h3>
-        <p className="text-sm opacity-90 mb-4">{travel.description}</p>
-
-        <div className="flex items-center">
-          <div className="flex items-center gap-2">
-            <FaCalendarAlt className="text-blue-400" />
-            <span className="text-sm">{travel.date}</span>
+          )}
+          <div className="flex flex-col">
+            <span className="text-lg font-semibold text-white">
+              {travel.country}
+            </span>
+            <span className="text-sm text-gray-400">{travel.city}</span>
           </div>
         </div>
-      </motion.div>
+
+        <h3 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+          {travel.title}
+        </h3>
+
+        <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-grow">
+          {travel.description}
+        </p>
+
+        <div className="flex items-center justify-end">
+          <div className="flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
+            <FaCalendarAlt className="text-blue-400" />
+            <span className="text-sm font-medium text-gray-300">
+              {travel.date}
+            </span>
+          </div>
+        </div>
+
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: isHovered ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+        />
+      </div>
     </motion.div>
   );
 };
