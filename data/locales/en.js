@@ -7,6 +7,7 @@ export const en = {
     programs: "Programs",
     social: "Social",
     articles: "Articles",
+    travel: "Travel",
     contact: "Contact",
   },
   common: {
@@ -597,6 +598,20 @@ export const en = {
       october: "October",
       november: "November",
       december: "December",
+    },
+  },
+  travel: {
+    title: "My Travels",
+    description:
+      "Exploring the world, one country at a time. Here are some of my memorable journeys.",
+    noTravels: "No travels to show yet.",
+    searchPlaceholder: "Search destinations...",
+    categories: {
+      all: "All",
+      culture: "Culture",
+      adventure: "Adventure",
+      romantic: "Romantic",
+      nature: "Nature",
     },
   },
 };

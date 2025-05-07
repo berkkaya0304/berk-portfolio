@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { TranslationsProvider } from "@/context/TranslationsContext";
 
 const JetBrains_mono = JetBrains_Mono({
   subsets: ["latin"],
@@ -15,7 +16,8 @@ const JetBrains_mono = JetBrains_Mono({
 
 const metadata = {
   title: "Berk Kaya | Computer Engineer | Crafting Technology Solutions",
-  description: "Berk Kaya's portfolio: Computer scientist, engineer, and software developer showcasing expertise in innovative software and technology solutions.",
+  description:
+    "Berk Kaya's portfolio: Computer scientist, engineer, and software developer showcasing expertise in innovative software and technology solutions.",
 };
 
 export default function RootLayout({ children }) {
@@ -34,15 +36,20 @@ export default function RootLayout({ children }) {
         <meta property="og:description" content={metadata.description} />
         <meta property="og:url" content="https://berkkaya.me/" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://berkkaya.me/your-image.jpg" />
+        <meta
+          property="og:image"
+          content="https://berkkaya.me/your-image.jpg"
+        />
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={JetBrains_mono.variable}>
-        <LanguageProvider>
-          <Header />
-          <StairTransition />
-          <PageTransition>{children}</PageTransition>
-        </LanguageProvider>
+        <TranslationsProvider>
+          <LanguageProvider>
+            <Header />
+            <StairTransition />
+            <PageTransition>{children}</PageTransition>
+          </LanguageProvider>
+        </TranslationsProvider>
       </body>
     </html>
   );

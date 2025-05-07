@@ -7,6 +7,7 @@ export const ja = {
     programs: "プログラム",
     social: "ソーシャル",
     articles: "記事",
+    travel: "旅行",
     contact: "連絡先",
   },
   common: {
@@ -600,6 +601,20 @@ export const ja = {
       october: "10月",
       november: "11月",
       december: "12月",
+    },
+  },
+  travel: {
+    title: "私の旅行",
+    description:
+      "世界を探索し、国々を巡る。ここに私の忘れられない旅の一部があります。",
+    noTravels: "表示する旅行はまだありません。",
+    searchPlaceholder: "目的地を検索...",
+    categories: {
+      all: "すべて",
+      culture: "文化",
+      adventure: "冒険",
+      romantic: "ロマンチック",
+      nature: "自然",
     },
   },
 };

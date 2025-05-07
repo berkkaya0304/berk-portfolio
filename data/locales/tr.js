@@ -3,10 +3,11 @@ export const tr = {
     home: "Ana Sayfa",
     services: "Hizmetler",
     resume: "Özgeçmiş",
-    portfolio: "Portföy",
+    portfolio: "Portfolyo",
     programs: "Programlar",
     social: "Sosyal",
     articles: "Makaleler",
+    travel: "Seyahatler",
     contact: "İletişim",
   },
   common: {
@@ -600,6 +601,20 @@ export const tr = {
       october: "Ekim",
       november: "Kasım",
       december: "Aralık",
+    },
+  },
+  travel: {
+    title: "Seyahatlerim",
+    description:
+      "Dünyayı keşfediyorum, ülke ülke. İşte unutulmaz seyahatlerimden bazıları.",
+    noTravels: "Henüz gösterilecek seyahat yok.",
+    searchPlaceholder: "Destinasyon ara...",
+    categories: {
+      all: "Tümü",
+      culture: "Kültür",
+      adventure: "Macera",
+      romantic: "Romantik",
+      nature: "Doğa",
     },
   },
 };

@@ -1,12 +1,13 @@
 export const de = {
   nav: {
     home: "Startseite",
-    services: "Dienstleistungen",
+    services: "Dienste",
     resume: "Lebenslauf",
     portfolio: "Portfolio",
     programs: "Programme",
-    social: "Soziales",
+    social: "Social",
     articles: "Artikel",
+    travel: "Reisen",
     contact: "Kontakt",
   },
   common: {
@@ -601,6 +602,20 @@ export const de = {
       october: "Oktober",
       november: "November",
       december: "Dezember",
+    },
+  },
+  travel: {
+    title: "Meine Reisen",
+    description:
+      "Die Welt erkunden, Land für Land. Hier sind einige meiner unvergesslichen Reisen.",
+    noTravels: "Noch keine Reisen zum Anzeigen.",
+    searchPlaceholder: "Ziele suchen...",
+    categories: {
+      all: "Alle",
+      culture: "Kultur",
+      adventure: "Abenteuer",
+      romantic: "Romantisch",
+      nature: "Natur",
     },
   },
 };

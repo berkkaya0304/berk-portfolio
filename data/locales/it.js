@@ -5,9 +5,10 @@ export const it = {
     resume: "Curriculum",
     portfolio: "Portfolio",
     programs: "Programmi",
-    social: "Sociale",
+    social: "Social",
     articles: "Articoli",
-    contact: "Contatto",
+    travel: "Viaggi",
+    contact: "Contatti",
   },
   common: {
     learnMore: "Scopri di più",
@@ -585,6 +586,20 @@ export const it = {
       october: "Ottobre",
       november: "Novembre",
       december: "Dicembre",
+    },
+  },
+  travel: {
+    title: "I miei viaggi",
+    description:
+      "Esplorando il mondo, paese per paese. Ecco alcuni dei miei viaggi indimenticabili.",
+    noTravels: "Nessun viaggio da mostrare ancora.",
+    searchPlaceholder: "Cerca destinazioni...",
+    categories: {
+      all: "Tutti",
+      culture: "Cultura",
+      adventure: "Avventura",
+      romantic: "Romantico",
+      nature: "Natura",
     },
   },
 };

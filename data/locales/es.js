@@ -7,6 +7,7 @@ export const es = {
     programs: "Programas",
     social: "Social",
     articles: "Artículos",
+    travel: "Viajes",
     contact: "Contacto",
   },
   common: {
@@ -606,6 +607,20 @@ export const es = {
       october: "Octubre",
       november: "Noviembre",
       december: "Diciembre",
+    },
+  },
+  travel: {
+    title: "Mis viajes",
+    description:
+      "Explorando el mundo, país por país. Aquí están algunos de mis viajes memorables.",
+    noTravels: "Aún no hay viajes para mostrar.",
+    searchPlaceholder: "Buscar destinos...",
+    categories: {
+      all: "Todos",
+      culture: "Cultura",
+      adventure: "Aventura",
+      romantic: "Romántico",
+      nature: "Naturaleza",
     },
   },
 };

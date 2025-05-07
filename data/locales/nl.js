@@ -7,6 +7,7 @@ export const nl = {
     programs: "Programma's",
     social: "Sociaal",
     articles: "Artikelen",
+    travel: "Reizen",
     contact: "Contact",
   },
   common: {
@@ -603,6 +604,20 @@ export const nl = {
       october: "Oktober",
       november: "November",
       december: "December",
+    },
+  },
+  travel: {
+    title: "Mijn reizen",
+    description:
+      "De wereld verkennen, land voor land. Hier zijn enkele van mijn onvergetelijke reizen.",
+    noTravels: "Nog geen reizen om te tonen.",
+    searchPlaceholder: "Zoek bestemmingen...",
+    categories: {
+      all: "Alle",
+      culture: "Cultuur",
+      adventure: "Avontuur",
+      romantic: "Romantisch",
+      nature: "Natuur",
     },
   },
 };

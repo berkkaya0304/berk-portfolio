@@ -5,8 +5,9 @@ export const ru = {
     resume: "Резюме",
     portfolio: "Портфолио",
     programs: "Программы",
-    social: "Социальная жизнь",
+    social: "Социальное",
     articles: "Статьи",
+    travel: "Путешествия",
     contact: "Контакты",
   },
   common: {
@@ -591,6 +592,20 @@ export const ru = {
       october: "Октябрь",
       november: "Ноябрь",
       december: "Декабрь",
+    },
+  },
+  travel: {
+    title: "Мои путешествия",
+    description:
+      "Исследую мир, страну за страной. Вот некоторые из моих незабываемых путешествий.",
+    noTravels: "Пока нет путешествий для показа.",
+    searchPlaceholder: "Поиск направлений...",
+    categories: {
+      all: "Все",
+      culture: "Культура",
+      adventure: "Приключения",
+      romantic: "Романтика",
+      nature: "Природа",
     },
   },
 };

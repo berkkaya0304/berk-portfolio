@@ -5,8 +5,9 @@ export const zh = {
     resume: "简历",
     portfolio: "作品集",
     programs: "项目",
-    social: "社交生活",
+    social: "社交",
     articles: "文章",
+    travel: "旅行",
     contact: "联系",
   },
   common: {
@@ -573,6 +574,19 @@ export const zh = {
       october: "十月",
       november: "十一月",
       december: "十二月",
+    },
+  },
+  travel: {
+    title: "我的旅行",
+    description: "探索世界，一个国家接一个国家。这里是我难忘的旅程。",
+    noTravels: "暂无旅行记录。",
+    searchPlaceholder: "搜索目的地...",
+    categories: {
+      all: "全部",
+      culture: "文化",
+      adventure: "冒险",
+      romantic: "浪漫",
+      nature: "自然",
     },
   },
 };
