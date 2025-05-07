@@ -1,0 +1,25 @@
+export const tr = {
+  travel: {
+    title: "Seyahatlerim",
+    description: "Ziyaret ettiğim yerleri ve seyahat deneyimlerimi keşfedin",
+    searchPlaceholder: "Destinasyon ara...",
+    noTravels: "Seyahat bulunamadı",
+  },
+  atsCalculator: {
+    title: "ATS Hesaplayıcı",
+    description: "ATS puanınızı hesaplayın ve özgeçmişinizi optimize edin",
+    jobTitle: "İş Unvanı",
+    jobTitlePlaceholder: "Başvurduğunuz iş unvanını girin",
+    resumeText: "Özgeçmiş Metni",
+    resumeTextPlaceholder: "Özgeçmiş metninizi buraya yapıştırın",
+    calculate: "ATS Puanını Hesapla",
+    score: "ATS Puanı",
+    suggestions: "Öneriler",
+    keywords: "Anahtar Kelimeler",
+    missingKeywords: "Eksik Anahtar Kelimeler",
+    wordCount: "Kelime Sayısı",
+    readability: "Okunabilirlik",
+    loading: "Hesaplanıyor...",
+    error: "Bir hata oluştu. Lütfen tekrar deneyin.",
+  },
+};

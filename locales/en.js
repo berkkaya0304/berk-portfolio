@@ -1,0 +1,25 @@
+export const en = {
+  travel: {
+    title: "My Travels",
+    description: "Discover the places I've visited and my travel experiences",
+    searchPlaceholder: "Search destinations...",
+    noTravels: "No travels found",
+  },
+  atsCalculator: {
+    title: "ATS Calculator",
+    description: "Calculate your ATS score and optimize your resume",
+    jobTitle: "Job Title",
+    jobTitlePlaceholder: "Enter the job title you're applying for",
+    resumeText: "Resume Text",
+    resumeTextPlaceholder: "Paste your resume text here",
+    calculate: "Calculate ATS Score",
+    score: "ATS Score",
+    suggestions: "Suggestions",
+    keywords: "Keywords",
+    missingKeywords: "Missing Keywords",
+    wordCount: "Word Count",
+    readability: "Readability",
+    loading: "Calculating...",
+    error: "An error occurred. Please try again.",
+  },
+};
