@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
@@ -38,9 +38,37 @@ const ATSCalculator = () => {
     tech: null,
     skills: null,
     berkScore: null,
+    format: null,
+    experience: null,
+    language: null,
     distribution: {
       tech: null,
       regular: null,
+    },
+    formatAnalysis: {
+      score: 0,
+      issues: [],
+      suggestions: [],
+    },
+    experienceAnalysis: {
+      score: 0,
+      issues: [],
+      suggestions: [],
+      experienceDetails: {
+        totalExperience: 0,
+        gaps: [],
+        progression: true,
+      },
+    },
+    languageAnalysis: {
+      score: 0,
+      issues: [],
+      suggestions: [],
+      languageDetails: {
+        actionVerbs: [],
+        passiveVoice: 0,
+        technicalTerms: [],
+      },
     },
   });
   const [loading, setLoading] = useState(false);
@@ -59,30 +87,49 @@ const ATSCalculator = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchInputRef = useRef(null);
+  const debounceTimeoutRef = useRef(null);
 
   // Memoize filtered jobs to prevent unnecessary recalculations
   const filteredJobs = useMemo(() => {
     if (!searchQuery.trim()) {
-      return Object.entries(jobCategories);
+      return Object.entries(jobCategories).slice(0, 50); // Limit initial results
     }
 
     const query = searchQuery.toLowerCase();
-    return Object.entries(jobCategories).filter(([job, { description }]) => {
-      return (
-        job.toLowerCase().includes(query) ||
-        description.toLowerCase().includes(query)
-      );
-    });
+    const results = Object.entries(jobCategories)
+      .filter(([job, { description }]) => {
+        return (
+          job.toLowerCase().includes(query) ||
+          description.toLowerCase().includes(query)
+        );
+      })
+      .slice(0, 50); // Limit search results
+
+    return results;
   }, [jobCategories, searchQuery]);
 
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
+  const handleSearchChange = useCallback((e) => {
+    const value = e.target.value;
+    setSearchQuery(value); // Update immediately for UI responsiveness
 
-  const handleSelectOpenChange = (open) => {
+    // Clear any existing timeout
+    if (debounceTimeoutRef.current) {
+      clearTimeout(debounceTimeoutRef.current);
+    }
+
+    // Set a new timeout for filtering
+    debounceTimeoutRef.current = setTimeout(() => {
+      // Additional filtering logic can go here if needed
+    }, 150); // Reduced debounce time to 150ms
+  }, []);
+
+  const handleSelectOpenChange = useCallback((open) => {
     setIsSearchOpen(open);
     if (!open) {
       setSearchQuery("");
+      if (debounceTimeoutRef.current) {
+        clearTimeout(debounceTimeoutRef.current);
+      }
     } else {
       // Focus the search input after the select content is mounted
       setTimeout(() => {
@@ -91,7 +138,16 @@ const ATSCalculator = () => {
         }
       }, 0);
     }
-  };
+  }, []);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (debounceTimeoutRef.current) {
+        clearTimeout(debounceTimeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const loadJobCategories = async () => {
@@ -323,9 +379,62 @@ const ATSCalculator = () => {
             ? 25
             : 0; // 40% or more skills matched
 
-    // Calculate final score with bonuses
+    // Check for required CV sections
+    const requiredSections = [
+      "education",
+      "experience",
+      "skills",
+      "certifications",
+      "projects",
+      "languages",
+    ];
+
+    let sectionBonus = 0;
+    for (const section of requiredSections) {
+      if (text.toLowerCase().includes(section)) {
+        sectionBonus += 50; // 50 points for each required section
+      }
+    }
+
+    // Count work experiences
+    const workExperienceCount = (
+      text.match(/experience|work|job|employment/gi) || []
+    ).length;
+    const workExperienceBonus = workExperienceCount > 2 ? 100 : 0; // 100 points for more than 2 work experiences
+
+    // Count certifications
+    const certificationCount = (
+      text.match(/certification|certificate|certified/gi) || []
+    ).length;
+    const certificationBonus = certificationCount > 5 ? 50 : 0; // 50 points for more than 5 certifications
+
+    // CV Format Analysis
+    const formatAnalysis = analyzeCVFormat(text);
+    const formatScore = Math.max(0, formatAnalysis.score); // Ensure non-negative
+
+    // Detailed Experience Analysis
+    const experienceAnalysis = analyzeExperience(text);
+    const experienceScore = Math.max(0, experienceAnalysis.score); // Ensure non-negative
+
+    // Language Analysis
+    const languageAnalysis = analyzeLanguage(text);
+    const languageScore = Math.max(0, languageAnalysis.score); // Ensure non-negative
+
+    // Calculate final score with all bonuses
     const berkScore = Math.min(
-      baseTechPoints + baseSkillPoints + techBonus + skillBonus,
+      Math.max(
+        0, // Ensure non-negative
+        baseTechPoints +
+          baseSkillPoints +
+          techBonus +
+          skillBonus +
+          sectionBonus +
+          workExperienceBonus +
+          certificationBonus +
+          formatScore +
+          experienceScore +
+          languageScore,
+      ),
       1000,
     );
 
@@ -349,11 +458,239 @@ const ATSCalculator = () => {
         tech: techScore,
         skills: skillsScore,
         berkScore: berkScore,
+        format: formatScore,
+        experience: experienceScore,
+        language: languageScore,
         distribution: skillDistribution,
+        formatAnalysis: formatAnalysis,
+        experienceAnalysis: experienceAnalysis,
+        languageAnalysis: languageAnalysis,
       },
       matched,
       missing,
     };
+  };
+
+  // CV Format Analysis Function
+  const analyzeCVFormat = (text) => {
+    const analysis = {
+      score: 0,
+      issues: [],
+      suggestions: [],
+    };
+
+    // Check for consistent formatting
+    const hasConsistentHeadings = /^(#|\*|\-|\d+\.)\s+.+$/gm.test(text);
+    const hasConsistentSpacing = !/\n{3,}/.test(text);
+    const hasConsistentBullets = /^(\*|\-|\•|\d+\.)\s+.+$/gm.test(text);
+
+    // Check for professional structure
+    const hasProfessionalStructure =
+      /^(summary|profile|objective|experience|education|skills|certifications|projects|languages)/gim.test(
+        text,
+      );
+
+    // Calculate format score
+    if (hasConsistentHeadings) analysis.score += 50;
+    if (hasConsistentSpacing) analysis.score += 25;
+    if (hasConsistentBullets) analysis.score += 25;
+    if (hasProfessionalStructure) analysis.score += 50;
+
+    // Add issues and suggestions
+    if (!hasConsistentHeadings) {
+      analysis.issues.push("Inconsistent heading format");
+      analysis.suggestions.push(
+        "Use consistent heading styles throughout the CV",
+      );
+    }
+    if (!hasConsistentSpacing) {
+      analysis.issues.push("Inconsistent spacing");
+      analysis.suggestions.push("Maintain consistent spacing between sections");
+    }
+    if (!hasConsistentBullets) {
+      analysis.issues.push("Inconsistent bullet points");
+      analysis.suggestions.push("Use consistent bullet point style");
+    }
+    if (!hasProfessionalStructure) {
+      analysis.issues.push("Non-standard CV structure");
+      analysis.suggestions.push("Follow standard CV section order");
+    }
+
+    return analysis;
+  };
+
+  // Detailed Experience Analysis Function
+  const analyzeExperience = (text) => {
+    const analysis = {
+      score: 0,
+      issues: [],
+      suggestions: [],
+      experienceDetails: {
+        totalExperience: 0,
+        gaps: [],
+        progression: true,
+      },
+    };
+
+    // Extract experience sections
+    const experienceRegex =
+      /(experience|work|employment).*?(\d{4}|\d{2}\/\d{2}|\d{2}\.\d{2})/gi;
+    const experienceMatches = text.match(experienceRegex) || [];
+    analysis.experienceDetails.totalExperience = experienceMatches.length;
+
+    // Check for experience gaps
+    const dates = text.match(/(\d{4}|\d{2}\/\d{2}|\d{2}\.\d{2})/g) || [];
+    if (dates.length >= 2) {
+      for (let i = 0; i < dates.length - 1; i++) {
+        const gap = calculateDateGap(dates[i], dates[i + 1]);
+        if (gap > 6) {
+          // Gap more than 6 months
+          analysis.experienceDetails.gaps.push({
+            start: dates[i],
+            end: dates[i + 1],
+            duration: gap,
+          });
+        }
+      }
+    }
+
+    // Check for career progression
+    const hasProgression = checkCareerProgression(text);
+    analysis.experienceDetails.progression = hasProgression;
+
+    // Calculate experience score with non-negative values
+    const baseScore = analysis.experienceDetails.totalExperience * 25;
+    const gapPenalty = analysis.experienceDetails.gaps.length * 20;
+    const progressionBonus = hasProgression ? 50 : 0;
+
+    // Ensure the score doesn't go below 0
+    analysis.score = Math.max(0, baseScore - gapPenalty + progressionBonus);
+
+    // Add issues and suggestions
+    if (analysis.experienceDetails.gaps.length > 0) {
+      analysis.issues.push("Experience gaps detected");
+      analysis.suggestions.push("Consider explaining career gaps in your CV");
+    }
+    if (!hasProgression) {
+      analysis.issues.push("Unclear career progression");
+      analysis.suggestions.push(
+        "Highlight career progression and achievements",
+      );
+    }
+
+    return analysis;
+  };
+
+  // Language Analysis Function
+  const analyzeLanguage = (text) => {
+    const analysis = {
+      score: 0,
+      issues: [],
+      suggestions: [],
+      languageDetails: {
+        actionVerbs: [],
+        passiveVoice: 0,
+        technicalTerms: [],
+      },
+    };
+
+    // Check for action verbs
+    const actionVerbs = [
+      "achieved",
+      "developed",
+      "created",
+      "implemented",
+      "managed",
+      "increased",
+      "decreased",
+      "improved",
+      "led",
+      "coordinated",
+      "designed",
+      "built",
+      "launched",
+      "optimized",
+      "resolved",
+    ];
+
+    actionVerbs.forEach((verb) => {
+      if (text.toLowerCase().includes(verb)) {
+        analysis.languageDetails.actionVerbs.push(verb);
+      }
+    });
+
+    // Check for passive voice
+    const passiveVoicePattern =
+      /\b(am|is|are|was|were|be|been|being)\s+\w+ed\b/gi;
+    const passiveMatches = text.match(passiveVoicePattern) || [];
+    analysis.languageDetails.passiveVoice = passiveMatches.length;
+
+    // Check for technical terms
+    const technicalTerms = [
+      "algorithm",
+      "database",
+      "framework",
+      "api",
+      "protocol",
+      "architecture",
+      "system",
+      "network",
+      "security",
+      "cloud",
+    ];
+
+    technicalTerms.forEach((term) => {
+      if (text.toLowerCase().includes(term)) {
+        analysis.languageDetails.technicalTerms.push(term);
+      }
+    });
+
+    // Calculate language score
+    analysis.score += analysis.languageDetails.actionVerbs.length * 10;
+    analysis.score -= analysis.languageDetails.passiveVoice * 5;
+    analysis.score += analysis.languageDetails.technicalTerms.length * 15;
+
+    // Add issues and suggestions
+    if (analysis.languageDetails.passiveVoice > 3) {
+      analysis.issues.push("Excessive use of passive voice");
+      analysis.suggestions.push(
+        "Use active voice to make your achievements more impactful",
+      );
+    }
+    if (analysis.languageDetails.actionVerbs.length < 5) {
+      analysis.issues.push("Limited use of action verbs");
+      analysis.suggestions.push(
+        "Include more action verbs to describe your achievements",
+      );
+    }
+
+    return analysis;
+  };
+
+  // Helper function to calculate date gap in months
+  const calculateDateGap = (date1, date2) => {
+    // Simple implementation - can be enhanced for more accurate date parsing
+    return Math.abs(parseInt(date2) - parseInt(date1));
+  };
+
+  // Helper function to check career progression
+  const checkCareerProgression = (text) => {
+    const progressionKeywords = [
+      "promoted",
+      "advanced",
+      "senior",
+      "lead",
+      "manager",
+      "director",
+      "head",
+      "chief",
+      "principal",
+      "architect",
+    ];
+
+    return progressionKeywords.some((keyword) =>
+      text.toLowerCase().includes(keyword),
+    );
   };
 
   const handleFileChange = (e) => {
@@ -435,16 +772,16 @@ const ATSCalculator = () => {
             <div className="text-center text-blue-400 mb-4">
               Select your target job role
             </div>
-            <Select
-              onValueChange={setSelectedJob}
-              value={selectedJob}
-              onOpenChange={handleSelectOpenChange}
-            >
-              <SelectTrigger className="w-full bg-slate-800/50 border-blue-400/20">
-                <SelectValue placeholder="Select a job role" />
-              </SelectTrigger>
-              <SelectContent>
-                {isSearchOpen && (
+            <div className="relative">
+              <Select
+                onValueChange={setSelectedJob}
+                value={selectedJob}
+                onOpenChange={handleSelectOpenChange}
+              >
+                <SelectTrigger className="w-full bg-slate-800/50 border-blue-400/20">
+                  <SelectValue placeholder="Select a job role" />
+                </SelectTrigger>
+                <SelectContent>
                   <div className="flex items-center px-3 pb-2 sticky top-0 bg-slate-900/95 z-10 w-full">
                     <Search className="w-4 h-4 mr-2 text-blue-400 flex-shrink-0" />
                     <Input
@@ -452,29 +789,35 @@ const ATSCalculator = () => {
                       placeholder="Search jobs..."
                       value={searchQuery}
                       onChange={handleSearchChange}
+                      onClick={(e) => e.stopPropagation()}
+                      onKeyDown={(e) => e.stopPropagation()}
                       className="bg-slate-800/50 border-blue-400/20 text-blue-400 w-full"
                     />
                   </div>
-                )}
-                <div className="max-h-[300px] overflow-y-auto">
-                  {filteredJobs.map(([job, { description }]) => (
-                    <SelectItem key={job} value={job}>
-                      <div className="flex flex-col">
-                        <span>{job}</span>
-                        <span className="text-xs text-blue-400/70">
-                          {description}
-                        </span>
+                  <div className="max-h-[300px] overflow-y-auto">
+                    {filteredJobs.map(([job, { description }]) => (
+                      <SelectItem
+                        key={job}
+                        value={job}
+                        className="hover:bg-slate-800/50 focus:bg-slate-800/50"
+                      >
+                        <div className="flex flex-col">
+                          <span className="font-medium">{job}</span>
+                          <span className="text-xs text-blue-400/70">
+                            {description}
+                          </span>
+                        </div>
+                      </SelectItem>
+                    ))}
+                    {filteredJobs.length === 0 && (
+                      <div className="px-3 py-2 text-sm text-blue-400/70">
+                        No jobs found matching "{searchQuery}"
                       </div>
-                    </SelectItem>
-                  ))}
-                  {filteredJobs.length === 0 && (
-                    <div className="px-3 py-2 text-sm text-blue-400/70">
-                      No jobs found matching "{searchQuery}"
-                    </div>
-                  )}
-                </div>
-              </SelectContent>
-            </Select>
+                    )}
+                  </div>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
         </CardContent>
       </Card>
@@ -614,6 +957,156 @@ const ATSCalculator = () => {
                         comparable to other scores.
                       </p>
                     </div>
+                  </div>
+
+                  {/* Format Analysis */}
+                  <div className="w-full max-w-md space-y-2">
+                    <h4 className="text-lg font-semibold text-blue-400">
+                      CV Format Analysis
+                    </h4>
+                    <Progress value={scores.format} className="h-4" />
+                    <div className="text-2xl font-bold text-blue-400 text-center">
+                      {scores.format}/150
+                    </div>
+                    {scores.formatAnalysis.issues.length > 0 && (
+                      <div className="mt-4 space-y-2">
+                        <h5 className="text-blue-400 font-medium">
+                          Issues Found:
+                        </h5>
+                        <ul className="list-disc list-inside text-red-400/80">
+                          {scores.formatAnalysis.issues.map((issue, index) => (
+                            <li key={index}>{issue}</li>
+                          ))}
+                        </ul>
+                        <h5 className="text-blue-400 font-medium mt-2">
+                          Suggestions:
+                        </h5>
+                        <ul className="list-disc list-inside text-green-400/80">
+                          {scores.formatAnalysis.suggestions.map(
+                            (suggestion, index) => (
+                              <li key={index}>{suggestion}</li>
+                            ),
+                          )}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Experience Analysis */}
+                  <div className="w-full max-w-md space-y-2">
+                    <h4 className="text-lg font-semibold text-blue-400">
+                      Experience Analysis
+                    </h4>
+                    <Progress value={scores.experience} className="h-4" />
+                    <div className="text-2xl font-bold text-blue-400 text-center">
+                      {scores.experience}/200
+                    </div>
+                    <div className="mt-4 space-y-2">
+                      <div className="text-blue-400/80">
+                        Total Experience:{" "}
+                        {
+                          scores.experienceAnalysis.experienceDetails
+                            .totalExperience
+                        }{" "}
+                        positions
+                      </div>
+                      {scores.experienceAnalysis.experienceDetails.gaps.length >
+                        0 && (
+                        <div className="text-red-400/80">
+                          Career Gaps:{" "}
+                          {
+                            scores.experienceAnalysis.experienceDetails.gaps
+                              .length
+                          }{" "}
+                          detected
+                        </div>
+                      )}
+                      <div className="text-blue-400/80">
+                        Career Progression:{" "}
+                        {scores.experienceAnalysis.experienceDetails.progression
+                          ? "Clear"
+                          : "Unclear"}
+                      </div>
+                    </div>
+                    {scores.experienceAnalysis.issues.length > 0 && (
+                      <div className="mt-4 space-y-2">
+                        <h5 className="text-blue-400 font-medium">
+                          Issues Found:
+                        </h5>
+                        <ul className="list-disc list-inside text-red-400/80">
+                          {scores.experienceAnalysis.issues.map(
+                            (issue, index) => (
+                              <li key={index}>{issue}</li>
+                            ),
+                          )}
+                        </ul>
+                        <h5 className="text-blue-400 font-medium mt-2">
+                          Suggestions:
+                        </h5>
+                        <ul className="list-disc list-inside text-green-400/80">
+                          {scores.experienceAnalysis.suggestions.map(
+                            (suggestion, index) => (
+                              <li key={index}>{suggestion}</li>
+                            ),
+                          )}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Language Analysis */}
+                  <div className="w-full max-w-md space-y-2">
+                    <h4 className="text-lg font-semibold text-blue-400">
+                      Language Analysis
+                    </h4>
+                    <Progress value={scores.language} className="h-4" />
+                    <div className="text-2xl font-bold text-blue-400 text-center">
+                      {scores.language}/150
+                    </div>
+                    <div className="mt-4 space-y-2">
+                      <div className="text-blue-400/80">
+                        Action Verbs Used:{" "}
+                        {
+                          scores.languageAnalysis.languageDetails.actionVerbs
+                            .length
+                        }
+                      </div>
+                      <div className="text-blue-400/80">
+                        Technical Terms:{" "}
+                        {
+                          scores.languageAnalysis.languageDetails.technicalTerms
+                            .length
+                        }
+                      </div>
+                      <div className="text-blue-400/80">
+                        Passive Voice Instances:{" "}
+                        {scores.languageAnalysis.languageDetails.passiveVoice}
+                      </div>
+                    </div>
+                    {scores.languageAnalysis.issues.length > 0 && (
+                      <div className="mt-4 space-y-2">
+                        <h5 className="text-blue-400 font-medium">
+                          Issues Found:
+                        </h5>
+                        <ul className="list-disc list-inside text-red-400/80">
+                          {scores.languageAnalysis.issues.map(
+                            (issue, index) => (
+                              <li key={index}>{issue}</li>
+                            ),
+                          )}
+                        </ul>
+                        <h5 className="text-blue-400 font-medium mt-2">
+                          Suggestions:
+                        </h5>
+                        <ul className="list-disc list-inside text-green-400/80">
+                          {scores.languageAnalysis.suggestions.map(
+                            (suggestion, index) => (
+                              <li key={index}>{suggestion}</li>
+                            ),
+                          )}
+                        </ul>
+                      </div>
+                    )}
                   </div>
 
                   <div className="text-lg text-blue-400/70">
