@@ -46,6 +46,11 @@ export const tr = {
     updates: [
       {
         id: 1,
+        text: "🏆 ICT Competition Cloud Track'ta İkincilik Ödülü Kazanıldı!",
+        date: "Mayıs 2025",
+      },
+      {
+        id: 2,
         text: "Yeni portföy web sitesi başlatıldı",
         date: "Mart 2024",
       },

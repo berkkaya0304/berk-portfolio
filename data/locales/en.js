@@ -42,6 +42,11 @@ export const en = {
     updates: [
       {
         id: 1,
+        text: "🏆 Secured Second Place in ICT Competition Cloud Track!",
+        date: "May 2025",
+      },
+      {
+        id: 2,
         text: "Launched new portfolio website",
         date: "March 2024",
       },

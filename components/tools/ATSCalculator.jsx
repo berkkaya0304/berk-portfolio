@@ -751,25 +751,25 @@ const ATSCalculator = () => {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 px-4 sm:px-0">
       {/* Title and Description */}
-      <div className="text-center relative mb-12">
+      <div className="text-center relative mb-8 sm:mb-12">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-700/20 blur-[100px] -z-10" />
-        <h2 className="text-3xl font-bold mb-3 inline-block">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3 inline-block">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-700">
             {translations.tools.atsCalculator.title}
           </span>
         </h2>
-        <p className="text-blue-400/70 max-w-2xl mx-auto text-base">
+        <p className="text-blue-400/70 max-w-2xl mx-auto text-sm sm:text-base px-2">
           {translations.tools.atsCalculator.description}
         </p>
       </div>
 
       {/* Job Selection */}
       <Card className="bg-slate-900/50 border border-blue-400/20">
-        <CardContent className="p-6">
+        <CardContent className="p-4 sm:p-6">
           <div className="space-y-4">
-            <div className="text-center text-blue-400 mb-4">
+            <div className="text-center text-blue-400 mb-4 text-sm sm:text-base">
               Select your target job role
             </div>
             <div className="relative">
@@ -778,10 +778,10 @@ const ATSCalculator = () => {
                 value={selectedJob}
                 onOpenChange={handleSelectOpenChange}
               >
-                <SelectTrigger className="w-full bg-slate-800/50 border-blue-400/20">
+                <SelectTrigger className="w-full bg-slate-800/50 border-blue-400/20 text-sm sm:text-base">
                   <SelectValue placeholder="Select a job role" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="max-h-[80vh] sm:max-h-[300px]">
                   <div className="flex items-center px-3 pb-2 sticky top-0 bg-slate-900/95 z-10 w-full">
                     <Search className="w-4 h-4 mr-2 text-blue-400 flex-shrink-0" />
                     <Input
@@ -791,15 +791,15 @@ const ATSCalculator = () => {
                       onChange={handleSearchChange}
                       onClick={(e) => e.stopPropagation()}
                       onKeyDown={(e) => e.stopPropagation()}
-                      className="bg-slate-800/50 border-blue-400/20 text-blue-400 w-full"
+                      className="bg-slate-800/50 border-blue-400/20 text-blue-400 w-full text-sm sm:text-base"
                     />
                   </div>
-                  <div className="max-h-[300px] overflow-y-auto">
+                  <div className="overflow-y-auto">
                     {filteredJobs.map(([job, { description }]) => (
                       <SelectItem
                         key={job}
                         value={job}
-                        className="hover:bg-slate-800/50 focus:bg-slate-800/50"
+                        className="hover:bg-slate-800/50 focus:bg-slate-800/50 text-sm sm:text-base"
                       >
                         <div className="flex flex-col">
                           <span className="font-medium">{job}</span>
@@ -824,16 +824,16 @@ const ATSCalculator = () => {
 
       {/* Upload Section */}
       <Card className="bg-slate-900/50 border border-blue-400/20">
-        <CardContent className="p-6">
+        <CardContent className="p-4 sm:p-6">
           <div className="space-y-4">
             <div className="flex flex-col items-center justify-center w-full">
               <label
                 htmlFor="cv-upload"
-                className="flex flex-col items-center justify-center w-full h-32 border-2 border-blue-400/20 border-dashed rounded-lg cursor-pointer bg-slate-800/50 hover:bg-slate-800/70"
+                className="flex flex-col items-center justify-center w-full h-24 sm:h-32 border-2 border-blue-400/20 border-dashed rounded-lg cursor-pointer bg-slate-800/50 hover:bg-slate-800/70"
               >
-                <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                <div className="flex flex-col items-center justify-center pt-4 sm:pt-5 pb-4 sm:pb-6">
                   <svg
-                    className="w-8 h-8 mb-4 text-blue-400"
+                    className="w-6 h-6 sm:w-8 sm:h-8 mb-2 sm:mb-4 text-blue-400"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -847,7 +847,7 @@ const ATSCalculator = () => {
                       d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                     />
                   </svg>
-                  <p className="mb-2 text-sm text-blue-400">
+                  <p className="mb-1 sm:mb-2 text-xs sm:text-sm text-blue-400">
                     <span className="font-semibold">
                       {translations.tools.atsCalculator.upload.dragAndDrop}
                     </span>
@@ -867,19 +867,23 @@ const ATSCalculator = () => {
             </div>
 
             {file && (
-              <div className="text-center text-blue-400">
+              <div className="text-center text-blue-400 text-sm sm:text-base">
                 {translations.tools.atsCalculator.upload.selectedFile}{" "}
                 {file.name}
               </div>
             )}
 
-            {error && <div className="text-center text-red-400">{error}</div>}
+            {error && (
+              <div className="text-center text-red-400 text-sm sm:text-base">
+                {error}
+              </div>
+            )}
 
             <div className="flex justify-center">
               <Button
                 onClick={calculateATSScore}
                 disabled={!file || !selectedJob || loading}
-                className="bg-gradient-to-r from-blue-400 to-blue-700 text-white hover:from-blue-500 hover:to-blue-800 transition-all duration-300"
+                className="bg-gradient-to-r from-blue-400 to-blue-700 text-white hover:from-blue-500 hover:to-blue-800 transition-all duration-300 text-sm sm:text-base px-6 py-2"
               >
                 {loading
                   ? translations.tools.atsCalculator.upload.calculating
@@ -898,59 +902,59 @@ const ATSCalculator = () => {
           transition={{ duration: 0.5 }}
         >
           <Card className="bg-slate-900/50 border border-blue-400/20">
-            <CardContent className="p-6">
-              <div className="space-y-6">
-                <h3 className="text-xl font-semibold text-center text-blue-400">
+            <CardContent className="p-4 sm:p-6">
+              <div className="space-y-4 sm:space-y-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-center text-blue-400">
                   {translations.tools.atsCalculator.results.title}
                 </h3>
-                <div className="flex flex-col items-center space-y-6">
+                <div className="flex flex-col items-center space-y-4 sm:space-y-6">
                   {/* Overall Score */}
                   <div className="w-full max-w-md space-y-2">
-                    <h4 className="text-lg font-semibold text-blue-400">
+                    <h4 className="text-base sm:text-lg font-semibold text-blue-400">
                       Overall Match
                     </h4>
-                    <Progress value={scores.overall} className="h-4" />
-                    <div className="text-2xl font-bold text-blue-400 text-center">
+                    <Progress value={scores.overall} className="h-3 sm:h-4" />
+                    <div className="text-xl sm:text-2xl font-bold text-blue-400 text-center">
                       {scores.overall}%
                     </div>
                   </div>
 
                   {/* Tech Skills Score */}
                   <div className="w-full max-w-md space-y-2">
-                    <h4 className="text-lg font-semibold text-blue-400">
+                    <h4 className="text-base sm:text-lg font-semibold text-blue-400">
                       Technical Skills Match
                     </h4>
-                    <Progress value={scores.tech} className="h-4" />
-                    <div className="text-2xl font-bold text-blue-400 text-center">
+                    <Progress value={scores.tech} className="h-3 sm:h-4" />
+                    <div className="text-xl sm:text-2xl font-bold text-blue-400 text-center">
                       {scores.tech}%
                     </div>
                   </div>
 
                   {/* Regular Skills Score */}
                   <div className="w-full max-w-md space-y-2">
-                    <h4 className="text-lg font-semibold text-blue-400">
+                    <h4 className="text-base sm:text-lg font-semibold text-blue-400">
                       Skills Match
                     </h4>
-                    <Progress value={scores.skills} className="h-4" />
-                    <div className="text-2xl font-bold text-blue-400 text-center">
+                    <Progress value={scores.skills} className="h-3 sm:h-4" />
+                    <div className="text-xl sm:text-2xl font-bold text-blue-400 text-center">
                       {scores.skills}%
                     </div>
                   </div>
 
                   {/* Berk's Special Score */}
                   <div className="w-full max-w-md space-y-2">
-                    <h4 className="text-lg font-semibold text-blue-400 flex items-center justify-center gap-2">
+                    <h4 className="text-base sm:text-lg font-semibold text-blue-400 flex items-center justify-center gap-2">
                       <span>Berk's Special Score</span>
                       <span className="text-yellow-400">®</span>
                     </h4>
                     <Progress
                       value={(scores.berkScore / 1000) * 100}
-                      className="h-4"
+                      className="h-3 sm:h-4"
                     />
-                    <div className="text-2xl font-bold text-yellow-400 text-center">
+                    <div className="text-xl sm:text-2xl font-bold text-yellow-400 text-center">
                       {scores.berkScore}/1000
                     </div>
-                    <div className="text-sm text-blue-400/70 space-y-2">
+                    <div className="text-xs sm:text-sm text-blue-400/70 space-y-2">
                       <p className="text-center">
                         ® This score is a proprietary algorithm developed by
                         Berk. It is not a traditional score and is not
@@ -961,27 +965,27 @@ const ATSCalculator = () => {
 
                   {/* Format Analysis */}
                   <div className="w-full max-w-md space-y-2">
-                    <h4 className="text-lg font-semibold text-blue-400">
+                    <h4 className="text-base sm:text-lg font-semibold text-blue-400">
                       CV Format Analysis
                     </h4>
-                    <Progress value={scores.format} className="h-4" />
-                    <div className="text-2xl font-bold text-blue-400 text-center">
+                    <Progress value={scores.format} className="h-3 sm:h-4" />
+                    <div className="text-xl sm:text-2xl font-bold text-blue-400 text-center">
                       {scores.format}/150
                     </div>
                     {scores.formatAnalysis.issues.length > 0 && (
                       <div className="mt-4 space-y-2">
-                        <h5 className="text-blue-400 font-medium">
+                        <h5 className="text-blue-400 font-medium text-sm sm:text-base">
                           Issues Found:
                         </h5>
-                        <ul className="list-disc list-inside text-red-400/80">
+                        <ul className="list-disc list-inside text-red-400/80 text-xs sm:text-sm">
                           {scores.formatAnalysis.issues.map((issue, index) => (
                             <li key={index}>{issue}</li>
                           ))}
                         </ul>
-                        <h5 className="text-blue-400 font-medium mt-2">
+                        <h5 className="text-blue-400 font-medium mt-2 text-sm sm:text-base">
                           Suggestions:
                         </h5>
-                        <ul className="list-disc list-inside text-green-400/80">
+                        <ul className="list-disc list-inside text-green-400/80 text-xs sm:text-sm">
                           {scores.formatAnalysis.suggestions.map(
                             (suggestion, index) => (
                               <li key={index}>{suggestion}</li>
@@ -994,14 +998,17 @@ const ATSCalculator = () => {
 
                   {/* Experience Analysis */}
                   <div className="w-full max-w-md space-y-2">
-                    <h4 className="text-lg font-semibold text-blue-400">
+                    <h4 className="text-base sm:text-lg font-semibold text-blue-400">
                       Experience Analysis
                     </h4>
-                    <Progress value={scores.experience} className="h-4" />
-                    <div className="text-2xl font-bold text-blue-400 text-center">
+                    <Progress
+                      value={scores.experience}
+                      className="h-3 sm:h-4"
+                    />
+                    <div className="text-xl sm:text-2xl font-bold text-blue-400 text-center">
                       {scores.experience}/200
                     </div>
-                    <div className="mt-4 space-y-2">
+                    <div className="mt-4 space-y-2 text-xs sm:text-sm">
                       <div className="text-blue-400/80">
                         Total Experience:{" "}
                         {
@@ -1030,20 +1037,20 @@ const ATSCalculator = () => {
                     </div>
                     {scores.experienceAnalysis.issues.length > 0 && (
                       <div className="mt-4 space-y-2">
-                        <h5 className="text-blue-400 font-medium">
+                        <h5 className="text-blue-400 font-medium text-sm sm:text-base">
                           Issues Found:
                         </h5>
-                        <ul className="list-disc list-inside text-red-400/80">
+                        <ul className="list-disc list-inside text-red-400/80 text-xs sm:text-sm">
                           {scores.experienceAnalysis.issues.map(
                             (issue, index) => (
                               <li key={index}>{issue}</li>
                             ),
                           )}
                         </ul>
-                        <h5 className="text-blue-400 font-medium mt-2">
+                        <h5 className="text-blue-400 font-medium mt-2 text-sm sm:text-base">
                           Suggestions:
                         </h5>
-                        <ul className="list-disc list-inside text-green-400/80">
+                        <ul className="list-disc list-inside text-green-400/80 text-xs sm:text-sm">
                           {scores.experienceAnalysis.suggestions.map(
                             (suggestion, index) => (
                               <li key={index}>{suggestion}</li>
@@ -1056,14 +1063,14 @@ const ATSCalculator = () => {
 
                   {/* Language Analysis */}
                   <div className="w-full max-w-md space-y-2">
-                    <h4 className="text-lg font-semibold text-blue-400">
+                    <h4 className="text-base sm:text-lg font-semibold text-blue-400">
                       Language Analysis
                     </h4>
-                    <Progress value={scores.language} className="h-4" />
-                    <div className="text-2xl font-bold text-blue-400 text-center">
+                    <Progress value={scores.language} className="h-3 sm:h-4" />
+                    <div className="text-xl sm:text-2xl font-bold text-blue-400 text-center">
                       {scores.language}/150
                     </div>
-                    <div className="mt-4 space-y-2">
+                    <div className="mt-4 space-y-2 text-xs sm:text-sm">
                       <div className="text-blue-400/80">
                         Action Verbs Used:{" "}
                         {
@@ -1085,20 +1092,20 @@ const ATSCalculator = () => {
                     </div>
                     {scores.languageAnalysis.issues.length > 0 && (
                       <div className="mt-4 space-y-2">
-                        <h5 className="text-blue-400 font-medium">
+                        <h5 className="text-blue-400 font-medium text-sm sm:text-base">
                           Issues Found:
                         </h5>
-                        <ul className="list-disc list-inside text-red-400/80">
+                        <ul className="list-disc list-inside text-red-400/80 text-xs sm:text-sm">
                           {scores.languageAnalysis.issues.map(
                             (issue, index) => (
                               <li key={index}>{issue}</li>
                             ),
                           )}
                         </ul>
-                        <h5 className="text-blue-400 font-medium mt-2">
+                        <h5 className="text-blue-400 font-medium mt-2 text-sm sm:text-base">
                           Suggestions:
                         </h5>
-                        <ul className="list-disc list-inside text-green-400/80">
+                        <ul className="list-disc list-inside text-green-400/80 text-xs sm:text-sm">
                           {scores.languageAnalysis.suggestions.map(
                             (suggestion, index) => (
                               <li key={index}>{suggestion}</li>
@@ -1109,97 +1116,11 @@ const ATSCalculator = () => {
                     )}
                   </div>
 
-                  <div className="text-lg text-blue-400/70">
+                  <div className="text-base sm:text-lg text-blue-400/70">
                     Match for: {selectedJob}
                   </div>
 
-                  {/* Skills Analysis */}
-                  <div className="w-full max-w-md space-y-4">
-                    <h4 className="text-xl font-semibold text-blue-400">
-                      Skills Analysis
-                    </h4>
-
-                    {/* Matched Skills */}
-                    {matchedKeywords.skills.length > 0 && (
-                      <div>
-                        <h5 className="text-blue-400 mb-2">Matched Skills:</h5>
-                        <div className="flex flex-wrap gap-2">
-                          {matchedKeywords.skills.map((skill) => (
-                            <span
-                              key={skill}
-                              className="px-2 py-1 bg-green-500/20 text-green-400 rounded-md text-sm"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Missing Skills */}
-                    {missingKeywords.skills.length > 0 && (
-                      <div>
-                        <h5 className="text-blue-400 mb-2">Missing Skills:</h5>
-                        <div className="flex flex-wrap gap-2">
-                          {missingKeywords.skills.map((skill) => (
-                            <span
-                              key={skill}
-                              className="px-2 py-1 bg-red-500/20 text-red-400 rounded-md text-sm"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Technology Skills Analysis */}
-                  <div className="w-full max-w-md space-y-4">
-                    <h4 className="text-xl font-semibold text-blue-400">
-                      Technology Skills Analysis
-                    </h4>
-
-                    {/* Matched Tech Skills */}
-                    {matchedKeywords.techSkills.length > 0 && (
-                      <div>
-                        <h5 className="text-blue-400 mb-2">
-                          Matched Technology Skills:
-                        </h5>
-                        <div className="flex flex-wrap gap-2">
-                          {matchedKeywords.techSkills.map((techSkill) => (
-                            <span
-                              key={techSkill}
-                              className="px-2 py-1 bg-green-500/20 text-green-400 rounded-md text-sm"
-                            >
-                              {techSkill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Missing Tech Skills */}
-                    {missingKeywords.techSkills.length > 0 && (
-                      <div>
-                        <h5 className="text-blue-400 mb-2">
-                          Missing Technology Skills:
-                        </h5>
-                        <div className="flex flex-wrap gap-2">
-                          {missingKeywords.techSkills.map((techSkill) => (
-                            <span
-                              key={techSkill}
-                              className="px-2 py-1 bg-red-500/20 text-red-400 rounded-md text-sm"
-                            >
-                              {techSkill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  <p className="text-center text-blue-400/70">
+                  <p className="text-center text-blue-400/70 text-sm sm:text-base">
                     {scores.overall >= 80
                       ? translations.tools.atsCalculator.results.excellent
                       : scores.overall >= 60
