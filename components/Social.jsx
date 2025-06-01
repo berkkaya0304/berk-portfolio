@@ -10,7 +10,7 @@ import {
 
 const socials = [
   { icon: <FaGithub />, path: "https://github.com/berkkaya0304" },
-  { icon: <FaLinkedinIn />, path: "https://www.linkedin.com/in/berkkaya0304/" },
+  { icon: <FaLinkedinIn />, path: "https://www.linkedin.com/in/berkkaya/" },
   { icon: <FaYoutube />, path: "https://www.youtube.com/@berkkaya0304" },
   { icon: <FaInstagram />, path: "https://www.instagram.com/ber.kaya_" },
 ];
