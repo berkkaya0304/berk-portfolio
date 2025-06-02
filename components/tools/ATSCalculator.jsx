@@ -781,7 +781,7 @@ const ATSCalculator = () => {
                 <SelectTrigger className="w-full bg-slate-800/50 border-blue-400/20 text-sm sm:text-base">
                   <SelectValue placeholder="Select a job role" />
                 </SelectTrigger>
-                <SelectContent className="max-h-[80vh] sm:max-h-[300px]">
+                <SelectContent className="max-h-[300px] sm:max-h-[300px] overflow-y-auto">
                   <div className="flex items-center px-3 pb-2 sticky top-0 bg-slate-900/95 z-10 w-full">
                     <Search className="w-4 h-4 mr-2 text-blue-400 flex-shrink-0" />
                     <Input
@@ -794,7 +794,7 @@ const ATSCalculator = () => {
                       className="bg-slate-800/50 border-blue-400/20 text-blue-400 w-full text-sm sm:text-base"
                     />
                   </div>
-                  <div className="overflow-y-auto">
+                  <div className="overflow-y-auto max-h-[250px]">
                     {filteredJobs.map(([job, { description }]) => (
                       <SelectItem
                         key={job}
