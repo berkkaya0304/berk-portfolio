@@ -48,19 +48,6 @@ const MobileNav = () => {
       ],
     },
     {
-      name: translations.nav.categories.tools,
-      items: [
-        {
-          name: translations.nav.personalBrand,
-          path: "/personal-brand",
-        },
-        {
-          name: translations.nav.atsCalculator,
-          path: "/atscalculator",
-        },
-      ],
-    },
-    {
       name: translations.nav.categories.social,
       items: [
         {
