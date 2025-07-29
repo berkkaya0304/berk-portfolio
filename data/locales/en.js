@@ -194,6 +194,18 @@ export const en = {
       "In this section, you can find information about my internship, part-time and full-time work.",
     experienceList: [
       {
+      company: "Havelsan",
+      position: "Computer Engineer Intern",
+      duration: "August 2025 - September 2025",
+      time: "(2 months)",
+    },
+    {
+      company: "Turkcell",
+      position: "Data Governance Long Term Intern",
+      duration: "January 2025 - May 2025",
+      time: "(5 months)",
+    },
+      {
         company: "Huawei",
         position: "Cloud Engineer Long Term Intern",
         duration: "September 2024 - January 2025",
@@ -240,6 +252,11 @@ export const en = {
     educationDescription:
       "In this section, you will see the education I have received in general.",
     educationList: [
+      {
+      institution: "Politechnika Wroclawska",
+      degree: "Computer Sciences",
+      duration: "February 2025 - July 2025",
+      },
       {
         institution: "TED University",
         degree: "Computer Engineering",

@@ -198,6 +198,18 @@ export const tr = {
       "Bu bölümde, staj, yarı zamanlı ve tam zamanlı işlerim hakkında bilgi bulabilirsiniz.",
     experienceList: [
       {
+      company: "Havelsan",
+      position: "Bilgisayar Mühendisi Stajyeri",
+      duration: "Ağustos 2025 - Eylül 2025",
+      time: "(2 ay)",
+    },
+    {
+      company: "Turkcell",
+      position: "Veri Yönetişimi Uzun Dönem Stajyeri",
+      duration: "Ocak 2025 - Mayıs 2025",
+      time: "(5 ay)",
+    },
+      {
         company: "Huawei",
         position: "Bulut Mühendisi Uzun Dönem Stajyer",
         duration: "Eylül 2024 - Ocak 2025",
@@ -244,6 +256,11 @@ export const tr = {
     educationDescription:
       "Bu bölümde, genel olarak aldığım eğitimi göreceksiniz.",
     educationList: [
+      {
+      institution: "Politechnika Wroclawska",
+      degree: "Bilgisayar Bilimleri",
+      duration: "Şubat 2025 - Temmuz 2025",
+      },
       {
         institution: "TED Üniversitesi",
         degree: "Bilgisayar Mühendisliği",
