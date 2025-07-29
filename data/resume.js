@@ -49,7 +49,7 @@ export const about = {
     },
     {
       fieldName: "Languages",
-      fieldValue: "Turkish, English, German",
+      fieldValue: "Turkish, English, German, Polish, Japanese",
     },
   ],
 };
@@ -60,6 +60,18 @@ export const experience = {
   description:
     "In this section, you can find information about my internship, part-time and full-time work.",
   items: [
+    {
+      company: "Havelsan",
+      position: "Computer Engineer Intern",
+      duration: "August 2025 - September 2025",
+      time: "(2 months)",
+    },
+    {
+      company: "Turkcell",
+      position: "Data Governance Long Term Intern",
+      duration: "January 2025 - May 2025",
+      time: "(5 months)",
+    },
     {
       company: "Huawei",
       position: "Cloud Engineer Long Term Intern",
@@ -144,6 +156,11 @@ export const education = {
   description:
     "In this section, you will see the education I have received in general.",
   items: [
+    {
+      institution: "Politechnika Wroclawska",
+      degree: "Computer Sciences",
+      duration: "February 2025 - July 2025",
+    },
     {
       institution: "TED University",
       degree: "Computer Engineering",
